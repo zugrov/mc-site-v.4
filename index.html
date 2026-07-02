@@ -1,0 +1,2142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Финансовый директор для малого бизнеса | maxima consulting</title>
+  <meta name="description" content="Снижаем налоги и находим потери в финансах МСБ. НДС-аудит от 15 000 ₽, финансовая диагностика за 7 дней. Вся Россия онлайн." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Финансовый директор для малого бизнеса | maxima consulting" />
+  <meta property="og:description" content="Снижаем налоги и находим потери в финансах МСБ. НДС-аудит от 15 000 ₽, финансовая диагностика за 7 дней. Вся Россия онлайн." />
+  <meta property="og:image" content="assets/logo.png" />
+  <meta property="og:locale" content="ru_RU" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "maxima consulting",
+    "description": "Финансовый директор для малого и среднего бизнеса. НДС-аудит, управленческий учёт, финансовые модели.",
+    "url": "https://maxima-consulting.ru",
+    "telephone": "+79106407686",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "RU",
+      "addressLocality": "Тверь"
+    },
+    "priceRange": "от 15 000 ₽",
+    "sameAs": [
+      "https://t.me/maxima_cfo"
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ---- RESET & BASE ---- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #FAFAF8;
+      --card-bg: #FFFFFF;
+      --text: #111827;
+      --text-secondary: #6B7280;
+      --primary: #0D9488;
+      --primary-dark: #047163;
+      --accent-soft: #CCFBF1;
+      --border: #E5E7EB;
+      --warm-accent: #F0FDF4;
+      --shadow: 0 4px 16px rgba(0,0,0,0.08);
+      --radius: 12px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text);
+      background-color: var(--bg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---- HEADER ---- */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .header.scrolled {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 24px;
+    }
+
+    .header__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .header__logo img {
+      height: 32px;
+      width: auto;
+    }
+
+    .header__logo-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .header__nav {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      list-style: none;
+    }
+
+    .header__nav li {
+      display: flex;
+      align-items: center;
+    }
+
+    .header__nav li + li::before {
+      content: "·";
+      color: var(--border);
+      margin: 0 12px;
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .header__nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.2s ease;
+    }
+
+    .header__nav a:hover {
+      color: var(--primary);
+    }
+
+    .header__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      background: var(--primary);
+      color: #FFFFFF;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .header__cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .header__burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .header__burger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.2s ease;
+    }
+
+    .header__mobile-menu {
+      display: none;
+      flex-direction: column;
+      padding: 16px 24px 20px;
+      border-top: 1px solid var(--border);
+      gap: 12px;
+    }
+
+    .header__mobile-menu a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding: 6px 0;
+      transition: color 0.2s ease;
+    }
+
+    .header__mobile-menu a:hover {
+      color: var(--primary);
+    }
+
+    .header__mobile-menu .btn-teal {
+      margin-top: 4px;
+    }
+
+    .header__mobile-menu.is-open {
+      display: flex;
+    }
+
+    /* ---- BUTTONS ---- */
+    .btn-teal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 13px 26px;
+      background: var(--primary);
+      color: #FFFFFF;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-teal:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 13px 26px;
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-soft);
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      padding: 80px 0 100px;
+      background: var(--bg);
+    }
+
+    .hero__inner {
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: var(--accent-soft);
+      color: var(--primary-dark);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero__h1 {
+      font-size: 52px;
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .hero__subtitle {
+      font-size: 19px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      line-height: 1.6;
+      margin-bottom: 28px;
+      max-width: 480px;
+    }
+
+    .hero__checklist {
+      list-style: none;
+      margin-bottom: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hero__checklist li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .hero__check {
+      width: 20px;
+      height: 20px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hero__check svg {
+      width: 11px;
+      height: 11px;
+      stroke: #fff;
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    .hero__buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Hero right */
+    .hero__right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero__result-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .hero__result-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .hero__result-tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--primary-dark);
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .hero__result-number {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 40px;
+      font-weight: 600;
+      color: var(--primary);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .hero__result-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .hero__badges {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hero__mini-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .hero__mini-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      flex-shrink: 0;
+    }
+
+    /* ---- PAIN ---- */
+    .pain {
+      padding: 80px 0;
+      background: var(--warm-accent);
+    }
+
+    .section__label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .section__title {
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .section__subtitle {
+      font-size: 17px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    .pain__list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .pain__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pain__item:hover {
+      border-color: var(--primary);
+      box-shadow: 0 2px 8px rgba(13,148,136,0.1);
+    }
+
+    .pain__checkbox {
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--border);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 3px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      appearance: none;
+      background: white;
+    }
+
+    .pain__checkbox:checked {
+      background: var(--primary);
+      border-color: var(--primary);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath stroke='%23fff' stroke-width='2' fill='none' d='M2 6l3 3 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 10px;
+    }
+
+    .pain__item-text {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .pain__cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .pain__cta-text {
+      font-size: 15px;
+      color: var(--text-secondary);
+      flex: 1;
+    }
+
+    .pain__cta-text strong {
+      color: var(--text);
+    }
+
+    /* ---- WHY ---- */
+    .why {
+      padding: 80px 0;
+      background: var(--card-bg);
+    }
+
+    .why__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .why__card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 28px 28px 24px;
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--primary);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .why__card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    .why__card-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .why__card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .why__card-text {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ---- SERVICES ---- */
+    .services {
+      padding: 80px 0;
+      background: var(--bg);
+    }
+
+    .services__accordions {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .services__accordion {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--card-bg);
+    }
+
+    .services__accordion summary {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 24px;
+      cursor: pointer;
+      list-style: none;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--text);
+      transition: background 0.2s ease;
+    }
+
+    .services__accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .services__accordion summary:hover {
+      background: var(--bg);
+    }
+
+    .services__accordion[open] summary {
+      border-bottom: 1px solid var(--border);
+      color: var(--primary);
+    }
+
+    .services__accordion-tag {
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .tag-entry {
+      background: #FEF3C7;
+      color: #92400E;
+    }
+
+    .tag-core {
+      background: var(--accent-soft);
+      color: var(--primary-dark);
+    }
+
+    .tag-sub {
+      background: #EDE9FE;
+      color: #5B21B6;
+    }
+
+    .services__accordion-arrow {
+      margin-left: auto;
+      width: 20px;
+      height: 20px;
+      color: var(--text-secondary);
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .services__accordion[open] .services__accordion-arrow {
+      transform: rotate(180deg);
+    }
+
+    .services__accordion-desc {
+      padding: 8px 24px 8px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .services__cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+      padding: 20px 24px 24px;
+    }
+
+    .service-card {
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s ease;
+    }
+
+    .service-card:hover {
+      border-color: var(--primary);
+    }
+
+    .service-card__name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .service-card__price {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .service-card__duration {
+      font-size: 12px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .services__cta {
+      margin-top: 32px;
+      padding: 20px 24px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .services__cta-text {
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+
+    .services__cta-text strong {
+      color: var(--text);
+    }
+
+    /* ---- HOW ---- */
+    .how {
+      padding: 80px 0;
+      background: var(--card-bg);
+    }
+
+    .how__timeline {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .how__timeline::before {
+      content: '';
+      position: absolute;
+      left: 23px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .how__step {
+      display: flex;
+      gap: 24px;
+      position: relative;
+      padding-bottom: 36px;
+    }
+
+    .how__step:last-child {
+      padding-bottom: 0;
+    }
+
+    .how__step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 16px;
+      font-weight: 600;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 4px var(--accent-soft);
+    }
+
+    .how__step-content {
+      padding-top: 8px;
+      flex: 1;
+    }
+
+    .how__step-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .how__step-text {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ---- CASES ---- */
+    .cases {
+      padding: 80px 0;
+      background: var(--warm-accent);
+    }
+
+    .cases__story {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .cases__block {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .cases__block-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .cases__block-text {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .cases__result-card {
+      grid-column: 1 / -1;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      box-shadow: var(--shadow);
+      border: 2px solid var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .cases__result-number {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 48px;
+      font-weight: 600;
+      color: var(--primary);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .cases__result-info {
+      flex: 1;
+    }
+
+    .cases__result-desc {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .cases__result-meta {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* ---- ABOUT ---- */
+    .about {
+      padding: 80px 0;
+      background: var(--card-bg);
+    }
+
+    .about__inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 56px;
+      align-items: start;
+      margin-top: 48px;
+    }
+
+    .about__photo {
+      width: 240px;
+      height: 320px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      flex-shrink: 0;
+    }
+
+    .about__content h2 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .about__content p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .about__content p:last-of-type {
+      margin-bottom: 28px;
+    }
+
+    .about__quote {
+      border-left: 3px solid #0D9488;
+      background: #F0FDF4;
+      margin: 20px 0;
+      padding: 14px 20px;
+      font-size: 17px;
+      font-weight: 500;
+      color: #047163;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .about__contacts {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .about__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .about__btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--accent-soft);
+    }
+
+    .about__btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ---- FAQ ---- */
+    .faq {
+      padding: 80px 0;
+      background: var(--bg);
+    }
+
+    .faq__list {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .faq__item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--card-bg);
+    }
+
+    .faq__item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      list-style: none;
+      transition: background 0.2s ease;
+    }
+
+    .faq__item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq__item summary:hover {
+      background: var(--bg);
+    }
+
+    .faq__item[open] summary {
+      color: var(--primary);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq__arrow {
+      width: 20px;
+      height: 20px;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .faq__item[open] .faq__arrow {
+      transform: rotate(180deg);
+    }
+
+    .faq__answer {
+      padding: 16px 24px 20px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ---- CTA + FORM ---- */
+    .cta-form {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    }
+
+    .cta-form__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .cta-form__text h2 {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .cta-form__text p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .cta-form__features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cta-form__features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .cta-form__features li::before {
+      content: '✓';
+      width: 20px;
+      height: 20px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .cta-form__form-wrap {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 36px 32px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+    }
+
+    .cta-form__form-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .cta-form__form-sub {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      outline: none;
+    }
+
+    .form-group input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(13,148,136,0.1);
+    }
+
+    .form-group input::placeholder {
+      color: var(--text-secondary);
+    }
+
+    .form-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .form-checkbox input {
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      accent-color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .form-checkbox a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 15px;
+      background: var(--primary);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-submit:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .form-note {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      padding: 48px 0 32px;
+      background: #111827;
+    }
+
+    .footer__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 36px;
+    }
+
+    .footer__brand {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer__logo-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer__logo-row img {
+      height: 28px;
+      width: auto;
+      filter: brightness(10);
+      opacity: 0.9;
+    }
+
+    .footer__logo-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    .footer__slogan {
+      font-size: 14px;
+      color: #6B7280;
+    }
+
+    .footer__col-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6B7280;
+      margin-bottom: 14px;
+    }
+
+    .footer__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer__links a {
+      font-size: 14px;
+      color: #9CA3AF;
+      transition: color 0.2s ease;
+    }
+
+    .footer__links a:hover {
+      color: var(--primary);
+    }
+
+    .footer__divider {
+      border: none;
+      border-top: 1px solid #1F2937;
+      margin-bottom: 24px;
+    }
+
+    .footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer__copy {
+      font-size: 13px;
+      color: #6B7280;
+      line-height: 1.5;
+    }
+
+    .footer__docs {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer__docs a {
+      font-size: 13px;
+      color: #6B7280;
+      transition: color 0.2s ease;
+    }
+
+    .footer__docs a:hover {
+      color: #9CA3AF;
+    }
+
+    /* ---- SECTION HEADER ---- */
+    .section-header {
+      max-width: 640px;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      .header__nav { display: none; }
+      .header__cta { display: none; }
+      .header__burger { display: flex; }
+
+      .hero__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero__h1 {
+        font-size: 36px;
+      }
+
+      .hero__subtitle {
+        font-size: 16px;
+      }
+
+      .hero__buttons {
+        flex-direction: column;
+      }
+
+      .hero__buttons .btn-teal,
+      .hero__buttons .btn-outline {
+        width: 100%;
+      }
+
+      .pain__list {
+        grid-template-columns: 1fr;
+      }
+
+      .why__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services__cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cases__story {
+        grid-template-columns: 1fr;
+      }
+
+      .cases__result-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .cases__result-number {
+        font-size: 36px;
+      }
+
+      .about__inner {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        gap: 32px;
+      }
+
+      .about__contacts {
+        justify-content: center;
+      }
+
+      .cta-form__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .cta-form__text h2 {
+        font-size: 30px;
+      }
+
+      .footer__inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .section__title {
+        font-size: 28px;
+      }
+
+      .pain__cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .services__cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .services__cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero__badges {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .hero__result-number {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header__inner">
+      <a href="#" class="header__logo">
+        <img src="assets/logo.png" alt="maxima consulting" />
+        <span class="header__logo-name">maxima consulting</span>
+      </a>
+
+      <nav>
+        <ul class="header__nav">
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#cases">Кейс</a></li>
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contacts" class="header__cta">
+        Бесплатный разбор
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 7h12M8 2l5 5-5 5"/>
+        </svg>
+      </a>
+
+      <button class="header__burger" id="burger" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="header__mobile-menu" id="mobile-menu">
+      <a href="#services">Услуги</a>
+      <a href="#cases">Кейс</a>
+      <a href="#about">О нас</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacts">Контакты</a>
+      <a href="#contacts" class="btn-teal" style="margin-top: 8px;">Бесплатный разбор →</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__inner">
+      <!-- Левая колонка -->
+      <div class="hero__left">
+        <div class="hero__badge">
+          🔥 НДС-2026 · Готовы помочь
+        </div>
+        <h1 class="hero__h1">Снижаем налоги.<br>Находим потери.</h1>
+        <p class="hero__subtitle">Внешний финансовый директор для МСБ — без штатной должности. Получаете конкретный документ с цифрами, а не разговор.</p>
+
+        <ul class="hero__checklist">
+          <li>
+            <span class="hero__check">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+            </span>
+            Результат за 3–7 дней
+          </li>
+          <li>
+            <span class="hero__check">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+            </span>
+            Первичный разбор бесплатно
+          </li>
+          <li>
+            <span class="hero__check">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+            </span>
+            Работаем по всей России онлайн
+          </li>
+        </ul>
+
+        <div class="hero__buttons">
+          <a href="#contacts" class="btn-teal">Записаться на разбор</a>
+          <a href="#services" class="btn-outline">Посмотреть услуги</a>
+        </div>
+      </div>
+
+      <!-- Правая колонка -->
+      <div class="hero__right">
+        <div class="hero__result-card">
+          <div class="hero__result-label">Последний результат</div>
+          <div class="hero__result-tag">НДС-аудит · 5 дней</div>
+          <div class="hero__result-number">3&thinsp;429&thinsp;410 ₽</div>
+          <div class="hero__result-desc">экономия в год для торговой компании</div>
+        </div>
+
+        <div class="hero__badges">
+          <div class="hero__mini-badge">
+            <span class="hero__mini-badge-dot"></span>
+            7 дней — диагностика
+          </div>
+          <div class="hero__mini-badge">
+            <span class="hero__mini-badge-dot"></span>
+            от 15 000 ₽ — вход
+          </div>
+          <div class="hero__mini-badge">
+            <span class="hero__mini-badge-dot"></span>
+            9+ услуг
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     БОЛИ
+     ============================================================ -->
+<section class="pain" id="pain">
+  <div class="container">
+    <div class="section-header">
+      <div class="section__label">Диагностика</div>
+      <h2 class="section__title">Вы в похожей ситуации?</h2>
+      <p class="section__subtitle">Работаю с собственниками, которые узнают себя в этом:</p>
+    </div>
+
+    <ul class="pain__list">
+      <li class="pain__item" onclick="this.querySelector('input').click()">
+        <input type="checkbox" class="pain__checkbox" onclick="event.stopPropagation()" />
+        <span class="pain__item-text">Бизнес прибыльный на бумаге, но денег постоянно не хватает</span>
+      </li>
+      <li class="pain__item" onclick="this.querySelector('input').click()">
+        <input type="checkbox" class="pain__checkbox" onclick="event.stopPropagation()" />
+        <span class="pain__item-text">Не понимаю реальную маржу по продуктам/клиентам</span>
+      </li>
+      <li class="pain__item" onclick="this.querySelector('input').click()">
+        <input type="checkbox" class="pain__checkbox" onclick="event.stopPropagation()" />
+        <span class="pain__item-text">НДС-2026 беспокоит, но не знаю с чего начать</span>
+      </li>
+      <li class="pain__item" onclick="this.querySelector('input').click()">
+        <input type="checkbox" class="pain__checkbox" onclick="event.stopPropagation()" />
+        <span class="pain__item-text">Принимаю финансовые решения на ощущениях</span>
+      </li>
+      <li class="pain__item" onclick="this.querySelector('input').click()">
+        <input type="checkbox" class="pain__checkbox" onclick="event.stopPropagation()" />
+        <span class="pain__item-text">Есть бухгалтер, но управленческой картины нет</span>
+      </li>
+      <li class="pain__item" onclick="this.querySelector('input').click()">
+        <input type="checkbox" class="pain__checkbox" onclick="event.stopPropagation()" />
+        <span class="pain__item-text">Налоги кажутся высокими — а есть ли законные способы снизить?</span>
+      </li>
+    </ul>
+
+    <div class="pain__cta">
+      <p class="pain__cta-text"><strong>Если хотя бы один пункт — ваш, давайте разберёмся.</strong> Первый разговор бесплатно и ни к чему не обязывает.</p>
+      <a href="#contacts" class="btn-teal">Бесплатный звонок →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     УТП — ЧЕМ ОТЛИЧАЮСЬ
+     ============================================================ -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="section-header">
+      <div class="section__label">Дифференциация</div>
+      <h2 class="section__title">Чем я отличаюсь</h2>
+      <p class="section__subtitle">maxima consulting — между бухгалтерским аутсорсом и корпоративным CFO</p>
+    </div>
+
+    <div class="why__grid">
+      <div class="why__card">
+        <div class="why__card-icon">📄</div>
+        <div class="why__card-title">Результат, не разговор</div>
+        <div class="why__card-text">Каждый проект заканчивается документом: кратким резюме, финансовой моделью, картой рисков. Не пересказом теории.</div>
+      </div>
+      <div class="why__card">
+        <div class="why__card-icon">⚡</div>
+        <div class="why__card-title">Скорость без потери глубины</div>
+        <div class="why__card-text">Базовый аудит — 3–5 дней. Современные инструменты ускоряют анализ, не снижая качество.</div>
+      </div>
+      <div class="why__card">
+        <div class="why__card-icon">🤝</div>
+        <div class="why__card-title">Партнёр, не подрядчик</div>
+        <div class="why__card-text">Объясняю логику каждого решения. Вы понимаете свои финансы, а не просто получаете отчёт.</div>
+      </div>
+      <div class="why__card">
+        <div class="why__card-icon">💼</div>
+        <div class="why__card-title">Фокус на МСБ 5–80 млн ₽</div>
+        <div class="why__card-text">Не работаю с крупными корпорациями и госструктурами. Только малый и средний бизнес.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     УСЛУГИ С ЦЕНАМИ
+     ============================================================ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section__label">Прайс</div>
+      <h2 class="section__title">Услуги и цены</h2>
+      <p class="section__subtitle">Три уровня вовлечённости — от разовой диагностики до постоянной поддержки</p>
+    </div>
+
+    <div class="services__accordions">
+
+      <!-- БАЗОВЫЙ УРОВЕНЬ -->
+      <details class="services__accordion" open>
+        <summary>
+          <span class="services__accordion-tag tag-entry">БАЗОВЫЙ</span>
+          Точка входа — НДС-аудит, диагностика, экспресс-анализ
+          <svg class="services__accordion-arrow" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+          </svg>
+        </summary>
+        <p class="services__accordion-desc">Быстрые проекты с понятным результатом. Идеально для знакомства.</p>
+        <div class="services__cards">
+          <div class="service-card">
+            <div class="service-card__name">НДС-аудит</div>
+            <div class="service-card__price">15 000 — 30 000 ₽</div>
+            <div class="service-card__duration">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 2"/></svg>
+              3–5 дней
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__name">Финансовая диагностика за 7 дней</div>
+            <div class="service-card__price">20 000 — 45 000 ₽</div>
+            <div class="service-card__duration">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 2"/></svg>
+              7 дней
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__name">Где бизнес теряет деньги</div>
+            <div class="service-card__price">от 15 000 ₽</div>
+            <div class="service-card__duration">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 2"/></svg>
+              1–2 дня
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ПРОЕКТЫ -->
+      <details class="services__accordion">
+        <summary>
+          <span class="services__accordion-tag tag-core">ПРОЕКТЫ</span>
+          Проекты — НДС-2026, управленческий учёт, финмодель, оптимизация
+          <svg class="services__accordion-arrow" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+          </svg>
+        </summary>
+        <p class="services__accordion-desc">Полноценные проекты с документацией, моделями и дорожной картой.</p>
+        <div class="services__cards">
+          <div class="service-card">
+            <div class="service-card__name">НДС-2026: полная подготовка</div>
+            <div class="service-card__price">50 000 — 120 000 ₽</div>
+            <div class="service-card__duration">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 2"/></svg>
+              3–6 недель
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__name">Управленческий учёт с нуля</div>
+            <div class="service-card__price">60 000 — 150 000 ₽</div>
+            <div class="service-card__duration">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 2"/></svg>
+              4–8 недель
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__name">Финансовая модель</div>
+            <div class="service-card__price">40 000 — 100 000 ₽</div>
+            <div class="service-card__duration">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 2"/></svg>
+              2–4 недели
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__name">Налогово-финансовая оптимизация</div>
+            <div class="service-card__price">60 000 — 130 000 ₽</div>
+            <div class="service-card__duration">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 2"/></svg>
+              3–5 недель
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ПОДПИСКА -->
+      <details class="services__accordion">
+        <summary>
+          <span class="services__accordion-tag tag-sub">ПОДПИСКА</span>
+          Постоянная поддержка — CFO-light, Advisory
+          <svg class="services__accordion-arrow" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+          </svg>
+        </summary>
+        <p class="services__accordion-desc">Ежемесячное сопровождение — когда нужен постоянный финансовый взгляд.</p>
+        <div class="services__cards">
+          <div class="service-card">
+            <div class="service-card__name">CFO-light</div>
+            <div class="service-card__price">20 000 — 55 000 ₽/мес</div>
+            <div class="service-card__duration">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 2"/></svg>
+              Ежемесячно
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__name">Advisory для собственника</div>
+            <div class="service-card__price">40 000 — 80 000 ₽/мес</div>
+            <div class="service-card__duration">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 2"/></svg>
+              Ежемесячно
+            </div>
+          </div>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="services__cta">
+      <p class="services__cta-text"><strong>Не знаете с чего начать?</strong> Первичный разбор — бесплатно.</p>
+      <a href="https://t.me/maxima_cfo" target="_blank" rel="noopener" class="btn-teal">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.869 4.326-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.829.941z"/></svg>
+        Написать в Telegram
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     КАК РАБОТАЕМ
+     ============================================================ -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-header">
+      <div class="section__label">Процесс</div>
+      <h2 class="section__title">Как мы работаем</h2>
+      <p class="section__subtitle">Четыре понятных шага — от первого звонка до результата в руках</p>
+    </div>
+
+    <div class="how__timeline">
+      <div class="how__step">
+        <div class="how__step-num">1</div>
+        <div class="how__step-content">
+          <h3 class="how__step-title">Бесплатный разбор (30 мин)</h3>
+          <p class="how__step-text">Zoom, Яндекс Телемост или Telegram. Разбираем ситуацию, понимаем задачу. Никакого давления — просто разговор.</p>
+        </div>
+      </div>
+
+      <div class="how__step">
+        <div class="how__step-num">2</div>
+        <div class="how__step-content">
+          <h3 class="how__step-title">Предложение и договор</h3>
+          <p class="how__step-text">Фиксируем объём, сроки, цену. Подписываем соглашение о конфиденциальности (NDA) до передачи любых данных.</p>
+        </div>
+      </div>
+
+      <div class="how__step">
+        <div class="how__step-num">3</div>
+        <div class="how__step-content">
+          <h3 class="how__step-title">Работа</h3>
+          <p class="how__step-text">Сбор данных, анализ, подготовка документов. Онлайн-чат для вопросов.</p>
+        </div>
+      </div>
+
+      <div class="how__step">
+        <div class="how__step-num">4</div>
+        <div class="how__step-content">
+          <h3 class="how__step-title">Результат и разбор</h3>
+          <p class="how__step-text">Презентую выводы, объясняю логику. Вы уходите с документом и планом действий.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     КЕЙС
+     ============================================================ -->
+<section class="cases" id="cases">
+  <div class="container">
+    <div class="section-header">
+      <div class="section__label">Кейс</div>
+      <h2 class="section__title">Пример: как мы сэкономили 3,4 млн ₽ на НДС</h2>
+      <p class="section__subtitle">Реальный проект, реальные цифры</p>
+    </div>
+
+    <div class="cases__story">
+      <div class="cases__block">
+        <div class="cases__block-label">Ситуация</div>
+        <p class="cases__block-text">Торговая компания, выручка 87,4 млн ₽. В начале 2025 года обязана перейти на НДС. Непонятно, какую ставку выбрать и как это скажется на марже.</p>
+      </div>
+
+      <div class="cases__block">
+        <div class="cases__block-label">Что сделали</div>
+        <p class="cases__block-text">Рассчитали три сценария: ставка 20% с вычетами, 5% и 7% без вычетов. Проанализировали структуру клиентской базы (40% — неплательщики НДС). Подготовили карту рисков, рекомендации по договорам.</p>
+      </div>
+
+      <div class="cases__block">
+        <div class="cases__block-label">Итог</div>
+        <p class="cases__block-text">Выбрана оптимальная ставка с учётом структуры покупателей. Составлена дорожная карта перехода на НДС с минимальными потерями для бизнеса.</p>
+      </div>
+
+      <div class="cases__result-card">
+          <div class="cases__result-number">3&thinsp;429&thinsp;410 ₽</div>
+        <div class="cases__result-info">
+          <div class="cases__result-desc">экономия в год по сравнению со ставкой 20%</div>
+          <div class="cases__result-meta">5 рабочих дней · Результаты: карта рисков, расчёт сценариев, дорожная карта</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ОБО МНЕ
+     ============================================================ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-header">
+      <div class="section__label">Знакомство</div>
+    </div>
+
+    <div class="about__inner">
+      <img src="assets/photo.png" class="about__photo" alt="Максим Зугров" />
+
+      <div class="about__content">
+        <h2>Привет, я Максим Зугров</h2>
+        <p>Финансовый директор с 25-летним опытом в бизнесе. Основатель maxima consulting.</p>
+        <p>Моя специализация: управленческий учёт, НДС-2026, cash flow, финансовые модели.</p>
+        <blockquote class="about__quote">Каждый проект заканчивается конкретным документом — не разговором.</blockquote>
+        <p>Работаю онлайн по всей России. Если вы узнали себя в болях выше — давайте поговорим. Первый разбор бесплатно.</p>
+
+        <div class="about__contacts">
+          <a href="https://t.me/maxima_cfo" target="_blank" rel="noopener" class="about__btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.869 4.326-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.829.941z"/></svg>
+            Telegram @maxima_cfo
+          </a>
+          <a href="https://vk.com/maxima_consulting" target="_blank" rel="noopener" class="about__btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1.01-1.49-.9-1.744.09-.254.99-.51 1.637-2.05 1.637-1.854 0-4.04-1.234-5.42-3.514C4.62 10.9 3.8 8.315 3.8 7.89c0-.255.09-.49.35-.49h1.744c.254 0 .35.128.445.432.49 1.547 1.29 2.9 1.636 2.9.127 0 .191-.063.191-.44V8.19c-.032-.96-.558-1.047-.558-1.39 0-.167.128-.334.334-.334h2.75c.223 0 .302.11.302.365v3.55c0 .222.099.302.159.302.127 0 .255-.08.509-.366 1.59-1.862 2.686-3.988 2.686-3.988.096-.19.286-.334.51-.334h1.744c.19 0 .318.096.318.27 0 .063-.032.128-.063.222-.477 1.237-2.05 3.386-2.05 3.386-.159.27-.223.381 0 .67.159.22.684.652 1.034 1.05.812.925 1.43 1.7 1.59 2.245.16.543-.128.82-.67.82z"/></svg>
+            VK
+          </a>
+          <a href="https://m.tenchat.ru/u/eei8UmQE" target="_blank" rel="noopener" class="about__btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            TenChat
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <div class="section__label">Вопросы</div>
+      <h2 class="section__title">Частые вопросы</h2>
+      <p class="section__subtitle">Отвечаю на то, что спрашивают чаще всего</p>
+    </div>
+
+    <div class="faq__list">
+
+      <details class="faq__item">
+        <summary>
+          Работаете онлайн по всей России?
+          <svg class="faq__arrow" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+          </svg>
+        </summary>
+        <div class="faq__answer">Да. Только онлайн. Zoom, Яндекс Телемост, Telegram, облачные документы. Географических ограничений нет.</div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          У меня есть бухгалтер. Зачем мне финансовый директор на аутсорсе?
+          <svg class="faq__arrow" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+          </svg>
+        </summary>
+        <div class="faq__answer">Разные задачи. Бухгалтер работает для налоговой. Я работаю для вас: считаю реальную прибыль, маржу, cash flow.</div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          Как быстро будет результат?
+          <svg class="faq__arrow" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+          </svg>
+        </summary>
+        <div class="faq__answer">Базовые услуги (НДС-аудит, диагностика) — 3–7 дней. Проекты — 3–8 недель в зависимости от объёма.</div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          Что такое «бесплатный разбор»?
+          <svg class="faq__arrow" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+          </svg>
+        </summary>
+        <div class="faq__answer">30-минутный звонок. Разбираем вашу ситуацию, даю первые рекомендации. Без обязательств — если не подходим, разойдёмся по-хорошему.</div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          Мои финансовые данные в безопасности?
+          <svg class="faq__arrow" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+          </svg>
+        </summary>
+        <div class="faq__answer">До начала работы подписываем NDA. Ваши данные конфиденциальны и не передаются третьим лицам.</div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          Как оплата?
+          <svg class="faq__arrow" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+          </svg>
+        </summary>
+        <div class="faq__answer">50% предоплата, 50% по результату (базовые услуги). Проекты: 40%/60%. Безналичный расчёт.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA + ФОРМА
+     ============================================================ -->
+<section class="cta-form" id="contacts">
+  <div class="container">
+    <div class="cta-form__inner">
+      <div class="cta-form__text">
+        <h2>Начните с бесплатного разбора</h2>
+        <p>30 минут. Разберём вашу ситуацию. Без обязательств.</p>
+        <ul class="cta-form__features">
+          <li>Zoom, Яндекс Телемост или Telegram — на ваш выбор</li>
+          <li>Первые рекомендации уже на звонке</li>
+          <li>Никакого давления и навязчивых продаж</li>
+          <li>Соглашение о конфиденциальности (NDA) подписываем до передачи данных</li>
+        </ul>
+      </div>
+
+      <div class="cta-form__form-wrap">
+        <div class="cta-form__form-title">Записаться на разбор</div>
+        <div class="cta-form__form-sub">Обычно отвечаю в течение нескольких часов</div>
+
+        <form id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Ваше имя *</label>
+            <input type="text" id="name" name="name" placeholder="Иван Иванов" required />
+          </div>
+          <div class="form-group">
+            <label for="contact">Телефон или Telegram *</label>
+            <input type="text" id="contact" name="contact" placeholder="+7 900 000-00-00 или @username" required />
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="pd-agree" name="pd-agree" required />
+            <label for="pd-agree">
+              Согласен(а) с обработкой персональных данных в соответствии с
+              <a href="privacy.html" target="_blank">Политикой обработки персональных данных</a>
+            </label>
+          </div>
+          <button type="submit" class="btn-submit">
+            Записаться →
+          </button>
+          <p class="form-note">Или напишите напрямую: <a href="https://t.me/maxima_cfo" style="color: var(--primary);">@maxima_cfo</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo-row">
+          <img src="assets/logo.png" alt="maxima consulting" />
+          <span class="footer__logo-name">maxima consulting</span>
+        </div>
+        <p class="footer__slogan">Финансовый партнёр для МСБ</p>
+      </div>
+
+      <div>
+        <div class="footer__col-title">Соцсети</div>
+        <ul class="footer__links">
+          <li><a href="https://t.me/maxima_cfo" target="_blank" rel="noopener">Telegram @maxima_cfo</a></li>
+          <li><a href="https://vk.com/maxima_consulting" target="_blank" rel="noopener">VK</a></li>
+          <li><a href="https://m.tenchat.ru/u/eei8UmQE" target="_blank" rel="noopener">TenChat</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer__col-title">Услуги</div>
+        <ul class="footer__links">
+          <li><a href="#services">НДС-аудит</a></li>
+          <li><a href="#services">Финансовая диагностика</a></li>
+          <li><a href="#services">Управленческий учёт</a></li>
+          <li><a href="#services">CFO-light</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="footer__divider" />
+
+    <div class="footer__bottom">
+      <p class="footer__copy">
+        © 2026 · ПНнПД Зугров Максим Евгеньевич · +7 910 640-76-86
+      </p>
+      <div class="footer__docs">
+        <a href="nda.html">NDA</a>
+        <a href="privacy.html">Политика ПД</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     JS
+     ============================================================ -->
+<script>
+  // Sticky header
+  const header = document.getElementById('header');
+  let lastScrollY = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > 10) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+    lastScrollY = currentScrollY;
+  }, { passive: true });
+
+  // Burger menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  burger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', String(isOpen));
+    const spans = burger.querySelectorAll('span');
+    if (isOpen) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    }
+  });
+
+  // Close mobile menu on link click
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+      const spans = burger.querySelectorAll('span');
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    });
+  });
+
+  // Form submit
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const contact = document.getElementById('contact').value.trim();
+    const pdAgree = document.getElementById('pd-agree').checked;
+
+    if (!name) {
+      document.getElementById('name').focus();
+      return;
+    }
+    if (!contact) {
+      document.getElementById('contact').focus();
+      return;
+    }
+    if (!pdAgree) {
+      alert('Пожалуйста, дайте согласие на обработку персональных данных.');
+      return;
+    }
+
+    window.open('https://t.me/maxima_consulting_leed_bot', '_blank');
+  });
+</script>
+
+</body>
+</html>

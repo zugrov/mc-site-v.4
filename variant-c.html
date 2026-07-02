@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Финансовый консультант для малого бизнеса | maxima consulting</title>
+  <meta name="description" content="Снижаем налоги и находим потери в финансах МСБ. НДС-аудит от 15 000 ₽, финансовая диагностика за 7 дней. Вся Россия онлайн." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Финансовый консультант для малого бизнеса | maxima consulting" />
+  <meta property="og:description" content="Снижаем налоги и находим потери в финансах МСБ. НДС-аудит от 15 000 ₽, финансовая диагностика за 7 дней. Вся Россия онлайн." />
+  <meta property="og:url" content="https://maxima-consulting.ru" />
+  <meta property="og:locale" content="ru_RU" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "maxima consulting",
+    "telephone": "+79106407686",
+    "priceRange": "от 15 000 ₽",
+    "areaServed": "RU",
+    "url": "https://maxima-consulting.ru",
+    "description": "Внешний CFO для МСБ. НДС-аудит, финансовая диагностика, управленческий учёт.",
+    "sameAs": [
+      "https://t.me/maxima_cfo",
+      "https://vk.com/maxima_consulting",
+      "https://m.tenchat.ru/u/eei8UmQE"
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --hero-bg: #111827;
+      --page-bg: #ffffff;
+      --section-alt: #F9FAFB;
+      --dark-section: #111827;
+      --text-main: #111827;
+      --text-on-dark: #F9FAFB;
+      --text-secondary: #9CA3AF;
+      --text-muted: #D1D5DB;
+      --primary: #10B981;
+      --primary-dark: #059669;
+      --primary-text-dark: #6EE7B7;
+      --teal: #0D9488;
+      --border: #E5E7EB;
+      --dark-border: #1F2937;
+      --card-dark: #111827;
+      --card-dark2: #1F2937;
+      --footer-bg: #0F172A;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--page-bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .mono {
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 600;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ─── Header ─── */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      background: transparent;
+    }
+
+    .header.scrolled {
+      background: var(--hero-bg);
+      box-shadow: 0 1px 0 var(--dark-border);
+    }
+
+    .header__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .header__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .header__logo img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    .header__logo-text {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .header__nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .header__nav a {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .header__nav a:hover {
+      opacity: 1;
+    }
+
+    .header__cta {
+      background: var(--primary);
+      color: #000000;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: background 0.2s, transform 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .header__cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #ffffff;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 65px;
+      left: 0;
+      right: 0;
+      background: var(--hero-bg);
+      border-top: 1px solid var(--dark-border);
+      padding: 20px 24px;
+      z-index: 999;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--dark-border);
+    }
+
+    .mobile-nav .mobile-cta {
+      background: var(--primary);
+      color: #000000;
+      font-weight: 700;
+      padding: 14px 20px;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 8px;
+      border: none;
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      background: var(--hero-bg);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+    }
+
+    .hero__inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero__badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--primary-text-dark);
+      margin-bottom: 28px;
+      text-transform: uppercase;
+    }
+
+    .hero__h1 {
+      font-size: 64px;
+      font-weight: 800;
+      color: var(--text-on-dark);
+      line-height: 1.1;
+      margin-bottom: 40px;
+    }
+
+    .hero__number {
+      font-size: 80px;
+      font-weight: 600;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .hero__number-caption {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+    }
+
+    .hero__divider {
+      height: 1px;
+      background: var(--dark-border);
+      max-width: 400px;
+      margin: 0 auto 40px;
+    }
+
+    .hero__subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .hero__buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #000000;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 16px 32px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 16px 32px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      border-color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .hero__stats {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .hero__stat {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .hero__stat-sep {
+      color: var(--dark-border);
+      font-size: 14px;
+    }
+
+    /* ─── Section Commons ─── */
+    section {
+      padding: 100px 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-title {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 60px;
+    }
+
+    .section-title--white {
+      color: var(--text-on-dark);
+    }
+
+    .section-title--dark {
+      color: var(--text-main);
+    }
+
+    /* ─── Pain Section ─── */
+    .pain {
+      background: var(--page-bg);
+    }
+
+    .pain__list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-bottom: 64px;
+    }
+
+    .pain__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .pain__num {
+      font-size: 48px;
+      font-weight: 600;
+      color: var(--teal);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 80px;
+    }
+
+    .pain__text {
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text-main);
+      padding-top: 8px;
+      line-height: 1.4;
+    }
+
+    .pain__cta-bar {
+      background: var(--section-alt);
+      border-radius: 12px;
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .pain__cta-text {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* ─── Why Section ─── */
+    .why {
+      background: var(--dark-section);
+    }
+
+    .why__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .why__card {
+      border: 1px solid var(--dark-border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .why__card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    }
+
+    .why__num {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    .why__card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-on-dark);
+      margin-bottom: 12px;
+    }
+
+    .why__card-text {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── Services ─── */
+    .services {
+      background: var(--page-bg);
+    }
+
+    .services__group {
+      margin-bottom: 48px;
+    }
+
+    .services__group-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+
+    .badge--green {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--primary);
+    }
+
+    .badge--teal {
+      background: rgba(13, 148, 136, 0.15);
+      color: var(--teal);
+    }
+
+    .badge--gray {
+      background: rgba(156, 163, 175, 0.15);
+      color: var(--text-secondary);
+    }
+
+    .services__cards {
+      display: grid;
+      gap: 16px;
+    }
+
+    .services__cards--3 { grid-template-columns: repeat(3, 1fr); }
+    .services__cards--4 { grid-template-columns: repeat(4, 1fr); }
+    .services__cards--2 { grid-template-columns: repeat(2, 1fr); }
+
+    .service-card {
+      background: var(--card-dark);
+      border: 1px solid var(--dark-border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    }
+
+    .service-card__title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-on-dark);
+      margin-bottom: 8px;
+    }
+
+    .service-card__desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .service-card__price {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* ─── How It Works ─── */
+    .how {
+      background: var(--section-alt);
+    }
+
+    .how__steps {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    .how__step {
+      flex: 1;
+      position: relative;
+    }
+
+    .how__step:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      top: 20px;
+      right: -16px;
+      font-size: 24px;
+      color: var(--primary);
+      font-weight: 700;
+      z-index: 1;
+    }
+
+    .how__step-inner {
+      padding: 0 32px 0 0;
+    }
+
+    .how__step:last-child .how__step-inner {
+      padding-right: 0;
+    }
+
+    .how__step-num {
+      display: inline-block;
+      width: 44px;
+      height: 44px;
+      background: var(--primary);
+      color: #000;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .how__step-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .how__step-main {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .how__step-detail {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ─── Cases ─── */
+    .cases {
+      background: var(--dark-section);
+      text-align: center;
+    }
+
+    .cases__title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-on-dark);
+      margin-bottom: 40px;
+    }
+
+    .cases__number {
+      font-size: 96px;
+      font-weight: 600;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .cases__caption {
+      font-size: 20px;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cases__facts {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .cases__fact {
+      font-size: 15px;
+      color: var(--text-secondary);
+      position: relative;
+      padding: 0 20px;
+    }
+
+    .cases__fact:not(:last-child)::after {
+      content: '·';
+      position: absolute;
+      right: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--dark-border);
+    }
+
+    /* ─── About ─── */
+    .about {
+      background: var(--page-bg);
+    }
+
+    .about__inner {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about__avatar {
+      width: 240px;
+      height: 240px;
+      background: #F3F4F6;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+
+    .about__content .section-title {
+      margin-bottom: 24px;
+    }
+
+    .about__text {
+      font-size: 17px;
+      color: var(--text-main);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .about__text--accent {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .about__text--secondary {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .about__tags {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .about__tag {
+      background: var(--card-dark);
+      color: var(--text-on-dark);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 18px;
+      border-radius: 100px;
+      border: 1px solid var(--dark-border);
+    }
+
+    /* ─── FAQ ─── */
+    .faq {
+      background: var(--section-alt);
+    }
+
+    .faq__list {
+      max-width: 800px;
+    }
+
+    .faq__item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq__item summary {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-main);
+      padding: 22px 0;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      user-select: none;
+      transition: color 0.2s;
+    }
+
+    .faq__item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq__item summary::after {
+      content: '+';
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--primary);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    .faq__item[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .faq__item[open] summary {
+      color: var(--primary);
+    }
+
+    .faq__answer {
+      font-size: 16px;
+      color: var(--text-secondary);
+      padding-bottom: 22px;
+      line-height: 1.7;
+    }
+
+    /* ─── CTA / Contacts ─── */
+    .contacts {
+      background: var(--dark-section);
+      text-align: center;
+    }
+
+    .contacts__h2 {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--text-on-dark);
+      margin-bottom: 16px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contacts__sub {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: 48px;
+    }
+
+    .contacts__form-wrap {
+      max-width: 480px;
+      margin: 0 auto 40px;
+    }
+
+    .contacts__form {
+      background: var(--card-dark2);
+      border: 1px solid var(--dark-border);
+      border-radius: 12px;
+      padding: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-input {
+      width: 100%;
+      background: #374151;
+      border: 1px solid #4B5563;
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      color: #ffffff;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-input::placeholder {
+      color: #6B7280;
+    }
+
+    .form-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(16,185,129,0.15);
+    }
+
+    .form-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .form-checkbox input[type="checkbox"] {
+      margin-top: 3px;
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .form-checkbox label {
+      font-size: 13px;
+      color: #9CA3AF;
+      line-height: 1.5;
+      cursor: pointer;
+    }
+
+    .form-checkbox label a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .btn-form {
+      width: 100%;
+      background: var(--primary);
+      color: #000000;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      padding: 16px 24px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-form:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .contacts__direct {
+      font-size: 16px;
+      color: var(--text-on-dark);
+      opacity: 0.7;
+    }
+
+    .contacts__direct a {
+      color: var(--primary-text-dark);
+      text-decoration: underline;
+    }
+
+    /* ─── Footer ─── */
+    .footer {
+      background: var(--footer-bg);
+      padding: 56px 0 0;
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 40px;
+      align-items: start;
+      padding-bottom: 48px;
+      border-bottom: 1px solid #1E293B;
+    }
+
+    .footer__brand {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .footer__brand-sub {
+      font-size: 13px;
+      color: #64748B;
+      line-height: 1.5;
+    }
+
+    .footer__nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer__nav a {
+      font-size: 14px;
+      color: #64748B;
+      transition: color 0.2s;
+    }
+
+    .footer__nav a:hover {
+      color: #ffffff;
+    }
+
+    .footer__social {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .footer__social a {
+      font-size: 14px;
+      color: #64748B;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer__social a:hover {
+      color: var(--primary);
+    }
+
+    .footer__social-icon {
+      width: 20px;
+      height: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .footer__bottom {
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .footer__legal {
+      font-size: 12px;
+      color: #374151;
+      line-height: 1.6;
+    }
+
+    .footer__legal a {
+      color: #4B5563;
+      transition: color 0.2s;
+    }
+
+    .footer__legal a:hover {
+      color: var(--text-secondary);
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 1024px) {
+      .why__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services__cards--4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header__nav,
+      .header__cta {
+        display: none;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      .hero__h1 {
+        font-size: 40px;
+      }
+
+      .hero__number {
+        font-size: 48px;
+      }
+
+      .hero__subtitle {
+        font-size: 16px;
+      }
+
+      .section-title {
+        font-size: 30px;
+        margin-bottom: 40px;
+      }
+
+      .cases__number {
+        font-size: 64px;
+      }
+
+      .cases__title {
+        font-size: 26px;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .why__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services__cards--3,
+      .services__cards--4,
+      .services__cards--2 {
+        grid-template-columns: 1fr;
+      }
+
+      .how__steps {
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .how__step::after {
+        display: none;
+      }
+
+      .how__step-inner {
+        padding: 0;
+      }
+
+      .about__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about__avatar {
+        width: 160px;
+        height: 160px;
+        font-size: 28px;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer__social {
+        align-items: flex-start;
+      }
+
+      .pain__item {
+        gap: 16px;
+      }
+
+      .pain__num {
+        font-size: 36px;
+        min-width: 60px;
+      }
+
+      .pain__text {
+        font-size: 18px;
+      }
+
+      .pain__cta-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+      }
+
+      .hero__stats {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .hero__stat-sep {
+        display: none;
+      }
+
+      .contacts__h2 {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero__buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        text-align: center;
+      }
+
+      .why__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cases__facts {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .cases__fact::after {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── HEADER ─── -->
+  <header class="header" id="mainHeader">
+    <div class="header__inner">
+      <a href="#" class="header__logo">
+        <img src="assets/logo.png" alt="maxima consulting logo" />
+        <span class="header__logo-text">maxima consulting</span>
+      </a>
+      <nav class="header__nav">
+        <a href="#services">Услуги</a>
+        <a href="#cases">Кейс</a>
+        <a href="#how">Как работаем</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a href="#contacts" class="header__cta">Разбор →</a>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#services" onclick="closeMobileNav()">Услуги</a>
+    <a href="#cases" onclick="closeMobileNav()">Кейс</a>
+    <a href="#how" onclick="closeMobileNav()">Как работаем</a>
+    <a href="#faq" onclick="closeMobileNav()">FAQ</a>
+    <a href="#contacts" onclick="closeMobileNav()">Контакты</a>
+    <a href="#contacts" class="mobile-cta" onclick="closeMobileNav()">Разбор →</a>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__badge">НДС-АУДИТ · ФИНАНСОВАЯ ДИАГНОСТИКА · CFO-LIGHT</div>
+      <h1 class="hero__h1">Снижаем налоги.<br>Находим потери.</h1>
+      <div class="hero__number mono">3&nbsp;429&nbsp;410&nbsp;₽</div>
+      <p class="hero__number-caption">максимальная экономия клиента после НДС-аудита</p>
+      <div class="hero__divider"></div>
+      <p class="hero__subtitle">Внешний CFO для МСБ с выручкой 5–80 млн ₽. Результат — документ с цифрами — за 7 дней.</p>
+      <div class="hero__buttons">
+        <a href="#contacts" class="btn-primary">Бесплатный разбор</a>
+        <a href="#services" class="btn-outline">Смотреть услуги</a>
+      </div>
+      <div class="hero__stats">
+        <span class="hero__stat">7 дней / диагностика</span>
+        <span class="hero__stat-sep">·</span>
+        <span class="hero__stat">от 15 000 ₽ / вход</span>
+        <span class="hero__stat-sep">·</span>
+        <span class="hero__stat">вся Россия / онлайн</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── БОЛИ ─── -->
+  <section class="pain" id="pain">
+    <div class="container">
+      <h2 class="section-title section-title--dark">Это ваш бизнес прямо сейчас?</h2>
+      <div class="pain__list">
+        <div class="pain__item">
+          <span class="pain__num mono">01</span>
+          <p class="pain__text">Деньги крутятся, но прибыли не видно</p>
+        </div>
+        <div class="pain__item">
+          <span class="pain__num mono">02</span>
+          <p class="pain__text">Куда уходят деньги — неизвестно</p>
+        </div>
+        <div class="pain__item">
+          <span class="pain__num mono">03</span>
+          <p class="pain__text">НДС-2026 настигает, а что делать — непонятно</p>
+        </div>
+        <div class="pain__item">
+          <span class="pain__num mono">04</span>
+          <p class="pain__text">Финансовые решения — на ощущениях</p>
+        </div>
+        <div class="pain__item">
+          <span class="pain__num mono">05</span>
+          <p class="pain__text">Бухгалтер есть, управленческого учёта нет</p>
+        </div>
+        <div class="pain__item">
+          <span class="pain__num mono">06</span>
+          <p class="pain__text">Налогов платим много — законно ли можно меньше?</p>
+        </div>
+      </div>
+      <div class="pain__cta-bar">
+        <p class="pain__cta-text">Если хоть один пункт ваш — давайте разберёмся.</p>
+        <a href="#contacts" class="btn-primary">Бесплатный звонок →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── УТП ─── -->
+  <section class="why" id="why">
+    <div class="container">
+      <h2 class="section-title section-title--white">Почему maxima consulting</h2>
+      <div class="why__grid">
+        <div class="why__card">
+          <div class="why__num mono">01 / Deliverable</div>
+          <div class="why__card-title">Документ, а не разговор</div>
+          <p class="why__card-text">Получаете Executive Summary, финансовую модель и карту рисков. Конкретный результат, который можно взять и использовать.</p>
+        </div>
+        <div class="why__card">
+          <div class="why__num mono">02 / 3–7 дней</div>
+          <div class="why__card-title">Быстрый entry-аудит</div>
+          <p class="why__card-text">Entry-аудит — 3–5 рабочих дней. Не месяцы консультаций. Результат — уже через неделю.</p>
+        </div>
+        <div class="why__card">
+          <div class="why__num mono">03 / AI + экспертиза</div>
+          <div class="why__card-title">Скорость AI, глубина аналитика</div>
+          <p class="why__card-text">Скорость и точность AI-инструментов в связке с экспертизой финансового аналитика. Лучшее из двух миров.</p>
+        </div>
+        <div class="why__card">
+          <div class="why__num mono">04 / МСБ 5–80 млн</div>
+          <div class="why__card-title">Фокус — малый бизнес</div>
+          <p class="why__card-text">Специализация — малый и средний бизнес с выручкой 5–80 млн ₽. Не корпорации. Понимаю вашу специфику.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── УСЛУГИ С ЦЕНАМИ ─── -->
+  <section class="services" id="services">
+    <div class="container">
+      <h2 class="section-title section-title--dark">Услуги и цены</h2>
+
+      <!-- ENTRY -->
+      <div class="services__group">
+        <div class="services__group-header">
+          <span class="badge badge--green">ENTRY</span>
+        </div>
+        <div class="services__cards services__cards--3">
+          <div class="service-card">
+            <div class="service-card__title">НДС-аудит</div>
+            <p class="service-card__desc">Проверяем готовность к НДС за 3–5 дней. Оцениваем риски, выбираем оптимальную ставку.</p>
+            <div class="service-card__price mono">15 000 — 30 000 ₽</div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__title">Финансовая диагностика</div>
+            <p class="service-card__desc">Находим потери за 7 дней. P&L, cash flow, точки утечки маржи.</p>
+            <div class="service-card__price mono">20 000 — 45 000 ₽</div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__title">Где теряет бизнес</div>
+            <p class="service-card__desc">Экспресс-анализ за 1–2 дня. Быстрый срез с приоритетами к действию.</p>
+            <div class="service-card__price mono">от 15 000 ₽</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CORE -->
+      <div class="services__group">
+        <div class="services__group-header">
+          <span class="badge badge--teal">CORE</span>
+        </div>
+        <div class="services__cards services__cards--4">
+          <div class="service-card">
+            <div class="service-card__title">НДС-2026 readiness</div>
+            <p class="service-card__desc">Полная подготовка к работе на НДС. Выбор ставки, реструктуризация, документы.</p>
+            <div class="service-card__price mono">50 000 — 120 000 ₽ · 3–6 нед</div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__title">Управленческий учёт</div>
+            <p class="service-card__desc">Система управленческого учёта с нуля. Отчёты под ваши задачи, автоматизация.</p>
+            <div class="service-card__price mono">60 000 — 150 000 ₽ · 4–8 нед</div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__title">Финансовая модель</div>
+            <p class="service-card__desc">Модель бизнеса для принятия решений. Сценарии, прогнозы, точка безубыточности.</p>
+            <div class="service-card__price mono">40 000 — 100 000 ₽ · 2–4 нед</div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__title">Налоговая оптимизация</div>
+            <p class="service-card__desc">Законное снижение налоговой нагрузки. Анализ, карта рисков, рекомендации.</p>
+            <div class="service-card__price mono">60 000 — 130 000 ₽ · 3–5 нед</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUBSCRIPTION -->
+      <div class="services__group">
+        <div class="services__group-header">
+          <span class="badge badge--gray">ПОДПИСКА</span>
+        </div>
+        <div class="services__cards services__cards--2">
+          <div class="service-card">
+            <div class="service-card__title">CFO-light</div>
+            <p class="service-card__desc">Внешний CFO на постоянной основе. Еженедельный мониторинг, отчёты, управленческие решения.</p>
+            <div class="service-card__price mono">20 000 — 55 000 ₽/мес</div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__title">Advisory</div>
+            <p class="service-card__desc">Стратегический советник по финансам. Сессии, ревью, приоритизация задач.</p>
+            <div class="service-card__price mono">40 000 — 80 000 ₽/мес</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── КАК РАБОТАЕМ ─── -->
+  <section class="how" id="how">
+    <div class="container">
+      <h2 class="section-title section-title--dark">Как это работает</h2>
+      <div class="how__steps">
+        <div class="how__step">
+          <div class="how__step-inner">
+            <div class="how__step-num mono">01</div>
+            <div class="how__step-title">Разбор</div>
+            <p class="how__step-main">30-мин звонок. Бесплатно.</p>
+            <p class="how__step-detail">Обсуждаем вашу ситуацию, задачи и ожидания. Без обязательств.</p>
+          </div>
+        </div>
+        <div class="how__step">
+          <div class="how__step-inner">
+            <div class="how__step-num mono">02</div>
+            <div class="how__step-title">Договор</div>
+            <p class="how__step-main">NDA + КП. Прозрачно.</p>
+            <p class="how__step-detail">Подписываем NDA, получаете коммерческое предложение с чёткими сроками и стоимостью.</p>
+          </div>
+        </div>
+        <div class="how__step">
+          <div class="how__step-inner">
+            <div class="how__step-num mono">03</div>
+            <div class="how__step-title">Работа</div>
+            <p class="how__step-main">Анализ и deliverables.</p>
+            <p class="how__step-detail">Запрашиваю данные, анализирую, подготавливаю документы. Вы в курсе прогресса.</p>
+          </div>
+        </div>
+        <div class="how__step">
+          <div class="how__step-inner">
+            <div class="how__step-num mono">04</div>
+            <div class="how__step-title">Результат</div>
+            <p class="how__step-main">Документ + next steps.</p>
+            <p class="how__step-detail">Передаю финальный deliverable и объясняю следующие шаги. Сопровождение при необходимости.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── КЕЙС ─── -->
+  <section class="cases" id="cases">
+    <div class="container">
+      <h2 class="cases__title">НДС-аудит · Торговая компания · 5 дней</h2>
+      <div class="cases__number mono">3&nbsp;429&nbsp;410&nbsp;₽</div>
+      <p class="cases__caption">экономия в год на налогах — переход на ставку 5% вместо 20%</p>
+      <div class="cases__facts">
+        <span class="cases__fact">Выручка 87,4 млн ₽ · выбор ставки НДС</span>
+        <span class="cases__fact">Расчёт 3 сценариев · карта рисков</span>
+        <span class="cases__fact">5 рабочих дней</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ОБО МНЕ ─── -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about__inner">
+        <div class="about__avatar">МЗ</div>
+        <div class="about__content">
+          <h2 class="section-title section-title--dark">Макс Зугров</h2>
+          <p class="about__text">Специализация — МСБ с выручкой 5–80 млн ₽. Работаю как внешний CFO: управленческий учёт, НДС-2026, cash flow, оптимизация.</p>
+          <p class="about__text--accent">Каждый проект — конкретный документ. Не разговор.</p>
+          <p class="about__text--secondary">Онлайн. Вся Россия.</p>
+          <div class="about__tags">
+            <span class="about__tag">Управленческий учёт</span>
+            <span class="about__tag">НДС-2026</span>
+            <span class="about__tag">CFO-light</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <h2 class="section-title section-title--dark">FAQ</h2>
+      <div class="faq__list">
+        <details class="faq__item">
+          <summary>Работаете онлайн по всей России?</summary>
+          <p class="faq__answer">Да. Только онлайн. Zoom, Telegram, облачные документы. Географических ограничений нет.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Чем отличаетесь от бухгалтера?</summary>
+          <p class="faq__answer">Бухгалтер работает для налоговой — ведёт учёт и сдаёт отчётность. Я работаю для вас — анализирую маржу, cash flow, нахожу потери и помогаю принимать финансовые решения на основе данных.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Каков срок работы?</summary>
+          <p class="faq__answer">Entry-проекты (НДС-аудит, диагностика): 3–7 рабочих дней. Core-проекты (управленческий учёт, финансовая модель): 3–8 недель в зависимости от объёма.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Что такое бесплатный разбор?</summary>
+          <p class="faq__answer">30-минутный звонок в Zoom или Telegram. Разбираем вашу финансовую ситуацию, обсуждаем задачи. Я даю конкретные рекомендации. Без обязательств и давления.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Как обеспечивается безопасность данных?</summary>
+          <p class="faq__answer">Подписываем NDA до начала любой работы. Все документы — в защищённых облачных хранилищах. Конфиденциальность данных вашего бизнеса гарантирована.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Как происходит оплата?</summary>
+          <p class="faq__answer">50% предоплата при подписании договора, 50% по факту передачи результата. Только безналичный расчёт. Работаем официально, договор и закрывающие документы.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA + ФОРМА ─── -->
+  <section class="contacts" id="contacts">
+    <div class="container">
+      <h2 class="contacts__h2">Сколько теряет ваш бизнес прямо сейчас?</h2>
+      <p class="contacts__sub">Первичный разбор — бесплатно. 30 минут.</p>
+      <div class="contacts__form-wrap">
+        <form class="contacts__form" id="contactForm" novalidate>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-input"
+              name="name"
+              placeholder="Имя"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-input"
+              name="contact"
+              placeholder="Телефон или Telegram"
+              required
+            />
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="privacyCheck" required />
+            <label for="privacyCheck">
+              Я согласен с <a href="/privacy-policy" target="_blank">Политикой конфиденциальности</a> и обработкой персональных данных
+            </label>
+          </div>
+          <button type="submit" class="btn-form">Записаться на разбор →</button>
+        </form>
+      </div>
+      <p class="contacts__direct">
+        или напишите напрямую:&nbsp;
+        <a href="https://t.me/maxima_cfo" target="_blank" rel="noopener">t.me/maxima_cfo</a>
+        &nbsp;·&nbsp;
+        <a href="tel:+79106407686">+7 910 640-76-86</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">maxima consulting</div>
+          <div class="footer__brand-sub">
+            Внешний CFO для малого бизнеса<br>
+            НДС-аудит · Финансовая диагностика · CFO-light
+          </div>
+        </div>
+        <nav class="footer__nav">
+          <a href="#services">Услуги</a>
+          <a href="#cases">Кейс</a>
+          <a href="#how">Как работаем</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+        <div class="footer__social">
+          <a href="https://t.me/maxima_cfo" target="_blank" rel="noopener">
+            <span class="footer__social-icon">✈</span>
+            Telegram
+          </a>
+          <a href="https://vk.com/maxima_consulting" target="_blank" rel="noopener">
+            <span class="footer__social-icon">В</span>
+            VKontakte
+          </a>
+          <a href="https://m.tenchat.ru/u/eei8UmQE" target="_blank" rel="noopener">
+            <span class="footer__social-icon">T</span>
+            TenChat
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__legal">
+          © 2026 maxima consulting &nbsp;·&nbsp;
+          ПНнПД Зугров Максим Евгеньевич &nbsp;·&nbsp;
+          <a href="tel:+79106407686">+7 910 640-76-86</a> &nbsp;·&nbsp;
+          NDA &nbsp;·&nbsp;
+          <a href="/privacy-policy">Политика ПД</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── JS ─── -->
+  <script>
+    // Sticky header
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // Burger menu
+    const burger = document.getElementById('burger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    burger.addEventListener('click', () => {
+      const isOpen = burger.classList.toggle('open');
+      mobileNav.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    function closeMobileNav() {
+      burger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close mobile nav on outside click
+    document.addEventListener('click', (e) => {
+      if (!header.contains(e.target) && !mobileNav.contains(e.target)) {
+        closeMobileNav();
+      }
+    });
+
+    // Form submit → Telegram bot
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const nameInput = contactForm.querySelector('[name="name"]');
+      const contactInput = contactForm.querySelector('[name="contact"]');
+      const privacyCheck = document.getElementById('privacyCheck');
+
+      if (!nameInput.value.trim()) {
+        nameInput.focus();
+        nameInput.style.borderColor = '#EF4444';
+        setTimeout(() => { nameInput.style.borderColor = ''; }, 2000);
+        return;
+      }
+
+      if (!contactInput.value.trim()) {
+        contactInput.focus();
+        contactInput.style.borderColor = '#EF4444';
+        setTimeout(() => { contactInput.style.borderColor = ''; }, 2000);
+        return;
+      }
+
+      if (!privacyCheck.checked) {
+        privacyCheck.focus();
+        return;
+      }
+
+      window.open('https://t.me/maxima_consulting_leed_bot', '_blank', 'noopener');
+    });
+  </script>
+
+</body>
+</html>

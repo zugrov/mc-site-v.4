@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Финансовый консультант для малого бизнеса | maxima consulting</title>
+  <meta name="description" content="Снижаем налоги и находим потери в финансах МСБ. НДС-аудит от 15 000 ₽, финансовая диагностика за 7 дней. Вся Россия онлайн — результат гарантирован документом." />
+  <meta name="keywords" content="финансовый консультант малый бизнес, НДС аудит, CFO аутсорсинг, управленческий учёт, финансовая диагностика бизнеса" />
+  <meta property="og:title" content="maxima consulting — финансовый партнёр для МСБ" />
+  <meta property="og:description" content="Снижаем налоги и находим потери. Результат за 7 дней." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "maxima consulting",
+    "description": "Финансовый консалтинг для малого и среднего бизнеса",
+    "telephone": "+79106407686",
+    "url": "https://maxima-consulting.ru",
+    "priceRange": "от 15 000 ₽",
+    "areaServed": "RU",
+    "knowsLanguage": "ru"
+  }
+  </script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #F8F8F7;
+      --text: #111827;
+      --secondary: #6B7280;
+      --accent: #0D9488;
+      --accent-dark: #047163;
+      --border: #D1D5DB;
+      --card-bg: #FFFFFF;
+      --success: #10B981;
+      --gray-bg: #F3F4F6;
+      --dark: #111827;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── HEADER ─────────────────────────────────────────── */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .header.scrolled {
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 24px;
+    }
+
+    .header__brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .header__brand img {
+      height: 36px;
+      width: auto;
+    }
+
+    .header__brand-name {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .header__nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .header__nav a {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--secondary);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .header__nav a:hover {
+      color: var(--text);
+    }
+
+    .header__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s;
+      flex-shrink: 0;
+    }
+
+    .header__cta:hover {
+      background: var(--accent-dark);
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+
+    .burger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .burger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .burger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .burger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      padding: 16px 24px 20px;
+      border-top: 1px solid var(--border);
+      background: #fff;
+      gap: 12px;
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      font-size: 15px;
+      color: var(--text);
+      text-decoration: none;
+      padding: 6px 0;
+    }
+
+    .mobile-nav .header__cta {
+      margin-top: 8px;
+      justify-content: center;
+    }
+
+    /* ─── BUTTONS ─────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 26px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--text);
+    }
+
+    /* ─── SECTION COMMON ──────────────────────────────────── */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--secondary);
+      max-width: 560px;
+    }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+    .hero {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+
+    .hero__inner {
+      display: grid;
+      grid-template-columns: 60fr 40fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero__badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .hero__title {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero__subtitle {
+      font-size: 18px;
+      color: var(--secondary);
+      line-height: 1.6;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .hero__buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero__stats {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px 24px;
+    }
+
+    .stat-card__value {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .stat-card__label {
+      font-size: 14px;
+      color: var(--secondary);
+      line-height: 1.4;
+    }
+
+    /* ─── PAIN ────────────────────────────────────────────── */
+    .pain {
+      background: var(--gray-bg);
+    }
+
+    .pain__header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .pain__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .pain-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .pain-card:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .pain-card__icon {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .pain-card__text {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    /* ─── WHY ─────────────────────────────────────────────── */
+    .why {
+      background: var(--card-bg);
+    }
+
+    .why__header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .why__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .why-card {
+      padding: 28px 24px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .why-card:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .why-card__icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .why-card__title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .why-card__text {
+      font-size: 14px;
+      color: var(--secondary);
+      line-height: 1.55;
+    }
+
+    /* ─── SERVICES ────────────────────────────────────────── */
+    .services {
+      background: var(--bg);
+    }
+
+    .services__header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .services-group {
+      margin-bottom: 40px;
+    }
+
+    .services-group:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .services-group__header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .services-group__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .badge-teal {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .badge-gray {
+      background: var(--gray-bg);
+      color: var(--secondary);
+      border: 1px solid var(--border);
+    }
+
+    .services-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .services-table thead {
+      background: var(--gray-bg);
+    }
+
+    .services-table th {
+      padding: 12px 20px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--secondary);
+    }
+
+    .services-table td {
+      padding: 16px 20px;
+      font-size: 14px;
+      color: var(--text);
+      border-top: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .services-table tr:hover td {
+      background: #fafafa;
+    }
+
+    .service-name {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .service-desc {
+      font-size: 13px;
+      color: var(--secondary);
+    }
+
+    .service-price {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      color: var(--text);
+    }
+
+    .service-term {
+      font-size: 13px;
+      color: var(--secondary);
+      white-space: nowrap;
+    }
+
+    .services-footnote {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--secondary);
+    }
+
+    .services-footnote strong {
+      color: var(--text);
+    }
+
+    /* ─── HOW ─────────────────────────────────────────────── */
+    .how {
+      background: var(--card-bg);
+    }
+
+    .how__header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .how__steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .how__step {
+      padding: 28px 24px;
+      position: relative;
+    }
+
+    .how__step:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -14px;
+      top: 38px;
+      font-size: 20px;
+      color: var(--accent);
+      z-index: 1;
+    }
+
+    .how__step-num {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 42px;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 16px;
+      opacity: 0.25;
+    }
+
+    .how__step-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .how__step-text {
+      font-size: 14px;
+      color: var(--secondary);
+      line-height: 1.55;
+    }
+
+    /* ─── CASES ───────────────────────────────────────────── */
+    .cases {
+      background: var(--gray-bg);
+    }
+
+    .cases__header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .case-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 40px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .case-card__type {
+      display: inline-block;
+      background: rgba(13, 148, 136, 0.1);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .case-card__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .case-card__field-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 5px;
+    }
+
+    .case-card__field-value {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .case-card__result-block {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      display: flex;
+      align-items: flex-end;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .case-card__big-num {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 52px;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .case-card__big-label {
+      font-size: 14px;
+      color: var(--secondary);
+      margin-top: 6px;
+    }
+
+    .case-card__deliverables {
+      font-size: 14px;
+      color: var(--secondary);
+      margin-top: 20px;
+    }
+
+    .case-card__deliverables span {
+      display: inline-block;
+      background: var(--gray-bg);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin: 4px 4px 4px 0;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    /* ─── ABOUT ───────────────────────────────────────────── */
+    .about {
+      background: var(--card-bg);
+    }
+
+    .about__inner {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .about__photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: var(--gray-bg);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--border);
+      font-size: 48px;
+    }
+
+    .about__name {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .about__role {
+      font-size: 15px;
+      color: var(--secondary);
+      margin-bottom: 24px;
+    }
+
+    .about__text {
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .about__facts {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .about__fact {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .about__fact-value {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .about__fact-label {
+      font-size: 13px;
+      color: var(--secondary);
+    }
+
+    /* ─── FAQ ─────────────────────────────────────────────── */
+    .faq {
+      background: var(--bg);
+    }
+
+    .faq__header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .faq__list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .faq__item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .faq__item summary {
+      list-style: none;
+      padding: 20px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: background 0.15s;
+    }
+
+    .faq__item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq__item summary:hover {
+      background: #fafafa;
+    }
+
+    .faq__item summary::after {
+      content: '+';
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--accent);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    .faq__item[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .faq__answer {
+      padding: 0 24px 20px;
+      font-size: 15px;
+      color: var(--secondary);
+      line-height: 1.65;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+
+    /* ─── CTA ─────────────────────────────────────────────── */
+    .cta {
+      background: var(--accent);
+      padding: 80px 0;
+    }
+
+    .cta__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .cta__heading {
+      font-size: 38px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .cta__subheading {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.55;
+    }
+
+    .cta__form-wrap {
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px;
+    }
+
+    .form-field {
+      margin-bottom: 16px;
+    }
+
+    .form-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .form-field input[type="text"],
+    .form-field input[type="tel"] {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      outline: none;
+    }
+
+    .form-field input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
+    }
+
+    .form-checkbox {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .form-checkbox input[type="checkbox"] {
+      margin-top: 3px;
+      accent-color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .form-checkbox label {
+      font-size: 13px;
+      color: var(--secondary);
+      line-height: 1.5;
+    }
+
+    .form-checkbox a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .form-checkbox a:hover {
+      text-decoration: underline;
+    }
+
+    .btn-full {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .cta__contacts {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--secondary);
+    }
+
+    .cta__contacts a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    .footer {
+      background: var(--dark);
+      padding: 60px 0 32px;
+    }
+
+    .footer__top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer__brand-name {
+      font-weight: 600;
+      font-size: 15px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .footer__brand-tagline {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    .footer__brand img {
+      height: 32px;
+      width: auto;
+      margin-bottom: 10px;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer__nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer__nav a {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer__nav a:hover {
+      color: #fff;
+    }
+
+    .footer__social {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
+
+    .footer__social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .footer__social a:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .footer__bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer__copy {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .footer__legal {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer__legal a {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer__legal a:hover {
+      color: #fff;
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .header__nav,
+      .header__cta {
+        display: none;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero__title {
+        font-size: 34px;
+      }
+
+      .hero__subtitle {
+        font-size: 16px;
+      }
+
+      .pain__grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .why__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .how__steps {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .how__step:not(:last-child)::after {
+        content: '↓';
+        position: static;
+        display: block;
+        text-align: center;
+        margin: 8px 0;
+        font-size: 20px;
+      }
+
+      .cta__inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .cta__heading {
+        font-size: 28px;
+      }
+
+      .about__inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .about__photo {
+        margin: 0 auto;
+      }
+
+      .about__facts {
+        justify-content: center;
+      }
+
+      .footer__top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer__nav {
+        align-items: flex-start;
+      }
+
+      .footer__social {
+        justify-content: flex-start;
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .case-card__grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .case-card__big-num {
+        font-size: 38px;
+      }
+
+      .services-table td,
+      .services-table th {
+        padding: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero__buttons {
+        flex-direction: column;
+      }
+
+      .why__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about__facts {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       1. HEADER
+  ══════════════════════════════════════════════════════ -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header__inner">
+        <a href="#" class="header__brand">
+          <img src="assets/logo.png" alt="maxima consulting" onerror="this.style.display='none'" />
+          <span class="header__brand-name">maxima consulting</span>
+        </a>
+
+        <nav>
+          <ul class="header__nav">
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#cases">Кейс</a></li>
+            <li><a href="#how">Как работаем</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <a href="https://t.me/maxima_consulting_leed_bot" target="_blank" rel="noopener" class="header__cta">
+          Бесплатный разбор →
+        </a>
+
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#services" class="mobile-nav-link">Услуги</a>
+      <a href="#cases" class="mobile-nav-link">Кейс</a>
+      <a href="#how" class="mobile-nav-link">Как работаем</a>
+      <a href="#faq" class="mobile-nav-link">FAQ</a>
+      <a href="#contacts" class="mobile-nav-link">Контакты</a>
+      <a href="https://t.me/maxima_consulting_leed_bot" target="_blank" rel="noopener" class="btn btn-primary">Бесплатный разбор →</a>
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════
+       2. HERO
+  ══════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__left">
+          <span class="hero__badge">CFO-light advisory · МСБ 5–80 млн ₽/год</span>
+          <h1 class="hero__title">
+            Снижаем налоги.<br />
+            Находим, где бизнес<br />
+            теряет деньги.
+          </h1>
+          <p class="hero__subtitle">
+            Внешний финансовый директор для собственников МСБ с выручкой 5–80 млн ₽.
+            Конкретный результат — документ с цифрами — за 7 дней.
+          </p>
+          <div class="hero__buttons">
+            <a href="https://t.me/maxima_consulting_leed_bot" target="_blank" rel="noopener" class="btn btn-primary">
+              Бесплатный разбор →
+            </a>
+            <a href="#services" class="btn btn-outline">Услуги и цены</a>
+          </div>
+        </div>
+
+        <div class="hero__stats">
+          <div class="stat-card">
+            <div class="stat-card__value">3 429 410 ₽</div>
+            <div class="stat-card__label">максимальная экономия клиента после НДС-аудита</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__value">7 дней</div>
+            <div class="stat-card__label">срок финансовой диагностики</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__value">от 15 000 ₽</div>
+            <div class="stat-card__label">стоимость входного аудита</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       3. БОЛИ
+  ══════════════════════════════════════════════════════ -->
+  <section class="section pain" id="pain">
+    <div class="container">
+      <div class="pain__header">
+        <h2 class="section-title">Узнаёте себя?</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">
+          Если хотя бы один пункт — ваш, значит, мы точно можем помочь.
+        </p>
+      </div>
+
+      <div class="pain__grid">
+        <div class="pain-card">
+          <div class="pain-card__icon">💰</div>
+          <div class="pain-card__text">Бизнес работает, деньги крутятся — а прибыли не видно</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-card__icon">❓</div>
+          <div class="pain-card__text">Не понимаю, куда уходят деньги каждый месяц</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-card__icon">📋</div>
+          <div class="pain-card__text">НДС-2026: не знаю, коснётся ли меня и что делать</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-card__icon">🎯</div>
+          <div class="pain-card__text">Финансовые решения принимаю «по ощущениям», а не по цифрам</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-card__icon">📊</div>
+          <div class="pain-card__text">Бухгалтер есть, управленческой ясности — нет</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-card__icon">🏛️</div>
+          <div class="pain-card__text">Налогов платим много, но законно ли можно меньше — не знаю</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       4. УТП
+  ══════════════════════════════════════════════════════ -->
+  <section class="section why" id="why">
+    <div class="container">
+      <div class="why__header">
+        <h2 class="section-title">Почему maxima consulting</h2>
+      </div>
+
+      <div class="why__grid">
+        <div class="why-card">
+          <div class="why-card__icon">📄</div>
+          <div class="why-card__title">Deliverable, не разговор</div>
+          <div class="why-card__text">Получаете документ, модель или roadmap. Не пересказ прочитанного.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-card__icon">⚡</div>
+          <div class="why-card__title">Результат за 3–7 дней</div>
+          <div class="why-card__text">Entry-аудит занимает 3–5 дней. Не месяцы консультаций.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-card__icon">🤖</div>
+          <div class="why-card__title">AI-усиленная аналитика</div>
+          <div class="why-card__text">Глубина экспертного анализа при скорости AI-инструментов.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-card__icon">🎯</div>
+          <div class="why-card__title">Цена за решение, не за часы</div>
+          <div class="why-card__text">Стоимость привязана к управленческому результату.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       5. УСЛУГИ С ЦЕНАМИ
+  ══════════════════════════════════════════════════════ -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="services__header">
+        <h2 class="section-title">Услуги и цены</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">
+          Три уровня: быстрый старт → проект → подписка
+        </p>
+      </div>
+
+      <!-- ENTRY -->
+      <div class="services-group">
+        <div class="services-group__header">
+          <span class="services-group__title">Entry</span>
+          <span class="badge badge-teal">Точка входа</span>
+        </div>
+        <table class="services-table">
+          <thead>
+            <tr>
+              <th style="width: 55%">Услуга</th>
+              <th>Срок</th>
+              <th>Цена</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="service-name">НДС-аудит</div>
+                <div class="service-desc">Проверяем готовность к НДС, считаем влияние на деньги</div>
+              </td>
+              <td><span class="service-term">3–5 дней</span></td>
+              <td><span class="service-price">15 000 — 30 000 ₽</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="service-name">Финансовая диагностика за 7 дней</div>
+                <div class="service-desc">Находим, где бизнес теряет деньги</div>
+              </td>
+              <td><span class="service-term">7 дней</span></td>
+              <td><span class="service-price">20 000 — 45 000 ₽</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="service-name">Где бизнес теряет деньги</div>
+                <div class="service-desc">Экспресс-анализ потерь и quick wins</div>
+              </td>
+              <td><span class="service-term">1–2 дня</span></td>
+              <td><span class="service-price">от 15 000 ₽</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CORE -->
+      <div class="services-group">
+        <div class="services-group__header">
+          <span class="services-group__title">Core</span>
+          <span class="badge badge-gray">Проекты</span>
+        </div>
+        <table class="services-table">
+          <thead>
+            <tr>
+              <th style="width: 55%">Услуга</th>
+              <th>Срок</th>
+              <th>Цена</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="service-name">НДС-2026 readiness</div>
+                <div class="service-desc">Полная подготовка к НДС под ключ</div>
+              </td>
+              <td><span class="service-term">3–6 нед</span></td>
+              <td><span class="service-price">50 000 — 120 000 ₽</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="service-name">Управленческий учёт с нуля</div>
+                <div class="service-desc">P&L, ДДС, KPI, шаблоны</div>
+              </td>
+              <td><span class="service-term">4–8 нед</span></td>
+              <td><span class="service-price">60 000 — 150 000 ₽</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="service-name">Финансовая модель</div>
+                <div class="service-desc">P&L / cash flow / инвест-модель / для банка</div>
+              </td>
+              <td><span class="service-term">2–4 нед</span></td>
+              <td><span class="service-price">40 000 — 100 000 ₽</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="service-name">Налогово-финансовая оптимизация</div>
+                <div class="service-desc">Законные способы снизить нагрузку</div>
+              </td>
+              <td><span class="service-term">3–5 нед</span></td>
+              <td><span class="service-price">60 000 — 130 000 ₽</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SUBSCRIPTION -->
+      <div class="services-group">
+        <div class="services-group__header">
+          <span class="services-group__title">Подписка</span>
+          <span class="badge badge-gray">Подписка</span>
+        </div>
+        <table class="services-table">
+          <thead>
+            <tr>
+              <th style="width: 55%">Услуга</th>
+              <th>Срок</th>
+              <th>Цена</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="service-name">CFO-light</div>
+                <div class="service-desc">Ежемесячный разбор цифр, рисков, решений</div>
+              </td>
+              <td><span class="service-term">ежемесячно</span></td>
+              <td><span class="service-price">20 000 — 55 000 ₽/мес</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="service-name">Advisory для собственника</div>
+                <div class="service-desc">Стратегические сессии + финансы</div>
+              </td>
+              <td><span class="service-term">ежемесячно</span></td>
+              <td><span class="service-price">40 000 — 80 000 ₽/мес</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="services-footnote">
+        <strong>50% предоплата</strong> · остаток по результату · <strong>первичный разбор бесплатно</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       6. КАК РАБОТАЕМ
+  ══════════════════════════════════════════════════════ -->
+  <section class="section how" id="how">
+    <div class="container">
+      <div class="how__header">
+        <h2 class="section-title">Как это работает</h2>
+      </div>
+
+      <div class="how__steps">
+        <div class="how__step">
+          <div class="how__step-num">01</div>
+          <div class="how__step-title">Бесплатный разбор (30 мин)</div>
+          <div class="how__step-text">Звонок: разбираем ситуацию, понимаем задачу</div>
+        </div>
+        <div class="how__step">
+          <div class="how__step-num">02</div>
+          <div class="how__step-title">Договор и КП</div>
+          <div class="how__step-text">Фиксируем задачу, срок, цену. Подписываем NDA.</div>
+        </div>
+        <div class="how__step">
+          <div class="how__step-num">03</div>
+          <div class="how__step-title">Работа</div>
+          <div class="how__step-text">Сбор данных, анализ, подготовка deliverables</div>
+        </div>
+        <div class="how__step">
+          <div class="how__step-num">04</div>
+          <div class="how__step-title">Результат</div>
+          <div class="how__step-text">Документ, модель или roadmap. Презентация выводов.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       7. КЕЙС
+  ══════════════════════════════════════════════════════ -->
+  <section class="section cases" id="cases">
+    <div class="container">
+      <div class="cases__header">
+        <h2 class="section-title">Пример работы</h2>
+      </div>
+
+      <div class="case-card">
+        <span class="case-card__type">НДС-аудит</span>
+
+        <div class="case-card__grid">
+          <div>
+            <div class="case-card__field-label">Клиент</div>
+            <div class="case-card__field-value">Торговая компания, выручка 87,4 млн ₽</div>
+          </div>
+          <div>
+            <div class="case-card__field-label">Срок</div>
+            <div class="case-card__field-value">5 дней</div>
+          </div>
+          <div>
+            <div class="case-card__field-label">Задача</div>
+            <div class="case-card__field-value">Переход на НДС в 2025 году — непонятно, какую ставку выбрать</div>
+          </div>
+          <div>
+            <div class="case-card__field-label">Что сделали</div>
+            <div class="case-card__field-value">
+              Рассчитали три сценария (20%, 5%, 7%). Выявили оптимальный режим.
+              Подготовили карту рисков и дорожную карту перехода.
+            </div>
+          </div>
+        </div>
+
+        <div class="case-card__result-block">
+          <div>
+            <div class="case-card__big-num">3 429 410 ₽</div>
+            <div class="case-card__big-label">экономия в год по сравнению со ставкой 20%</div>
+          </div>
+        </div>
+
+        <div class="case-card__deliverables">
+          <span>Карта рисков</span>
+          <span>Расчёт сценариев</span>
+          <span>Дорожная карта</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       8. ОБО МНЕ
+  ══════════════════════════════════════════════════════ -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about__inner">
+        <div class="about__photo">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+            <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" fill="currentColor"/>
+          </svg>
+        </div>
+
+        <div class="about__content">
+          <h2 class="about__name">Макс Зугров</h2>
+          <p class="about__role">Финансовый консультант · maxima consulting</p>
+          <p class="about__text">
+            Специализация — МСБ с выручкой 5–80 млн ₽, которым уже недостаточно бухгалтерии,
+            но рано содержать штатного CFO. Работаю как внешний финансовый директор: управленческий
+            учёт, НДС-2026, cash flow, налоговая оптимизация. Результат всегда — конкретный документ,
+            не разговор. Вся Россия онлайн.
+          </p>
+          <div class="about__facts">
+            <div class="about__fact">
+              <span class="about__fact-value">5–80 млн ₽</span>
+              <span class="about__fact-label">целевая аудитория</span>
+            </div>
+            <div class="about__fact">
+              <span class="about__fact-value">7 дней</span>
+              <span class="about__fact-label">средний срок entry-услуги</span>
+            </div>
+            <div class="about__fact">
+              <span class="about__fact-value">Онлайн</span>
+              <span class="about__fact-label">вся Россия</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       9. FAQ
+  ══════════════════════════════════════════════════════ -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <div class="faq__header">
+        <h2 class="section-title">Частые вопросы</h2>
+      </div>
+
+      <div class="faq__list">
+        <details class="faq__item">
+          <summary>Я не из Твери — работаете онлайн?</summary>
+          <div class="faq__answer">
+            Да, работаю полностью онлайн. Все созвоны через Zoom/Telegram, документы — в облаке.
+            Клиенты по всей России.
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>У меня уже есть бухгалтер — зачем мне ещё консультант?</summary>
+          <div class="faq__answer">
+            Бухгалтер считает налоги для государства. Я считаю деньги для вас: маржу, cash flow,
+            потери, налоговую нагрузку. Это разные задачи.
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>Как быстро увидим результат?</summary>
+          <div class="faq__answer">
+            Entry-услуги (НДС-аудит, диагностика) — результат за 3–7 дней.
+            Проекты (управленческий учёт, финмодель) — 3–8 недель.
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>Что значит «первичный разбор бесплатно»?</summary>
+          <div class="faq__answer">
+            30-минутный звонок: разбираем вашу ситуацию, даю первые рекомендации.
+            Без обязательств. Если подходим друг другу — двигаемся дальше.
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>Как защищены мои финансовые данные?</summary>
+          <div class="faq__answer">
+            До начала работы подписываем NDA (договор о конфиденциальности).
+            Ваши данные не передаются третьим лицам. Ссылка на NDA — в подвале сайта.
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>Можно платить частями?</summary>
+          <div class="faq__answer">
+            Да. Для entry-услуг: 50% предоплата, 50% по результату.
+            Для проектов: 40% предоплата, 60% при сдаче.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       10. CTA + ФОРМА
+  ══════════════════════════════════════════════════════ -->
+  <section class="cta" id="contacts">
+    <div class="container">
+      <div class="cta__inner">
+        <div class="cta__text">
+          <h2 class="cta__heading">Узнайте, сколько теряет ваш бизнес</h2>
+          <p class="cta__subheading">Первичный разбор — бесплатно. 30 минут. Без обязательств.</p>
+        </div>
+
+        <div>
+          <div class="cta__form-wrap">
+            <form id="ctaForm" novalidate>
+              <div class="form-field">
+                <label for="name">Ваше имя <span style="color: #ef4444;">*</span></label>
+                <input type="text" id="name" name="name" placeholder="Иван Иванов" required />
+              </div>
+              <div class="form-field">
+                <label for="contact">Телефон или Telegram <span style="color: #ef4444;">*</span></label>
+                <input type="tel" id="contact" name="contact" placeholder="+7 910 640-76-86 или @username" required />
+              </div>
+              <div class="form-checkbox">
+                <input type="checkbox" id="agree" name="agree" required />
+                <label for="agree">
+                  Я согласен(а) с
+                  <a href="privacy.html" target="_blank">политикой обработки персональных данных</a>
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">
+                Записаться на разбор →
+              </button>
+            </form>
+          </div>
+          <p class="cta__contacts" style="margin-top: 16px; color: rgba(255,255,255,0.75);">
+            <a href="tel:+79106407686" style="color: rgba(255,255,255,0.85); text-decoration: none;">+7 910 640-76-86</a>
+            &nbsp;·&nbsp;
+            <a href="https://t.me/maxima_cfo" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.85); text-decoration: none;">t.me/maxima_cfo</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       11. FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img src="assets/logo.png" alt="maxima consulting" onerror="this.style.display='none'" />
+          <div class="footer__brand-name">maxima consulting</div>
+          <div class="footer__brand-tagline">Финансовый партнёр для МСБ</div>
+        </div>
+
+        <nav class="footer__nav">
+          <a href="#services">Услуги</a>
+          <a href="#cases">Кейс</a>
+          <a href="#how">Как работаем</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+
+        <div class="footer__social">
+          <!-- Telegram -->
+          <a href="https://t.me/maxima_cfo" target="_blank" rel="noopener" aria-label="Telegram-канал">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            </svg>
+          </a>
+          <!-- VK -->
+          <a href="https://vk.com/maxima_consulting" target="_blank" rel="noopener" aria-label="VKontakte">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.12-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.253-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/>
+            </svg>
+          </a>
+          <!-- TenChat -->
+          <a href="https://m.tenchat.ru/u/eei8UmQE" target="_blank" rel="noopener" aria-label="TenChat">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <rect width="24" height="24" rx="4" fill="currentColor" opacity="0"/>
+              <text x="12" y="17" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="currentColor">T</text>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          © 2026 maxima consulting · ПНнПД Зугров Максим Евгеньевич · +7 910 640-76-86
+        </p>
+        <div class="footer__legal">
+          <a href="nda.html">NDA</a>
+          <a href="privacy.html">Политика ПД</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════
+       JS
+  ══════════════════════════════════════════════════════ -->
+  <script>
+    // Sticky header shadow
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 8) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // Burger menu
+    const burger = document.getElementById('burger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    burger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      burger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close mobile nav on link click
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Form submit → open TG bot
+    document.getElementById('ctaForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const contact = document.getElementById('contact').value.trim();
+      const agree = document.getElementById('agree').checked;
+
+      if (!name) {
+        document.getElementById('name').focus();
+        return;
+      }
+      if (!contact) {
+        document.getElementById('contact').focus();
+        return;
+      }
+      if (!agree) {
+        document.getElementById('agree').focus();
+        return;
+      }
+
+      window.open('https://t.me/maxima_consulting_leed_bot', '_blank');
+    });
+  </script>
+
+</body>
+</html>
