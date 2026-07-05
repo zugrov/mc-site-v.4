@@ -4,4 +4,4 @@ Disallow: /variant-a.html
 Disallow: /variant-b.html
 Disallow: /variant-c.html
 
-Sitemap: https://maxima-consulting.ru/sitemap.xml
+Sitemap: https://maximaconsulting.ru/sitemap.xml

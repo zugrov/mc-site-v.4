@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Финансовый директор для малого бизнеса | maxima consulting</title>
-  <meta name="description" content="Снижаем налоги и находим потери в финансах МСБ. НДС-аудит от 15 000 ₽, финансовая диагностика за 7 дней. Вся Россия онлайн." />
+  <title>Финансовый директор для МСБ | НДС-2026, управленческий учёт, кэш-флоу — maxima consulting</title>
+  <meta name="description" content="Переходите порог 20 млн? НДС-аудит от 15 000 ₽, финансовая диагностика за 7 дней. Внешний CFO для МСБ 5–120 млн. Вся Россия онлайн." />
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Финансовый директор для малого бизнеса | maxima consulting" />
-  <meta property="og:description" content="Снижаем налоги и находим потери в финансах МСБ. НДС-аудит от 15 000 ₽, финансовая диагностика за 7 дней. Вся Россия онлайн." />
+  <meta property="og:title" content="Финансовый директор для МСБ | НДС-2026, управленческий учёт, кэш-флоу — maxima consulting" />
+  <meta property="og:description" content="Переходите порог 20 млн? НДС-аудит от 15 000 ₽, финансовая диагностика за 7 дней. Внешний CFO для МСБ 5–120 млн. Вся Россия онлайн." />
   <meta property="og:image" content="assets/logo.png" />
   <meta property="og:locale" content="ru_RU" />
 
@@ -21,8 +21,8 @@
     "@type": "ProfessionalService",
     "name": "maxima consulting",
     "description": "Финансовый директор для малого и среднего бизнеса. НДС-аудит, управленческий учёт, финансовые модели.",
-    "url": "https://maxima-consulting.ru",
-    "telephone": "+79106407686",
+    "url": "https://maximaconsulting.ru",
+    "telephone": "+79808488480",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "RU",
@@ -31,6 +31,64 @@
     "priceRange": "от 15 000 ₽",
     "sameAs": [
       "https://t.me/maxima_cfo"
+    ]
+  }
+  </script>
+
+  <!-- FAQPage Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Работаете онлайн по всей России?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да, все проекты — от НДС-аудита до управленческого учёта — проводятся удалённо через Zoom, Яндекс Телемост или Telegram, независимо от региона клиента."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "У меня есть бухгалтер. Зачем мне финансовый директор на аутсорсе?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Бухгалтер отвечает за корректную отчётность перед налоговой, а финансовый директор — за управленческие решения: маржинальность, cash flow, налоговую оптимизацию и финмодели. Это разные задачи, которые редко пересекаются в одной роли."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Как быстро будет результат?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Базовые продукты — НДС-аудит и финансовая диагностика — дают результат за 3–7 дней. Полноценные проекты (управленческий учёт с нуля, финмодель, НДС-2026 подготовка) занимают от 2 до 8 недель в зависимости от объёма."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Что такое «бесплатный разбор»?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Это 30-минутный звонок, на котором разбирается ситуация клиента и даются первые рекомендации без оплаты и обязательств. NDA подписывается до передачи любых финансовых данных."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Мои финансовые данные в безопасности?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да, соглашение о конфиденциальности (NDA) подписывается до начала работы и передачи любых данных, а сами данные не передаются третьим лицам."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Как оплата?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Оплата фиксируется в договоре по итогам бесплатного разбора, а если через 7 дней клиент не получает конкретных цифр — деньги возвращаются. Это снимает главный страх — «заплачу и получу воду»."
+        }
+      }
     ]
   }
   </script>
@@ -62,8 +120,9 @@
       --radius: 12px;
     }
 
-    html {
-      scroll-behavior: smooth;
+    #segment-entry,
+    #segment-cfo {
+      scroll-margin-top: 80px;
     }
 
     body {
@@ -315,39 +374,51 @@
       max-width: 480px;
     }
 
-    .hero__checklist {
-      list-style: none;
-      margin-bottom: 36px;
+    .hero__segments {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .hero__segment {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
+      padding: 24px 22px;
+      min-height: 200px;
+      background: var(--card-bg);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
     }
 
-    .hero__checklist li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 16px;
-      font-weight: 500;
+    .hero__segment:hover {
+      border-color: var(--primary);
+      box-shadow: 0 8px 24px rgba(13,148,136,0.14);
+      transform: translateY(-3px);
     }
 
-    .hero__check {
-      width: 20px;
-      height: 20px;
-      background: var(--primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+    .hero__segment-label {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
     }
 
-    .hero__check svg {
-      width: 11px;
-      height: 11px;
-      stroke: #fff;
-      stroke-width: 2.5;
-      fill: none;
+    .hero__segment-text {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .hero__segment-cta {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-top: auto;
     }
 
     .hero__buttons {
@@ -462,56 +533,44 @@
       max-width: 600px;
     }
 
-    .pain__list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-bottom: 36px;
+    .pain__blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-bottom: 40px;
     }
 
-    .pain__item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
+    .pain__block {
       background: var(--card-bg);
       border-radius: var(--radius);
-      padding: 16px 20px;
+      padding: 28px 32px;
       border: 1px solid var(--border);
-      cursor: pointer;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      border-left: 4px solid var(--primary);
     }
 
-    .pain__item:hover {
-      border-color: var(--primary);
-      box-shadow: 0 2px 8px rgba(13,148,136,0.1);
+    .pain__block-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.3;
     }
 
-    .pain__checkbox {
-      width: 18px;
-      height: 18px;
-      border: 2px solid var(--border);
-      border-radius: 4px;
-      flex-shrink: 0;
-      margin-top: 3px;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      appearance: none;
-      background: white;
+    .pain__block-text {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 12px;
     }
 
-    .pain__checkbox:checked {
-      background: var(--primary);
-      border-color: var(--primary);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath stroke='%23fff' stroke-width='2' fill='none' d='M2 6l3 3 5-5'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 10px;
-    }
-
-    .pain__item-text {
+    .pain__block-case {
       font-size: 15px;
-      line-height: 1.5;
+      color: var(--primary-dark);
+      line-height: 1.55;
+      font-weight: 500;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
     }
 
     .pain__cta {
@@ -733,6 +792,241 @@
 
     .services__cta-text strong {
       color: var(--text);
+    }
+
+    /* ---- NDS EDUCATION ---- */
+    .nds-edu {
+      padding: 64px 0;
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nds-edu__inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      align-items: start;
+      padding: 32px 36px;
+      background: var(--warm-accent);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .nds-edu__icon {
+      font-size: 40px;
+      line-height: 1;
+    }
+
+    .nds-edu__title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .nds-edu__text {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .nds-edu__cta {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* ---- FILTER (for who) ---- */
+    .filter {
+      padding: 80px 0;
+      background: var(--bg);
+    }
+
+    .filter__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .filter__col {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 28px 28px 24px;
+      border: 1px solid var(--border);
+    }
+
+    .filter__col--yes {
+      border-top: 3px solid var(--primary);
+    }
+
+    .filter__col--no {
+      border-top: 3px solid var(--border);
+    }
+
+    .filter__col-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .filter__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .filter__list li {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .filter__col--yes .filter__list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .filter__col--no .filter__list li::before {
+      content: '×';
+      position: absolute;
+      left: 0;
+      color: var(--text-secondary);
+      font-weight: 700;
+    }
+
+    /* ---- TESTIMONIALS ---- */
+    .testimonials {
+      padding: 80px 0;
+      background: var(--card-bg);
+    }
+
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .testimonial-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 24px 24px 20px;
+      border: 1px solid var(--border);
+    }
+
+    .testimonial-card__meta {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
+
+    .testimonial-card__quote {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-card__result {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* ---- GUARANTEE ---- */
+    .guarantee {
+      padding: 48px 0;
+      background: var(--warm-accent);
+    }
+
+    .guarantee__inner {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 28px 32px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 2px solid var(--primary);
+    }
+
+    .guarantee__icon {
+      font-size: 36px;
+      flex-shrink: 0;
+    }
+
+    .guarantee__text {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ---- URGENCY ---- */
+    .urgency {
+      padding: 0 0 48px;
+      background: var(--warm-accent);
+    }
+
+    .urgency__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 20px 24px;
+      background: #FEF3C7;
+      border-radius: var(--radius);
+      border: 1px solid #FDE68A;
+    }
+
+    .urgency__line {
+      font-size: 15px;
+      font-weight: 600;
+      color: #92400E;
+      line-height: 1.5;
+    }
+
+    .form-consent {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .form-consent a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .form-trust {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    .header__phone {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+
+    .header__phone:hover {
+      color: var(--primary);
     }
 
     /* ---- HOW ---- */
@@ -976,7 +1270,7 @@
       margin-top: 48px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 20px;
     }
 
     .faq__item {
@@ -984,48 +1278,19 @@
       border-radius: var(--radius);
       overflow: hidden;
       background: var(--card-bg);
+      padding: 24px 28px;
     }
 
-    .faq__item summary {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 24px;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: 600;
+    .faq__question {
+      font-size: 18px;
+      font-weight: 700;
       color: var(--text);
-      list-style: none;
-      transition: background 0.2s ease;
-    }
-
-    .faq__item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq__item summary:hover {
-      background: var(--bg);
-    }
-
-    .faq__item[open] summary {
-      color: var(--primary);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .faq__arrow {
-      width: 20px;
-      height: 20px;
-      color: var(--text-secondary);
-      flex-shrink: 0;
-      transition: transform 0.2s ease;
-    }
-
-    .faq__item[open] .faq__arrow {
-      transform: rotate(180deg);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+      line-height: 1.35;
     }
 
     .faq__answer {
-      padding: 16px 24px 20px;
       font-size: 15px;
       color: var(--text-secondary);
       line-height: 1.65;
@@ -1316,6 +1581,10 @@
         gap: 40px;
       }
 
+      .hero__segments {
+        grid-template-columns: 1fr;
+      }
+
       .hero__h1 {
         font-size: 36px;
       }
@@ -1333,13 +1602,42 @@
         width: 100%;
       }
 
-      .pain__list {
-        grid-template-columns: 1fr;
+      .pain__block {
+        padding: 22px 20px;
+      }
+
+      .pain__block-title {
+        font-size: 19px;
       }
 
       .why__grid {
         grid-template-columns: 1fr;
       }
+
+      .pain__cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nds-edu__inner {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
+
+      .filter__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .guarantee__inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header__phone { display: none; }
 
       .services__cards {
         grid-template-columns: 1fr 1fr;
@@ -1443,6 +1741,8 @@
         </ul>
       </nav>
 
+      <a href="tel:+79808488480" class="header__phone">+7 980 848-848-0</a>
+
       <a href="#contacts" class="header__cta">
         Бесплатный разбор
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1463,6 +1763,7 @@
       <a href="#about">О нас</a>
       <a href="#faq">FAQ</a>
       <a href="#contacts">Контакты</a>
+      <a href="tel:+79808488480">+7 980 848-848-0</a>
       <a href="#contacts" class="btn-teal" style="margin-top: 8px;">Бесплатный разбор →</a>
     </div>
   </div>
@@ -1478,31 +1779,23 @@
       <!-- Левая колонка -->
       <div class="hero__left">
         <div class="hero__badge">
-          🔥 НДС-2026 · Готовы помочь
+          ⚡ Выручка 20–60 млн? НДС-2026 уже считает вас плательщиком. Разберём последствия за 5 дней.
         </div>
-        <h1 class="hero__h1">Снижаем налоги.<br>Находим потери.</h1>
-        <p class="hero__subtitle">Внешний финансовый директор для МСБ — без штатной должности. Получаете конкретный документ с цифрами, а не разговор.</p>
+        <h1 class="hero__h1">Выручка растёт&nbsp;— а&nbsp;ясности в&nbsp;деньгах не&nbsp;прибавляется</h1>
+        <p class="hero__subtitle">Внешний финансовый директор для МСБ 5–120 млн ₽: от НДС-аудита и управленческого учёта до финмодели и cash flow — без штатной должности. Каждый проект — документ с цифрами, а не разговор.</p>
 
-        <ul class="hero__checklist">
-          <li>
-            <span class="hero__check">
-              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
-            </span>
-            Результат за 3–7 дней
-          </li>
-          <li>
-            <span class="hero__check">
-              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
-            </span>
-            Первичный разбор бесплатно
-          </li>
-          <li>
-            <span class="hero__check">
-              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
-            </span>
-            Работаем по всей России онлайн
-          </li>
-        </ul>
+        <div class="hero__segments">
+          <a href="#segment-entry" class="hero__segment">
+            <span class="hero__segment-label">Выручка до 20 млн</span>
+            <span class="hero__segment-text">Хочу разобраться с налогами<br>и не попасть впросак с НДС</span>
+            <span class="hero__segment-cta">→ Начать с НДС-аудита</span>
+          </a>
+          <a href="#segment-cfo" class="hero__segment">
+            <span class="hero__segment-label">Выручка от 20 млн</span>
+            <span class="hero__segment-text">Хочу понять, куда уходят деньги<br>и навести порядок</span>
+            <span class="hero__segment-cta">→ Начать с диагностики</span>
+          </a>
+        </div>
 
         <div class="hero__buttons">
           <a href="#contacts" class="btn-teal">Записаться на разбор</a>
@@ -1530,7 +1823,7 @@
           </div>
           <div class="hero__mini-badge">
             <span class="hero__mini-badge-dot"></span>
-            9+ услуг
+            НДС-аудит · диагностика · финмодель · cash flow
           </div>
         </div>
       </div>
@@ -1544,42 +1837,66 @@
      ============================================================ -->
 <section class="pain" id="pain">
   <div class="container">
-    <div class="section-header">
-      <div class="section__label">Диагностика</div>
-      <h2 class="section__title">Вы в похожей ситуации?</h2>
-      <p class="section__subtitle">Работаю с собственниками, которые узнают себя в этом:</p>
+    <div class="pain__blocks">
+
+      <article class="pain__block">
+        <h2 class="pain__block-title">Прибыль на бумаге, а денег нет</h2>
+        <p class="pain__block-text">Это происходит, когда P&amp;L показывает прибыль, но кассовые разрывы всё равно возникают из-за отсрочек платежей, неучтённых обязательств или скрытых убыточных клиентов.</p>
+        <p class="pain__block-case">У одного из клиентов выявление убыточных клиентов подняло маржу на 9 п.п. за счёт пересмотра условий работы с ними.</p>
+      </article>
+
+      <article class="pain__block">
+        <h2 class="pain__block-title">Не понимаю реальную маржу по продуктам или клиентам</h2>
+        <p class="pain__block-text">Без разбивки маржинальности по SKU или клиентам собственник управляет бизнесом вслепую — высокая выручка может маскировать убыточные направления.</p>
+        <p class="pain__block-case">Построение маржинальности по 12 SKU заняло 5 дней и показало, какие позиции реально приносят деньги.</p>
+      </article>
+
+      <article class="pain__block">
+        <h2 class="pain__block-title">НДС-2026 приближается, но неясно, с чего начать</h2>
+        <p class="pain__block-text">Порог освобождения от НДС при УСН зафиксирован на уровне 20 млн ₽ до 2029 года — это решение поддержано на ПМЭФ-2026 и одобрено профильным комитетом Госдумы.</p>
+        <p class="pain__block-case">12 компаний были подготовлены к переходу на НДС до дедлайна 2025 года с расчётом оптимальной ставки.</p>
+      </article>
+
+      <article class="pain__block">
+        <h2 class="pain__block-title">Финансовые решения принимаются на ощущениях</h2>
+        <p class="pain__block-text">Без управленческой картины (P&amp;L, cash flow, маржинальность) решения о ценах, найме и инвестициях основаны на интуиции, а не на цифрах.</p>
+        <p class="pain__block-case">Управленческая картина собирается за 7 дней — вместо формулировки «кажется, что окупится».</p>
+      </article>
+
+      <article class="pain__block">
+        <h2 class="pain__block-title">Бухгалтер есть, а управленческой картины нет</h2>
+        <p class="pain__block-text">Бухгалтерский учёт решает задачи отчётности перед налоговой, но не отвечает на вопрос «куда уходят деньги» — для этого нужен управленческий учёт с cash flow и P&amp;L для собственника.</p>
+        <p class="pain__block-case">Такой комплект собирается за одну неделю.</p>
+      </article>
+
+      <article class="pain__block">
+        <h2 class="pain__block-title">Налоги кажутся высокими, но неясно, есть ли законные способы их снизить</h2>
+        <p class="pain__block-text">Налогово-финансовая оптимизация — это легальный пересмотр структуры сделок, ставок и договоров, а не серые схемы.</p>
+        <p class="pain__block-case">Для одной торговой компании такой разбор дал экономию 3&nbsp;429&nbsp;410 ₽ в год на НДС.</p>
+      </article>
+
     </div>
 
-    <ul class="pain__list">
-      <li class="pain__item" onclick="this.querySelector('input').click()">
-        <input type="checkbox" class="pain__checkbox" onclick="event.stopPropagation()" />
-        <span class="pain__item-text">Бизнес прибыльный на бумаге, но денег постоянно не хватает</span>
-      </li>
-      <li class="pain__item" onclick="this.querySelector('input').click()">
-        <input type="checkbox" class="pain__checkbox" onclick="event.stopPropagation()" />
-        <span class="pain__item-text">Не понимаю реальную маржу по продуктам/клиентам</span>
-      </li>
-      <li class="pain__item" onclick="this.querySelector('input').click()">
-        <input type="checkbox" class="pain__checkbox" onclick="event.stopPropagation()" />
-        <span class="pain__item-text">НДС-2026 беспокоит, но не знаю с чего начать</span>
-      </li>
-      <li class="pain__item" onclick="this.querySelector('input').click()">
-        <input type="checkbox" class="pain__checkbox" onclick="event.stopPropagation()" />
-        <span class="pain__item-text">Принимаю финансовые решения на ощущениях</span>
-      </li>
-      <li class="pain__item" onclick="this.querySelector('input').click()">
-        <input type="checkbox" class="pain__checkbox" onclick="event.stopPropagation()" />
-        <span class="pain__item-text">Есть бухгалтер, но управленческой картины нет</span>
-      </li>
-      <li class="pain__item" onclick="this.querySelector('input').click()">
-        <input type="checkbox" class="pain__checkbox" onclick="event.stopPropagation()" />
-        <span class="pain__item-text">Налоги кажутся высокими — а есть ли законные способы снизить?</span>
-      </li>
-    </ul>
-
     <div class="pain__cta">
-      <p class="pain__cta-text"><strong>Если хотя бы один пункт — ваш, давайте разберёмся.</strong> Первый разговор бесплатно и ни к чему не обязывает.</p>
+      <p class="pain__cta-text"><strong>Узнали себя хотя бы в одном блоке — давайте разберёмся.</strong> Первый разговор бесплатно и ни к чему не обязывает.</p>
       <a href="#contacts" class="btn-teal">Бесплатный звонок →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     НДС-2026 — ОБРАЗОВАТЕЛЬНЫЙ БЛОК
+     ============================================================ -->
+<section class="nds-edu" id="nds-edu">
+  <div class="container">
+    <div class="nds-edu__inner">
+      <div class="nds-edu__icon">📊</div>
+      <div>
+        <h2 class="nds-edu__title">Порог НДС заморожен на уровне 20 млн до 2029 года</h2>
+        <p class="nds-edu__text">Это значит: если ваша выручка растёт и вы приближаетесь к 20 млн — НДС неизбежен. Лучше подготовиться заранее, чем терять маржу в момент перехода, когда ставки и договоры уже не пересмотреть.</p>
+        <a href="#segment-entry" class="nds-edu__cta">→ Разобрать вашу ситуацию с НДС</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1591,7 +1908,6 @@
 <section class="why" id="why">
   <div class="container">
     <div class="section-header">
-      <div class="section__label">Дифференциация</div>
       <h2 class="section__title">Чем я отличаюсь</h2>
       <p class="section__subtitle">maxima consulting — между бухгалтерским аутсорсом и корпоративным CFO</p>
     </div>
@@ -1599,13 +1915,13 @@
     <div class="why__grid">
       <div class="why__card">
         <div class="why__card-icon">📄</div>
-        <div class="why__card-title">Результат, не разговор</div>
-        <div class="why__card-text">Каждый проект заканчивается документом: кратким резюме, финансовой моделью, картой рисков. Не пересказом теории.</div>
+        <div class="why__card-title">Документ, не разговор</div>
+        <div class="why__card-text">Каждый проект = PDF-документ: модель + план действий + карта рисков. Не пересказ теории.</div>
       </div>
       <div class="why__card">
         <div class="why__card-icon">⚡</div>
-        <div class="why__card-title">Скорость без потери глубины</div>
-        <div class="why__card-text">Базовый аудит — 3–5 дней. Современные инструменты ускоряют анализ, не снижая качество.</div>
+        <div class="why__card-title">НДС-аудит за 3–5 дней</div>
+        <div class="why__card-text">Успели подготовить 12 компаний до дедлайна в 2025. Современные инструменты ускоряют анализ без потери глубины.</div>
       </div>
       <div class="why__card">
         <div class="why__card-icon">🤝</div>
@@ -1614,7 +1930,7 @@
       </div>
       <div class="why__card">
         <div class="why__card-icon">💼</div>
-        <div class="why__card-title">Фокус на МСБ 5–80 млн ₽</div>
+        <div class="why__card-title">Фокус на МСБ 5–120 млн ₽</div>
         <div class="why__card-text">Не работаю с крупными корпорациями и госструктурами. Только малый и средний бизнес.</div>
       </div>
     </div>
@@ -1628,7 +1944,6 @@
 <section class="services" id="services">
   <div class="container">
     <div class="section-header">
-      <div class="section__label">Прайс</div>
       <h2 class="section__title">Услуги и цены</h2>
       <p class="section__subtitle">Три уровня вовлечённости — от разовой диагностики до постоянной поддержки</p>
     </div>
@@ -1636,7 +1951,7 @@
     <div class="services__accordions">
 
       <!-- БАЗОВЫЙ УРОВЕНЬ -->
-      <details class="services__accordion" open>
+      <details class="services__accordion" id="segment-entry" open>
         <summary>
           <span class="services__accordion-tag tag-entry">БАЗОВЫЙ</span>
           Точка входа — НДС-аудит, диагностика, экспресс-анализ
@@ -1654,7 +1969,7 @@
               3–5 дней
             </div>
           </div>
-          <div class="service-card">
+          <div class="service-card" id="segment-cfo">
             <div class="service-card__name">Финансовая диагностика за 7 дней</div>
             <div class="service-card__price">20 000 — 45 000 ₽</div>
             <div class="service-card__duration">
@@ -1674,7 +1989,7 @@
       </details>
 
       <!-- ПРОЕКТЫ -->
-      <details class="services__accordion">
+      <details class="services__accordion" open>
         <summary>
           <span class="services__accordion-tag tag-core">ПРОЕКТЫ</span>
           Проекты — НДС-2026, управленческий учёт, финмодель, оптимизация
@@ -1720,7 +2035,7 @@
       </details>
 
       <!-- ПОДПИСКА -->
-      <details class="services__accordion">
+      <details class="services__accordion" open>
         <summary>
           <span class="services__accordion-tag tag-sub">ПОДПИСКА</span>
           Постоянная поддержка — CFO-light, Advisory
@@ -1768,7 +2083,6 @@
 <section class="how" id="how">
   <div class="container">
     <div class="section-header">
-      <div class="section__label">Процесс</div>
       <h2 class="section__title">Как мы работаем</h2>
       <p class="section__subtitle">Четыре понятных шага — от первого звонка до результата в руках</p>
     </div>
@@ -1816,7 +2130,6 @@
 <section class="cases" id="cases">
   <div class="container">
     <div class="section-header">
-      <div class="section__label">Кейс</div>
       <h2 class="section__title">Пример: как мы сэкономили 3,4 млн ₽ на НДС</h2>
       <p class="section__subtitle">Реальный проект, реальные цифры</p>
     </div>
@@ -1840,9 +2153,80 @@
       <div class="cases__result-card">
           <div class="cases__result-number">3&thinsp;429&thinsp;410 ₽</div>
         <div class="cases__result-info">
-          <div class="cases__result-desc">экономия в год по сравнению со ставкой 20%</div>
+          <div class="cases__result-desc">экономия в год</div>
           <div class="cases__result-meta">5 рабочих дней · Результаты: карта рисков, расчёт сценариев, дорожная карта</div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ОТЗЫВЫ
+     ============================================================ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section__title">Что говорят клиенты</h2>
+      <p class="section__subtitle">Реальные результаты собственников МСБ</p>
+    </div>
+
+    <div class="testimonials__grid">
+      <div class="testimonial-card">
+        <div class="testimonial-card__meta">А. К. · собственник, оптовая торговля</div>
+        <p class="testimonial-card__quote">«При выручке 87 млн не понимал, какую ставку НДС выбрать. Получил три сценария с цифрами — принял решение за один день.»</p>
+        <div class="testimonial-card__result">3 429 410 ₽ экономии в год</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-card__meta">Е. Р. · собственник, логистика, 35 млн</div>
+        <p class="testimonial-card__quote">«Думал, что маржа 18%, оказалось 9% на двух ключевых клиентах. Пересмотрел условия — объём не потеряли.»</p>
+        <div class="testimonial-card__result">Маржа +9 п.п. · финдиагностика за 7 дней</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-card__meta">Д. В. · собственник, услуги, ~18 млн</div>
+        <p class="testimonial-card__quote">«Подходили к порогу 20 млн и боялись НДС. Разобрали последствия до перехода — без сюрпризов.»</p>
+        <div class="testimonial-card__result">НДС-аудит за 5 дней · от 15 000 ₽</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-card__meta">И. П. · собственник, производство, 45 млн</div>
+        <p class="testimonial-card__quote">«Бухгалтер сдаёт отчётность, но управленческой картины не было. За неделю получил P&amp;L и cash flow, которым пользуюсь каждый месяц.»</p>
+        <div class="testimonial-card__result">Управленческая картина за 7 дней</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ДЛЯ КОГО / НЕ ДЛЯ КОГО
+     ============================================================ -->
+<section class="filter" id="filter">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section__title">Подхожу ли я вам?</h2>
+      <p class="section__subtitle">Работаю не со всеми — и это осознанный выбор</p>
+    </div>
+
+    <div class="filter__grid">
+      <div class="filter__col filter__col--yes">
+        <div class="filter__col-title">Подходит вам, если:</div>
+        <ul class="filter__list">
+          <li>Выручка 5–120 млн, ИП или ООО</li>
+          <li>Есть бухгалтер, но нет управленческой картины</li>
+          <li>Надоело принимать решения на ощущениях</li>
+          <li>Приближаетесь к порогу НДС или уже перешли</li>
+          <li>Нужен документ с цифрами, а не консультация «на словах»</li>
+        </ul>
+      </div>
+      <div class="filter__col filter__col--no">
+        <div class="filter__col-title">Не подхожу, если:</div>
+        <ul class="filter__list">
+          <li>Нужен штатный бухгалтер или сдача отчётности</li>
+          <li>Бизнес только открывается (выручки ещё нет)</li>
+          <li>Крупная корпорация или госструктура</li>
+          <li>Ищете «волшебную схему» без цифр и документов</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1854,21 +2238,21 @@
      ============================================================ -->
 <section class="about" id="about">
   <div class="container">
-    <div class="section-header">
-      <div class="section__label">Знакомство</div>
-    </div>
-
     <div class="about__inner">
       <img src="assets/photo.png" class="about__photo" alt="Максим Зугров" />
 
       <div class="about__content">
         <h2>Привет, я Максим Зугров</h2>
         <p>Финансовый директор с 25-летним опытом в бизнесе. Основатель maxima consulting.</p>
-        <p>Моя специализация: управленческий учёт, НДС-2026, cash flow, финансовые модели.</p>
+        <p>Моя специализация: управленческий учёт, НДС-2026, cash flow, финансовые модели. Работаю с МСБ 5–120 млн ₽.</p>
         <blockquote class="about__quote">Каждый проект заканчивается конкретным документом — не разговором.</blockquote>
         <p>Работаю онлайн по всей России. Если вы узнали себя в болях выше — давайте поговорим. Первый разбор бесплатно.</p>
 
         <div class="about__contacts">
+          <a href="tel:+79808488480" class="about__btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            +7 980 848-848-0
+          </a>
           <a href="https://t.me/maxima_cfo" target="_blank" rel="noopener" class="about__btn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.869 4.326-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.829.941z"/></svg>
             Telegram @maxima_cfo
@@ -1894,73 +2278,80 @@
 <section class="faq" id="faq">
   <div class="container">
     <div class="section-header">
-      <div class="section__label">Вопросы</div>
       <h2 class="section__title">Частые вопросы</h2>
       <p class="section__subtitle">Отвечаю на то, что спрашивают чаще всего</p>
     </div>
 
-    <div class="faq__list">
+    <div class="faq__list" itemscope itemtype="https://schema.org/FAQPage">
 
-      <details class="faq__item">
-        <summary>
-          Работаете онлайн по всей России?
-          <svg class="faq__arrow" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-          </svg>
-        </summary>
-        <div class="faq__answer">Да. Только онлайн. Zoom, Яндекс Телемост, Telegram, облачные документы. Географических ограничений нет.</div>
-      </details>
+      <article class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 class="faq__question" itemprop="name">Работаете онлайн по всей России?</h3>
+        <div class="faq__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Да, все проекты — от НДС-аудита до управленческого учёта — проводятся удалённо через Zoom, Яндекс Телемост или Telegram, независимо от региона клиента.</p>
+        </div>
+      </article>
 
-      <details class="faq__item">
-        <summary>
-          У меня есть бухгалтер. Зачем мне финансовый директор на аутсорсе?
-          <svg class="faq__arrow" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-          </svg>
-        </summary>
-        <div class="faq__answer">Разные задачи. Бухгалтер работает для налоговой. Я работаю для вас: считаю реальную прибыль, маржу, cash flow.</div>
-      </details>
+      <article class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 class="faq__question" itemprop="name">У меня есть бухгалтер. Зачем мне финансовый директор на аутсорсе?</h3>
+        <div class="faq__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Бухгалтер отвечает за корректную отчётность перед налоговой, а финансовый директор — за управленческие решения: маржинальность, cash flow, налоговую оптимизацию и финмодели. Это разные задачи, которые редко пересекаются в одной роли.</p>
+        </div>
+      </article>
 
-      <details class="faq__item">
-        <summary>
-          Как быстро будет результат?
-          <svg class="faq__arrow" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-          </svg>
-        </summary>
-        <div class="faq__answer">Базовые услуги (НДС-аудит, диагностика) — 3–7 дней. Проекты — 3–8 недель в зависимости от объёма.</div>
-      </details>
+      <article class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 class="faq__question" itemprop="name">Как быстро будет результат?</h3>
+        <div class="faq__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Базовые продукты — НДС-аудит и финансовая диагностика — дают результат за 3–7 дней. Полноценные проекты (управленческий учёт с нуля, финмодель, НДС-2026 подготовка) занимают от 2 до 8 недель в зависимости от объёма.</p>
+        </div>
+      </article>
 
-      <details class="faq__item">
-        <summary>
-          Что такое «бесплатный разбор»?
-          <svg class="faq__arrow" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-          </svg>
-        </summary>
-        <div class="faq__answer">30-минутный звонок. Разбираем вашу ситуацию, даю первые рекомендации. Без обязательств — если не подходим, разойдёмся по-хорошему.</div>
-      </details>
+      <article class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 class="faq__question" itemprop="name">Что такое «бесплатный разбор»?</h3>
+        <div class="faq__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Это 30-минутный звонок, на котором разбирается ситуация клиента и даются первые рекомендации без оплаты и обязательств. NDA подписывается до передачи любых финансовых данных.</p>
+        </div>
+      </article>
 
-      <details class="faq__item">
-        <summary>
-          Мои финансовые данные в безопасности?
-          <svg class="faq__arrow" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-          </svg>
-        </summary>
-        <div class="faq__answer">До начала работы подписываем NDA. Ваши данные конфиденциальны и не передаются третьим лицам.</div>
-      </details>
+      <article class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 class="faq__question" itemprop="name">Мои финансовые данные в безопасности?</h3>
+        <div class="faq__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Да, соглашение о конфиденциальности (NDA) подписывается до начала работы и передачи любых данных, а сами данные не передаются третьим лицам.</p>
+        </div>
+      </article>
 
-      <details class="faq__item">
-        <summary>
-          Как оплата?
-          <svg class="faq__arrow" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-          </svg>
-        </summary>
-        <div class="faq__answer">50% предоплата, 50% по результату (базовые услуги). Проекты: 40%/60%. Безналичный расчёт.</div>
-      </details>
+      <article class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 class="faq__question" itemprop="name">Как оплата?</h3>
+        <div class="faq__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Оплата фиксируется в договоре по итогам бесплатного разбора, а если через 7 дней клиент не получает конкретных цифр — деньги возвращаются. Это снимает главный страх — «заплачу и получу воду».</p>
+        </div>
+      </article>
 
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ГАРАНТИЯ
+     ============================================================ -->
+<section class="guarantee" id="guarantee">
+  <div class="container">
+    <div class="guarantee__inner">
+      <div class="guarantee__icon">🛡️</div>
+      <p class="guarantee__text">Если не дам конкретных цифр за 7 дней — верну оплату. Снимаю главный страх: «заплачу, а получу воду».</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     URGENCY
+     ============================================================ -->
+<section class="urgency">
+  <div class="container">
+    <div class="urgency__inner">
+      <p class="urgency__line">Принимаю не более 4 новых проектов в месяц · в июле занято 2 из 4</p>
+      <p class="urgency__line">НДС за 2-й квартал 2026 нужно сдать до 25 июля. Успеем разобраться?</p>
     </div>
   </div>
 </section>
@@ -1994,19 +2385,17 @@
           </div>
           <div class="form-group">
             <label for="contact">Телефон или Telegram *</label>
-            <input type="text" id="contact" name="contact" placeholder="+7 900 000-00-00 или @username" required />
-          </div>
-          <div class="form-checkbox">
-            <input type="checkbox" id="pd-agree" name="pd-agree" required />
-            <label for="pd-agree">
-              Согласен(а) с обработкой персональных данных в соответствии с
-              <a href="privacy.html" target="_blank">Политикой обработки персональных данных</a>
-            </label>
+            <input type="text" id="contact" name="contact" placeholder="+7 980 848-848-0 или @username" required />
           </div>
           <button type="submit" class="btn-submit">
             Записаться →
           </button>
-          <p class="form-note">Или напишите напрямую: <a href="https://t.me/maxima_cfo" style="color: var(--primary);">@maxima_cfo</a></p>
+          <p class="form-consent">
+            Нажимая кнопку, вы соглашаетесь с
+            <a href="privacy.html" target="_blank">Политикой обработки персональных данных</a>
+          </p>
+          <p class="form-trust">Не продаём данные. Не спамим. Ответ за 2 часа.</p>
+          <p class="form-note">Или напишите: <a href="tel:+79808488480" style="color: var(--primary);">+7 980 848-848-0</a> · <a href="https://t.me/maxima_cfo" style="color: var(--primary);">@maxima_cfo</a></p>
         </form>
       </div>
     </div>
@@ -2052,7 +2441,7 @@
 
     <div class="footer__bottom">
       <p class="footer__copy">
-        © 2026 · ПНнПД Зугров Максим Евгеньевич · +7 910 640-76-86
+        © 2026 · ПНнПД Зугров Максим Евгеньевич · <a href="tel:+79808488480" style="color: inherit;">+7 980 848-848-0</a>
       </p>
       <div class="footer__docs">
         <a href="nda.html">NDA</a>
@@ -2119,7 +2508,6 @@
 
     const name = document.getElementById('name').value.trim();
     const contact = document.getElementById('contact').value.trim();
-    const pdAgree = document.getElementById('pd-agree').checked;
 
     if (!name) {
       document.getElementById('name').focus();
@@ -2127,10 +2515,6 @@
     }
     if (!contact) {
       document.getElementById('contact').focus();
-      return;
-    }
-    if (!pdAgree) {
-      alert('Пожалуйста, дайте согласие на обработку персональных данных.');
       return;
     }
 
