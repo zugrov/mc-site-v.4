@@ -744,6 +744,12 @@
       transition: border-color 0.2s ease;
     }
 
+    a.service-card {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
     .service-card:hover {
       border-color: var(--primary);
     }
@@ -1864,6 +1870,8 @@
       <nav>
         <ul class="header__nav">
           <li><a href="#services">Услуги</a></li>
+          <li><a href="/financial-diagnostics">Диагностика</a></li>
+          <li><a href="/nds-2026">НДС-2026</a></li>
           <li><a href="#cases">Кейс</a></li>
           <li><a href="#about">О нас</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -1889,6 +1897,8 @@
 
     <div class="header__mobile-menu" id="mobile-menu">
       <a href="#services">Услуги</a>
+      <a href="/financial-diagnostics">Диагностика</a>
+      <a href="/nds-2026">НДС-2026</a>
       <a href="#cases">Кейс</a>
       <a href="#about">О нас</a>
       <a href="#faq">FAQ</a>
@@ -1915,12 +1925,12 @@
         <p class="hero__subtitle">Внешний финансовый директор для МСБ 5–990 млн ₽: от НДС-аудита и управленческого учёта до финмодели и cash flow — без штатной должности. Каждый проект — документ с цифрами, а не разговор.</p>
 
         <div class="hero__segments">
-          <a href="#segment-entry" class="hero__segment">
+          <a href="/nds-2026" class="hero__segment">
             <span class="hero__segment-label">Выручка до 20 млн</span>
             <span class="hero__segment-text">Хочу разобраться с налогами<br>и не попасть впросак с НДС</span>
             <span class="hero__segment-cta">→ Начать с НДС-аудита</span>
           </a>
-          <a href="#segment-cfo" class="hero__segment">
+          <a href="/financial-diagnostics" class="hero__segment">
             <span class="hero__segment-label">Выручка от 20 млн</span>
             <span class="hero__segment-text">Хочу понять, куда уходят деньги<br>и навести порядок</span>
             <span class="hero__segment-cta">→ Начать с диагностики</span>
@@ -2025,7 +2035,7 @@
       <div>
         <h2 class="nds-edu__title">Порог НДС заморожен на уровне 20 млн до 2029 года</h2>
         <p class="nds-edu__text">Это значит: если ваша выручка растёт и вы приближаетесь к 20 млн — НДС неизбежен. Лучше подготовиться заранее, чем терять маржу в момент перехода, когда ставки и договоры уже не пересмотреть.</p>
-        <a href="#segment-entry" class="nds-edu__cta">→ Разобрать вашу ситуацию с НДС</a>
+        <a href="/nds-2026" class="nds-edu__cta">→ Разобрать вашу ситуацию с НДС</a>
       </div>
     </div>
   </div>
@@ -2091,22 +2101,22 @@
         </summary>
         <p class="services__accordion-desc">Быстрые проекты с понятным результатом. Идеально для знакомства.</p>
         <div class="services__cards">
-          <div class="service-card">
+          <a href="/nds-2026" class="service-card">
             <div class="service-card__name">НДС-аудит</div>
             <div class="service-card__price">15 000 — 30 000 ₽</div>
             <div class="service-card__duration">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 2"/></svg>
               3–5 дней
             </div>
-          </div>
-          <div class="service-card" id="segment-cfo">
+          </a>
+          <a href="/financial-diagnostics" class="service-card" id="segment-cfo">
             <div class="service-card__name">Финансовая диагностика за 7 дней</div>
             <div class="service-card__price">20 000 — 45 000 ₽</div>
             <div class="service-card__duration">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 2"/></svg>
               7 дней
             </div>
-          </div>
+          </a>
           <div class="service-card">
             <div class="service-card__name">Где бизнес теряет деньги</div>
             <div class="service-card__price">от 15 000 ₽</div>
@@ -2129,14 +2139,14 @@
         </summary>
         <p class="services__accordion-desc">Полноценные проекты с документацией, моделями и дорожной картой.</p>
         <div class="services__cards">
-          <div class="service-card">
+          <a href="/nds-2026" class="service-card">
             <div class="service-card__name">НДС-2026: полная подготовка</div>
             <div class="service-card__price">50 000 — 120 000 ₽</div>
             <div class="service-card__duration">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 2"/></svg>
               3–6 недель
             </div>
-          </div>
+          </a>
           <div class="service-card">
             <div class="service-card__name">Управленческий учёт с нуля</div>
             <div class="service-card__price">60 000 — 150 000 ₽</div>
@@ -2615,8 +2625,8 @@
       <div>
         <div class="footer__col-title">Услуги</div>
         <ul class="footer__links">
-          <li><a href="#services">НДС-аудит</a></li>
-          <li><a href="#services">Финансовая диагностика</a></li>
+          <li><a href="/nds-2026">НДС-аудит</a></li>
+          <li><a href="/financial-diagnostics">Финансовая диагностика</a></li>
           <li><a href="#services">Управленческий учёт</a></li>
           <li><a href="#services">CFO-light</a></li>
         </ul>

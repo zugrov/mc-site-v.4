@@ -5,7 +5,7 @@
 
   var API_LEAD = '/api/lead';
   var TELEGRAM_LINK = 'https://t.me/maxima_cfo';
-  var MEMO_LINK = 'financial-diagnostics.html#trust';
+  var MEMO_LINK = '/financial-diagnostics#trust';
 
   var TRACKING_KEYS = [
     'utm_source',
