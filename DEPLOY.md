@@ -1,14 +1,17 @@
 # Деплой mc-site-v4 на VPS
 
-Статический лендинг maxima consulting. Основной домен: **maximaconsulting.ru**.  
-Редирект: **maxima-consulting.ru** → 301 на основной.
+Статический лендинг maxima consulting. Основной домен: **maxima-consulting.ru**.
+
+Примечание: **maximaconsulting.ru** (без дефиса) на этот VPS не указывает — домен
+проксируется через Cloudflare на отдельный сторонний сервис и к этому репозиторию
+отношения не имеет.
 
 ## Требования
 
 - Ubuntu/Debian VPS с nginx
 - certbot (`certbot python3-certbot-nginx`)
 - git, rsync
-- DNS: A-записи `@` и `www` для обоих доменов → IP VPS
+- DNS: A-записи `@` и `www` для maxima-consulting.ru → IP VPS
 
 ## Первоначальная установка
 
@@ -47,8 +50,6 @@ sudo systemctl reload nginx
 
 ```bash
 sudo certbot --nginx \
-  -d maximaconsulting.ru \
-  -d www.maximaconsulting.ru \
   -d maxima-consulting.ru \
   -d www.maxima-consulting.ru
 ```
@@ -65,11 +66,10 @@ Certbot добавит HTTPS-блоки и настроит редирект HTT
 
 ## Проверка
 
-- https://maximaconsulting.ru — лендинг
-- https://maxima-consulting.ru — редирект 301 на основной
-- https://maximaconsulting.ru/sitemap.xml
-- https://maximaconsulting.ru/robots.txt
-- https://maximaconsulting.ru/api/health — Lead API (должен вернуть `{"status":"ok"}`)
+- https://maxima-consulting.ru — лендинг
+- https://maxima-consulting.ru/sitemap.xml
+- https://maxima-consulting.ru/robots.txt
+- https://maxima-consulting.ru/api/health — Lead API (должен вернуть `{"status":"ok"}`)
 
 ## Lead API (Node.js)
 
