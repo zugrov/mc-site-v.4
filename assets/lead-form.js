@@ -1,8 +1,7 @@
 (function () {
   'use strict';
 
-  // TODO: указать ID счётчика Метрики после подключения
-  var METRIKA_COUNTER_ID = null;
+  var METRIKA_COUNTER_ID = 112291401;
 
   var API_LEAD = '/api/lead';
   var TELEGRAM_LINK = 'https://t.me/maxima_cfo';
