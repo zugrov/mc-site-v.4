@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Финансовый директор для МСБ | НДС-2026, управленческий учёт, кэш-флоу — maxima consulting</title>
-  <meta name="description" content="Переходите порог 20 млн? НДС-аудит от 15 000 ₽, финансовая диагностика за 7 дней. Внешний CFO для МСБ 5–120 млн. Вся Россия онлайн." />
+  <meta name="description" content="Переходите порог 20 млн? НДС-аудит от 15 000 ₽, финансовая диагностика за 7 дней. Внешний CFO для МСБ 5–990 млн. Вся Россия онлайн." />
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Финансовый директор для МСБ | НДС-2026, управленческий учёт, кэш-флоу — maxima consulting" />
-  <meta property="og:description" content="Переходите порог 20 млн? НДС-аудит от 15 000 ₽, финансовая диагностика за 7 дней. Внешний CFO для МСБ 5–120 млн. Вся Россия онлайн." />
+  <meta property="og:description" content="Переходите порог 20 млн? НДС-аудит от 15 000 ₽, финансовая диагностика за 7 дней. Внешний CFO для МСБ 5–990 млн. Вся Россия онлайн." />
   <meta property="og:image" content="assets/logo.png" />
   <meta property="og:locale" content="ru_RU" />
 
@@ -1408,6 +1408,122 @@
       color: var(--text-secondary);
     }
 
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--card-bg);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-group textarea {
+      min-height: 88px;
+      resize: vertical;
+    }
+
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(13,148,136,0.1);
+    }
+
+    .form-honeypot {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .form-error {
+      margin-top: 6px;
+      font-size: 12px;
+      color: #B3261E;
+      line-height: 1.4;
+    }
+
+    .form-global-error {
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      color: #B3261E;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .form-group input.is-invalid,
+    .form-group select.is-invalid,
+    .form-group textarea.is-invalid {
+      border-color: #B3261E;
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .lead-thankyou__title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .lead-thankyou__text {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .lead-thankyou__id {
+      font-size: 14px;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .lead-thankyou__list {
+      margin: 0 0 20px 18px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .lead-thankyou__list a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .lead-step2 {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .lead-step2__title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .lead-step2__skip,
+    .lead-step2__done {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
     .form-checkbox {
       display: flex;
       align-items: flex-start;
@@ -1782,7 +1898,7 @@
           ⚡ Выручка 20–60 млн? НДС-2026 уже считает вас плательщиком. Разберём последствия за 5 дней.
         </div>
         <h1 class="hero__h1">Выручка растёт&nbsp;— а&nbsp;ясности в&nbsp;деньгах не&nbsp;прибавляется</h1>
-        <p class="hero__subtitle">Внешний финансовый директор для МСБ 5–120 млн ₽: от НДС-аудита и управленческого учёта до финмодели и cash flow — без штатной должности. Каждый проект — документ с цифрами, а не разговор.</p>
+        <p class="hero__subtitle">Внешний финансовый директор для МСБ 5–990 млн ₽: от НДС-аудита и управленческого учёта до финмодели и cash flow — без штатной должности. Каждый проект — документ с цифрами, а не разговор.</p>
 
         <div class="hero__segments">
           <a href="#segment-entry" class="hero__segment">
@@ -1930,7 +2046,7 @@
       </div>
       <div class="why__card">
         <div class="why__card-icon">💼</div>
-        <div class="why__card-title">Фокус на МСБ 5–120 млн ₽</div>
+        <div class="why__card-title">Фокус на МСБ 5–990 млн ₽</div>
         <div class="why__card-text">Не работаю с крупными корпорациями и госструктурами. Только малый и средний бизнес.</div>
       </div>
     </div>
@@ -2212,7 +2328,7 @@
       <div class="filter__col filter__col--yes">
         <div class="filter__col-title">Подходит вам, если:</div>
         <ul class="filter__list">
-          <li>Выручка 5–120 млн, ИП или ООО</li>
+          <li>Выручка 5–990 млн, ИП или ООО</li>
           <li>Есть бухгалтер, но нет управленческой картины</li>
           <li>Надоело принимать решения на ощущениях</li>
           <li>Приближаетесь к порогу НДС или уже перешли</li>
@@ -2223,7 +2339,7 @@
         <div class="filter__col-title">Не подхожу, если:</div>
         <ul class="filter__list">
           <li>Нужен штатный бухгалтер или сдача отчётности</li>
-          <li>Бизнес только открывается (выручки ещё нет)</li>
+          <li>Выручка свыше 990 млн ₽</li>
           <li>Крупная корпорация или госструктура</li>
           <li>Ищете «волшебную схему» без цифр и документов</li>
         </ul>
@@ -2244,7 +2360,7 @@
       <div class="about__content">
         <h2>Привет, я Максим Зугров</h2>
         <p>Финансовый директор с 25-летним опытом в бизнесе. Основатель maxima consulting.</p>
-        <p>Моя специализация: управленческий учёт, НДС-2026, cash flow, финансовые модели. Работаю с МСБ 5–120 млн ₽.</p>
+        <p>Моя специализация: управленческий учёт, НДС-2026, cash flow, финансовые модели. Работаю с МСБ 5–990 млн ₽.</p>
         <blockquote class="about__quote">Каждый проект заканчивается конкретным документом — не разговором.</blockquote>
         <p>Работаю онлайн по всей России. Если вы узнали себя в болях выше — давайте поговорим. Первый разбор бесплатно.</p>
 
@@ -2365,23 +2481,92 @@
         <div class="cta-form__form-title">Записаться на разбор</div>
         <div class="cta-form__form-sub">Обычно отвечаю в течение нескольких часов</div>
 
-        <form id="contact-form" novalidate>
+        <form id="contact-form" data-lead-form novalidate>
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="middle_name">Middle name</label>
+            <input type="text" name="middle_name" id="middle_name" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <input type="hidden" name="utm_source" />
+          <input type="hidden" name="utm_medium" />
+          <input type="hidden" name="utm_campaign" />
+          <input type="hidden" name="utm_content" />
+          <input type="hidden" name="utm_term" />
+          <input type="hidden" name="utm_campaign_name" />
+          <input type="hidden" name="yclid" />
+          <input type="hidden" name="client_id" />
+          <input type="hidden" name="landing_url" />
+          <input type="hidden" name="referrer" />
+          <input type="hidden" name="client_id_missing" />
+
           <div class="form-group">
             <label for="name">Ваше имя *</label>
             <input type="text" id="name" name="name" placeholder="Иван Иванов" required />
           </div>
           <div class="form-group">
             <label for="contact">Телефон или Telegram *</label>
-            <input type="text" id="contact" name="contact" placeholder="+7 980 848-848-0 или @username" required />
+            <input type="text" id="contact" name="contact" placeholder="+7 900 123-45-67 или @username" required />
           </div>
-          <button type="submit" class="btn-submit">
+          <div class="form-group">
+            <label for="role">Роль в компании *</label>
+            <select id="role" name="role" required>
+              <option value="">Выберите</option>
+              <option value="owner">Собственник</option>
+              <option value="ceo">Генеральный директор</option>
+              <option value="cfo">Финансовый директор</option>
+              <option value="coo">Операционный директор</option>
+              <option value="other">Другое</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="industry">Отрасль *</label>
+            <select id="industry" name="industry" required>
+              <option value="">Выберите</option>
+              <option value="trade">Торговля/опт-розница</option>
+              <option value="ecommerce">E-commerce/маркетплейсы</option>
+              <option value="production">Производство</option>
+              <option value="services">Услуги</option>
+              <option value="local_services">Локальные сервисы</option>
+              <option value="construction">Строительство</option>
+              <option value="other">Другое</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="revenue">Диапазон годовой выручки *</label>
+            <select id="revenue" name="revenue" required>
+              <option value="">Выберите</option>
+              <option value="under_20">до 20 млн ₽</option>
+              <option value="20_60">20–60 млн ₽</option>
+              <option value="60_150">60–150 млн ₽</option>
+              <option value="150_500">150–500 млн ₽</option>
+              <option value="over_500">свыше 500 млн ₽</option>
+              <option value="unknown">затрудняюсь ответить</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question">Главный вопрос *</label>
+            <textarea id="question" name="question" placeholder="Что хотите разобрать в первую очередь?" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="urgency">Срочность *</label>
+            <select id="urgency" name="urgency" required>
+              <option value="">Выберите</option>
+              <option value="urgent">Срочно (нужно решение на этой неделе)</option>
+              <option value="month">В течение месяца</option>
+              <option value="not_urgent">Не срочно</option>
+              <option value="researching">Изучаю рынок</option>
+            </select>
+          </div>
+
+          <label class="form-checkbox">
+            <input type="checkbox" name="consent_pdn" required />
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank">Политикой обработки персональных данных</a> *</span>
+          </label>
+
+          <button type="submit" class="btn-submit" disabled>
             Записаться →
           </button>
-          <p class="form-consent">
-            Нажимая кнопку, вы соглашаетесь с
-            <a href="privacy.html" target="_blank">Политикой обработки персональных данных</a>
-          </p>
-          <p class="form-trust">Не продаём данные. Не спамим. Ответ за 2 часа.</p>
+          <p class="form-trust">Не продаём данные. Не спамим. Ответим в течение рабочего дня.</p>
           <p class="form-note">Или напишите: <a href="tel:+79808488480" style="color: var(--primary);">+7 980 848-848-0</a> · <a href="https://t.me/maxima_cfo" style="color: var(--primary);">@maxima_cfo</a></p>
         </form>
       </div>
@@ -2487,27 +2672,8 @@
       spans[2].style.transform = '';
     });
   });
-
-  // Form submit
-  const form = document.getElementById('contact-form');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const name = document.getElementById('name').value.trim();
-    const contact = document.getElementById('contact').value.trim();
-
-    if (!name) {
-      document.getElementById('name').focus();
-      return;
-    }
-    if (!contact) {
-      document.getElementById('contact').focus();
-      return;
-    }
-
-    window.open('https://t.me/maxima_consulting_leed_bot', '_blank');
-  });
 </script>
+<script src="assets/lead-form.js"></script>
 
 </body>
 </html>
