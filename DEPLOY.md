@@ -120,11 +120,14 @@ sudo systemctl start maxima-lead-api
 sudo systemctl status maxima-lead-api
 ```
 
+Порт 3011 выбран, так как 3001 на VPS уже занят другим сервисом (docker-proxy).
+При деплое на другой сервер проверяйте занятость порта командой `ss -ltnp`.
+
 ### 4. Проверка end-to-end
 
 ```bash
-curl -s http://127.0.0.1:3001/api/health
-curl -s -X POST http://127.0.0.1:3001/api/lead \
+curl -s http://127.0.0.1:3011/api/health
+curl -s -X POST http://127.0.0.1:3011/api/lead \
   -H 'Content-Type: application/json' \
   -d '{"name":"Тест","contact":"@testuser","role":"owner","industry":"trade","revenue":"under_20","question":"Тестовый вопрос для проверки","urgency":"researching","consent_pdn":true}'
 ```
