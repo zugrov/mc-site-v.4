@@ -133,3 +133,52 @@ curl -s -X POST http://127.0.0.1:3011/api/lead \
 ```
 
 После деплоя nginx перезагрузить: `sudo nginx -t && sudo systemctl reload nginx`
+
+## Экспорт офлайн-конверсий в Яндекс.Метрику
+
+Скрипт раз в сутки выгружает из Bitrix24 сделки в целевых стадиях и отправляет
+офлайн-конверсии в Метрику (Offline Conversions API). Дедупликация и курсор
+хранятся в `server/data/conversion-export-state.json`.
+
+### 1. Переменные окружения
+
+Добавить в `server/.env` (см. также `.env.example`):
+
+```bash
+YANDEX_METRIKA_COUNTER_ID=112291401
+YANDEX_METRIKA_OAUTH_TOKEN=your_oauth_token
+BITRIX_CONVERSION_GOALS={"C2:UC_MEETING":"meeting_held","C2:WON":"won"}
+BITRIX_UF_CLIENT_ID_CODE=
+BITRIX_UF_YCLID_CODE=
+```
+
+- `BITRIX_CONVERSION_GOALS` — JSON: ключ = `STATUS_ID` сделки, значение = идентификатор цели в Метрике.
+- `BITRIX_UF_*` — опционально; если пусто, `client_id`/`yclid` берутся из `COMMENTS` связанного лида.
+
+### 2. Ручной запуск
+
+```bash
+cd /opt/maxima-consulting/apps/mc-site-v.4/server
+npm run export:conversions
+```
+
+Логи: `server/data/conversion-export.log`
+
+### 3. Cron (ежедневно в 04:00 UTC)
+
+```bash
+sudo crontab -e
+```
+
+```cron
+0 4 * * * cd /opt/maxima-consulting/apps/mc-site-v.4/server && /usr/bin/node scripts/export-offline-conversions.js >> data/conversion-export-cron.log 2>&1
+```
+
+Убедиться, что каталог `server/data/` доступен пользователю cron (обычно `www-data` или `root`).
+
+### 4. Проверка
+
+1. Создать в Bitrix24 сделку в стадии из `BITRIX_CONVERSION_GOALS` со связанным лидом, у которого в комментарии есть `client_id:` или `yclid:`.
+2. Запустить скрипт вручную.
+3. Проверить `conversion-export.log` — статус `completed`, `uploaded > 0`.
+4. В Метрике — раздел офлайн-конверсий / отчёт по целям (задержка до нескольких часов).
