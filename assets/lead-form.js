@@ -332,9 +332,9 @@
     }
   }
 
-  function fireMetrikaGoal() {
+  function reachGoal(goalId) {
     if (typeof ym === 'function' && METRIKA_COUNTER_ID) {
-      ym(METRIKA_COUNTER_ID, 'reachGoal', 'lead_submit');
+      ym(METRIKA_COUNTER_ID, 'reachGoal', goalId);
     }
   }
 
@@ -437,7 +437,17 @@
       });
     }
 
+    var startFired = false;
     form.querySelectorAll('input, select, textarea').forEach(function (field) {
+      if (field.name === 'middle_name') {
+        return;
+      }
+      field.addEventListener('focus', function () {
+        if (!startFired) {
+          startFired = true;
+          reachGoal('form_start');
+        }
+      });
       field.addEventListener('blur', function () {
         validateField(field);
         updateSubmitState(form);
@@ -458,6 +468,7 @@
       clearFormError(form);
 
       if (!validateForm(form)) {
+        reachGoal('form_error');
         return;
       }
 
@@ -485,11 +496,12 @@
             throw new Error(result.data.message || ERROR_MESSAGES.server);
           }
 
-          fireMetrikaGoal();
+          reachGoal('lead_submit');
           var wrap = form.closest('.cta-form__form-wrap') || form.parentElement;
           renderThankYou(wrap, result.data.lead_id);
         })
         .catch(function (error) {
+          reachGoal('form_error');
           var message = error.message || ERROR_MESSAGES.server;
           if (message.includes('Failed to fetch') || message.includes('NetworkError')) {
             message = ERROR_MESSAGES.network;
@@ -503,6 +515,13 @@
         });
     });
   }
+
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest('a[href*="t.me/"]');
+    if (link) {
+      reachGoal('telegram_click');
+    }
+  });
 
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('[data-lead-form]').forEach(bindForm);
