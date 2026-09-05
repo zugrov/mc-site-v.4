@@ -178,10 +178,62 @@ async function notifySlaEscalation(task) {
   return sendToChat(chatId, text);
 }
 
+function buildWelcomeMessage(pageLabel) {
+  return [
+    'Здравствуйте! Это Maxima Consulting.',
+    `Вы перешли по ссылке с ${pageLabel}.`,
+    '',
+    'Расскажите в двух словах, какая у вас задача — финансовая диагностика, вопрос',
+    'по НДС-2026, управленческий учёт или что-то другое? Я передам ваш запрос',
+    'менеджеру, и мы свяжемся с вами в ближайшее время.',
+  ].join('\n');
+}
+
+async function sendWelcomeMessage(chatId, pageLabel) {
+  const text = buildWelcomeMessage(pageLabel);
+  return telegramRequest('sendMessage', {
+    chat_id: chatId,
+    text,
+  });
+}
+
+function buildDialogNotification(payload, leadId, crmStatus) {
+  const statusLine = crmStatus === 'created'
+    ? '✅ создана'
+    : crmStatus === 'duplicate'
+      ? '↻ обновлена (дубль контакта)'
+      : '⚠ ошибка записи — завести вручную';
+
+  return [
+    `Новый Telegram-диалог [lead_id: ${leadId}]`,
+    `Имя: ${payload.name || '—'}`,
+    `Telegram: ${payload.telegram || payload.contact || '—'}`,
+    `source_campaign: ${payload.source_campaign || 'direct_unknown'}`,
+    `Источник: ${payload.utm_source || '—'}/${payload.utm_medium || '—'}`,
+    `Кампания: ${payload.utm_campaign || '—'}`,
+    `Страница: ${payload.landing_url || '—'}`,
+    `Сообщение: ${payload.first_message || '—'}`,
+    `Время: ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })}`,
+    `Статус CRM: ${statusLine}`,
+  ].join('\n');
+}
+
+async function notifyManagerNewDialog(payload, leadId, crmStatus) {
+  const { chatId } = getTelegramConfig();
+  if (!chatId) {
+    throw new Error('TELEGRAM_CHAT_ID не настроен');
+  }
+
+  const text = buildDialogNotification(payload, leadId, crmStatus);
+  return sendToChat(chatId, text);
+}
+
 module.exports = {
   sendLeadMessage,
   editMessageMarkCrmOk,
   sendEnrichMessage,
   notifyManagerNewTask,
   notifySlaEscalation,
+  sendWelcomeMessage,
+  notifyManagerNewDialog,
 };

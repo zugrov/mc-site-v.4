@@ -66,7 +66,7 @@ router.post('/lead', rateLimit({
   legacyHeaders: false,
   message: {
     status: 'error',
-    message: 'Не получилось отправить заявку. Попробуйте ещё раз через минуту — или напишите нам напрямую в Telegram: https://t.me/maxima_cfo',
+    message: 'Не получилось отправить заявку. Попробуйте ещё раз через минуту — или напишите нам напрямую в Telegram: https://t.me/maxima_consulting_leed_bot?start=fallback_error',
   },
 }), async (req, res) => {
   const body = {

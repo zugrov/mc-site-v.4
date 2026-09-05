@@ -1,0 +1,38 @@
+{
+  "site_organic": {
+    "utm_source": "site",
+    "utm_medium": "organic",
+    "utm_campaign": "",
+    "page_label": "главной страницы"
+  },
+  "nds_s1": {
+    "utm_source": "nds",
+    "utm_medium": "landing",
+    "utm_campaign": "s1",
+    "page_label": "страницы про НДС-2026"
+  },
+  "diag_s1": {
+    "utm_source": "diag",
+    "utm_medium": "landing",
+    "utm_campaign": "s1",
+    "page_label": "страницы финансовой диагностики"
+  },
+  "legal": {
+    "utm_source": "site",
+    "utm_medium": "legal",
+    "utm_campaign": "",
+    "page_label": "служебной страницы"
+  },
+  "fallback_error": {
+    "utm_source": "site",
+    "utm_medium": "form_error",
+    "utm_campaign": "",
+    "page_label": "сайта"
+  },
+  "direct_unknown": {
+    "utm_source": "telegram",
+    "utm_medium": "direct",
+    "utm_campaign": "",
+    "page_label": "сайта"
+  }
+}

@@ -225,3 +225,48 @@ npm run check:sla
 Повторная заявка с тем же телефоном/Telegram за 30 дней не создаёт новый лид в Bitrix —
 добавляется комментарий к существующей карточке, в ответе API `crm_status: duplicate`.
 Индекс контактов: `server/data/contacts-index.json`.
+
+## Telegram deep-link и захват диалога (Этап 5)
+
+Ссылки на бота `@maxima_consulting_leed_bot` на сайте содержат `data-tg-source` —
+при клике JS генерирует `click_id`, отправляет beacon на `/api/telegram-click` и
+перенаправляет в Telegram с payload `source_campaign-click_id`.
+
+Бот принимает апдейты через webhook:
+
+```bash
+# В server/.env
+TELEGRAM_WEBHOOK_SECRET=your_random_secret
+TELEGRAM_BOT_USERNAME=maxima_consulting_leed_bot
+```
+
+Установка webhook (один раз после деплоя):
+
+```bash
+curl -F "url=https://maxima-consulting.ru/api/telegram/webhook/YOUR_SECRET" \
+  "https://api.telegram.org/bot<TELEGRAM_BOT_TOKEN>/setWebhook"
+```
+
+Проверка:
+
+```bash
+curl -s "https://api.telegram.org/bot<TELEGRAM_BOT_TOKEN>/getWebhookInfo"
+```
+
+При `/start <payload>` бот:
+1. Создаёт или обновляет лид в Bitrix24 с меткой `telegram_dialog`.
+2. Отправляет приветственное сообщение пользователю.
+3. Уведомляет sales owner в `TELEGRAM_CHAT_ID`.
+4. Отправляет офлайн-конверсию `telegram_dialog` в Метрику, если известен `client_id` или `yclid`.
+
+Таблица соответствия кодов источников: `server/config/telegram-sources.json`.
+Клики хранятся в `server/data/telegram-clicks.json` (TTL 24 часа).
+
+Проверка beacon:
+
+```bash
+curl -s -X POST http://127.0.0.1:3011/api/telegram-click \
+  -H 'Content-Type: application/json' \
+  -d '{"click_id":"test1234","source_campaign":"site_organic","client_id":"123","landing_url":"https://maxima-consulting.ru/"}'
+```
+

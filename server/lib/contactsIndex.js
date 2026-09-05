@@ -78,6 +78,31 @@ function findRecent(contact, days) {
 
 function upsert(contact, meta) {
   const key = normalizeContact(contact);
+  upsertByKey(key, meta);
+}
+
+function findRecentByKey(key, days) {
+  const periodDays = days || DEFAULT_DAYS;
+  const index = readIndex();
+  const entry = index[key];
+
+  if (!entry) {
+    return null;
+  }
+
+  const ageMs = Date.now() - new Date(entry.updated_at).getTime();
+  if (ageMs > periodDays * 24 * 60 * 60 * 1000) {
+    return null;
+  }
+
+  return {
+    lead_id: entry.lead_id,
+    bitrix_id: entry.bitrix_id,
+    updated_at: entry.updated_at,
+  };
+}
+
+function upsertByKey(key, meta) {
   const index = readIndex();
   index[key] = {
     ...meta,
@@ -86,8 +111,18 @@ function upsert(contact, meta) {
   writeIndex(index);
 }
 
+function buildTelegramContactKey(username, userId) {
+  if (username) {
+    return `tg:@${username.toLowerCase()}`;
+  }
+  return `tg:id:${userId}`;
+}
+
 module.exports = {
   findRecent,
   upsert,
   normalizeContact,
+  findRecentByKey,
+  upsertByKey,
+  buildTelegramContactKey,
 };

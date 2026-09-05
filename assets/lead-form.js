@@ -4,7 +4,9 @@
   var METRIKA_COUNTER_ID = 112291401;
 
   var API_LEAD = '/api/lead';
-  var TELEGRAM_LINK = 'https://t.me/maxima_cfo';
+  var API_TELEGRAM_CLICK = '/api/telegram-click';
+  var TELEGRAM_BOT_USERNAME = 'maxima_consulting_leed_bot';
+  var TELEGRAM_LINK = 'https://t.me/' + TELEGRAM_BOT_USERNAME;
   var MEMO_LINK = '/financial-diagnostics#trust';
 
   var TRACKING_KEYS = [
@@ -516,10 +518,66 @@
     });
   }
 
+  function generateClickId() {
+    var chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+    var result = '';
+    for (var i = 0; i < 8; i += 1) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+  }
+
+  function buildTelegramDeepLink(sourceCampaign, clickId) {
+    var payload = clickId ? sourceCampaign + '-' + clickId : sourceCampaign;
+    return TELEGRAM_LINK + '?start=' + encodeURIComponent(payload);
+  }
+
+  function sendTelegramClickBeacon(sourceCampaign, clickId) {
+    var params = loadStoredParams();
+    var body = JSON.stringify({
+      click_id: clickId,
+      source_campaign: sourceCampaign,
+      client_id: params.client_id || '',
+      yclid: params.yclid || '',
+      landing_url: window.location.href,
+    });
+
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(API_TELEGRAM_CLICK, new Blob([body], { type: 'application/json' }));
+      return;
+    }
+
+    fetch(API_TELEGRAM_CLICK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: body,
+      keepalive: true,
+    }).catch(function () {
+      // ignore
+    });
+  }
+
+  function handleTelegramLinkClick(link) {
+    var sourceCampaign = link.getAttribute('data-tg-source');
+    if (!sourceCampaign) {
+      return;
+    }
+
+    var clickId = generateClickId();
+    link.href = buildTelegramDeepLink(sourceCampaign, clickId);
+    sendTelegramClickBeacon(sourceCampaign, clickId);
+  }
+
   document.addEventListener('click', function (event) {
-    var link = event.target.closest('a[href*="t.me/"]');
-    if (link) {
-      reachGoal('telegram_click');
+    var link = event.target.closest('a[data-tg-source], a[href*="t.me/"]');
+    if (!link) {
+      return;
+    }
+
+    reachGoal('telegram_click');
+
+    if (link.getAttribute('data-tg-source')) {
+      handleTelegramLinkClick(link);
     }
   });
 

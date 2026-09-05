@@ -229,11 +229,86 @@ async function updateLead(bitrixId, enrichPayload, leadId, existingComments) {
   });
 }
 
+function buildTelegramDialogComments(payload, leadId) {
+  const lines = [
+    `lead_id: ${leadId}`,
+    `event: telegram_dialog`,
+    `source_campaign: ${payload.source_campaign || 'direct_unknown'}`,
+    `Telegram: ${payload.telegram || payload.contact || ''}`,
+    `Первое сообщение: ${payload.first_message || ''}`,
+    '',
+    `source: ${buildSourceLabel(payload)}`,
+    `landing_url: ${payload.landing_url || ''}`,
+    `utm_source: ${payload.utm_source || ''}`,
+    `utm_medium: ${payload.utm_medium || ''}`,
+    `utm_campaign: ${payload.utm_campaign || ''}`,
+    `yclid: ${payload.yclid || ''}`,
+    `client_id: ${payload.client_id || ''}`,
+  ];
+
+  return lines.join('\n');
+}
+
+function buildTelegramDialogFields(payload, leadId) {
+  const name = payload.name || 'Telegram-диалог';
+  const title = `Telegram ${leadId.slice(0, 8)} — ${name}`;
+
+  const fields = {
+    TITLE: title,
+    NAME: name,
+    COMMENTS: buildTelegramDialogComments(payload, leadId),
+    SOURCE_ID: 'TELEGRAM',
+    OPENED: 'Y',
+  };
+
+  if (payload.telegram) {
+    fields.IM = [{ VALUE: payload.telegram, VALUE_TYPE: 'TELEGRAM' }];
+  }
+
+  const ownerId = process.env.BITRIX_DEFAULT_OWNER_ID;
+  if (ownerId) {
+    fields.ASSIGNED_BY_ID = Number(ownerId);
+  }
+
+  applyMappedFields(fields, payload, leadId, getLeadFieldCodesMap());
+
+  return fields;
+}
+
+async function createTelegramDialogLead(payload, leadId) {
+  const fields = buildTelegramDialogFields(payload, leadId);
+  const bitrixId = await callBitrix('crm.lead.add', { fields });
+  return bitrixId;
+}
+
+async function appendTelegramDialogComment(bitrixId, payload, leadId, existingComments) {
+  const lines = [
+    `[telegram_dialog ${leadId}]`,
+    `source_campaign: ${payload.source_campaign || 'direct_unknown'}`,
+    `Telegram: ${payload.telegram || payload.contact || ''}`,
+    `Первое сообщение: ${payload.first_message || ''}`,
+    `Источник: ${buildSourceLabel(payload)}`,
+    `client_id: ${payload.client_id || '—'}`,
+    `yclid: ${payload.yclid || '—'}`,
+  ];
+
+  const comment = `${existingComments || ''}\n\n${lines.join('\n')}`.trim();
+
+  await callBitrix('crm.lead.update', {
+    id: bitrixId,
+    fields: {
+      COMMENTS: comment,
+    },
+  });
+}
+
 module.exports = {
   callBitrix,
   createLead,
   updateLead,
   appendDuplicateLeadComment,
+  appendTelegramDialogComment,
+  createTelegramDialogLead,
   getLeadComments,
   buildCommentsForStore,
 };
