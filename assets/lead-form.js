@@ -349,7 +349,7 @@
       '<p class="lead-thankyou__text">Пока ждёте звонка, вы можете:</p>' +
       '<ul class="lead-thankyou__list">' +
       '<li>посмотреть <a href="' + MEMO_LINK + '">пример итогового memo</a>;</li>' +
-      '<li>написать нам в <a href="' + TELEGRAM_LINK + '" target="_blank" rel="noopener">Telegram</a>, если что-то захочется уточнить раньше.</li>' +
+      '<li>написать нам в <a href="' + TELEGRAM_LINK + '?start=site_organic" data-tg-source="site_organic" target="_blank" rel="noopener">Telegram</a>, если что-то захочется уточнить раньше.</li>' +
       '</ul>' +
       '<div class="lead-step2" data-step2></div>' +
       '</div>';
