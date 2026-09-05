@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch index.js",
-    "export:conversions": "node scripts/export-offline-conversions.js"
+    "export:conversions": "node scripts/export-offline-conversions.js",
+    "check:sla": "node scripts/check-sla-escalation.js"
   },
   "engines": {
     "node": ">=18"

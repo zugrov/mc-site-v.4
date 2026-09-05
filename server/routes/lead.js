@@ -7,15 +7,26 @@ const {
   leadStep2Schema,
   formatValidationError,
 } = require('../lib/validation');
-const { createLead, updateLead, buildCommentsForStore } = require('../lib/bitrix');
+const {
+  createLead,
+  updateLead,
+  appendDuplicateLeadComment,
+  getLeadComments,
+  buildCommentsForStore,
+} = require('../lib/bitrix');
 const {
   sendLeadMessage,
   editMessageMarkCrmOk,
   sendEnrichMessage,
+  notifyManagerNewTask,
 } = require('../lib/telegram');
 const { logLeadAttempt } = require('../lib/logger');
 const { saveFailedLead } = require('../lib/fallbackStore');
 const { saveLeadMeta, getLeadMeta } = require('../lib/leadStore');
+const { findRecent, upsert } = require('../lib/contactsIndex');
+const { getSlaDeadline } = require('../lib/businessHours');
+const { createFirstContactTask } = require('../lib/bitrixTasks');
+const { saveTask } = require('../lib/slaStore');
 
 const router = express.Router();
 
@@ -23,7 +34,41 @@ function getClientIp(req) {
   return req.ip || req.headers['x-forwarded-for'] || 'unknown';
 }
 
-router.post('/lead', async (req, res) => {
+async function handleSlaWorkflow(bitrixId, leadId, payload) {
+  const deadlineIso = getSlaDeadline(new Date());
+  const ownerId = process.env.BITRIX_DEFAULT_OWNER_ID;
+
+  const taskId = await createFirstContactTask({
+    bitrixLeadId: bitrixId,
+    leadId,
+    payload,
+    deadlineIso,
+    ownerId,
+  });
+
+  await notifyManagerNewTask(payload, leadId, deadlineIso);
+
+  saveTask({
+    lead_id: leadId,
+    bitrix_id: bitrixId,
+    bitrix_task_id: taskId,
+    name: payload.name,
+    deadline: deadlineIso,
+    escalated: false,
+    completed: false,
+  });
+}
+
+router.post('/lead', rateLimit({
+  windowMs: 10 * 60 * 1000,
+  max: 3,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    status: 'error',
+    message: 'Не получилось отправить заявку. Попробуйте ещё раз через минуту — или напишите нам напрямую в Telegram: https://t.me/maxima_cfo',
+  },
+}), async (req, res) => {
   const body = {
     ...req.body,
     user_agent: req.headers['user-agent'] || '',
@@ -53,12 +98,35 @@ router.post('/lead', async (req, res) => {
   let telegramResult = null;
   let bitrixError = null;
   let telegramError = null;
+  let slaError = null;
 
-  try {
-    bitrixId = await createLead(payload, leadId);
-    crmStatus = 'created';
-  } catch (error) {
-    bitrixError = error.message;
+  const duplicate = findRecent(payload.contact);
+
+  if (duplicate) {
+    try {
+      const existingComments = await getLeadComments(duplicate.bitrix_id);
+      await appendDuplicateLeadComment(
+        duplicate.bitrix_id,
+        payload,
+        leadId,
+        existingComments,
+      );
+      bitrixId = duplicate.bitrix_id;
+      crmStatus = 'duplicate';
+    } catch (error) {
+      bitrixError = error.message;
+    }
+  } else {
+    try {
+      bitrixId = await createLead(payload, leadId);
+      crmStatus = 'created';
+      upsert(payload.contact, {
+        lead_id: leadId,
+        bitrix_id: bitrixId,
+      });
+    } catch (error) {
+      bitrixError = error.message;
+    }
   }
 
   try {
@@ -79,6 +147,14 @@ router.post('/lead', async (req, res) => {
     }
   }
 
+  if (crmStatus === 'created' && bitrixId) {
+    try {
+      await handleSlaWorkflow(bitrixId, leadId, payload);
+    } catch (error) {
+      slaError = error.message;
+    }
+  }
+
   if (!bitrixId && !telegramResult) {
     saveFailedLead({
       lead_id: leadId,
@@ -95,6 +171,7 @@ router.post('/lead', async (req, res) => {
     telegram_chat_id: telegramResult?.chatId,
     payload,
     comments: buildCommentsForStore(payload, leadId),
+    duplicate_of: duplicate?.lead_id || null,
   });
 
   logLeadAttempt({
@@ -103,6 +180,8 @@ router.post('/lead', async (req, res) => {
     bitrix_id: bitrixId,
     bitrix_error: bitrixError,
     telegram_error: telegramError,
+    sla_error: slaError,
+    duplicate_of: duplicate?.lead_id || null,
     ip: getClientIp(req),
     timestamp,
     fast_submit: payload.fast_submit || false,

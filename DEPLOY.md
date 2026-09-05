@@ -136,9 +136,10 @@ curl -s -X POST http://127.0.0.1:3011/api/lead \
 
 ## Экспорт офлайн-конверсий в Яндекс.Метрику
 
-Скрипт раз в сутки выгружает из Bitrix24 сделки в целевых стадиях и отправляет
-офлайн-конверсии в Метрику (Offline Conversions API). Дедупликация и курсор
-хранятся в `server/data/conversion-export-state.json`.
+Основной путь — **триггер по событию** (робот Bitrix24 → HTTP-вебхук на наш сервер).
+Fallback — **ночной cron** (гарантия «не реже раза в сутки»).
+
+Дедупликация ведётся по `lead_id` (серверный UUID), а не по ID сделки в CRM.
 
 ### 1. Переменные окружения
 
@@ -147,15 +148,36 @@ curl -s -X POST http://127.0.0.1:3011/api/lead \
 ```bash
 YANDEX_METRIKA_COUNTER_ID=112291401
 YANDEX_METRIKA_OAUTH_TOKEN=your_oauth_token
-BITRIX_CONVERSION_GOALS={"C2:UC_MEETING":"meeting_held","C2:WON":"won"}
+YANDEX_METRIKA_CURRENCY=RUB
+BITRIX_CONVERSION_GOALS={"C2:UC_QUALIFIED":"qualified_lead","C2:UC_MEETING":"meeting_held","C2:WON":"won_diagnostic"}
 BITRIX_UF_CLIENT_ID_CODE=
 BITRIX_UF_YCLID_CODE=
+BITRIX_UF_LEAD_ID_CODE=
+BITRIX_WEBHOOK_SECRET=your_random_secret
+BITRIX_LEAD_FIELD_CODES={"utm_source":"UF_CRM_UTM_SOURCE","client_id":"UF_CRM_CLIENT_ID","lead_id":"UF_CRM_LEAD_ID"}
+BITRIX_DEFAULT_OWNER_ID=
+TELEGRAM_MANAGER_CHAT_ID=
+TELEGRAM_ESCALATION_CHAT_ID=
 ```
 
 - `BITRIX_CONVERSION_GOALS` — JSON: ключ = `STATUS_ID` сделки, значение = идентификатор цели в Метрике.
-- `BITRIX_UF_*` — опционально; если пусто, `client_id`/`yclid` берутся из `COMMENTS` связанного лида.
+- Для целей `won_*` передаётся сумма сделки (`OPPORTUNITY`) в офлайн-конверсии.
 
-### 2. Ручной запуск
+### 2. Робот Bitrix24 → вебхук (предпочтительно)
+
+В CRM → Роботы и триггеры на нужных стадиях сделки добавить действие
+«Исходящий вебхук» / «HTTP-запрос»:
+
+```
+POST https://maxima-consulting.ru/api/internal/bitrix-webhook?secret=YOUR_SECRET
+Content-Type: application/json
+
+{"deal_id":"{=Document:ID}","status_id":"{=Document:STATUS_ID}"}
+```
+
+Если робот недоступен на тарифе — работает только ночной cron (см. ниже).
+
+### 3. Ручной запуск fallback-экспорта
 
 ```bash
 cd /opt/maxima-consulting/apps/mc-site-v.4/server
@@ -164,21 +186,42 @@ npm run export:conversions
 
 Логи: `server/data/conversion-export.log`
 
-### 3. Cron (ежедневно в 04:00 UTC)
-
-```bash
-sudo crontab -e
-```
+### 4. Cron fallback (ежедневно в 04:00 UTC)
 
 ```cron
 0 4 * * * cd /opt/maxima-consulting/apps/mc-site-v.4/server && /usr/bin/node scripts/export-offline-conversions.js >> data/conversion-export-cron.log 2>&1
 ```
 
-Убедиться, что каталог `server/data/` доступен пользователю cron (обычно `www-data` или `root`).
+### 5. Проверка
 
-### 4. Проверка
+1. Перевести сделку в стадию из `BITRIX_CONVERSION_GOALS` (или вызвать вебхук вручную).
+2. Проверить `conversion-export.log` — статус `uploaded`, ключ `lead_id:goal`.
+3. В Метрике — офлайн-конверсии (задержка до нескольких часов).
 
-1. Создать в Bitrix24 сделку в стадии из `BITRIX_CONVERSION_GOALS` со связанным лидом, у которого в комментарии есть `client_id:` или `yclid:`.
-2. Запустить скрипт вручную.
-3. Проверить `conversion-export.log` — статус `completed`, `uploaded > 0`.
-4. В Метрике — раздел офлайн-конверсий / отчёт по целям (задержка до нескольких часов).
+## SLA: автозадача и эскалация
+
+При создании нового лида сервер автоматически:
+1. Создаёт задачу в Bitrix24 (`tasks.task.add`) с дедлайном по SLA (15 мин в рабочее время).
+2. Отправляет уведомление менеджеру в `TELEGRAM_MANAGER_CHAT_ID`.
+3. Сохраняет задачу в `server/data/sla-tasks.json`.
+
+Cron эскалации (каждые 5 минут):
+
+```cron
+*/5 * * * * cd /opt/maxima-consulting/apps/mc-site-v.4/server && /usr/bin/node scripts/check-sla-escalation.js >> data/sla-escalation-cron.log 2>&1
+```
+
+При просрочке SLA — уведомление в `TELEGRAM_ESCALATION_CHAT_ID`.
+
+Ручная проверка:
+
+```bash
+cd /opt/maxima-consulting/apps/mc-site-v.4/server
+npm run check:sla
+```
+
+## Дедупликация лидов
+
+Повторная заявка с тем же телефоном/Telegram за 30 дней не создаёт новый лид в Bitrix —
+добавляется комментарий к существующей карточке, в ответе API `crm_status: duplicate`.
+Индекс контактов: `server/data/contacts-index.json`.

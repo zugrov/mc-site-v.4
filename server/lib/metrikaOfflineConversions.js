@@ -16,6 +16,10 @@ function getOAuthToken() {
   return token;
 }
 
+function getCurrency() {
+  return process.env.YANDEX_METRIKA_CURRENCY || 'RUB';
+}
+
 function toUnixSeconds(dateValue) {
   const timestamp = Math.floor(new Date(dateValue).getTime() / 1000);
   if (Number.isNaN(timestamp)) {
@@ -32,6 +36,36 @@ function buildCsv(headers, rows) {
     }).join(','));
   });
   return lines.join('\n');
+}
+
+function buildRowsForType(rows, idField, idKey) {
+  const currency = getCurrency();
+  const hasPrice = rows.some(function (row) {
+    return row.price !== undefined && row.price !== null && row.price !== '';
+  });
+
+  return rows.map(function (row) {
+    const base = {
+      [idField]: row[idKey],
+      Target: row.target,
+      DateTime: toUnixSeconds(row.dateTime),
+    };
+
+    if (hasPrice) {
+      base.Price = row.price !== undefined && row.price !== null ? row.price : '';
+      base.Currency = row.price ? currency : '';
+    }
+
+    return base;
+  });
+}
+
+function getHeaders(idField, sampleRow) {
+  const headers = [idField, 'Target', 'DateTime'];
+  if (sampleRow && Object.prototype.hasOwnProperty.call(sampleRow, 'Price')) {
+    headers.push('Price', 'Currency');
+  }
+  return headers;
 }
 
 async function uploadCsvFile(csvContent, idType) {
@@ -75,44 +109,34 @@ async function uploadConversions(rows) {
     return { uploaded: 0, batches: [] };
   }
 
-  const clientRows = [];
-  const yclidRows = [];
-
-  rows.forEach(function (row) {
-    const dateTime = toUnixSeconds(row.dateTime);
-    if (row.clientId) {
-      clientRows.push({
-        ClientId: row.clientId,
-        Target: row.target,
-        DateTime: dateTime,
-      });
-      return;
-    }
-    if (row.yclid) {
-      yclidRows.push({
-        Yclid: row.yclid,
-        Target: row.target,
-        DateTime: dateTime,
-      });
-    }
+  const clientSourceRows = rows.filter(function (row) {
+    return Boolean(row.clientId);
+  });
+  const yclidSourceRows = rows.filter(function (row) {
+    return !row.clientId && row.yclid;
   });
 
   const batches = [];
+  let uploaded = 0;
 
-  if (clientRows.length) {
-    const csv = buildCsv(['ClientId', 'Target', 'DateTime'], clientRows);
+  if (clientSourceRows.length) {
+    const clientRows = buildRowsForType(clientSourceRows, 'ClientId', 'clientId');
+    const csv = buildCsv(getHeaders('ClientId', clientRows[0]), clientRows);
     const result = await uploadCsvFile(csv, 'client');
     batches.push({ type: 'ClientId', count: clientRows.length, result });
+    uploaded += clientRows.length;
   }
 
-  if (yclidRows.length) {
-    const csv = buildCsv(['Yclid', 'Target', 'DateTime'], yclidRows);
+  if (yclidSourceRows.length) {
+    const yclidRows = buildRowsForType(yclidSourceRows, 'Yclid', 'yclid');
+    const csv = buildCsv(getHeaders('Yclid', yclidRows[0]), yclidRows);
     const result = await uploadCsvFile(csv, 'yclid');
     batches.push({ type: 'Yclid', count: yclidRows.length, result });
+    uploaded += yclidRows.length;
   }
 
   return {
-    uploaded: clientRows.length + yclidRows.length,
+    uploaded,
     batches,
   };
 }

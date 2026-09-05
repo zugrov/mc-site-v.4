@@ -133,8 +133,55 @@ async function sendEnrichMessage(payload, leadId) {
   });
 }
 
+async function sendToChat(chatId, text) {
+  if (!chatId) {
+    return null;
+  }
+
+  return telegramRequest('sendMessage', {
+    chat_id: chatId,
+    text,
+  });
+}
+
+async function notifyManagerNewTask(payload, leadId, deadlineIso) {
+  const chatId = process.env.TELEGRAM_MANAGER_CHAT_ID;
+  if (!chatId) {
+    return null;
+  }
+
+  const text = [
+    `Новая задача на первый контакт [lead_id: ${leadId}]`,
+    `Имя: ${payload.name}`,
+    `Контакт: ${payload.contact}`,
+    `Вопрос: ${payload.question}`,
+    `Дедлайн SLA: ${new Date(deadlineIso).toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })}`,
+  ].join('\n');
+
+  return sendToChat(chatId, text);
+}
+
+async function notifySlaEscalation(task) {
+  const chatId = process.env.TELEGRAM_ESCALATION_CHAT_ID || process.env.TELEGRAM_CHAT_ID;
+  if (!chatId) {
+    throw new Error('TELEGRAM_ESCALATION_CHAT_ID не настроен');
+  }
+
+  const text = [
+    '⚠ SLA просрочен: первый контакт не выполнен',
+    `lead_id: ${task.lead_id}`,
+    `Задача Bitrix: ${task.bitrix_task_id || '—'}`,
+    `Дедлайн: ${new Date(task.deadline).toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })}`,
+    `Имя: ${task.name || '—'}`,
+  ].join('\n');
+
+  return sendToChat(chatId, text);
+}
+
 module.exports = {
   sendLeadMessage,
   editMessageMarkCrmOk,
   sendEnrichMessage,
+  notifyManagerNewTask,
+  notifySlaEscalation,
 };

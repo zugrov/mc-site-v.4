@@ -3,13 +3,10 @@ require('dotenv').config({ path: require('path').join(__dirname, '..', '.env') }
 const {
   getConversionGoals,
   listConvertedDeals,
-  resolveIdentifiers,
 } = require('../lib/bitrixExport');
-const { uploadConversions } = require('../lib/metrikaOfflineConversions');
+const { processDealConversion } = require('../lib/processConversion');
 const {
   getLastRunAt,
-  isExported,
-  markExported,
   setLastRunAt,
 } = require('../lib/conversionExportStore');
 const { logConversionExport } = require('../lib/logger');
@@ -36,93 +33,51 @@ async function runExport() {
 
   logConversionExport({
     status: 'started',
+    source: 'nightly',
     since: sinceIso,
     goals: goalCount,
   });
 
   const deals = await listConvertedDeals(sinceIso);
-  const pendingRows = [];
-  const exportedEntries = [];
+  let uploaded = 0;
   let skippedDuplicate = 0;
   let skippedNoIdentifiers = 0;
+  let skippedNoLeadId = 0;
 
   for (const deal of deals) {
-    const goal = goals[deal.STATUS_ID];
-    if (!goal) {
-      continue;
-    }
+    const result = await processDealConversion(deal, { source: 'nightly' });
 
-    if (isExported(deal.ID, goal)) {
+    if (result.status === 'uploaded') {
+      uploaded += result.uploaded || 1;
+    } else if (result.status === 'duplicate') {
       skippedDuplicate += 1;
-      continue;
-    }
-
-    const identifiers = await resolveIdentifiers(deal);
-    if (!identifiers.clientId && !identifiers.yclid) {
+    } else if (result.reason === 'no_identifiers') {
       skippedNoIdentifiers += 1;
-      logConversionExport({
-        status: 'skipped_deal',
-        deal_id: deal.ID,
-        goal,
-        reason: 'нет client_id и yclid',
-      });
-      continue;
+    } else if (result.reason === 'no_lead_id') {
+      skippedNoLeadId += 1;
     }
-
-    pendingRows.push({
-      dealId: deal.ID,
-      goal,
-      target: goal,
-      clientId: identifiers.clientId,
-      yclid: identifiers.yclid,
-      dateTime: deal.DATE_MODIFY,
-    });
   }
 
-  if (!pendingRows.length) {
-    setLastRunAt(runStartedAt);
-    logConversionExport({
-      status: 'completed',
-      since: sinceIso,
-      deals_found: deals.length,
-      uploaded: 0,
-      skipped_duplicate: skippedDuplicate,
-      skipped_no_identifiers: skippedNoIdentifiers,
-    });
-    console.log(`Экспорт завершён: сделок ${deals.length}, отправлено 0`);
-    return;
-  }
-
-  const uploadResult = await uploadConversions(pendingRows);
-
-  pendingRows.forEach(function (row) {
-    exportedEntries.push({
-      dealId: row.dealId,
-      goal: row.goal,
-    });
-  });
-
-  markExported(exportedEntries);
   setLastRunAt(runStartedAt);
 
   logConversionExport({
     status: 'completed',
+    source: 'nightly',
     since: sinceIso,
     deals_found: deals.length,
-    uploaded: uploadResult.uploaded,
-    batches: uploadResult.batches,
+    uploaded,
     skipped_duplicate: skippedDuplicate,
     skipped_no_identifiers: skippedNoIdentifiers,
+    skipped_no_lead_id: skippedNoLeadId,
   });
 
-  console.log(
-    `Экспорт завершён: сделок ${deals.length}, отправлено ${uploadResult.uploaded}`
-  );
+  console.log(`Экспорт завершён: сделок ${deals.length}, отправлено ${uploaded}`);
 }
 
 runExport().catch(function (error) {
   logConversionExport({
     status: 'failed',
+    source: 'nightly',
     error: error.message,
   });
   console.error('Ошибка экспорта офлайн-конверсий:', error.message);

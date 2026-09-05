@@ -1,40 +1,6 @@
+const { callBitrix } = require('./bitrix');
+
 const TIMEOUT_MS = Number(process.env.EXTERNAL_TIMEOUT_MS) || 5000;
-
-function getWebhookBase() {
-  const url = process.env.BITRIX24_WEBHOOK_URL;
-  if (!url) {
-    return null;
-  }
-  return url.replace(/\/crm\.lead\.add\.json\/?$/, '');
-}
-
-async function callBitrix(method, params) {
-  const base = getWebhookBase();
-  if (!base) {
-    throw new Error('BITRIX24_WEBHOOK_URL не настроен');
-  }
-
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-
-  try {
-    const response = await fetch(`${base}/${method}.json`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(params),
-      signal: controller.signal,
-    });
-
-    const data = await response.json();
-    if (!response.ok || data.error) {
-      throw new Error(data.error_description || data.error || 'Bitrix API error');
-    }
-
-    return data.result;
-  } finally {
-    clearTimeout(timer);
-  }
-}
 
 function getConversionGoals() {
   const raw = process.env.BITRIX_CONVERSION_GOALS || '{}';
@@ -49,8 +15,12 @@ function getConversionGoals() {
   }
 }
 
+function isWonGoal(goal) {
+  return typeof goal === 'string' && goal.startsWith('won_');
+}
+
 function getSelectFields() {
-  const fields = ['ID', 'STATUS_ID', 'DATE_MODIFY', 'LEAD_ID'];
+  const fields = ['ID', 'STATUS_ID', 'DATE_MODIFY', 'LEAD_ID', 'OPPORTUNITY'];
   const clientIdCode = process.env.BITRIX_UF_CLIENT_ID_CODE;
   const yclidCode = process.env.BITRIX_UF_YCLID_CODE;
 
@@ -68,10 +38,12 @@ function parseCommentsIdentifiers(comments) {
   const text = comments || '';
   const clientMatch = text.match(/client_id:\s*(\S+)/);
   const yclidMatch = text.match(/yclid:\s*(\S+)/);
+  const leadMatch = text.match(/lead_id:\s*(\S+)/);
 
   return {
     clientId: clientMatch && clientMatch[1] ? clientMatch[1] : null,
     yclid: yclidMatch && yclidMatch[1] ? yclidMatch[1] : null,
+    leadId: leadMatch && leadMatch[1] ? leadMatch[1] : null,
   };
 }
 
@@ -125,14 +97,24 @@ async function listConvertedDeals(sinceIso) {
   return deals;
 }
 
+async function getDealById(dealId) {
+  const select = getSelectFields();
+  return callBitrix('crm.deal.get', {
+    id: dealId,
+    select,
+  });
+}
+
 async function resolveIdentifiers(deal) {
   const clientIdCode = process.env.BITRIX_UF_CLIENT_ID_CODE;
   const yclidCode = process.env.BITRIX_UF_YCLID_CODE;
+  const leadIdCode = process.env.BITRIX_UF_LEAD_ID_CODE;
 
   let clientId = readFieldValue(deal, clientIdCode);
   let yclid = readFieldValue(deal, yclidCode);
+  let leadId = readFieldValue(deal, leadIdCode);
 
-  if ((!clientId || !yclid) && deal.LEAD_ID) {
+  if ((!clientId || !yclid || !leadId) && deal.LEAD_ID) {
     const lead = await callBitrix('crm.lead.get', { id: deal.LEAD_ID });
     const fromComments = parseCommentsIdentifiers(lead.COMMENTS);
 
@@ -142,16 +124,22 @@ async function resolveIdentifiers(deal) {
     if (!yclid) {
       yclid = readFieldValue(lead, yclidCode) || fromComments.yclid;
     }
+    if (!leadId) {
+      leadId = readFieldValue(lead, leadIdCode) || fromComments.leadId;
+    }
   }
 
   return {
     clientId: clientId || null,
     yclid: yclid || null,
+    leadId: leadId || null,
   };
 }
 
 module.exports = {
   getConversionGoals,
   listConvertedDeals,
+  getDealById,
   resolveIdentifiers,
+  isWonGoal,
 };

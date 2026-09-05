@@ -38,12 +38,35 @@ async function callBitrix(method, params) {
   }
 }
 
+function getLeadFieldCodesMap() {
+  const raw = process.env.BITRIX_LEAD_FIELD_CODES;
+  if (!raw) {
+    return {};
+  }
+
+  try {
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+      return {};
+    }
+    return parsed;
+  } catch (error) {
+    return {};
+  }
+}
+
 function splitContact(contact) {
   const trimmed = contact.trim();
   if (trimmed.startsWith('@') || /t\.me/i.test(trimmed)) {
     return { phone: null, telegram: trimmed };
   }
   return { phone: trimmed, telegram: null };
+}
+
+function buildSourceLabel(payload) {
+  const source = payload.utm_source || 'direct';
+  const medium = payload.utm_medium || 'form';
+  return `${source}/${medium}`;
 }
 
 function buildComments(payload, leadId) {
@@ -55,6 +78,7 @@ function buildComments(payload, leadId) {
     `Срочность: ${label('urgency', payload.urgency)}`,
     `Вопрос: ${payload.question}`,
     '',
+    `source: ${buildSourceLabel(payload)}`,
     `landing_url: ${payload.landing_url || ''}`,
     `referrer: ${payload.referrer || ''}`,
     `utm_source: ${payload.utm_source || ''}`,
@@ -72,6 +96,30 @@ function buildComments(payload, leadId) {
 
 function buildCommentsForStore(payload, leadId) {
   return buildComments(payload, leadId);
+}
+
+function applyMappedFields(fields, payload, leadId, fieldCodes) {
+  const payloadMap = {
+    source: buildSourceLabel(payload),
+    utm_source: payload.utm_source || '',
+    utm_medium: payload.utm_medium || '',
+    utm_campaign: payload.utm_campaign || '',
+    utm_content: payload.utm_content || '',
+    utm_term: payload.utm_term || '',
+    utm_campaign_name: payload.utm_campaign_name || '',
+    yclid: payload.yclid || '',
+    client_id: payload.client_id || '',
+    landing_url: payload.landing_url || '',
+    lead_id: leadId,
+    timestamp: new Date().toISOString(),
+  };
+
+  Object.keys(fieldCodes).forEach(function (key) {
+    const code = fieldCodes[key];
+    if (code && Object.prototype.hasOwnProperty.call(payloadMap, key)) {
+      fields[code] = payloadMap[key];
+    }
+  });
 }
 
 function buildLeadFields(payload, leadId) {
@@ -94,6 +142,13 @@ function buildLeadFields(payload, leadId) {
     fields.IM = [{ VALUE: telegram, VALUE_TYPE: 'TELEGRAM' }];
   }
 
+  const ownerId = process.env.BITRIX_DEFAULT_OWNER_ID;
+  if (ownerId) {
+    fields.ASSIGNED_BY_ID = Number(ownerId);
+  }
+
+  applyMappedFields(fields, payload, leadId, getLeadFieldCodesMap());
+
   return fields;
 }
 
@@ -101,6 +156,32 @@ async function createLead(payload, leadId) {
   const fields = buildLeadFields(payload, leadId);
   const bitrixId = await callBitrix('crm.lead.add', { fields });
   return bitrixId;
+}
+
+async function appendDuplicateLeadComment(bitrixId, payload, newLeadId, existingComments) {
+  const lines = [
+    `[Повторная заявка ${newLeadId}]`,
+    `Имя: ${payload.name}`,
+    `Контакт: ${payload.contact}`,
+    `Источник: ${buildSourceLabel(payload)}`,
+    `Страница: ${payload.landing_url || '—'}`,
+    `UTM campaign: ${payload.utm_campaign || '—'}`,
+    `Вопрос: ${payload.question}`,
+  ];
+
+  const comment = `${existingComments || ''}\n\n${lines.join('\n')}`.trim();
+
+  await callBitrix('crm.lead.update', {
+    id: bitrixId,
+    fields: {
+      COMMENTS: comment,
+    },
+  });
+}
+
+async function getLeadComments(bitrixId) {
+  const lead = await callBitrix('crm.lead.get', { id: bitrixId });
+  return lead.COMMENTS || '';
 }
 
 async function updateLead(bitrixId, enrichPayload, leadId, existingComments) {
@@ -149,7 +230,10 @@ async function updateLead(bitrixId, enrichPayload, leadId, existingComments) {
 }
 
 module.exports = {
+  callBitrix,
   createLead,
   updateLead,
+  appendDuplicateLeadComment,
+  getLeadComments,
   buildCommentsForStore,
 };

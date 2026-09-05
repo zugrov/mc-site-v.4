@@ -38,17 +38,18 @@ function writeState(state) {
   fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2), 'utf8');
 }
 
-function isExported(dealId, goal) {
+function isExported(leadId, goal) {
   const state = readState();
-  return Boolean(state.exported[`${dealId}:${goal}`]);
+  return Boolean(state.exported[`${leadId}:${goal}`]);
 }
 
 function markExported(entries) {
   const state = readState();
   entries.forEach(function (entry) {
-    state.exported[`${entry.dealId}:${entry.goal}`] = {
+    state.exported[`${entry.leadId}:${entry.goal}`] = {
       exported_at: new Date().toISOString(),
-      deal_id: entry.dealId,
+      lead_id: entry.leadId,
+      deal_id: entry.dealId || null,
       goal: entry.goal,
     };
   });
