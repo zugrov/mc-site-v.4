@@ -1,3 +1,6 @@
+# --- Локальное / не для production ---
+Visual/
+.DS_Store
 
 # --- Infisical: локальные секреты не коммитим ---
 .env

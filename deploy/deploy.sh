@@ -10,6 +10,7 @@ git pull origin main
 mkdir -p "$DST"
 rsync -av --delete "$SRC/" "$DST/" \
   --exclude .git \
-  --exclude deploy
+  --exclude deploy \
+  --exclude Visual
 
 echo "Deployed to $DST"

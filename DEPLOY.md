@@ -58,11 +58,29 @@ Certbot добавит HTTPS-блоки и настроит редирект HTT
 
 ## Обновление после push в GitHub
 
+**Основной путь:** push в ветку `main` → workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) по SSH под `root` запускает `deploy/deploy.sh` и `nginx -t && systemctl reload nginx`.
+
+### Секреты GitHub Actions
+
+В репозитории: Settings → Secrets and variables → Actions:
+
+| Секрет | Описание |
+|--------|----------|
+| `VPS_HOST` | IP или hostname VPS |
+| `VPS_SSH_KEY` | Приватный SSH-ключ (ed25519); публичная часть — в `/root/.ssh/authorized_keys` на VPS |
+
+Однократно на VPS: clone в `/opt/maxima-consulting/apps/mc-site-v.4`, `chmod +x deploy/deploy.sh`.
+
+### Ручной деплой (fallback)
+
 ```bash
 /opt/maxima-consulting/apps/mc-site-v.4/deploy/deploy.sh
+sudo nginx -t && sudo systemctl reload nginx
 ```
 
-Скрипт выполняет `git pull origin main` и `rsync` в web root (без `.git` и `deploy/`).
+Скрипт выполняет `git pull origin main` и `rsync` в web root (без `.git`, `deploy/` и **`Visual/`**).
+
+Папка **`Visual/`** (~исходники и тяжёлые видео) **не коммитится** (см. `.gitignore`) и **не попадает** в web root на production.
 
 ## Проверка
 
