@@ -1,0 +1,7 @@
+Micro-interaction verification 2026-09-15:
+- Desktop preview renders without layout changes after CSS update.
+- pnpm check passes.
+- pnpm build passes; only existing Vite chunk-size warning remains.
+- Added button shine sweep and arrow movement on hover.
+- Added scenario-card lift, shadow/glow, icon tilt, tag accent, title nudge, metric scale, and arrow fill.
+- Existing prefers-reduced-motion rule remains active with !important duration override.
