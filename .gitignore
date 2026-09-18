@@ -10,6 +10,12 @@ Visual/
 .env.test.local
 .env.production.local
 
+# --- Node ---
+blog-app/node_modules/
+maxima-consulting-pro/node_modules/
+maxima-financial-diagnostics-pro/node_modules/
+maxima-nds-2026-pro/node_modules/
+
 # --- Lead API ---
 server/node_modules/
 server/.env

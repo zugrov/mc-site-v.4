@@ -9,6 +9,15 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main() -> int:
+    blog_pkg = ROOT / "blog-app" / "package.json"
+    if blog_pkg.is_file():
+        print("→ blog-app build")
+        subprocess.run(
+            ["npm", "run", "build"],
+            check=True,
+            cwd=ROOT / "blog-app",
+        )
+
     scripts = [
         ROOT / "scripts" / "gen_diag_variant.py",
         ROOT / "scripts" / "gen_nds_variant.py",

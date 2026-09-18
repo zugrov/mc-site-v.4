@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Allow: /blog/
 Disallow: /variant-a.html
 Disallow: /variant-b.html
 Disallow: /variant-c.html

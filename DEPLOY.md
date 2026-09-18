@@ -78,13 +78,24 @@ Certbot добавит HTTPS-блоки и настроит редирект HTT
 sudo nginx -t && sudo systemctl reload nginx
 ```
 
-Скрипт выполняет `git pull origin main` и `rsync` в web root (без `.git`, `deploy/` и **`Visual/`**).
+Скрипт выполняет `git pull origin main`, при наличии `blog-app/package.json` — **`npm ci --legacy-peer-deps && npm run build`** в `blog-app` (статика в `blog/`, обновление `sitemap.xml`), затем `rsync` в web root (без `.git`, `deploy/` и **`Visual/`**).
 
 Папка **`Visual/`** (~исходники и тяжёлые видео) **не коммитится** (см. `.gitignore`) и **не попадает** в web root на production.
+
+Исключения `rsync`: `blog-app/node_modules`, `maxima-*-pro/node_modules`.
+
+## Блог
+
+Раздел `/blog/` — SSG из подпроекта `blog-app`, контент в `content/blog/*.mdx`. Сборка на VPS встроена в `deploy/deploy.sh`; локально: `cd blog-app && npm run build`.
+
+**Инструкция по наполнению (новые статьи, frontmatter, MDX):** [docs/BLOG-CONTENT.md](docs/BLOG-CONTENT.md).
+
+Nginx: `location /blog/` с `try_files` — см. `deploy/nginx/maximaconsulting.conf`.
 
 ## Проверка
 
 - https://maxima-consulting.ru — лендинг
+- https://maxima-consulting.ru/blog/ — блог
 - https://maxima-consulting.ru/sitemap.xml
 - https://maxima-consulting.ru/robots.txt
 - https://maxima-consulting.ru/api/health — Lead API (должен вернуть `{"status":"ok"}`)

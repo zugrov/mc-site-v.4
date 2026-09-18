@@ -236,7 +236,7 @@ html = f"""<!DOCTYPE html>
       <div class="container header-inner">
         <a class="brand" href="{SITE_HOME}" aria-label="Maxima Consulting — на главную">{BRAND_INNER}</a>
         <nav class="desktop-nav" aria-label="Основная навигация">
-          <a href="#process">Как работаем</a><a href="#charts">В цифрах</a><a href="#trust">Почему мы</a><a href="#faq">FAQ</a>
+          <a href="#process">Как работаем</a><a href="#charts">В цифрах</a><a href="#trust">Почему мы</a><a href="#faq">FAQ</a><a href="/blog/">Блог</a>
         </nav>
         <div class="header-actions">
           <a class="header-phone" href="tel:+79808488480">+7 980 848-84-80</a>
