@@ -10,6 +10,7 @@ import {
   type PostFull,
   type PostSummary,
 } from "../shared/blog-types";
+import { mdxRemarkPlugins } from "../shared/mdx-remark-plugins";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 export const CONTENT_DIR = path.join(repoRoot, "content", "blog");
@@ -53,6 +54,7 @@ export async function loadPostBySlug(slug: string): Promise<PostFull | null> {
     const mod = (await evaluate(content, {
       ...runtime,
       baseUrl: import.meta.url,
+      remarkPlugins: mdxRemarkPlugins,
     })) as MDXModule;
     return {
       ...parsed,

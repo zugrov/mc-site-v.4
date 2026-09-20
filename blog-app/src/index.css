@@ -29,8 +29,72 @@ a {
   @apply prose prose-invert prose-headings:font-[family-name:var(--font-display)] prose-a:text-teal-300 max-w-none;
 }
 
+/* Сброс стилей typography для таблиц — свои ниже */
+.blog-prose :where(.blog-table-wrap table) {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.blog-table-wrap {
+  margin: 2rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: #111313;
+}
+
+.blog-table {
+  width: 100%;
+  min-width: 32rem;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.blog-table thead th {
+  background: rgba(13, 148, 136, 0.14);
+  color: var(--paper);
+  font-weight: 600;
+  text-align: left;
+  vertical-align: top;
+}
+
 .blog-table th,
 .blog-table td {
-  border: 1px solid var(--line);
-  padding: 0.5rem 0.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.blog-table tbody tr:last-child th,
+.blog-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.blog-table tbody tr:hover td {
+  background: rgba(238, 234, 225, 0.03);
+}
+
+.blog-table td {
+  color: #bfc2ba;
+}
+
+.blog-table td strong,
+.blog-table th strong {
+  color: var(--paper);
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .blog-table {
+    min-width: 0;
+    font-size: 0.875rem;
+  }
+
+  .blog-table th,
+  .blog-table td {
+    padding: 0.625rem 0.75rem;
+  }
 }
