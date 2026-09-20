@@ -199,7 +199,7 @@ html = f"""<!DOCTYPE html>
     <header class="site-header">
       <a class="brand" href="{SITE_HOME}" aria-label="Maxima Consulting — на главную">{BRAND_INNER}</a>
       <nav class="main-nav" aria-label="Основная навигация">
-        <a href="#scenarios">Сценарии</a><a href="#reference">Справочно</a><a href="#trust">Подход</a><a href="#faq">FAQ</a><a href="/blog/">Блог</a>
+        <a href="#scenarios">Сценарии</a><a href="#reference">Справочно</a><a href="#trust">Подход</a><a href="#faq">FAQ</a><a href="/blog/">Статьи</a>
       </nav>
       <div class="header-actions">
         <a class="header-phone" href="tel:+79808488480">+7 980 848-84-80</a>

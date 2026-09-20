@@ -20,7 +20,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <a href="https://maxima-consulting.ru/#services" className="hover:text-white">
               Услуги
             </a>
-            <a href="/blog/" className="text-white font-medium">Блог</a>
+            <a href="/blog/" className="text-white font-medium">Статьи</a>
             <a href="https://maxima-consulting.ru/#contact" className="hover:text-white">
               Контакты
             </a>

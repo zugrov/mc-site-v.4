@@ -95,7 +95,7 @@ Nginx: `location /blog/` с `try_files` — см. `deploy/nginx/maximaconsulting
 ## Проверка
 
 - https://maxima-consulting.ru — лендинг
-- https://maxima-consulting.ru/blog/ — блог
+- https://maxima-consulting.ru/blog/ — статьи (раздел «Статьи»)
 - https://maxima-consulting.ru/sitemap.xml
 - https://maxima-consulting.ru/robots.txt
 - https://maxima-consulting.ru/api/health — Lead API (должен вернуть `{"status":"ok"}`)

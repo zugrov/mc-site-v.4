@@ -43,6 +43,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://maxima-consulting.ru/blog/fns-otbor-proverki-samozanyatyh-2026/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://maxima-consulting.ru/blog/kassovyj-razryv-prognoz-30-60-dnej/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
@@ -51,6 +57,18 @@
   <url>
     <loc>https://maxima-consulting.ru/blog/kejs-ekonomiya-nds-3-4-mln/</loc>
     <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://maxima-consulting.ru/blog/kosvennye-nalogi-import-sebestoimost/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://maxima-consulting.ru/blog/marketplejsy-proverka-deklaracij-2026/</loc>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -73,7 +91,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://maxima-consulting.ru/blog/nds-pri-importe-iz-eaes-2026/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://maxima-consulting.ru/blog/podveshennaya-zadolzhennost-mezhdu-svoimi-kompaniyami/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://maxima-consulting.ru/blog/ponyatiya-po-ponyatiyam-vyruchka/</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -93,6 +123,18 @@
   <url>
     <loc>https://maxima-consulting.ru/blog/sbp-ne-otmenyaet-kassu/</loc>
     <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://maxima-consulting.ru/blog/swift-iban-mezhdunarodnyj-perevod-2026/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://maxima-consulting.ru/blog/tamozhnya-oformlenie-import-iz-kitaya-2026/</loc>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

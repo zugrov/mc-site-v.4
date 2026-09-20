@@ -2,11 +2,11 @@ import type { PostSummary } from "../shared/blog-types";
 
 export function indexHead(): string {
   return `
-  <title>Блог — maxima consulting</title>
+  <title>Статьи — maxima consulting</title>
   <meta name="description" content="Статьи о НДС, управленческом учёте и финансах для собственников МСБ." />
   <link rel="canonical" href="https://maxima-consulting.ru/blog/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Блог — maxima consulting" />
+  <meta property="og:title" content="Статьи — maxima consulting" />
   <meta property="og:url" content="https://maxima-consulting.ru/blog/" />
 `;
 }

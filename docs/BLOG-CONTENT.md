@@ -205,7 +205,7 @@ python3 scripts/publish_landings.py
 | Обложки из Visual | `scripts/generate-blog-covers.sh` |
 | Новые MDX-компоненты, вёрстка | `blog-app/src/`, `blog-app/src/lib/mdx-components.tsx` |
 | Схема frontmatter | `blog-app/shared/blog-types.ts` |
-| Пункт «Блог» на главной | `variant-pro.html` → `python3 scripts/publish_landings.py` |
+| Пункт «Статьи» на главной | `variant-pro.html` → `python3 scripts/publish_landings.py` |
 | Nginx для `/blog/` | `deploy/nginx/maximaconsulting.conf` |
 | Тесты frontmatter | `blog-app/tests/` |
 

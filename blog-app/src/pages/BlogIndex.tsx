@@ -51,7 +51,7 @@ export default function BlogIndex({
   return (
     <SiteLayout>
       <h1 className="text-4xl font-bold font-[family-name:var(--font-display)] mb-3">
-        Блог
+        Статьи
       </h1>
       <p className="text-[#898e87] max-w-2xl mb-8">
         Разборы налоговых изменений, управленческого учёта и решений для собственников.

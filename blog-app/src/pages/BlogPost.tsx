@@ -37,7 +37,7 @@ export default function BlogPost({
       <nav className="text-sm text-[#6b7280] mb-6">
         <a href="https://maxima-consulting.ru/" className="hover:text-teal-300">Главная</a>
         <span className="mx-2">→</span>
-        <a href="/blog/" className="hover:text-teal-300">Блог</a>
+        <a href="/blog/" className="hover:text-teal-300">Статьи</a>
         <span className="mx-2">→</span>
         <span className="text-[#bfc2ba]">{post.title}</span>
       </nav>

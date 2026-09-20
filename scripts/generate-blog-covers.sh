@@ -31,6 +31,13 @@ SLUGS=(
   vneshnij-finansovyj-direktor-vmesto-shtatnogo-cfo
   podveshennaya-zadolzhennost-mezhdu-svoimi-kompaniyami
   sbp-ne-otmenyaet-kassu
+  ponyatiya-po-ponyatiyam-vyruchka
+  fns-otbor-proverki-samozanyatyh-2026
+  marketplejsy-proverka-deklaracij-2026
+  kosvennye-nalogi-import-sebestoimost
+  nds-pri-importe-iz-eaes-2026
+  swift-iban-mezhdunarodnyj-perevod-2026
+  tamozhnya-oformlenie-import-iz-kitaya-2026
 )
 
 SOURCES=(
@@ -49,6 +56,13 @@ SOURCES=(
   6266426-uhd_3840_2160_25fps.mp4
   6700253-uhd_3840_2160_25fps.mp4
   6037155-hd_4096_2160_30fps.mp4
+  856668-uhd_3840_2160_30fps.mp4
+  14209120-uhd_3840_2160_30fps.mp4
+  14471909_3840_2160_30fps.mp4
+  14471387_1920_1080_30fps.mp4
+  13506092_1920_1080_30fps.mp4
+  12595752_3840_2160_30fps.mp4
+  14152861-uhd_3840_2160_30fps.mp4
 )
 
 make_thumb() {
