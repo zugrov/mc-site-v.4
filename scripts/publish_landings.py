@@ -21,6 +21,7 @@ def main() -> int:
     scripts = [
         ROOT / "scripts" / "gen_diag_variant.py",
         ROOT / "scripts" / "gen_nds_variant.py",
+        ROOT / "scripts" / "gen_service_landings.py",
     ]
     for script in scripts:
         print(f"→ {script.name}")
@@ -31,7 +32,7 @@ def main() -> int:
     shutil.copyfile(src, dest)
     print(f"OK {dest}")
 
-    print("Готово: index.html, financial-diagnostics.html, nds-2026.html")
+    print("Готово: index.html, financial-diagnostics.html, nds-2026.html, uslugi + продуктовые лендинги")
     return 0
 
 

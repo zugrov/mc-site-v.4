@@ -12,6 +12,7 @@ from publish_common import (
     LEAD_THANKYOU_CSS,
     YANDEX_METRIKA,
 )
+from service_landing_common import breadcrumb_ld, faq_ld, json_ld_script, service_ld
 
 SITE_HOME = "https://maxima-consulting.ru/"
 
@@ -117,7 +118,7 @@ FOOTER = f"""
         <a class="brand" href="{SITE_HOME}">{BRAND_INNER}</a>
         <p>Финансовый партнёр<br />для МСБ</p>
         <div class="footer-social"><span>Соцсети</span><a href="https://t.me/maxima_consulting_leed_bot?start=nds_s1" data-tg-source="nds_s1" target="_blank" rel="noopener noreferrer">Telegram</a><a href="https://vk.com/maxima_consulting" target="_blank" rel="noopener noreferrer">VK</a><a href="https://m.tenchat.ru/u/eei8UmQE" target="_blank" rel="noopener noreferrer">TenChat</a></div>
-        <div class="footer-services"><span>Услуги</span><a href="/financial-diagnostics">Финансовая диагностика</a><a href="/nds-2026">НДС-2026</a><a href="/#services">Управленческий учёт</a><a href="/#services">CFO-light</a></div>
+        <div class="footer-services"><span>Услуги</span><a href="/uslugi">Все услуги</a><a href="/financial-diagnostics">Финансовая диагностика</a><a href="/nds-2026">НДС-2026</a><a href="/upravlenchesky-uchet">Управленческий учёт</a><a href="/cfo-light">CFO-light</a></div>
       </div>
       <div class="footer-bottom"><span>© maxima consulting, 2026</span><div><a href="nda.html">NDA</a><a href="privacy.html">Политика ПД</a></div><span class="footer-signature">made by maxima lab {I["spk"]}</span></div>
     </footer>
@@ -179,8 +180,9 @@ html = f"""<!DOCTYPE html>
   <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-  <title>НДС-2026: сценарии для вашего бизнеса — maxima consulting</title>
-  <meta name="description" content="Финансовые сценарии по цене, марже и движению денежных средств при переходе на НДС-2026. Без обещаний по экономии — только расчёт на ваших данных." />
+  <link rel="canonical" href="https://maxima-consulting.ru/nds-2026" />
+  <title>НДС-аудит 2026 для бизнеса — расчёт ставки за 3–5 дней</title>
+  <meta name="description" content="Считаем, какая ставка НДС выгоднее — 22%, 5% или 7% — на ваших цифрах. Результат за 3–5 дней. Порог освобождения 20 млн ₽ до 2029 года." />
   <meta property="og:title" content="НДС-2026: сценарии для вашего бизнеса — maxima consulting" />
   <meta property="og:description" content="Цена, маржа и движение денежных средств — без решений наугад." />
   <meta property="og:type" content="website" />
@@ -190,6 +192,11 @@ html = f"""<!DOCTYPE html>
   <style>
 {CSS}
   </style>
+{json_ld_script([
+    service_ld("НДС-аудит и подготовка к НДС-2026", "Расчёт ставки НДС и дорожная карта перехода на данных клиента", "https://maxima-consulting.ru/nds-2026", "15 000 ₽"),
+    breadcrumb_ld("НДС-аудит 2026", "https://maxima-consulting.ru/nds-2026"),
+    faq_ld(faqs),
+])}
 {YANDEX_METRIKA}
 </head>
 <body>
@@ -199,7 +206,7 @@ html = f"""<!DOCTYPE html>
     <header class="site-header">
       <a class="brand" href="{SITE_HOME}" aria-label="Maxima Consulting — на главную">{BRAND_INNER}</a>
       <nav class="main-nav" aria-label="Основная навигация">
-        <a href="#scenarios">Сценарии</a><a href="#reference">Справочно</a><a href="#trust">Подход</a><a href="#faq">FAQ</a><a href="/blog/">Статьи</a>
+        <a href="/uslugi">Услуги</a><a href="#scenarios">Сценарии</a><a href="#pricing">Цены</a><a href="#faq">FAQ</a><a href="/blog/">Статьи</a>
       </nav>
       <div class="header-actions">
         <a class="header-phone" href="tel:+79808488480">+7 980 848-84-80</a>
@@ -212,8 +219,8 @@ html = f"""<!DOCTYPE html>
         <div class="hero-grid"></div>
         <div class="hero-copy reveal">
           <div class="eyebrow"><span class="eyebrow-dot"></span> ФИНАНСОВЫЕ СЦЕНАРИИ <span class="eyebrow-line"></span> НДС—2026</div>
-          <h1>НДС-2026:<br /><em>сценарии</em> для<br />вашего бизнеса<span class="title-dot">.</span></h1>
-          <p class="hero-lead">Цена, маржа и движение денежных средств — без решений наугад.</p>
+          <h1>НДС-аудит и подготовка к <em>переходу</em> на НДС-2026<span class="title-dot">.</span></h1>
+          <p class="hero-lead">С 2026 года НДС на УСН — действующее правило: порог 20 млн ₽ зафиксирован до 2029 года. Считаем ставку 22%, 5% или 7% на ваших цифрах за 3–5 дней.</p>
           <div class="hero-ctas">
             <button class="button button-primary" type="button" data-scroll-form>Проверить сценарий {I["aur18"]}</button>
             <a class="text-link" href="#scenarios">Что мы посчитаем {I["mup"]}</a>
@@ -237,6 +244,15 @@ html = f"""<!DOCTYPE html>
       </section>
       <section class="marquee-section" aria-label="Ключевые направления расчёта">
         <div class="marquee-track"><span>PRICE</span><span class="marquee-star">✳</span><span>MARGIN</span><span class="marquee-star">✳</span><span>CASH FLOW</span><span class="marquee-star">✳</span><span>PRICE</span><span class="marquee-star">✳</span><span>MARGIN</span></div>
+      </section>
+      <section id="pain" class="section-pad">
+        <div class="section-intro reveal"><div class="section-kicker">БОЛИ</div><div><h2>Четыре типовых <em>ситуации</em></h2></div></div>
+        <div class="scenario-grid">
+          <article class="scenario-card accent-lime reveal"><div class="scenario-content"><h3>Не знаю ставку</h3><p>22% с вычетом или 5%/7% без — на ваших закупках.</p></div></article>
+          <article class="scenario-card accent-blue reveal"><div class="scenario-content"><h3>Порог 20 млн ₽</h3><p>Когда наступит обязанность и что с договорами.</p></div></article>
+          <article class="scenario-card accent-orange reveal"><div class="scenario-content"><h3>Клиенты без НДС</h3><p>Как не потерять маржу при переходе.</p></div></article>
+          <article class="scenario-card accent-violet reveal"><div class="scenario-content"><h3>Авансы и остатки</h3><p>Переходные операции и счета-фактуры.</p></div></article>
+        </div>
       </section>
       <section id="scenarios" class="section-pad scenarios-section">
         <div class="section-intro reveal"><div class="section-kicker">01 / СЦЕНАРИИ</div><div><h2>Что мы <em>посчитаем</em></h2><p>Три сценария на одной модели — сравниваете варианты и принимаете решение сами.</p></div></div>
@@ -264,6 +280,15 @@ html = f"""<!DOCTYPE html>
         <div class="table-wrap reveal">
           <table><thead><tr><th>Сценарий</th><th>Цена для клиента</th><th>Маржа</th><th>Движение денежных средств</th></tr></thead><tbody>{table_rows()}</tbody></table>
           <span class="table-caption">Пример обезличенной сценарной таблицы — не расчёт на данных конкретного клиента.</span>
+        </div>
+      </section>
+      <section id="pricing" class="section-pad reference-section">
+        <div class="section-intro reveal"><div class="section-kicker">ЦЕНЫ</div><div><h2>Два <em>уровня</em> оффера</h2></div></div>
+        <div class="table-wrap reveal">
+          <table><thead><tr><th>Услуга</th><th>Срок</th><th>Стоимость</th><th>Результат</th></tr></thead><tbody>
+            <tr><td>НДС-аудит</td><td>3–5 дней</td><td>15 000 – 30 000 ₽</td><td>Расчёт ставки и рисков</td></tr>
+            <tr><td class="positive">НДС-2026: полная подготовка</td><td>3–6 недель</td><td>50 000 – 120 000 ₽</td><td>Переход с документами и договорами</td></tr>
+          </tbody></table>
         </div>
       </section>
       <section id="trust" class="section-pad trust-section">
@@ -296,6 +321,7 @@ html = f"""<!DOCTYPE html>
         <div class="request-glow"></div>
         <div class="request-layout">
           <div class="request-copy reveal">
+            <p style="margin-bottom:20px;font-size:14px;color:#89918b">Следующий шаг: <a href="/nalogovaya-optimizatsiya" style="color:#d9f96b">налоговая оптимизация</a> · <a href="/financial-diagnostics" style="color:#d9f96b">финансовая диагностика</a> · <a href="/uslugi" style="color:#d9f96b">все услуги</a></p>
             <div class="eyebrow"><span class="eyebrow-dot"></span> СЛЕДУЮЩИЙ ШАГ</div>
             <h2>Проверим<br /><em>сценарии</em><br />на ваших данных<span class="title-dot">.</span></h2>
             <p>Без обещаний по экономии — только расчёт на ваших данных.</p>
@@ -330,7 +356,7 @@ html = f"""<!DOCTYPE html>
     <button class="floating-cta" id="floatingCta" type="button" data-scroll-form aria-label="Оставить заявку">
       <span class="floating-cta-pulse"></span>
       {I["snd"]}
-      <span>Оставить заявку</span>
+      <span>Оставить заявку · от 15 000 ₽</span>
       {I["aur"]}
     </button>
   </div>

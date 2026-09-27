@@ -12,6 +12,7 @@ from publish_common import (
     LEAD_THANKYOU_CSS,
     YANDEX_METRIKA,
 )
+from service_landing_common import breadcrumb_ld, faq_ld, json_ld_script, service_ld
 
 SITE_HOME = "https://maxima-consulting.ru/"
 
@@ -121,7 +122,7 @@ FOOTER = f"""
           <a class="brand" href="{SITE_HOME}">{BRAND_INNER}</a>
           <p>Финансовый партнёр<br />для МСБ</p>
           <div class="footer-social"><span>Соцсети</span><a href="https://t.me/maxima_consulting_leed_bot?start=diag_s1" data-tg-source="diag_s1" target="_blank" rel="noopener noreferrer">Telegram</a><a href="https://vk.com/maxima_consulting" target="_blank" rel="noopener noreferrer">VK</a><a href="https://m.tenchat.ru/u/eei8UmQE" target="_blank" rel="noopener noreferrer">TenChat</a></div>
-          <div class="footer-services"><span>Услуги</span><a href="/financial-diagnostics">Финансовая диагностика</a><a href="/nds-2026">НДС-2026</a><a href="/#services">Управленческий учёт</a><a href="/#services">CFO-light</a></div>
+          <div class="footer-services"><span>Услуги</span><a href="/uslugi">Все услуги</a><a href="/financial-diagnostics">Финансовая диагностика</a><a href="/nds-2026">НДС-2026</a><a href="/upravlenchesky-uchet">Управленческий учёт</a><a href="/cfo-light">CFO-light</a></div>
         </div>
         <div class="container footer-bottom"><span>© 2026 maxima consulting</span><div><a href="nda.html">NDA</a><a href="privacy.html">Политика ПД</a></div><span>made by maxima lab <span class="footer-star">✦</span></span></div>
       </footer>
@@ -215,8 +216,9 @@ html = f"""<!DOCTYPE html>
   <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-  <title>Финансовая диагностика за 7 дней — maxima consulting</title>
-  <meta name="description" content="Управленческая финансовая диагностика за 7 дней: прибыль, деньги, риски и приоритеты в одном понятном отчёте для собственника. От 20 000 ₽." />
+  <link rel="canonical" href="https://maxima-consulting.ru/financial-diagnostics" />
+  <title>Финансовая диагностика бизнеса за 7 дней — maxima consulting</title>
+  <meta name="description" content="Карта зон потерь в рублях, матрица рисков и топ-3 действия на 30 дней. Экспресс — от 15 000 ₽, полная — 7 дней, от 20 000 ₽." />
   <meta property="og:title" content="Финансовая диагностика за 7 дней — maxima consulting" />
   <meta property="og:description" content="Прибыль, деньги, риски и приоритеты — в одном понятном отчёте для собственника." />
   <meta property="og:type" content="website" />
@@ -227,6 +229,11 @@ html = f"""<!DOCTYPE html>
 .container {{ width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 40px; }}
 {CSS}
   </style>
+{json_ld_script([
+    service_ld("Финансовая диагностика бизнеса", "Карта потерь в рублях и приоритеты на 30 дней", "https://maxima-consulting.ru/financial-diagnostics", "15 000 ₽"),
+    breadcrumb_ld("Финансовая диагностика", "https://maxima-consulting.ru/financial-diagnostics"),
+    faq_ld(faqs),
+])}
 {YANDEX_METRIKA}
 </head>
 <body>
@@ -236,7 +243,7 @@ html = f"""<!DOCTYPE html>
       <div class="container header-inner">
         <a class="brand" href="{SITE_HOME}" aria-label="Maxima Consulting — на главную">{BRAND_INNER}</a>
         <nav class="desktop-nav" aria-label="Основная навигация">
-          <a href="#process">Как работаем</a><a href="#charts">В цифрах</a><a href="#trust">Почему мы</a><a href="#faq">FAQ</a><a href="/blog/">Статьи</a>
+          <a href="/uslugi">Услуги</a><a href="#process">Как работаем</a><a href="#pricing">Цены</a><a href="#faq">FAQ</a><a href="/blog/">Статьи</a>
         </nav>
         <div class="header-actions">
           <a class="header-phone" href="tel:+79808488480">+7 980 848-84-80</a>
@@ -257,8 +264,8 @@ html = f"""<!DOCTYPE html>
         <div class="container hero-grid">
           <div class="hero-copy reveal">
             <div class="eyebrow"><span class="eyebrow-dot"></span> Управленческая диагностика <span class="eyebrow-divider"></span> 7 дней</div>
-            <h1>Финансовая диагностика <em>за 7 дней</em></h1>
-            <p class="hero-lead">Прибыль, деньги, риски и приоритеты — в одном понятном отчёте для собственника.</p>
+            <h1>Финансовая диагностика: <em>где теряются деньги</em></h1>
+            <p class="hero-lead">Показываем не «эффективность в процентах», а зоны потерь в рублях и топ-3 действия с эффектом — входная точка перед любым проектом.</p>
             <div class="hero-actions">
               <button class="button button--lime button--large" type="button" data-scroll="request">Разобрать цифры {I["aur"]}</button>
               <button class="text-link" type="button" data-scroll="process">Как проходит диагностика {I["adn"]}</button>
@@ -346,6 +353,15 @@ html = f"""<!DOCTYPE html>
           </div>
         </div>
       </section>
+      <section class="section" id="pricing">
+        <div class="container reveal">
+          <span class="section-index">pricing</span><h2>Два <em>формата</em></h2>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px">
+            <article style="border:1px solid rgba(226,236,214,.14);padding:20px;border-radius:12px"><h3>Где бизнес теряет деньги</h3><p><strong>от 15 000 ₽</strong> · 1–2 дня · мини-скан</p></article>
+            <article style="border:1px solid rgba(215,243,107,.35);padding:20px;border-radius:12px;background:rgba(215,243,107,.06)"><h3>Финансовая диагностика</h3><p><strong>20 000 – 45 000 ₽</strong> · 7 дней · полный разбор</p></article>
+          </div>
+        </div>
+      </section>
       <section class="section trust-section" id="trust">
         <div class="container">
           <div class="section-intro section-intro--split reveal">
@@ -376,7 +392,7 @@ html = f"""<!DOCTYPE html>
       </section>
       <section class="section request-section" id="request">
         <div class="container request-layout">
-          <div class="request-copy reveal"><span class="section-index">07 / next step</span><h2>Разберём<br />цифры <em>вместе</em></h2><p>Оставьте заявку — ответим в течение рабочего дня, без обязательств на этом шаге.</p>
+          <div class="request-copy reveal"><p style="margin-bottom:16px;font-size:14px;color:#8a9189">Следующий шаг: <a href="/upravlenchesky-uchet" style="color:#d7f36b">управленческий учёт</a> · <a href="/nds-2026" style="color:#d7f36b">НДС-аудит</a> · <a href="/uslugi" style="color:#d7f36b">все услуги</a></p><span class="section-index">07 / next step</span><h2>Разберём<br />цифры <em>вместе</em></h2><p>Оставьте заявку — ответим в течение рабочего дня, без обязательств на этом шаге.</p>
             <div class="request-contact"><a href="tel:+79808488480"><span class="contact-icon">{I["phn"]}</span><span><small>Позвонить</small>+7 980 848-84-80</span></a><a href="https://t.me/maxima_consulting_leed_bot?start=diag_s1" data-tg-source="diag_s1" target="_blank" rel="noopener noreferrer"><span class="contact-icon">{I["msg"]}</span><span><small>Написать в Telegram</small>@maxima_consulting_leed_bot</span></a></div>
           </div>
           <div class="form-card reveal reveal--delay-1">

@@ -12,15 +12,51 @@ const staticPages: UrlEntry[] = [
   { loc: "https://maxima-consulting.ru/", lastmod: "2026-09-16", changefreq: "monthly", priority: "1.0" },
   {
     loc: "https://maxima-consulting.ru/financial-diagnostics",
-    lastmod: "2026-09-16",
+    lastmod: "2026-09-26",
     changefreq: "monthly",
     priority: "0.9",
   },
   {
     loc: "https://maxima-consulting.ru/nds-2026",
-    lastmod: "2026-09-16",
+    lastmod: "2026-09-26",
     changefreq: "monthly",
     priority: "0.9",
+  },
+  {
+    loc: "https://maxima-consulting.ru/uslugi",
+    lastmod: "2026-09-26",
+    changefreq: "monthly",
+    priority: "0.9",
+  },
+  {
+    loc: "https://maxima-consulting.ru/upravlenchesky-uchet",
+    lastmod: "2026-09-26",
+    changefreq: "monthly",
+    priority: "0.85",
+  },
+  {
+    loc: "https://maxima-consulting.ru/finansovaya-model",
+    lastmod: "2026-09-26",
+    changefreq: "monthly",
+    priority: "0.85",
+  },
+  {
+    loc: "https://maxima-consulting.ru/nalogovaya-optimizatsiya",
+    lastmod: "2026-09-26",
+    changefreq: "monthly",
+    priority: "0.85",
+  },
+  {
+    loc: "https://maxima-consulting.ru/cfo-light",
+    lastmod: "2026-09-26",
+    changefreq: "monthly",
+    priority: "0.85",
+  },
+  {
+    loc: "https://maxima-consulting.ru/advisory-dlya-sobstvennika",
+    lastmod: "2026-09-26",
+    changefreq: "monthly",
+    priority: "0.85",
   },
   {
     loc: "https://maxima-consulting.ru/blog/",
