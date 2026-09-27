@@ -527,6 +527,181 @@ a { color: inherit; text-decoration: none; }
 .form-error { display: block; margin-top: 4px; font-size: 12px; color: #b91c1c; }
 
 
+.uchet-dashboard-card { transform: rotate(2.5deg); }
+.uchet-dashboard-card:hover { transform: rotate(0deg) translateY(-6px); }
+.uchet-kpi-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.uchet-kpi-row > div {
+  padding: 12px 12px 10px;
+  border: 1px solid rgba(215, 243, 107, .16);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, .18);
+}
+.uchet-kpi-row span {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #8f9988;
+}
+.uchet-kpi-row strong {
+  display: block;
+  margin-top: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -.05em;
+  color: #e9ff86;
+}
+.uchet-pl-block { margin-top: 18px; }
+.uchet-pl-block__title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 10px;
+  color: #c0c8b7;
+}
+.uchet-pl-row {
+  display: grid;
+  grid-template-columns: 52px 1fr 36px;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 10px;
+  color: #9aa293;
+}
+.uchet-pl-row i {
+  display: block;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(215, 243, 107, .85), rgba(215, 243, 107, .35));
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: uchetBarGrow .9s cubic-bezier(.23, 1, .32, 1) forwards;
+}
+.uchet-pl-row:nth-child(2) i { animation-delay: .12s; width: 72%; }
+.uchet-pl-row:nth-child(3) i { animation-delay: .22s; width: 58%; }
+.uchet-pl-row:nth-child(4) i { animation-delay: .32s; width: 84%; }
+.uchet-pl-row b { text-align: right; color: #d7f36b; font-weight: 600; }
+.uchet-report-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(232, 247, 204, .14);
+}
+.uchet-report-strip span {
+  padding: 6px 10px;
+  border: 1px solid rgba(215, 243, 107, .22);
+  border-radius: 999px;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #c8d4bc;
+}
+.uchet-report-strip span.is-on {
+  background: rgba(215, 243, 107, .12);
+  border-color: rgba(215, 243, 107, .45);
+  color: #e9ff86;
+}
+.uchet-dds-mini {
+  margin-top: 14px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 6px;
+  height: 52px;
+  padding: 0 4px;
+}
+.uchet-dds-mini i {
+  display: block;
+  flex: 1;
+  max-width: 28px;
+  border-radius: 4px 4px 0 0;
+  background: rgba(238, 234, 225, .12);
+  transform-origin: bottom;
+  animation: uchetDdsGrow .75s cubic-bezier(.23, 1, .32, 1) forwards;
+}
+.uchet-dds-mini i:nth-child(1) { height: 38%; animation-delay: .05s; }
+.uchet-dds-mini i:nth-child(2) { height: 62%; animation-delay: .1s; background: rgba(215, 243, 107, .35); }
+.uchet-dds-mini i:nth-child(3) { height: 48%; animation-delay: .15s; }
+.uchet-dds-mini i:nth-child(4) { height: 78%; animation-delay: .2s; background: rgba(215, 243, 107, .55); }
+.uchet-dds-mini i:nth-child(5) { height: 55%; animation-delay: .25s; }
+.uchet-dds-mini i:nth-child(6) { height: 88%; animation-delay: .3s; background: #d7f36b; box-shadow: 0 0 20px rgba(215, 243, 107, .25); }
+.uchet-pl-row i { animation-name: uchetBarGrowX; }
+@keyframes uchetBarGrowX { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes uchetDdsGrow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .uchet-pl-row i, .uchet-dds-mini i { animation: none !important; transform: none !important; }
+}
+
+.uchet-dashboard-card--model { transform: rotate(-2deg); }
+.model-scenario-chart { margin-top: 16px; }
+.model-scenario-chart__top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 10px;
+  color: #c0c8b7;
+}
+.model-scenario-chart svg { display: block; width: 100%; height: auto; }
+.model-scenario-chart path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 2.5;
+}
+.model-scenario-chart path.line--pess {
+  stroke: #6f7a68;
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: heroDrawLine 1.6s .1s ease forwards;
+}
+.model-scenario-chart path.line--base {
+  stroke: #d7f36b;
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px rgba(215, 243, 107, .35));
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: heroDrawLine 1.8s .25s ease forwards;
+}
+.model-scenario-chart path.line--opt {
+  stroke: #e9ff86;
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: heroDrawLine 2s .4s ease forwards;
+}
+.model-scenario-legend {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  color: #8a9484;
+  text-transform: uppercase;
+}
+.model-scenario-legend i {
+  display: inline-block;
+  width: 14px;
+  height: 2px;
+  margin-right: 5px;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+.model-scenario-legend .leg--pess i { background: #6f7a68; }
+.model-scenario-legend .leg--base i { background: #d7f36b; }
+.model-scenario-legend .leg--opt i { background: #e9ff86; }
+@keyframes heroDrawLine { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .model-scenario-chart path { animation: none !important; stroke-dashoffset: 0 !important; }
+}
+
 .floating-cta { position: fixed; right: 20px; bottom: 20px; z-index: 30; display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; background: #d7f36b; color: #11140f; font-weight: 800; border: 0; cursor: pointer; box-shadow: 0 12px 40px rgba(0,0,0,.35); }
 .floating-cta[hidden] { display: none !important; }
   </style>
@@ -585,6 +760,44 @@ a { color: inherit; text-decoration: none; }
               <button class="text-link" type="button" data-scroll="pricing">Смотреть цены</button>
             </div>
             <div class="hero-footnote"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg> NDA до передачи данных · Первый разбор — бесплатно</div>
+          </div>
+
+          <div class="hero-visual reveal reveal--delay-2">
+            <div class="visual-orbit visual-orbit--one"></div>
+            <div class="visual-orbit visual-orbit--two"></div>
+            <div class="dashboard-card uchet-dashboard-card uchet-dashboard-card--model">
+
+              <div class="dashboard-card__header">
+                <span class="card-kicker">FINMODEL / 36M</span>
+                <span class="live-pill"><i></i> live</span>
+              </div>
+              <div class="dashboard-title">Три<br /><strong>сценария</strong></div>
+              <div class="uchet-kpi-row">
+                <div><span>NPV</span><strong>+18,4M ₽</strong></div>
+                <div><span>IRR</span><strong>24,1%</strong></div>
+              </div>
+              <div class="model-scenario-chart" aria-hidden="true">
+                <div class="model-scenario-chart__top"><span>Выручка · помесячно</span><span>24–36 мес</span></div>
+                <svg viewBox="0 0 400 120" preserveAspectRatio="none">
+                  <path class="line--pess" d="M0 92 C40 88 70 95 110 86 S170 78 210 82 S270 74 310 70 S350 68 400 64" />
+                  <path class="line--base" d="M0 96 C45 90 80 82 125 74 S190 58 235 52 S295 40 340 34 S370 28 400 22" />
+                  <path class="line--opt" d="M0 98 C50 88 95 72 145 58 S230 36 285 28 S330 20 370 14 L400 10" />
+                </svg>
+                <div class="model-scenario-legend">
+                  <span class="leg--pess"><i></i>пессим.</span>
+                  <span class="leg--base"><i></i>база</span>
+                  <span class="leg--opt"><i></i>оптим.</span>
+                </div>
+              </div>
+              <div class="dashboard-card__footer">
+                <span><span class="legend-dot legend-dot--lime"></span> payback 14 мес</span>
+                <span><span class="legend-dot legend-dot--white"></span> чувствительность</span>
+                <span class="footer-arrow"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
+              </div>
+
+            </div>
+            <div class="floating-note floating-note--top"><span><b>3 сценария</b><small>пессим · база · оптим</small></span></div>
+            <div class="floating-note floating-note--bottom"><span><b>go / no-go</b><small>вердикт по модели</small></span></div>
           </div>
 
         </div>

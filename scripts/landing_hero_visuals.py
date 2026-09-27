@@ -1,4 +1,7 @@
 """Уникальные hero-визуалы для лендингов услуг."""
+from __future__ import annotations
+
+from typing import Optional
 
 HUB_MAP_VISUAL_CSS = """
 .hub-map-visual {
@@ -283,6 +286,254 @@ def hub_services_visual_html() -> str:
 """
 
 
+MODEL_HERO_VISUAL_CSS = (
+    UCET_HERO_VISUAL_CSS
+    + """
+.uchet-dashboard-card--model { transform: rotate(-2deg); }
+.model-scenario-chart { margin-top: 16px; }
+.model-scenario-chart__top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 10px;
+  color: #c0c8b7;
+}
+.model-scenario-chart svg { display: block; width: 100%; height: auto; }
+.model-scenario-chart path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 2.5;
+}
+.model-scenario-chart path.line--pess {
+  stroke: #6f7a68;
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: heroDrawLine 1.6s .1s ease forwards;
+}
+.model-scenario-chart path.line--base {
+  stroke: #d7f36b;
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px rgba(215, 243, 107, .35));
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: heroDrawLine 1.8s .25s ease forwards;
+}
+.model-scenario-chart path.line--opt {
+  stroke: #e9ff86;
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: heroDrawLine 2s .4s ease forwards;
+}
+.model-scenario-legend {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  color: #8a9484;
+  text-transform: uppercase;
+}
+.model-scenario-legend i {
+  display: inline-block;
+  width: 14px;
+  height: 2px;
+  margin-right: 5px;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+.model-scenario-legend .leg--pess i { background: #6f7a68; }
+.model-scenario-legend .leg--base i { background: #d7f36b; }
+.model-scenario-legend .leg--opt i { background: #e9ff86; }
+@keyframes heroDrawLine { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .model-scenario-chart path { animation: none !important; stroke-dashoffset: 0 !important; }
+}
+"""
+)
+
+TAX_HERO_VISUAL_CSS = (
+    UCET_HERO_VISUAL_CSS
+    + """
+.uchet-dashboard-card--tax { transform: rotate(2deg); }
+.tax-compare { margin-top: 18px; }
+.tax-compare__row {
+  display: grid;
+  grid-template-columns: 64px 1fr 52px;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 10px;
+  color: #9aa293;
+}
+.tax-compare__row i {
+  display: block;
+  height: 10px;
+  border-radius: 999px;
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: heroDashBarGrowX .85s cubic-bezier(.23, 1, .32, 1) forwards;
+}
+.tax-compare__row--now i {
+  width: 88%;
+  background: rgba(238, 234, 225, .22);
+  animation-delay: .1s;
+}
+.tax-compare__row--after i {
+  width: 62%;
+  background: linear-gradient(90deg, #d7f36b, rgba(215, 243, 107, .4));
+  animation-delay: .28s;
+}
+.tax-savings {
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid rgba(215, 243, 107, .28);
+  border-radius: 8px;
+  background: rgba(215, 243, 107, .06);
+}
+.tax-savings span {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #8f9988;
+}
+.tax-savings strong {
+  display: block;
+  margin-top: 6px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  color: #e9ff86;
+  letter-spacing: -.05em;
+}
+@keyframes heroDashBarGrowX { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+"""
+)
+
+CFO_HERO_VISUAL_CSS = (
+    UCET_HERO_VISUAL_CSS
+    + """
+.uchet-dashboard-card--cfo { transform: rotate(-1.5deg); }
+.cfo-metric-list { margin-top: 16px; display: grid; gap: 8px; }
+.cfo-metric-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid rgba(215, 243, 107, .14);
+  border-radius: 8px;
+  font-size: 10px;
+  color: #b0b8a8;
+}
+.cfo-metric-item strong { color: #ecf0e4; font-weight: 600; }
+.cfo-metric-item.is-alert {
+  border-color: rgba(215, 243, 107, .42);
+  background: rgba(215, 243, 107, .08);
+  animation: cfoPulse 2.4s ease-in-out infinite;
+}
+.cfo-metric-item em {
+  font-style: normal;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  color: #d7f36b;
+  text-transform: uppercase;
+}
+.cfo-spark {
+  margin-top: 14px;
+  height: 44px;
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+}
+.cfo-spark i {
+  flex: 1;
+  border-radius: 3px 3px 0 0;
+  background: rgba(238, 234, 225, .14);
+  transform-origin: bottom;
+  animation: heroDashDdsGrow .7s ease forwards;
+}
+.cfo-spark i:nth-child(1) { height: 35%; animation-delay: .05s; }
+.cfo-spark i:nth-child(2) { height: 55%; animation-delay: .1s; }
+.cfo-spark i:nth-child(3) { height: 42%; animation-delay: .15s; }
+.cfo-spark i:nth-child(4) { height: 70%; animation-delay: .2s; background: rgba(215, 243, 107, .45); }
+.cfo-spark i:nth-child(5) { height: 58%; animation-delay: .25s; }
+.cfo-spark i:nth-child(6) { height: 82%; animation-delay: .3s; background: #d7f36b; }
+.cfo-horizon {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  color: #697363;
+}
+@keyframes cfoPulse { 0%, 100% { box-shadow: none; } 50% { box-shadow: 0 0 0 1px rgba(215, 243, 107, .25); } }
+@keyframes heroDashDdsGrow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+"""
+)
+
+ADVISORY_HERO_VISUAL_CSS = (
+    UCET_HERO_VISUAL_CSS
+    + """
+.uchet-dashboard-card--adv { transform: rotate(1.5deg); }
+.adv-decisions { margin-top: 16px; display: grid; gap: 8px; }
+.adv-decision {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 11px 12px;
+  border: 1px solid rgba(215, 243, 107, .14);
+  border-radius: 8px;
+  font-size: 11px;
+  color: #b5bdb0;
+}
+.adv-decision b { color: #ecf0e4; font-weight: 600; }
+.adv-decision span.tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #8f9988;
+}
+.adv-decision.is-active {
+  border-color: rgba(215, 243, 107, .45);
+  background: rgba(215, 243, 107, .07);
+  box-shadow: 0 0 24px rgba(215, 243, 107, .08);
+  animation: advPulse 2.8s ease-in-out infinite;
+}
+@keyframes advPulse {
+  0%, 100% { border-color: rgba(215, 243, 107, .45); }
+  50% { border-color: rgba(215, 243, 107, .18); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .adv-decision.is-active, .cfo-metric-item.is-alert { animation: none !important; }
+}
+"""
+)
+
+PRODUCT_HERO_VISUAL_CSS: dict[str, str] = {
+    "uchet": UCET_HERO_VISUAL_CSS,
+    "model": MODEL_HERO_VISUAL_CSS,
+    "tax": TAX_HERO_VISUAL_CSS,
+    "cfo": CFO_HERO_VISUAL_CSS,
+    "adv": ADVISORY_HERO_VISUAL_CSS,
+}
+
+
+def _hero_shell(card_mod: str, inner: str, note_top: str, note_bottom: str) -> str:
+    return f"""
+          <div class="hero-visual reveal reveal--delay-2">
+            <div class="visual-orbit visual-orbit--one"></div>
+            <div class="visual-orbit visual-orbit--two"></div>
+            <div class="dashboard-card uchet-dashboard-card uchet-dashboard-card--{card_mod}">
+{inner}
+            </div>
+            {note_top}
+            {note_bottom}
+          </div>
+"""
+
+
 def uchet_hero_visual_html(icons: dict[str, str]) -> str:
     aur = icons["aur"]
     chk = icons["chk"]
@@ -321,3 +572,148 @@ def uchet_hero_visual_html(icons: dict[str, str]) -> str:
             <div class="floating-note floating-note--bottom"><span class="mini-check">{chk}</span><span><b>5–7 KPI</b><small>на дашборде собственника</small></span></div>
           </div>
 """
+
+
+def model_hero_visual_html(icons: dict[str, str]) -> str:
+    aur = icons["aur"]
+    inner = f"""
+              <div class="dashboard-card__header">
+                <span class="card-kicker">FINMODEL / 36M</span>
+                <span class="live-pill"><i></i> live</span>
+              </div>
+              <div class="dashboard-title">Три<br /><strong>сценария</strong></div>
+              <div class="uchet-kpi-row">
+                <div><span>NPV</span><strong>+18,4M ₽</strong></div>
+                <div><span>IRR</span><strong>24,1%</strong></div>
+              </div>
+              <div class="model-scenario-chart" aria-hidden="true">
+                <div class="model-scenario-chart__top"><span>Выручка · помесячно</span><span>24–36 мес</span></div>
+                <svg viewBox="0 0 400 120" preserveAspectRatio="none">
+                  <path class="line--pess" d="M0 92 C40 88 70 95 110 86 S170 78 210 82 S270 74 310 70 S350 68 400 64" />
+                  <path class="line--base" d="M0 96 C45 90 80 82 125 74 S190 58 235 52 S295 40 340 34 S370 28 400 22" />
+                  <path class="line--opt" d="M0 98 C50 88 95 72 145 58 S230 36 285 28 S330 20 370 14 L400 10" />
+                </svg>
+                <div class="model-scenario-legend">
+                  <span class="leg--pess"><i></i>пессим.</span>
+                  <span class="leg--base"><i></i>база</span>
+                  <span class="leg--opt"><i></i>оптим.</span>
+                </div>
+              </div>
+              <div class="dashboard-card__footer">
+                <span><span class="legend-dot legend-dot--lime"></span> payback 14 мес</span>
+                <span><span class="legend-dot legend-dot--white"></span> чувствительность</span>
+                <span class="footer-arrow">{aur}</span>
+              </div>
+"""
+    return _hero_shell(
+        "model",
+        inner,
+        '<div class="floating-note floating-note--top"><span><b>3 сценария</b><small>пессим · база · оптим</small></span></div>',
+        '<div class="floating-note floating-note--bottom"><span><b>go / no-go</b><small>вердикт по модели</small></span></div>',
+    )
+
+
+def tax_hero_visual_html(icons: dict[str, str]) -> str:
+    aur = icons["aur"]
+    inner = f"""
+              <div class="dashboard-card__header">
+                <span class="card-kicker">TAX / LEGAL</span>
+                <span class="live-pill"><i></i> live</span>
+              </div>
+              <div class="dashboard-title">Налоговая<br /><strong>нагрузка</strong></div>
+              <div class="tax-compare">
+                <div class="tax-compare__row tax-compare__row--now"><span>Сейчас</span><i></i><b>100%</b></div>
+                <div class="tax-compare__row tax-compare__row--after"><span>После</span><i></i><b>−18%</b></div>
+              </div>
+              <div class="tax-savings"><span>экономия в год · расчёт</span><strong>2 840 000 ₽</strong></div>
+              <div class="uchet-report-strip">
+                <span class="is-on">УСН</span><span class="is-on">НДС</span><span>ФИВ</span><span class="is-on">вычеты</span>
+              </div>
+              <div class="dashboard-card__footer">
+                <span><span class="legend-dot legend-dot--lime"></span> белое поле</span>
+                <span><span class="legend-dot legend-dot--white"></span> без серых схем</span>
+                <span class="footer-arrow">{aur}</span>
+              </div>
+"""
+    return _hero_shell(
+        "tax",
+        inner,
+        '<div class="floating-note floating-note--top"><span><b>ст. 54.1 НК</b><small>деловая цель</small></span></div>',
+        '<div class="floating-note floating-note--bottom"><span><b>по методам</b><small>экономия в ₽</small></span></div>',
+    )
+
+
+def cfo_hero_visual_html(icons: dict[str, str]) -> str:
+    aur = icons["aur"]
+    inner = f"""
+              <div class="dashboard-card__header">
+                <span class="card-kicker">CFO-LIGHT / MONTHLY</span>
+                <span class="live-pill"><i></i> live</span>
+              </div>
+              <div class="dashboard-title">Дашборд<br /><strong>собственника</strong></div>
+              <div class="cfo-metric-list">
+                <div class="cfo-metric-item is-alert"><span>Касса · покрытие</span><strong>47 дней</strong><em>ниже нормы</em></div>
+                <div class="cfo-metric-item"><span>Маржа · факт</span><strong>21,8%</strong></div>
+                <div class="cfo-metric-item"><span>Дебиторка</span><strong>+6 дней</strong></div>
+              </div>
+              <div class="uchet-pl-block__title" style="margin-top:12px"><span>Cash flow</span><span>6 недель</span></div>
+              <div class="cfo-spark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="cfo-horizon"><span>30 дн</span><span>60 дн</span><span>90 дн</span></div>
+              <div class="dashboard-card__footer">
+                <span><span class="legend-dot legend-dot--lime"></span> еженедельно</span>
+                <span><span class="legend-dot legend-dot--white"></span> комментарии</span>
+                <span class="footer-arrow">{aur}</span>
+              </div>
+"""
+    return _hero_shell(
+        "cfo",
+        inner,
+        '<div class="floating-note floating-note--top"><span><b>5–7 метрик</b><small>норма / отклонение</small></span></div>',
+        '<div class="floating-note floating-note--bottom"><span><b>без штатного CFO</b><small>от 20 000 ₽/мес</small></span></div>',
+    )
+
+
+def advisory_hero_visual_html(icons: dict[str, str]) -> str:
+    aur = icons["aur"]
+    chk = icons["chk"]
+    inner = f"""
+              <div class="dashboard-card__header">
+                <span class="card-kicker">ADVISORY / OWNER</span>
+                <span class="live-pill"><i></i> live</span>
+              </div>
+              <div class="dashboard-title">Решения<br /><strong>собственника</strong></div>
+              <div class="adv-decisions">
+                <div class="adv-decision"><span class="tag">запрос</span><b>Кредит 45 млн ₽</b><span>↗</span></div>
+                <div class="adv-decision is-active"><span class="tag">разбор</span><b>Новая линия · цена</b><span>↗</span></div>
+                <div class="adv-decision"><span class="tag">ожидает</span><b>Найм фин. менеджера</b><span>↗</span></div>
+              </div>
+              <div class="uchet-kpi-row" style="margin-top:14px">
+                <div><span>Ритм</span><strong>2–4 / мес</strong></div>
+                <div><span>Формат</span><strong>sparring</strong></div>
+              </div>
+              <div class="dashboard-card__footer">
+                <span><span class="legend-dot legend-dot--lime"></span> между встречами</span>
+                <span><span class="legend-dot legend-dot--white"></span> на цифрах</span>
+                <span class="footer-arrow">{aur}</span>
+              </div>
+"""
+    return _hero_shell(
+        "adv",
+        inner,
+        '<div class="floating-note floating-note--top"><span><b>второе мнение</b><small>до дорогого шага</small></span></div>',
+        f'<div class="floating-note floating-note--bottom"><span class="mini-check">{chk}</span><span><b>собственник</b><small>фокус решений</small></span></div>',
+    )
+
+
+def product_hero_for(hero_id: Optional[str], icons: dict) -> tuple:
+    handlers: dict[str, tuple[object, str]] = {
+        "uchet": (uchet_hero_visual_html, PRODUCT_HERO_VISUAL_CSS["uchet"]),
+        "model": (model_hero_visual_html, PRODUCT_HERO_VISUAL_CSS["model"]),
+        "tax": (tax_hero_visual_html, PRODUCT_HERO_VISUAL_CSS["tax"]),
+        "cfo": (cfo_hero_visual_html, PRODUCT_HERO_VISUAL_CSS["cfo"]),
+        "adv": (advisory_hero_visual_html, PRODUCT_HERO_VISUAL_CSS["adv"]),
+    }
+    if not hero_id or hero_id not in handlers:
+        return "", ""
+    fn, css = handlers[hero_id]
+    return fn(icons), css

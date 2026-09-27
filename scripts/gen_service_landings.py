@@ -10,9 +10,8 @@ from pro_css import load_diag_css
 from publish_common import LEAD_FORM_SCRIPT, LEAD_THANKYOU_CSS, YANDEX_METRIKA
 from landing_hero_visuals import (
     HUB_MAP_VISUAL_CSS,
-    UCET_HERO_VISUAL_CSS,
     hub_services_visual_html,
-    uchet_hero_visual_html,
+    product_hero_for,
 )
 from service_landing_common import (
     BRAND_INNER,
@@ -246,11 +245,7 @@ def render_product(page: dict) -> str:
     if page.get("case_html"):
         case = f'<section class="section case-section"><div class="container reveal">{page["case_html"]}</div></section>'
 
-    hero_visual_html = ""
-    page_hero_css = ""
-    if page.get("hero_visual") == "uchet":
-        hero_visual_html = uchet_hero_visual_html(I)
-        page_hero_css = UCET_HERO_VISUAL_CSS
+    hero_visual_html, page_hero_css = product_hero_for(page.get("hero_visual"), I)
 
     return f"""<!DOCTYPE html>
 <html lang="ru">
@@ -489,6 +484,7 @@ PAGES = [
     {
         "file": "finansovaya-model.html",
         "slug": "finansovaya-model",
+        "hero_visual": "model",
         "breadcrumb": "Финансовая модель",
         "service_name": "Финансовая модель для бизнеса",
         "title": "Финансовая модель для бизнеса на 24–36 месяцев",
@@ -524,6 +520,7 @@ PAGES = [
     {
         "file": "nalogovaya-optimizatsiya.html",
         "slug": "nalogovaya-optimizatsiya",
+        "hero_visual": "tax",
         "breadcrumb": "Налоговая оптимизация",
         "service_name": "Законная налоговая оптимизация",
         "title": "Налоговая оптимизация бизнеса — законные методы",
@@ -560,6 +557,7 @@ PAGES = [
     {
         "file": "cfo-light.html",
         "slug": "cfo-light",
+        "hero_visual": "cfo",
         "breadcrumb": "CFO-light",
         "service_name": "CFO-light",
         "title": "CFO-light — финансовый директор на аутсорсе от 20 000 ₽/мес",
@@ -595,6 +593,7 @@ PAGES = [
     {
         "file": "advisory-dlya-sobstvennika.html",
         "slug": "advisory-dlya-sobstvennika",
+        "hero_visual": "adv",
         "breadcrumb": "Advisory для собственника",
         "service_name": "Advisory для собственника",
         "title": "Advisory для собственника бизнеса — maxima consulting",
