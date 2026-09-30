@@ -40,6 +40,7 @@ SLUGS=(
   tamozhnya-oformlenie-import-iz-kitaya-2026
   finansovyj-tsikl-oborotnyj-kapital
   4-zakona-biznes-1-oktyabrya-2026
+  ponyatiya-po-ponyatiyam-pribyl
 )
 
 SOURCES=(
@@ -67,6 +68,7 @@ SOURCES=(
   14152861-uhd_3840_2160_30fps.mp4
   14684075_3840_2160_30fps.mp4
   5981205-uhd_4096_2160_25fps.mp4
+  01Butcher-Final.jpg
 )
 
 make_thumb() {
