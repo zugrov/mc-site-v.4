@@ -11,6 +11,8 @@ declare global {
   interface Window {
     __BLOG_POSTS__?: PostSummary[];
     __BLOG_POST__?: BlogPostPayload;
+    /** Только dev: slug статьи для подгрузки через /blog/__dev/post/{slug}.json */
+    __BLOG_DEV_SLUG__?: string;
   }
 }
 

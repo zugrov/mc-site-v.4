@@ -38,6 +38,8 @@ SLUGS=(
   nds-pri-importe-iz-eaes-2026
   swift-iban-mezhdunarodnyj-perevod-2026
   tamozhnya-oformlenie-import-iz-kitaya-2026
+  finansovyj-tsikl-oborotnyj-kapital
+  4-zakona-biznes-1-oktyabrya-2026
 )
 
 SOURCES=(
@@ -63,6 +65,8 @@ SOURCES=(
   13506092_1920_1080_30fps.mp4
   12595752_3840_2160_30fps.mp4
   14152861-uhd_3840_2160_30fps.mp4
+  14684075_3840_2160_30fps.mp4
+  5981205-uhd_4096_2160_25fps.mp4
 )
 
 make_thumb() {

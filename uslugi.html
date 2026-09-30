@@ -588,7 +588,117 @@ a.hub-card:hover .hub-card-cta { color: #fff; gap: 13px; }
 .hub-card-cta .icon { transition: transform .25s var(--ease); }
 a.hub-card:hover .hub-card-cta .icon { transform: translate(3px, -3px); }
 @media (max-width: 900px) { .hub-card--center { grid-column: auto; } }
-.hub-hero { min-height: auto !important; padding: 128px 0 72px !important; }
+.hub-quiz-section {
+  padding: 0 0 56px;
+  margin-top: -12px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, transparent, rgba(13, 148, 136, .06) 40%, transparent);
+}
+.quiz-box--hub {
+  margin-top: 0;
+  padding: 32px 36px 36px;
+  border: 1px solid rgba(13, 148, 136, .35);
+  border-radius: 16px;
+  background: rgba(17, 19, 19, .92);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .28);
+}
+.quiz-box__eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+}
+.quiz-box--hub h2 {
+  margin: 0 0 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 500;
+  letter-spacing: -.04em;
+  line-height: 1.1;
+}
+.quiz-box__lead {
+  margin: 0 0 22px;
+  max-width: 640px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #a8aea6;
+}
+.quiz-box__lead strong { color: var(--paper); font-weight: 600; }
+.quiz-progress {
+  height: 4px;
+  margin-bottom: 10px;
+  border-radius: 999px;
+  background: rgba(238, 234, 225, .1);
+  overflow: hidden;
+}
+.quiz-progress__bar {
+  height: 100%;
+  width: 33%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width .35s var(--ease);
+}
+.quiz-progress__label {
+  margin: 0 0 24px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #8a928a;
+}
+.quiz-box--hub .quiz-step > p {
+  margin: 0 0 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+}
+.quiz-box--hub .quiz-step h3 {
+  margin: 0 0 18px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -.03em;
+}
+.quiz-box--hub .quiz-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 0;
+}
+.quiz-box--hub .quiz-options button {
+  min-height: 56px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  line-height: 1.35;
+  border-color: rgba(238, 234, 225, .18);
+  transition: border-color .2s, background .2s, transform .2s var(--ease);
+}
+.quiz-box--hub .quiz-options button:hover {
+  background: rgba(13, 148, 136, .12);
+  transform: translateY(-2px);
+}
+.quiz-box--hub .quiz-result {
+  margin-top: 0;
+  padding-top: 8px;
+  border-top: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.quiz-box--hub .quiz-result .button { margin-top: 18px; }
+@media (max-width: 700px) {
+  .hub-quiz-section { padding: 0 0 36px; margin-top: 0; }
+  .quiz-box--hub { padding: 22px 18px 24px; }
+  .quiz-box--hub .quiz-options { grid-template-columns: 1fr; }
+}
+.hub-hero { min-height: auto !important; padding: 128px 0 56px !important; }
 .hub-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.02fr) minmax(280px, .98fr);
@@ -733,7 +843,7 @@ a.hub-card:hover .hub-card-cta .icon { transform: translate(3px, -3px); }
 }
 
   </style>
-<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Услуги финансового консалтинга", "url": "https://maxima-consulting.ru/uslugi"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://maxima-consulting.ru/"}, {"@type": "ListItem", "position": 2, "name": "Услуги", "item": "https://maxima-consulting.ru/uslugi"}, {"@type": "ListItem", "position": 3, "name": "Услуги", "item": "https://maxima-consulting.ru/uslugi"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Чем услуги отличаются друг от друга?", "acceptedAnswer": {"@type": "Answer", "text": "Базовые — точка входа с документом за дни. Проекты — внедрение системы или модели. Подписки — регулярная интерпретация цифр и решений."}}, {"@type": "Question", "name": "Можно ли начать с малого?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Чаще всего начинают с диагностики или НДС-аудита, затем переходят к учёту или CFO-light."}}, {"@type": "Question", "name": "Что если не знаю, что нужно?", "acceptedAnswer": {"@type": "Answer", "text": "Пройдите квиз ниже или оставьте заявку на бесплатный разбор — подскажем формат без обязательств."}}]}]</script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Услуги финансового консалтинга", "url": "https://maxima-consulting.ru/uslugi"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://maxima-consulting.ru/"}, {"@type": "ListItem", "position": 2, "name": "Услуги", "item": "https://maxima-consulting.ru/uslugi"}, {"@type": "ListItem", "position": 3, "name": "Услуги", "item": "https://maxima-consulting.ru/uslugi"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Чем услуги отличаются друг от друга?", "acceptedAnswer": {"@type": "Answer", "text": "Базовые — точка входа с документом за дни. Проекты — внедрение системы или модели. Подписки — регулярная интерпретация цифр и решений."}}, {"@type": "Question", "name": "Можно ли начать с малого?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Чаще всего начинают с диагностики или НДС-аудита, затем переходят к учёту или CFO-light."}}, {"@type": "Question", "name": "Что если не знаю, что нужно?", "acceptedAnswer": {"@type": "Answer", "text": "Пройдите квиз в начале страницы или оставьте заявку на бесплатный разбор — подскажем формат без обязательств."}}]}]</script>
 
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
@@ -757,7 +867,7 @@ a.hub-card:hover .hub-card-cta .icon { transform: translate(3px, -3px); }
       <div class="container header-inner">
         <a class="brand" href="https://maxima-consulting.ru/"><img class="brand-logo" src="assets/logo-maxima.png" alt="" width="28" height="28" /><span class="brand-wordmark">maxima<span>consulting</span></span></a>
         <nav class="desktop-nav" aria-label="Основная навигация">
-          <a href="/uslugi">Услуги</a><a href="#pricing">Цены</a><a href="#faq">FAQ</a><a href="/blog/">Статьи</a>
+          <a href="#services-map" data-scroll="services-map">Услуги</a><a href="#faq" data-scroll="faq">FAQ</a><a href="/blog/">Статьи</a>
         </nav>
         <div class="header-actions">
           <a class="header-phone" href="tel:+79808488480">+7 980 848-84-80</a>
@@ -766,9 +876,7 @@ a.hub-card:hover .hub-card-cta .icon { transform: translate(3px, -3px); }
         </div>
       </div>
       <nav class="mobile-nav" aria-label="Мобильная навигация">
-        <a href="/uslugi">Услуги <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a>
-        <a href="#pricing" data-scroll="pricing">Цены <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a>
-        <a href="#faq" data-scroll="faq">FAQ <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a>
+        <a href="#services-map" data-scroll="services-map">Услуги <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a><a href="#faq" data-scroll="faq">FAQ <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a>
         <a href="/blog/">Статьи <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a>
         <button class="button button--lime" type="button" data-scroll="request">Разобрать ситуацию <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></button>
       </nav>
@@ -815,31 +923,51 @@ a.hub-card:hover .hub-card-cta .icon { transform: translate(3px, -3px); }
         </div>
 
       </div></section>
-      <section class="section"><div class="container"><h2>Карта услуг</h2><div class="hub-grid"><a class="hub-card reveal" href="/nds-2026"><span class="section-index">Базовый</span><h3>НДС-аудит</h3><p>Порог, ставка 22%/5%/7%, риски</p><div class="hub-meta">3–5 дней · от 15 000 ₽</div><span class="hub-card-cta">Подробнее <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a><a class="hub-card reveal" href="/financial-diagnostics"><span class="section-index">Базовый</span><h3>Финансовая диагностика</h3><p>Где теряются деньги в рублях</p><div class="hub-meta">7 дней · от 20 000 ₽</div><span class="hub-card-cta">Подробнее <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a><a class="hub-card reveal" href="/upravlenchesky-uchet"><span class="section-index">Проект</span><h3>Управленческий учёт</h3><p>P&L, ДДС, KPI-дашборд</p><div class="hub-meta">4–8 недель · от 60 000 ₽</div><span class="hub-card-cta">Подробнее <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a><a class="hub-card reveal" href="/finansovaya-model"><span class="section-index">Проект</span><h3>Финансовая модель</h3><p>3 сценария, NPV/IRR, точка безубыточности</p><div class="hub-meta">2–4 недели · от 40 000 ₽</div><span class="hub-card-cta">Подробнее <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a><a class="hub-card reveal" href="/nalogovaya-optimizatsiya"><span class="section-index">Проект</span><h3>Налоговая оптимизация</h3><p>Законные методы, без серых схем</p><div class="hub-meta">3–5 недель · от 60 000 ₽</div><span class="hub-card-cta">Подробнее <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a><a class="hub-card reveal" href="/cfo-light"><span class="section-index">Подписка</span><h3>CFO-light</h3><p>Дашборд и интерпретация цифр</p><div class="hub-meta">ежемесячно · от 20 000 ₽/мес</div><span class="hub-card-cta">Подробнее <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a><a class="hub-card reveal hub-card--center" href="/advisory-dlya-sobstvennika"><span class="section-index">Подписка</span><h3>Advisory</h3><p>Финансовый спарринг собственника</p><div class="hub-meta">ежемесячно · от 40 000 ₽/мес</div><span class="hub-card-cta">Подробнее <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></div>
-        <div class="chain-row">Цепочка: <a href="/financial-diagnostics">Диагностика</a> → <a href="/nds-2026">НДС/налоги</a> → <a href="/upravlenchesky-uchet">Упр. учёт</a> → <a href="/finansovaya-model">Финмодель</a> → <a href="/cfo-light">CFO-light</a></div>
-        <div class="quiz-box" id="quiz">
-          <h3>Что сейчас болит больше?</h3>
-          <div class="quiz-step is-active" data-step="1"><p>Главный фокус</p><div class="quiz-options">
-            <button type="button" data-quiz="nds" data-step="1">НДС и налоги</button>
-            <button type="button" data-quiz="diag" data-step="1">Деньги и маржа</button>
-            <button type="button" data-quiz="cfo" data-step="1">Регулярные решения</button>
-          </div></div>
-          <div class="quiz-step" data-step="2"><p>Горизонт</p><div class="quiz-options">
-            <button type="button" data-quiz="model" data-step="2">Инвестиция / рост</button>
-            <button type="button" data-quiz="uchet" data-step="2">Система учёта</button>
-            <button type="button" data-quiz="tax" data-step="2">Снизить нагрузку</button>
-          </div></div>
-          <div class="quiz-step" data-step="3"><p>Формат</p><div class="quiz-options">
-            <button type="button" data-quiz="adv" data-step="3">Спарринг собственника</button>
-            <button type="button" data-quiz="cfo" data-step="3">Отчётность CFO-light</button>
-            <button type="button" data-quiz="diag" data-step="3">Разовый проект</button>
-          </div></div>
-          <div class="quiz-step" data-step="4"><div id="quizResult" class="quiz-result"></div></div>
+      <section class="hub-quiz-section" id="quiz" aria-labelledby="quiz-title">
+        <div class="container">
+          <div class="quiz-box quiz-box--hub reveal">
+            <span class="quiz-box__eyebrow">Подбор услуги · 3 вопроса · ~1 минута</span>
+            <h2 id="quiz-title">Не знаете, с чего начать?</h2>
+            <p class="quiz-box__lead">Ответьте на три коротких вопроса — подскажем подходящий формат. На каждом шаге <strong>нажмите один вариант</strong> кнопкой ниже.</p>
+            <div class="quiz-progress" aria-hidden="true"><div class="quiz-progress__bar" id="quizProgressBar"></div></div>
+            <p class="quiz-progress__label" id="quizProgressLabel">Шаг 1 из 3 — выберите вариант</p>
+            <div class="quiz-step is-active" data-step="1">
+              <p>Вопрос 1</p>
+              <h3>Что сейчас важнее всего?</h3>
+              <div class="quiz-options">
+                <button type="button" data-quiz="nds" data-step="1">НДС и налоги</button>
+                <button type="button" data-quiz="diag" data-step="1">Деньги, маржа, где теряем</button>
+                <button type="button" data-quiz="cfo" data-step="1">Регулярные решения каждый месяц</button>
+              </div>
+            </div>
+            <div class="quiz-step" data-step="2">
+              <p>Вопрос 2</p>
+              <h3>Какой у вас горизонт?</h3>
+              <div class="quiz-options">
+                <button type="button" data-quiz="model" data-step="2">Инвестиция или рост</button>
+                <button type="button" data-quiz="uchet" data-step="2">Построить систему учёта</button>
+                <button type="button" data-quiz="tax" data-step="2">Снизить налоговую нагрузку</button>
+              </div>
+            </div>
+            <div class="quiz-step" data-step="3">
+              <p>Вопрос 3</p>
+              <h3>Какой формат ближе?</h3>
+              <div class="quiz-options">
+                <button type="button" data-quiz="adv" data-step="3">Спарринг собственника (Advisory)</button>
+                <button type="button" data-quiz="cfo" data-step="3">Отчётность CFO-light</button>
+                <button type="button" data-quiz="diag" data-step="3">Разовый проект с документом</button>
+              </div>
+            </div>
+            <div class="quiz-step" data-step="4"><div id="quizResult" class="quiz-result" role="status" aria-live="polite"></div></div>
+          </div>
         </div>
+      </section>
+      <section class="section" id="services-map"><div class="container"><h2>Карта услуг</h2><div class="hub-grid"><a class="hub-card reveal" href="/nds-2026"><span class="section-index">Базовый</span><h3>НДС-аудит</h3><p>Порог, ставка 22%/5%/7%, риски</p><div class="hub-meta">3–5 дней · от 15 000 ₽</div><span class="hub-card-cta">Подробнее <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a><a class="hub-card reveal" href="/financial-diagnostics"><span class="section-index">Базовый</span><h3>Финансовая диагностика</h3><p>Где теряются деньги в рублях</p><div class="hub-meta">7 дней · от 20 000 ₽</div><span class="hub-card-cta">Подробнее <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a><a class="hub-card reveal" href="/upravlenchesky-uchet"><span class="section-index">Проект</span><h3>Управленческий учёт</h3><p>P&L, ДДС, KPI-дашборд</p><div class="hub-meta">4–8 недель · от 60 000 ₽</div><span class="hub-card-cta">Подробнее <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a><a class="hub-card reveal" href="/finansovaya-model"><span class="section-index">Проект</span><h3>Финансовая модель</h3><p>3 сценария, NPV/IRR, точка безубыточности</p><div class="hub-meta">2–4 недели · от 40 000 ₽</div><span class="hub-card-cta">Подробнее <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a><a class="hub-card reveal" href="/nalogovaya-optimizatsiya"><span class="section-index">Проект</span><h3>Налоговая оптимизация</h3><p>Законные методы, без серых схем</p><div class="hub-meta">3–5 недель · от 60 000 ₽</div><span class="hub-card-cta">Подробнее <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a><a class="hub-card reveal" href="/cfo-light"><span class="section-index">Подписка</span><h3>CFO-light</h3><p>Дашборд и интерпретация цифр</p><div class="hub-meta">ежемесячно · от 20 000 ₽/мес</div><span class="hub-card-cta">Подробнее <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a><a class="hub-card reveal hub-card--center" href="/advisory-dlya-sobstvennika"><span class="section-index">Подписка</span><h3>Advisory</h3><p>Финансовый спарринг собственника</p><div class="hub-meta">ежемесячно · от 40 000 ₽/мес</div><span class="hub-card-cta">Подробнее <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></div>
+        <div class="chain-row">Цепочка: <a href="/financial-diagnostics">Диагностика</a> → <a href="/nds-2026">НДС/налоги</a> → <a href="/upravlenchesky-uchet">Упр. учёт</a> → <a href="/finansovaya-model">Финмодель</a> → <a href="/cfo-light">CFO-light</a></div>
       </div></section>
       <section class="section faq-section" id="faq"><div class="container faq-list"><div class="faq-item faq-item--open" data-faq><button type="button" aria-expanded="true"><span><small>01</small>Чем услуги отличаются друг от друга?</span><svg class="icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-answer"><p>Базовые — точка входа с документом за дни. Проекты — внедрение системы или модели. Подписки — регулярная интерпретация цифр и решений.</p></div></div>
 <div class="faq-item" data-faq><button type="button" aria-expanded="false"><span><small>02</small>Можно ли начать с малого?</span><svg class="icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-answer"><p>Да. Чаще всего начинают с диагностики или НДС-аудита, затем переходят к учёту или CFO-light.</p></div></div>
-<div class="faq-item" data-faq><button type="button" aria-expanded="false"><span><small>03</small>Что если не знаю, что нужно?</span><svg class="icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-answer"><p>Пройдите квиз ниже или оставьте заявку на бесплатный разбор — подскажем формат без обязательств.</p></div></div></div></section>
+<div class="faq-item" data-faq><button type="button" aria-expanded="false"><span><small>03</small>Что если не знаю, что нужно?</span><svg class="icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-answer"><p>Пройдите квиз в начале страницы или оставьте заявку на бесплатный разбор — подскажем формат без обязательств.</p></div></div></div></section>
       <section class="section request-section" id="request"><div class="container form-card">
             <form id="lead-form" data-lead-form novalidate>
 
@@ -859,7 +987,7 @@ a.hub-card:hover .hub-card-cta .icon { transform: translate(3px, -3px); }
               <input type="hidden" name="referrer" />
               <input type="hidden" name="client_id_missing" />
 
-              <div class="form-card__top"><span>APPLICATION</span><span><i class="form-status"></i> NDA до передачи данных</span></div>
+              <div class="form-card__top"><span>Заявка</span><span><i class="form-status"></i> NDA до передачи данных</span></div>
               <div class="form-grid">
                 <label><span>Ваше имя <b>*</b></span><input id="name" name="name" placeholder="Как к вам обращаться" required /></label>
                 <label><span>Телефон или Telegram <b>*</b></span><input id="contact" name="contact" placeholder="+7 ... / @username" required /></label>
@@ -963,9 +1091,18 @@ a.hub-card:hover .hub-card-cta .icon { transform: translate(3px, -3px); }
   var scores = {};
   var steps = document.querySelectorAll(".quiz-step");
   var result = document.getElementById("quizResult");
+  var progressBar = document.getElementById("quizProgressBar");
+  var progressLabel = document.getElementById("quizProgressLabel");
   function showStep(n) {
     steps.forEach(function (s) { s.classList.toggle("is-active", s.dataset.step === String(n)); });
+    if (progressBar) {
+      progressBar.style.width = n >= 4 ? "100%" : String(Math.round((n / 3) * 100)) + "%";
+    }
+    if (progressLabel) {
+      progressLabel.textContent = n >= 4 ? "Рекомендация готова" : "Шаг " + n + " из 3 — выберите вариант";
+    }
   }
+  showStep(1);
   document.querySelectorAll("[data-quiz]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var key = btn.getAttribute("data-quiz");
@@ -977,7 +1114,7 @@ a.hub-card:hover .hub-card-cta .icon { transform: translate(3px, -3px); }
         if (scores[k] > max) { max = scores[k]; best = k; }
       });
       var pick = routes[best] || routes.contact;
-      result.innerHTML = "<p><strong>Рекомендуем:</strong> " + pick.title + '</p><p><a class="button button--lime" href="' + pick.href + '">Перейти к услуге</a></p>';
+      result.innerHTML = "<p><strong>Вам подойдёт:</strong> " + pick.title + "</p><p>Можно уточнить детали на странице услуги или записаться на бесплатный разбор.</p><p><a class="button button--lime" href="" + pick.href + "">Перейти к услуге</a> <button type="button" class="text-link" data-scroll="request" style="margin-left:12px">Записаться на разбор</button></p>";
       showStep(4);
     });
   });

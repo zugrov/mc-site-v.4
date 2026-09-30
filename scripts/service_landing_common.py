@@ -130,7 +130,117 @@ a.hub-card:hover .hub-card-cta { color: #fff; gap: 13px; }
 .hub-card-cta .icon { transition: transform .25s var(--ease); }
 a.hub-card:hover .hub-card-cta .icon { transform: translate(3px, -3px); }
 @media (max-width: 900px) { .hub-card--center { grid-column: auto; } }
-.hub-hero { min-height: auto !important; padding: 128px 0 72px !important; }
+.hub-quiz-section {
+  padding: 0 0 56px;
+  margin-top: -12px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, transparent, rgba(13, 148, 136, .06) 40%, transparent);
+}
+.quiz-box--hub {
+  margin-top: 0;
+  padding: 32px 36px 36px;
+  border: 1px solid rgba(13, 148, 136, .35);
+  border-radius: 16px;
+  background: rgba(17, 19, 19, .92);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .28);
+}
+.quiz-box__eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+}
+.quiz-box--hub h2 {
+  margin: 0 0 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 500;
+  letter-spacing: -.04em;
+  line-height: 1.1;
+}
+.quiz-box__lead {
+  margin: 0 0 22px;
+  max-width: 640px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #a8aea6;
+}
+.quiz-box__lead strong { color: var(--paper); font-weight: 600; }
+.quiz-progress {
+  height: 4px;
+  margin-bottom: 10px;
+  border-radius: 999px;
+  background: rgba(238, 234, 225, .1);
+  overflow: hidden;
+}
+.quiz-progress__bar {
+  height: 100%;
+  width: 33%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width .35s var(--ease);
+}
+.quiz-progress__label {
+  margin: 0 0 24px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #8a928a;
+}
+.quiz-box--hub .quiz-step > p {
+  margin: 0 0 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+}
+.quiz-box--hub .quiz-step h3 {
+  margin: 0 0 18px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -.03em;
+}
+.quiz-box--hub .quiz-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 0;
+}
+.quiz-box--hub .quiz-options button {
+  min-height: 56px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  line-height: 1.35;
+  border-color: rgba(238, 234, 225, .18);
+  transition: border-color .2s, background .2s, transform .2s var(--ease);
+}
+.quiz-box--hub .quiz-options button:hover {
+  background: rgba(13, 148, 136, .12);
+  transform: translateY(-2px);
+}
+.quiz-box--hub .quiz-result {
+  margin-top: 0;
+  padding-top: 8px;
+  border-top: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.quiz-box--hub .quiz-result .button { margin-top: 18px; }
+@media (max-width: 700px) {
+  .hub-quiz-section { padding: 0 0 36px; margin-top: 0; }
+  .quiz-box--hub { padding: 22px 18px 24px; }
+  .quiz-box--hub .quiz-options { grid-template-columns: 1fr; }
+}
+.hub-hero { min-height: auto !important; padding: 128px 0 56px !important; }
 .hub-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.02fr) minmax(280px, .98fr);
@@ -168,7 +278,7 @@ def lead_form_html(tg_start: str, submit_label: str, aur: str) -> str:
     return f"""
             <form id="lead-form" data-lead-form novalidate>
 {LEAD_FORM_HIDDEN_FIELDS}
-              <div class="form-card__top"><span>APPLICATION</span><span><i class="form-status"></i> NDA до передачи данных</span></div>
+              <div class="form-card__top"><span>Заявка</span><span><i class="form-status"></i> NDA до передачи данных</span></div>
               <div class="form-grid">
                 <label><span>Ваше имя <b>*</b></span><input id="name" name="name" placeholder="Как к вам обращаться" required /></label>
                 <label><span>Телефон или Telegram <b>*</b></span><input id="contact" name="contact" placeholder="+7 ... / @username" required /></label>

@@ -134,9 +134,18 @@ QUIZ_JS = """
   var scores = {};
   var steps = document.querySelectorAll(".quiz-step");
   var result = document.getElementById("quizResult");
+  var progressBar = document.getElementById("quizProgressBar");
+  var progressLabel = document.getElementById("quizProgressLabel");
   function showStep(n) {
     steps.forEach(function (s) { s.classList.toggle("is-active", s.dataset.step === String(n)); });
+    if (progressBar) {
+      progressBar.style.width = n >= 4 ? "100%" : String(Math.round((n / 3) * 100)) + "%";
+    }
+    if (progressLabel) {
+      progressLabel.textContent = n >= 4 ? "Рекомендация готова" : "Шаг " + n + " из 3 — выберите вариант";
+    }
   }
+  showStep(1);
   document.querySelectorAll("[data-quiz]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var key = btn.getAttribute("data-quiz");
@@ -148,7 +157,7 @@ QUIZ_JS = """
         if (scores[k] > max) { max = scores[k]; best = k; }
       });
       var pick = routes[best] || routes.contact;
-      result.innerHTML = "<p><strong>Рекомендуем:</strong> " + pick.title + '</p><p><a class="button button--lime" href="' + pick.href + '">Перейти к услуге</a></p>';
+      result.innerHTML = "<p><strong>Вам подойдёт:</strong> " + pick.title + "</p><p>Можно уточнить детали на странице услуги или записаться на бесплатный разбор.</p><p><a class=\"button button--lime\" href=\"" + pick.href + "\">Перейти к услуге</a> <button type=\"button\" class=\"text-link\" data-scroll=\"request\" style=\"margin-left:12px\">Записаться на разбор</button></p>";
       showStep(4);
     });
   });
@@ -196,13 +205,23 @@ def next_step_html(links: list[tuple[str, str]]) -> str:
     return f'<aside class="next-step reveal"><h3>Логичный следующий шаг</h3><p>Если задача шире одной услуги — посмотрите смежные форматы или вернитесь к карте услуг.</p><div class="next-step-links">{inner}<a href="/uslugi">Все услуги</a></div></aside>'
 
 
-def header_block() -> str:
+def header_block(is_hub: bool = False) -> str:
+    if is_hub:
+        services_desktop = '<a href="#services-map" data-scroll="services-map">Услуги</a>'
+        services_mobile = f'<a href="#services-map" data-scroll="services-map">Услуги {I["chr"]}</a>'
+        pricing_desktop = ""
+        pricing_mobile = ""
+    else:
+        services_desktop = '<a href="/uslugi#services-map">Услуги</a>'
+        services_mobile = f'<a href="/uslugi#services-map">Услуги {I["chr"]}</a>'
+        pricing_desktop = '<a href="#pricing" data-scroll="pricing">Цены</a>'
+        pricing_mobile = f'<a href="#pricing" data-scroll="pricing">Цены {I["chr"]}</a>'
     return f"""
     <header class="site-header" id="siteHeader">
       <div class="container header-inner">
         <a class="brand" href="{SITE_HOME}">{BRAND_INNER}</a>
         <nav class="desktop-nav" aria-label="Основная навигация">
-          <a href="/uslugi">Услуги</a><a href="#pricing">Цены</a><a href="#faq">FAQ</a><a href="/blog/">Статьи</a>
+          {services_desktop}{pricing_desktop}<a href="#faq" data-scroll="faq">FAQ</a><a href="/blog/">Статьи</a>
         </nav>
         <div class="header-actions">
           <a class="header-phone" href="tel:+79808488480">+7 980 848-84-80</a>
@@ -211,9 +230,7 @@ def header_block() -> str:
         </div>
       </div>
       <nav class="mobile-nav" aria-label="Мобильная навигация">
-        <a href="/uslugi">Услуги {I["chr"]}</a>
-        <a href="#pricing" data-scroll="pricing">Цены {I["chr"]}</a>
-        <a href="#faq" data-scroll="faq">FAQ {I["chr"]}</a>
+        {services_mobile}{pricing_mobile}<a href="#faq" data-scroll="faq">FAQ {I["chr"]}</a>
         <a href="/blog/">Статьи {I["chr"]}</a>
         <button class="button button--lime" type="button" data-scroll="request">Разобрать ситуацию {I["aur"]}</button>
       </nav>
@@ -362,7 +379,7 @@ def render_hub() -> str:
     faqs = [
         ("Чем услуги отличаются друг от друга?", "Базовые — точка входа с документом за дни. Проекты — внедрение системы или модели. Подписки — регулярная интерпретация цифр и решений."),
         ("Можно ли начать с малого?", "Да. Чаще всего начинают с диагностики или НДС-аудита, затем переходят к учёту или CFO-light."),
-        ("Что если не знаю, что нужно?", "Пройдите квиз ниже или оставьте заявку на бесплатный разбор — подскажем формат без обязательств."),
+        ("Что если не знаю, что нужно?", "Пройдите квиз в начале страницы или оставьте заявку на бесплатный разбор — подскажем формат без обязательств."),
     ]
     schema = [
         {
@@ -395,7 +412,7 @@ def render_hub() -> str:
 </head>
 <body>
   <div class="site-shell">
-{header_block()}
+{header_block(is_hub=True)}
     <main>
       <section class="hero section-grid hub-hero"><div class="container hub-hero-grid">
         <div class="hero-copy reveal">
@@ -406,27 +423,47 @@ def render_hub() -> str:
         </div>
 {hub_services_visual_html()}
       </div></section>
-      <section class="section"><div class="container"><h2>Карта услуг</h2><div class="hub-grid">{cards}</div>
-        <div class="chain-row">Цепочка: <a href="/financial-diagnostics">Диагностика</a> → <a href="/nds-2026">НДС/налоги</a> → <a href="/upravlenchesky-uchet">Упр. учёт</a> → <a href="/finansovaya-model">Финмодель</a> → <a href="/cfo-light">CFO-light</a></div>
-        <div class="quiz-box" id="quiz">
-          <h3>Что сейчас болит больше?</h3>
-          <div class="quiz-step is-active" data-step="1"><p>Главный фокус</p><div class="quiz-options">
-            <button type="button" data-quiz="nds" data-step="1">НДС и налоги</button>
-            <button type="button" data-quiz="diag" data-step="1">Деньги и маржа</button>
-            <button type="button" data-quiz="cfo" data-step="1">Регулярные решения</button>
-          </div></div>
-          <div class="quiz-step" data-step="2"><p>Горизонт</p><div class="quiz-options">
-            <button type="button" data-quiz="model" data-step="2">Инвестиция / рост</button>
-            <button type="button" data-quiz="uchet" data-step="2">Система учёта</button>
-            <button type="button" data-quiz="tax" data-step="2">Снизить нагрузку</button>
-          </div></div>
-          <div class="quiz-step" data-step="3"><p>Формат</p><div class="quiz-options">
-            <button type="button" data-quiz="adv" data-step="3">Спарринг собственника</button>
-            <button type="button" data-quiz="cfo" data-step="3">Отчётность CFO-light</button>
-            <button type="button" data-quiz="diag" data-step="3">Разовый проект</button>
-          </div></div>
-          <div class="quiz-step" data-step="4"><div id="quizResult" class="quiz-result"></div></div>
+      <section class="hub-quiz-section" id="quiz" aria-labelledby="quiz-title">
+        <div class="container">
+          <div class="quiz-box quiz-box--hub reveal">
+            <span class="quiz-box__eyebrow">Подбор услуги · 3 вопроса · ~1 минута</span>
+            <h2 id="quiz-title">Не знаете, с чего начать?</h2>
+            <p class="quiz-box__lead">Ответьте на три коротких вопроса — подскажем подходящий формат. На каждом шаге <strong>нажмите один вариант</strong> кнопкой ниже.</p>
+            <div class="quiz-progress" aria-hidden="true"><div class="quiz-progress__bar" id="quizProgressBar"></div></div>
+            <p class="quiz-progress__label" id="quizProgressLabel">Шаг 1 из 3 — выберите вариант</p>
+            <div class="quiz-step is-active" data-step="1">
+              <p>Вопрос 1</p>
+              <h3>Что сейчас важнее всего?</h3>
+              <div class="quiz-options">
+                <button type="button" data-quiz="nds" data-step="1">НДС и налоги</button>
+                <button type="button" data-quiz="diag" data-step="1">Деньги, маржа, где теряем</button>
+                <button type="button" data-quiz="cfo" data-step="1">Регулярные решения каждый месяц</button>
+              </div>
+            </div>
+            <div class="quiz-step" data-step="2">
+              <p>Вопрос 2</p>
+              <h3>Какой у вас горизонт?</h3>
+              <div class="quiz-options">
+                <button type="button" data-quiz="model" data-step="2">Инвестиция или рост</button>
+                <button type="button" data-quiz="uchet" data-step="2">Построить систему учёта</button>
+                <button type="button" data-quiz="tax" data-step="2">Снизить налоговую нагрузку</button>
+              </div>
+            </div>
+            <div class="quiz-step" data-step="3">
+              <p>Вопрос 3</p>
+              <h3>Какой формат ближе?</h3>
+              <div class="quiz-options">
+                <button type="button" data-quiz="adv" data-step="3">Спарринг собственника (Advisory)</button>
+                <button type="button" data-quiz="cfo" data-step="3">Отчётность CFO-light</button>
+                <button type="button" data-quiz="diag" data-step="3">Разовый проект с документом</button>
+              </div>
+            </div>
+            <div class="quiz-step" data-step="4"><div id="quizResult" class="quiz-result" role="status" aria-live="polite"></div></div>
+          </div>
         </div>
+      </section>
+      <section class="section" id="services-map"><div class="container"><h2>Карта услуг</h2><div class="hub-grid">{cards}</div>
+        <div class="chain-row">Цепочка: <a href="/financial-diagnostics">Диагностика</a> → <a href="/nds-2026">НДС/налоги</a> → <a href="/upravlenchesky-uchet">Упр. учёт</a> → <a href="/finansovaya-model">Финмодель</a> → <a href="/cfo-light">CFO-light</a></div>
       </div></section>
       <section class="section faq-section" id="faq"><div class="container faq-list">{faq_html(faqs)}</div></section>
       <section class="section request-section" id="request"><div class="container form-card">{lead_form_html("uslugi_s1", "Записаться на разбор", I["aur"])}</div></section>

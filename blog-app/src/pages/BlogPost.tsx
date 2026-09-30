@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { CTA } from "@/components/blog/CTA";
 import { PostMeta } from "@/components/blog/PostMeta";
 import { ShareButtons } from "@/components/blog/ShareButtons";
@@ -13,12 +14,46 @@ function getPost(initial?: BlogPostPayload | null): BlogPostPayload | null {
   return null;
 }
 
+function devSlugFromWindow(): string | null {
+  if (typeof window === "undefined") return null;
+  if (window.__BLOG_DEV_SLUG__) return window.__BLOG_DEV_SLUG__;
+  const m = window.location.pathname.match(/\/blog\/([a-z0-9-]+)\/?$/);
+  return m?.[1] ?? null;
+}
+
 export default function BlogPost({
   initialPost,
 }: {
   initialPost?: BlogPostPayload | null;
 }) {
-  const post = getPost(initialPost);
+  const [post, setPost] = useState<BlogPostPayload | null>(() =>
+    getPost(initialPost),
+  );
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (post) return;
+    if (!import.meta.env.DEV) return;
+    const slug = devSlugFromWindow();
+    if (!slug) return;
+
+    setLoading(true);
+    fetch(`/blog/__dev/post/${slug}.json`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data: BlogPostPayload | null) => {
+        if (data?.slug) setPost(data);
+      })
+      .finally(() => setLoading(false));
+  }, [post]);
+
+  if (loading) {
+    return (
+      <SiteLayout>
+        <p className="text-[#898e87]">Загрузка статьи…</p>
+      </SiteLayout>
+    );
+  }
+
   if (!post) {
     return (
       <SiteLayout>
@@ -29,13 +64,14 @@ export default function BlogPost({
 
   const canonical =
     post.canonicalUrl ?? `https://maxima-consulting.ru/blog/${post.slug}/`;
-  const ogImage = post.ogImage ?? post.coverImage;
   const pageUrl = canonical;
 
   return (
     <SiteLayout>
       <nav className="text-sm text-[#6b7280] mb-6">
-        <a href="https://maxima-consulting.ru/" className="hover:text-teal-300">Главная</a>
+        <a href="https://maxima-consulting.ru/" className="hover:text-teal-300">
+          Главная
+        </a>
         <span className="mx-2">→</span>
         <a href="/blog/" className="hover:text-teal-300">Статьи</a>
         <span className="mx-2">→</span>

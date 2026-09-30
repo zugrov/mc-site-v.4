@@ -243,7 +243,7 @@ html = f"""<!DOCTYPE html>
       <div class="container header-inner">
         <a class="brand" href="{SITE_HOME}" aria-label="Maxima Consulting — на главную">{BRAND_INNER}</a>
         <nav class="desktop-nav" aria-label="Основная навигация">
-          <a href="/uslugi">Услуги</a><a href="#process">Как работаем</a><a href="#pricing">Цены</a><a href="#faq">FAQ</a><a href="/blog/">Статьи</a>
+          <a href="/uslugi#services-map">Услуги</a><a href="#process" data-scroll="process">Как работаем</a><a href="#pricing" data-scroll="pricing">Цены</a><a href="#faq" data-scroll="faq">FAQ</a><a href="/blog/">Статьи</a>
         </nav>
         <div class="header-actions">
           <a class="header-phone" href="tel:+79808488480">+7 980 848-84-80</a>
@@ -252,10 +252,11 @@ html = f"""<!DOCTYPE html>
         </div>
       </div>
       <nav class="mobile-nav" aria-label="Мобильная навигация">
+        <a href="/uslugi#services-map">Услуги {I["chr"]}</a>
         <a href="#process" data-scroll="process">Как работаем {I["chr"]}</a>
-        <a href="#charts" data-scroll="charts">В цифрах {I["chr"]}</a>
-        <a href="#trust" data-scroll="trust">Почему мы {I["chr"]}</a>
+        <a href="#pricing" data-scroll="pricing">Цены {I["chr"]}</a>
         <a href="#faq" data-scroll="faq">FAQ {I["chr"]}</a>
+        <a href="/blog/">Статьи {I["chr"]}</a>
         <button class="button button--lime" type="button" data-scroll="request">Разобрать цифры {I["aur"]}</button>
       </nav>
     </header>
@@ -398,7 +399,7 @@ html = f"""<!DOCTYPE html>
           <div class="form-card reveal reveal--delay-1">
             <form id="lead-form" data-lead-form novalidate>
 {LEAD_FORM_HIDDEN_FIELDS}
-              <div class="form-card__top"><span>APPLICATION / 01</span><span><i class="form-status"></i> secure</span></div>
+              <div class="form-card__top"><span>Заявка</span><span><i class="form-status"></i> NDA до передачи данных</span></div>
               <div class="form-grid">
                 <label><span>Ваше имя <b>*</b></span><input id="name" name="name" placeholder="Как к вам обращаться" required /></label>
                 <label><span>Телефон или Telegram <b>*</b></span><input id="contact" name="contact" placeholder="+7 ... / @username" required /></label>

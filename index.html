@@ -95,8 +95,8 @@ h1 em, h2 em { color: var(--accent-light); font-style: normal; }
 .graph-bars i:nth-child(1) { height: 30%; }.graph-bars i:nth-child(2) { height: 47%; }.graph-bars i:nth-child(3) { height: 38%; }.graph-bars i:nth-child(4) { height: 66%; }.graph-bars i:nth-child(5) { height: 54%; }.graph-bars i:nth-child(6) { height: 80%; }.graph-bars i:nth-child(7) { height: 100%; }
 .graph-axis { position: absolute; left: 0; right: 0; bottom: 7px; display: flex; justify-content: space-between; color: #626860; font-size: 9px; }
 .ticker { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 14px 0; color: rgba(238, 234, 225, .78); white-space: nowrap; font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: 15px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; }
-.ticker-track { display: flex; width: max-content; will-change: transform; animation: marquee 36s linear infinite; }
-.ticker-group { display: inline-flex; align-items: center; flex-shrink: 0; }
+.ticker-track { display: flex; width: max-content; flex-wrap: nowrap; will-change: transform; }
+.ticker-group { display: inline-flex; align-items: center; flex-shrink: 0; padding-right: 2.5rem; }
 .ticker span { padding: 0 28px; color: rgba(238, 234, 225, .42); font-size: 12px; }
 .section { padding-top: 144px; padding-bottom: 144px; position: relative; }
 .section-heading { max-width: 720px; }.eyebrow { display: flex; align-items: center; gap: 9px; margin-bottom: 22px; color: var(--accent-light); text-transform: uppercase; font-size: 10px; font-weight: 700; letter-spacing: .17em; }.eyebrow-dot { display: inline-block; width: 7px; height: 7px; background: var(--accent-light); border-radius: 50%; }
@@ -122,8 +122,9 @@ h1 em, h2 em { color: var(--accent-light); font-style: normal; }
 .scroll-reveal--card:nth-child(4) { transition-delay: 210ms; }
 .scroll-reveal--card:nth-child(5) { transition-delay: 280ms; }
 @keyframes reveal { from { opacity: 0; transform: translateY(19px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } .scroll-reveal { opacity: 1 !important; transform: none !important; } }
+@keyframes ticker-marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+.ticker-track--css { animation: ticker-marquee 28s linear infinite; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } .scroll-reveal { opacity: 1 !important; transform: none !important; } .ticker-track--css { animation-duration: 28s !important; animation-iteration-count: infinite !important; } }
 @media (max-width: 980px) { .main-nav { gap: 17px; }.main-nav .button { padding: 0 13px; }.hero { grid-template-columns: 1fr; padding-top: 75px; }.hero-copy { max-width: 700px; }.hero-visual { min-height: 430px; margin-top: 15px; }.problem-grid { grid-template-columns: repeat(2, 1fr); }.signal-inner { grid-template-columns: 1fr; gap: 26px; }.signal-note { padding: 25px 0 0; border-top: 1px solid rgba(238,234,225,.23); border-left: 0; }.difference-grid, .fit-grid, .contact-grid { gap: 55px; }.founder-grid { gap: 60px; }.case-grid { gap: 45px; }.footer-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 700px) { .container { padding: 0 19px; }.site-header { position: relative; }.header-inner { min-height: 68px; }.menu-toggle { display: block; padding: 7px; }.main-nav { display: none; position: absolute; left: 12px; right: 12px; top: 67px; padding: 19px; flex-direction: column; align-items: stretch; gap: 0; border: 1px solid var(--line); background: #111313; box-shadow: 0 20px 40px rgba(0,0,0,.35); }.main-nav--open { display: flex; }.main-nav button, .main-nav a:not(.button) { padding: 14px 0; text-align: left; border-bottom: 1px solid var(--line); }.main-nav .button { margin-top: 15px; text-align: center; }.hero { min-height: auto; padding-top: 67px; padding-bottom: 56px; }.status-pill { font-size: 9px; letter-spacing: .1em; }.hero-actions { align-items: flex-start; flex-direction: column; gap: 20px; }.hero-visual { min-height: 350px; margin: 25px -10px 0; transform: scale(.93); }.metric-card--top { right: 7px; }.metric-card--bottom { left: 8px; bottom: 22px; }.hero-graph { left: 13%; right: 5%; }.visual-ring--one { width: 260px; height: 260px; }.visual-ring--two { width: 370px; height: 370px; }.section { padding-top: 85px; padding-bottom: 85px; }.section-heading h2, .signal-inner h2, .founder-copy h2, .contact-copy h2 { font-size: 39px; }.problem-grid, .services-grid, .process-grid, .quote-grid { grid-template-columns: 1fr; }.problem-card { min-height: 310px; }.problem-card h3 { margin-top: 44px; }.section-cta, .services-footer { align-items: flex-start; flex-direction: column; gap: 13px; }.difference-grid, .fit-grid, .contact-grid, .case-grid, .founder-grid { grid-template-columns: 1fr; }.difference-grid { gap: 55px; }.difference-intro p { margin-top: 30px; }.services { padding-top: 0; }.service-card { min-height: auto; }.service-card--featured { order: -1; }.process-section, .testimonial-section, .contact-section { padding: 85px 0; }.process-grid { gap: 10px; }.process-step { min-height: 180px; }.process-line { display: none; }.case-header { align-items: flex-start; flex-direction: column; }.case-result { transform: none; }.case-grid { gap: 30px; }.case-chart { gap: 45px; }.case-foot { gap: 15px; }.quote-grid blockquote { min-height: auto; }.quote-grid blockquote p { min-height: auto; }.fit-columns { grid-template-columns: 1fr; gap: 32px; }.founder-section { padding: 70px 0; }.founder-portrait { min-height: 275px; }.portrait-initials { font-size: 95px; }.founder-grid { gap: 45px; }.founder-meta { align-items: flex-start; flex-direction: column; gap: 12px; }.faq-item button { font-size: 17px; }.faq-item p { padding-right: 10px; }.contact-grid { gap: 50px; }.form-row { grid-template-columns: 1fr; gap: 0; }.form-top { flex-direction: column; gap: 10px; }.contact-form { padding: 19px; }.footer-grid { grid-template-columns: 1fr 1fr; gap: 45px 25px; }.footer-grid > div:first-child { grid-column: 1 / -1; }.footer-bottom { align-items: flex-start; flex-direction: column; gap: 10px; margin-top: 50px; } }
 
@@ -224,7 +225,7 @@ h1 em, h2 em { color: var(--accent-light); font-style: normal; }
         <a class="logo" href="https://maxima-consulting.ru/" aria-label="Maxima Consulting — на главную"><img class="logo-img" src="assets/logo-maxima.png" alt="" width="28" height="28" /><span>maxima <b>consulting</b></span></a>
         <nav class="main-nav" id="mainNav">
           <button type="button" data-scroll="#problems">Проблемы</button>
-          <a href="/uslugi">Услуги</a>
+          <a href="/uslugi#services-map">Услуги</a>
           <button type="button" data-scroll="#services">Цены</button>
           <button type="button" data-scroll="#case">Кейсы</button>
           <a href="/blog/">Статьи</a>
@@ -262,7 +263,7 @@ h1 em, h2 em { color: var(--accent-light); font-style: normal; }
         </div>
       </section>
 
-      <section class="ticker" aria-hidden="true"><div class="ticker-track"><div class="ticker-group">НДС-АУДИТ <span>✳</span> ФИНМОДЕЛЬ <span>✳</span> CASH FLOW <span>✳</span> УПРАВЛЕНЧЕСКИЙ УЧЁТ <span>✳</span></div><div class="ticker-group" aria-hidden="true">НДС-АУДИТ <span>✳</span> ФИНМОДЕЛЬ <span>✳</span> CASH FLOW <span>✳</span> УПРАВЛЕНЧЕСКИЙ УЧЁТ <span>✳</span></div></div></section>
+      <section class="ticker" aria-hidden="true"><div class="ticker-track ticker-track--css"><div class="ticker-group">НДС-АУДИТ <span>✳</span> ФИНМОДЕЛЬ <span>✳</span> CASH FLOW <span>✳</span> УПРАВЛЕНЧЕСКИЙ УЧЁТ <span>✳</span></div><div class="ticker-group" aria-hidden="true">НДС-АУДИТ <span>✳</span> ФИНМОДЕЛЬ <span>✳</span> CASH FLOW <span>✳</span> УПРАВЛЕНЧЕСКИЙ УЧЁТ <span>✳</span></div></div></section>
 
       <section class="section container problems scroll-reveal" id="problems">
         <div class="section-heading"><div class="eyebrow"><span class="eyebrow-dot"></span>Знакомо?</div><h2>Деньги в бизнесе есть. Но управлять ими — сложно.</h2><p>Проблемы, которые выглядят как «так бывает», но на самом деле решаются цифрами.</p></div>
@@ -518,6 +519,33 @@ h1 em, h2 em { color: var(--accent-light); font-style: normal; }
     menuToggle.setAttribute('aria-expanded', menuOpen ? 'true' : 'false');
     menuToggle.innerHTML = menuOpen ? closeIcon : menuIcon;
   });
+
+  (function initTicker() {
+    var track = document.querySelector('.ticker-track');
+    if (!track) return;
+    track.classList.remove('ticker-track--css');
+    var offset = 0;
+    var segment = 0;
+    var speed = 0.55;
+
+    function measure() {
+      segment = track.scrollWidth / 2;
+    }
+
+    function step() {
+      if (segment <= 0) measure();
+      if (segment > 0) {
+        offset -= speed;
+        if (-offset >= segment) offset += segment;
+        track.style.transform = 'translate3d(' + offset.toFixed(2) + 'px,0,0)';
+      }
+      requestAnimationFrame(step);
+    }
+
+    measure();
+    window.addEventListener('resize', measure);
+    requestAnimationFrame(step);
+  })();
 
   (function initScrollReveal() {
     var items = Array.from(document.querySelectorAll('.scroll-reveal'));

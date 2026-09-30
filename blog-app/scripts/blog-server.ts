@@ -1,46 +1,24 @@
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
 import { evaluate } from "@mdx-js/mdx";
 import * as runtime from "react/jsx-runtime";
 import type { MDXModule } from "mdx/types";
-import {
-  postFrontmatterSchema,
-  type PostFull,
-  type PostSummary,
-} from "../shared/blog-types";
+import { postFrontmatterSchema, type PostFull } from "../shared/blog-types";
 import { mdxRemarkPlugins } from "../shared/mdx-remark-plugins";
+import {
+  CONTENT_DIR,
+  loadPostSummaries,
+  readingTimeMinutes,
+} from "./blog-summaries";
 
-const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
-export const CONTENT_DIR = path.join(repoRoot, "content", "blog");
-
-export function readingTimeMinutes(text: string): number {
-  const words = text.trim().split(/\s+/).filter(Boolean).length;
-  return Math.max(1, Math.ceil(words / 200));
-}
+export { CONTENT_DIR, loadPostSummaries, readingTimeMinutes };
 
 function listMdxFiles(): string[] {
   if (!fs.existsSync(CONTENT_DIR)) return [];
   return fs
     .readdirSync(CONTENT_DIR)
     .filter((f) => f.endsWith(".mdx") || f.endsWith(".md"));
-}
-
-export function loadPostSummaries(): PostSummary[] {
-  const posts: PostSummary[] = [];
-  for (const file of listMdxFiles()) {
-    const raw = fs.readFileSync(path.join(CONTENT_DIR, file), "utf-8");
-    const { data, content } = matter(raw);
-    const parsed = postFrontmatterSchema.parse(data);
-    if (parsed.draft) continue;
-    const minutes =
-      parsed.readingTimeMinutes ?? readingTimeMinutes(content);
-    posts.push({ ...parsed, readingTimeMinutes: minutes });
-  }
-  return posts.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
 }
 
 export async function loadPostBySlug(slug: string): Promise<PostFull | null> {
@@ -67,18 +45,18 @@ export async function loadPostBySlug(slug: string): Promise<PostFull | null> {
 }
 
 export function filterPosts(
-  posts: PostSummary[],
+  posts: ReturnType<typeof loadPostSummaries>,
   category?: string | null,
-): PostSummary[] {
+) {
   if (!category) return posts;
   return posts.filter((p) => p.category === category);
 }
 
 export function paginatePosts(
-  posts: PostSummary[],
+  posts: ReturnType<typeof loadPostSummaries>,
   page: number,
   pageSize = 10,
-): { items: PostSummary[]; totalPages: number; page: number } {
+) {
   const totalPages = Math.max(1, Math.ceil(posts.length / pageSize));
   const safePage = Math.min(Math.max(1, page), totalPages);
   const start = (safePage - 1) * pageSize;
@@ -90,10 +68,10 @@ export function paginatePosts(
 }
 
 export function relatedPosts(
-  posts: PostSummary[],
-  current: PostSummary,
+  posts: ReturnType<typeof loadPostSummaries>,
+  current: (ReturnType<typeof loadPostSummaries>)[number],
   limit = 3,
-): PostSummary[] {
+) {
   const scored = posts
     .filter((p) => p.slug !== current.slug)
     .map((p) => {
