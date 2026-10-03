@@ -17,7 +17,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             </span>
           </a>
           <nav className="hidden md:flex gap-6 text-sm text-[#bfc2ba]">
-            <a href="https://maxima-consulting.ru/#services" className="hover:text-white">
+            <a href="https://maxima-consulting.ru/uslugi" className="hover:text-white">
               Услуги
             </a>
             <a href="/blog/" className="text-white font-medium">Статьи</a>

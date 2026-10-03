@@ -212,8 +212,8 @@ def header_block(is_hub: bool = False) -> str:
         pricing_desktop = ""
         pricing_mobile = ""
     else:
-        services_desktop = '<a href="/uslugi#services-map">Услуги</a>'
-        services_mobile = f'<a href="/uslugi#services-map">Услуги {I["chr"]}</a>'
+        services_desktop = '<a href="/uslugi">Услуги</a>'
+        services_mobile = f'<a href="/uslugi">Услуги {I["chr"]}</a>'
         pricing_desktop = '<a href="#pricing" data-scroll="pricing">Цены</a>'
         pricing_mobile = f'<a href="#pricing" data-scroll="pricing">Цены {I["chr"]}</a>'
     return f"""

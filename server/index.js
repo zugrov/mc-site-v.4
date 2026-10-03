@@ -25,7 +25,7 @@ app.use((err, _req, res, _next) => {
   console.error(err);
   res.status(500).json({
     status: 'error',
-    message: 'Не получилось отправить заявку. Попробуйте ещё раз через минуту — или напишите нам напрямую в Telegram: https://t.me/maxima_consulting_leed_bot?start=fallback_error',
+    message: 'Не получилось отправить заявку. Попробуйте ещё раз через минуту — или напишите нам напрямую в Telegram: https://t.me/maxima_com',
   });
 });
 

@@ -117,7 +117,7 @@ FOOTER = f"""
       <div class="footer-top">
         <a class="brand" href="{SITE_HOME}">{BRAND_INNER}</a>
         <p>Финансовый партнёр<br />для МСБ</p>
-        <div class="footer-social"><span>Соцсети</span><a href="https://t.me/maxima_consulting_leed_bot?start=nds_s1" data-tg-source="nds_s1" target="_blank" rel="noopener noreferrer">Telegram</a><a href="https://vk.com/maxima_consulting" target="_blank" rel="noopener noreferrer">VK</a><a href="https://m.tenchat.ru/u/eei8UmQE" target="_blank" rel="noopener noreferrer">TenChat</a></div>
+        <div class="footer-social"><span>Соцсети</span><a href="https://t.me/maxima_cfo" data-tg-source="nds_s1" target="_blank" rel="noopener noreferrer">Канал @maxima-cfo</a><a href="https://vk.com/maxima_consulting" target="_blank" rel="noopener noreferrer">VK</a><a href="https://m.tenchat.ru/u/eei8UmQE" target="_blank" rel="noopener noreferrer">TenChat</a></div>
         <div class="footer-services"><span>Услуги</span><a href="/uslugi">Все услуги</a><a href="/financial-diagnostics">Финансовая диагностика</a><a href="/nds-2026">НДС-2026</a><a href="/upravlenchesky-uchet">Управленческий учёт</a><a href="/cfo-light">CFO-light</a></div>
       </div>
       <div class="footer-bottom"><span>© maxima consulting, 2026</span><div><a href="nda.html">NDA</a><a href="privacy.html">Политика ПД</a></div><span class="footer-signature">made by maxima lab {I["spk"]}</span></div>
@@ -206,7 +206,7 @@ html = f"""<!DOCTYPE html>
     <header class="site-header">
       <a class="brand" href="{SITE_HOME}" aria-label="Maxima Consulting — на главную">{BRAND_INNER}</a>
       <nav class="main-nav" aria-label="Основная навигация">
-        <a href="/uslugi#services-map">Услуги</a><a href="#scenarios">Сценарии</a><a href="#pricing">Цены</a><a href="#faq">FAQ</a><a href="/blog/">Статьи</a>
+        <a href="/uslugi">Услуги</a><a href="#scenarios">Сценарии</a><a href="#pricing">Цены</a><a href="#faq">FAQ</a><a href="/blog/">Статьи</a>
       </nav>
       <div class="header-actions">
         <a class="header-phone" href="tel:+79808488480">+7 980 848-84-80</a>
@@ -328,7 +328,7 @@ html = f"""<!DOCTYPE html>
             <div class="direct-contact">
               <span>Или напишите напрямую</span>
               <a href="tel:+79808488480">{I["phn"]} +7 980 848-84-80</a>
-              <a href="https://t.me/maxima_consulting_leed_bot?start=nds_s1" data-tg-source="nds_s1" target="_blank" rel="noopener noreferrer">{I["snd"]} @maxima_consulting_leed_bot</a>
+              <a href="https://t.me/maxima_com" data-tg-source="nds_s1" target="_blank" rel="noopener noreferrer">{I["snd"]} @maxima_com</a>
             </div>
           </div>
           <div class="form-card reveal reveal-delay-2">
@@ -346,7 +346,7 @@ html = f"""<!DOCTYPE html>
               </div>
               <label class="consent"><input type="checkbox" name="consent_pdn" required /> <span>Согласен(на) на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank" rel="noopener">Политикой обработки персональных данных</a> *</span></label>
               <button class="button button-primary submit-button" type="submit" disabled>Проверить сценарий {I["aur18"]}</button>
-              <p class="form-note" style="margin-top:12px;font-size:12px;opacity:.75;">Или напишите: <a href="tel:+79808488480">+7 980 848-84-80</a> · <a href="https://t.me/maxima_consulting_leed_bot?start=nds_s1" data-tg-source="nds_s1" target="_blank" rel="noopener">@maxima_consulting_leed_bot</a></p>
+              <p class="form-note" style="margin-top:12px;font-size:12px;opacity:.75;">Или напишите: <a href="tel:+79808488480">+7 980 848-84-80</a> · <a href="https://t.me/maxima_com" data-tg-source="nds_s1" target="_blank" rel="noopener">@maxima_com</a></p>
             </form>
           </div>          </div>
         </div>

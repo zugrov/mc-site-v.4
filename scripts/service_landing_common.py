@@ -2,6 +2,15 @@
 import json
 from typing import Any
 
+from site_contacts import (
+    PHONE_DISPLAY,
+    PHONE_TEL,
+    TELEGRAM_CHANNEL_HANDLE,
+    TELEGRAM_CHANNEL_URL,
+    TELEGRAM_CONTACT_HANDLE,
+    TELEGRAM_CONTACT_URL,
+)
+
 SITE_HOME = "https://maxima-consulting.ru/"
 
 BRAND_INNER = (
@@ -264,7 +273,7 @@ def footer_html(tg_start: str) -> str:
         <div class="container footer-top">
           <a class="brand" href="{SITE_HOME}">{BRAND_INNER}</a>
           <p>Финансовый партнёр<br />для МСБ</p>
-          <div class="footer-social"><span>Соцсети</span><a href="https://t.me/maxima_consulting_leed_bot?start={tg_start}" data-tg-source="{tg_start}" target="_blank" rel="noopener noreferrer">Telegram</a><a href="https://vk.com/maxima_consulting" target="_blank" rel="noopener noreferrer">VK</a><a href="https://m.tenchat.ru/u/eei8UmQE" target="_blank" rel="noopener noreferrer">TenChat</a></div>
+          <div class="footer-social"><span>Соцсети</span><a href="{TELEGRAM_CHANNEL_URL}" data-tg-source="{tg_start}" target="_blank" rel="noopener noreferrer">Канал {TELEGRAM_CHANNEL_HANDLE}</a><a href="https://vk.com/maxima_consulting" target="_blank" rel="noopener noreferrer">VK</a><a href="https://m.tenchat.ru/u/eei8UmQE" target="_blank" rel="noopener noreferrer">TenChat</a></div>
           <div class="footer-services"><span>Услуги</span>{links}</div>
         </div>
         <div class="container footer-bottom"><span>© 2026 maxima consulting</span><div><a href="nda.html">NDA</a><a href="privacy.html">Политика ПД</a></div><span>Обновлено: сентябрь 2026</span></div>
@@ -290,7 +299,7 @@ def lead_form_html(tg_start: str, submit_label: str, aur: str) -> str:
               </div>
               <label class="consent"><input type="checkbox" name="consent_pdn" required /><span class="checkbox-ui">✓</span><span>Согласен(на) на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank" rel="noopener">Политикой обработки персональных данных</a> <b>*</b></span></label>
               <button class="button button--lime button--submit" type="submit" disabled>{submit_label} {aur}</button>
-              <p class="form-note" style="margin-top:12px;font-size:12px;color:#8a9189;">Или напишите: <a href="tel:+79808488480">+7 980 848-84-80</a> · <a href="https://t.me/maxima_consulting_leed_bot?start={tg_start}" data-tg-source="{tg_start}" target="_blank" rel="noopener">@maxima_consulting_leed_bot</a></p>
+              <p class="form-note" style="margin-top:12px;font-size:12px;color:#8a9189;">Или напишите: <a href="{PHONE_TEL}">{PHONE_DISPLAY}</a> · <a href="{TELEGRAM_CONTACT_URL}" data-tg-source="{tg_start}" target="_blank" rel="noopener">{TELEGRAM_CONTACT_HANDLE}</a></p>
             </form>
 """
 

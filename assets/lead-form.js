@@ -5,7 +5,7 @@
 
   var API_LEAD = '/api/lead';
   var API_TELEGRAM_CLICK = '/api/telegram-click';
-  var TELEGRAM_BOT_USERNAME = 'maxima_consulting_leed_bot';
+  var TELEGRAM_BOT_USERNAME = 'maxima_com';
   var TELEGRAM_LINK = 'https://t.me/' + TELEGRAM_BOT_USERNAME;
   var MEMO_LINK = '/financial-diagnostics#trust';
 
@@ -528,8 +528,7 @@
   }
 
   function buildTelegramDeepLink(sourceCampaign, clickId) {
-    var payload = clickId ? sourceCampaign + '-' + clickId : sourceCampaign;
-    return TELEGRAM_LINK + '?start=' + encodeURIComponent(payload);
+    return TELEGRAM_LINK;
   }
 
   function sendTelegramClickBeacon(sourceCampaign, clickId) {

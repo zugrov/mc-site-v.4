@@ -121,7 +121,7 @@ FOOTER = f"""
         <div class="container footer-top">
           <a class="brand" href="{SITE_HOME}">{BRAND_INNER}</a>
           <p>Финансовый партнёр<br />для МСБ</p>
-          <div class="footer-social"><span>Соцсети</span><a href="https://t.me/maxima_consulting_leed_bot?start=diag_s1" data-tg-source="diag_s1" target="_blank" rel="noopener noreferrer">Telegram</a><a href="https://vk.com/maxima_consulting" target="_blank" rel="noopener noreferrer">VK</a><a href="https://m.tenchat.ru/u/eei8UmQE" target="_blank" rel="noopener noreferrer">TenChat</a></div>
+          <div class="footer-social"><span>Соцсети</span><a href="https://t.me/maxima_cfo" data-tg-source="diag_s1" target="_blank" rel="noopener noreferrer">Канал @maxima-cfo</a><a href="https://vk.com/maxima_consulting" target="_blank" rel="noopener noreferrer">VK</a><a href="https://m.tenchat.ru/u/eei8UmQE" target="_blank" rel="noopener noreferrer">TenChat</a></div>
           <div class="footer-services"><span>Услуги</span><a href="/uslugi">Все услуги</a><a href="/financial-diagnostics">Финансовая диагностика</a><a href="/nds-2026">НДС-2026</a><a href="/upravlenchesky-uchet">Управленческий учёт</a><a href="/cfo-light">CFO-light</a></div>
         </div>
         <div class="container footer-bottom"><span>© 2026 maxima consulting</span><div><a href="nda.html">NDA</a><a href="privacy.html">Политика ПД</a></div><span>made by maxima lab <span class="footer-star">✦</span></span></div>
@@ -243,7 +243,7 @@ html = f"""<!DOCTYPE html>
       <div class="container header-inner">
         <a class="brand" href="{SITE_HOME}" aria-label="Maxima Consulting — на главную">{BRAND_INNER}</a>
         <nav class="desktop-nav" aria-label="Основная навигация">
-          <a href="/uslugi#services-map">Услуги</a><a href="#process" data-scroll="process">Как работаем</a><a href="#pricing" data-scroll="pricing">Цены</a><a href="#faq" data-scroll="faq">FAQ</a><a href="/blog/">Статьи</a>
+          <a href="/uslugi">Услуги</a><a href="#process" data-scroll="process">Как работаем</a><a href="#pricing" data-scroll="pricing">Цены</a><a href="#faq" data-scroll="faq">FAQ</a><a href="/blog/">Статьи</a>
         </nav>
         <div class="header-actions">
           <a class="header-phone" href="tel:+79808488480">+7 980 848-84-80</a>
@@ -252,7 +252,7 @@ html = f"""<!DOCTYPE html>
         </div>
       </div>
       <nav class="mobile-nav" aria-label="Мобильная навигация">
-        <a href="/uslugi#services-map">Услуги {I["chr"]}</a>
+        <a href="/uslugi">Услуги {I["chr"]}</a>
         <a href="#process" data-scroll="process">Как работаем {I["chr"]}</a>
         <a href="#pricing" data-scroll="pricing">Цены {I["chr"]}</a>
         <a href="#faq" data-scroll="faq">FAQ {I["chr"]}</a>
@@ -387,14 +387,14 @@ html = f"""<!DOCTYPE html>
       </section>
       <section class="section faq-section" id="faq">
         <div class="container faq-layout">
-          <div class="faq-heading reveal"><span class="section-index">06 / answers</span><h2>Частые<br /><em>вопросы</em></h2><p>Если не нашли ответ — напишите нам. Ответим в течение рабочего дня.</p><a class="text-link" href="https://t.me/maxima_consulting_leed_bot?start=diag_s1" data-tg-source="diag_s1" target="_blank" rel="noopener noreferrer">Задать вопрос в Telegram {I["aur"]}</a></div>
+          <div class="faq-heading reveal"><span class="section-index">06 / answers</span><h2>Частые<br /><em>вопросы</em></h2><p>Если не нашли ответ — напишите нам. Ответим в течение рабочего дня.</p><a class="text-link" href="https://t.me/maxima_com" data-tg-source="diag_s1" target="_blank" rel="noopener noreferrer">Задать вопрос в Telegram {I["aur"]}</a></div>
           <div class="faq-list reveal reveal--delay-1">{faq_html()}</div>
         </div>
       </section>
       <section class="section request-section" id="request">
         <div class="container request-layout">
           <div class="request-copy reveal"><p style="margin-bottom:16px;font-size:14px;color:#8a9189">Следующий шаг: <a href="/upravlenchesky-uchet" style="color:#d7f36b">управленческий учёт</a> · <a href="/nds-2026" style="color:#d7f36b">НДС-аудит</a> · <a href="/uslugi" style="color:#d7f36b">все услуги</a></p><span class="section-index">07 / next step</span><h2>Разберём<br />цифры <em>вместе</em></h2><p>Оставьте заявку — ответим в течение рабочего дня, без обязательств на этом шаге.</p>
-            <div class="request-contact"><a href="tel:+79808488480"><span class="contact-icon">{I["phn"]}</span><span><small>Позвонить</small>+7 980 848-84-80</span></a><a href="https://t.me/maxima_consulting_leed_bot?start=diag_s1" data-tg-source="diag_s1" target="_blank" rel="noopener noreferrer"><span class="contact-icon">{I["msg"]}</span><span><small>Написать в Telegram</small>@maxima_consulting_leed_bot</span></a></div>
+            <div class="request-contact"><a href="tel:+79808488480"><span class="contact-icon">{I["phn"]}</span><span><small>Позвонить</small>+7 980 848-84-80</span></a><a href="https://t.me/maxima_com" data-tg-source="diag_s1" target="_blank" rel="noopener noreferrer"><span class="contact-icon">{I["msg"]}</span><span><small>Написать в Telegram</small>@maxima_com</span></a></div>
           </div>
           <div class="form-card reveal reveal--delay-1">
             <form id="lead-form" data-lead-form novalidate>
@@ -411,7 +411,7 @@ html = f"""<!DOCTYPE html>
               </div>
               <label class="consent"><input type="checkbox" name="consent_pdn" required /><span class="checkbox-ui">{I["chk"]}</span><span>Согласен(на) на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank" rel="noopener">Политикой обработки персональных данных</a> <b>*</b></span></label>
               <button class="button button--lime button--submit" type="submit" disabled>Разобрать цифры {I["aur"]}</button>
-              <p class="form-note" style="margin-top:12px;font-size:12px;color:#8a9189;">Или напишите: <a href="tel:+79808488480">+7 980 848-84-80</a> · <a href="https://t.me/maxima_consulting_leed_bot?start=diag_s1" data-tg-source="diag_s1" target="_blank" rel="noopener">@maxima_consulting_leed_bot</a></p>
+              <p class="form-note" style="margin-top:12px;font-size:12px;color:#8a9189;">Или напишите: <a href="tel:+79808488480">+7 980 848-84-80</a> · <a href="https://t.me/maxima_com" data-tg-source="diag_s1" target="_blank" rel="noopener">@maxima_com</a></p>
             </form>
           </div>          </div>
         </div>

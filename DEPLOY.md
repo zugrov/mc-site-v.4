@@ -257,7 +257,7 @@ npm run check:sla
 
 ## Telegram deep-link и захват диалога (Этап 5)
 
-Ссылки на бота `@maxima_consulting_leed_bot` на сайте содержат `data-tg-source` —
+Для связи на сайте: `@maxima_com`. Канал: `@maxima-cfo` (`t.me/maxima_cfo`). Ссылки с `data-tg-source` —
 при клике JS генерирует `click_id`, отправляет beacon на `/api/telegram-click` и
 перенаправляет в Telegram с payload `source_campaign-click_id`.
 
