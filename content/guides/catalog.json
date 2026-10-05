@@ -1,0 +1,18 @@
+{
+  "guides": [
+    {
+      "slug": "5-shagov-nalogovoj-bezopasnosti",
+      "title": "5 шагов налоговой безопасности бизнеса",
+      "description": "Чек-лист для собственника: 30 проверок по документам, налогам, исполнителям, контролю и официальным каналам — с планом на первую неделю.",
+      "updated": "2026-10-05",
+      "html": "/guides/5-shagov-nalogovoj-bezopasnosti/"
+    },
+    {
+      "slug": "upravlenchesky-uchet-s-nulya",
+      "title": "Управленческий учёт с нуля",
+      "description": "Гайд для собственника: чем управленка отличается от бухгалтерии, минимальный набор отчётов P&L и Cash Flow, пошаговый план внедрения и самопроверка.",
+      "updated": "2026-10-05",
+      "html": "/guides/upravlenchesky-uchet-s-nulya/"
+    }
+  ]
+}

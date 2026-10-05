@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Управленческий учёт с нуля — гайд | maxima consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#0D9488; --bg:#F8F8F7; --card:#FFFFFF; --text:#111827;
+  --text-alt:#34322D; --second:#6B7280; --muted:#9CA3AF; --border:#D1D5DB;
+  --success:#10B981; --error:#EF4444; --invert:#111827; --invert-text:#FFFFFF;
+  --mark-active:#0D9488; --mark-passive:#9CA3AF; --mark-gap:#FFFFFF;
+}
+*{ -webkit-print-color-adjust:exact; print-color-adjust:exact; box-sizing:border-box; margin:0; padding:0; }
+html,body{ background:var(--bg); }
+body{ font-family:'Inter',-apple-system,'Segoe UI',Roboto,Arial,sans-serif; color:var(--text-alt);
+      font-size:10pt; line-height:1.47; -webkit-font-smoothing:antialiased; }
+@page{ size:A4; margin:0; }
+.page{ width:210mm; height:297mm; overflow:hidden; padding:13mm 16mm 10mm;
+       display:flex; flex-direction:column; page-break-after:always; position:relative;
+       background:var(--bg); margin:0 auto; transform:scale(.985); transform-origin:top left; }
+.page:last-child{ page-break-after:auto; }
+.body{ flex:1 1 auto; }
+
+.logo{ display:inline-flex; align-items:center; gap:6px; line-height:1; }
+.logo .wm{ display:flex; flex-direction:column; line-height:0.98; }
+.logo .m{ font-weight:800; font-size:14pt; letter-spacing:-0.4px; color:var(--text); }
+.logo .c{ font-weight:500; font-size:8.6pt; letter-spacing:1.6px; color:var(--second); margin-top:1px; }
+.logo.on-dark .m{ color:var(--invert-text); } .logo.on-dark .c{ color:var(--muted); }
+.logo.on-dark{ --mark-passive:#E5E7EB; --mark-gap:#111827; }
+
+.cover{ background:var(--invert); color:var(--invert-text); padding:15mm 16mm 11mm;
+        justify-content:space-between; overflow:hidden; }
+.cover::before{ content:""; position:absolute; top:-30%; right:-20%; width:70%; height:90%;
+        background:radial-gradient(circle at center, rgba(13,148,136,.28), transparent 65%); }
+.cover .top{ position:relative; z-index:2; }
+.cover .eyebrow{ display:inline-block; font-size:8.2pt; font-weight:600; letter-spacing:2.6px;
+        text-transform:uppercase; color:var(--primary); border:1px solid rgba(13,148,136,.5);
+        padding:5px 11px; border-radius:999px; margin-bottom:9mm; }
+.cover h1{ font-size:30pt; font-weight:900; line-height:1.05; letter-spacing:-1px; max-width:130mm; }
+.cover h1 em{ font-style:normal; color:var(--primary); }
+.cover .rule{ width:42mm; height:3px; background:var(--primary); margin:7mm 0 0; border-radius:2px; }
+.cover .sub{ font-size:11.5pt; color:#C7CBD1; max-width:104mm; margin-top:6mm; line-height:1.48; }
+.dash{ position:relative; z-index:2; width:84mm; background:#0B1220; border:1px solid #1f2a3a;
+       border-radius:14px; padding:5mm 5mm 4.5mm; box-shadow:0 24px 60px rgba(0,0,0,.45); margin-top:8mm; }
+.dash .dots{ display:flex; gap:5px; margin-bottom:4mm; }
+.dash .dots i{ width:7px; height:7px; border-radius:50%; background:#2b3648; }
+.dash .dots i:first-child{ background:var(--primary); }
+.dash .lbl{ font-size:7pt; letter-spacing:1.8px; text-transform:uppercase; color:var(--muted); }
+.dash h3{ font-size:12pt; font-weight:800; color:#fff; margin:3px 0 4mm; line-height:1.15; }
+.dash .kpis{ display:flex; border-top:1px solid #1f2a3a; border-bottom:1px solid #1f2a3a; padding:3mm 0; }
+.dash .kpi{ flex:1; padding:0 3.5mm; border-right:1px solid #1f2a3a; } .dash .kpi:last-child{ border-right:0; }
+.dash .kpi .k{ font-size:7pt; color:var(--muted); } .dash .kpi .v{ font-size:12pt; font-weight:800; color:#fff; margin-top:2px; }
+.dash .chartwrap{ margin:4mm 0 3.5mm; } .dash .chartwrap .cl{ font-size:6.6pt; color:var(--muted); margin-bottom:2mm; }
+.dash svg{ width:100%; height:auto; display:block; }
+.dash .btns{ display:flex; flex-direction:column; gap:2.5mm; }
+.dash .btn{ text-align:center; font-size:8.4pt; font-weight:700; letter-spacing:.6px; padding:3mm 0; border-radius:8px; }
+.dash .btn.fill{ background:var(--primary); color:#04201c; } .dash .btn.line{ border:1px solid var(--primary); color:var(--primary); }
+.cover .foot{ position:relative; z-index:2; display:flex; justify-content:space-between; align-items:flex-end;
+              font-size:8.4pt; color:var(--muted); } .cover .foot b{ color:#fff; font-weight:700; }
+
+.kicker{ font-size:8pt; font-weight:700; letter-spacing:2.4px; text-transform:uppercase; color:var(--primary); margin-bottom:2.5mm; }
+h2.sec{ font-size:18pt; font-weight:800; color:var(--text); letter-spacing:-0.4px; line-height:1.13; }
+h2.sec .num{ color:var(--primary); }
+.lead{ font-size:10.6pt; color:var(--second); margin-top:3.5mm; max-width:150mm; line-height:1.5; }
+p{ margin-top:3mm; } p strong{ color:var(--text); font-weight:700; } .muted{ color:var(--second); }
+.quote{ border-left:3px solid var(--primary); padding:0.5mm 0 0.5mm 5mm; margin:3.5mm 0;
+        font-size:11pt; font-weight:600; color:var(--text); line-height:1.4; }
+
+.sign{ border-top:1px solid var(--border); padding:5mm 0; break-inside:avoid; }
+.sign:first-of-type{ border-top:0; padding-top:1mm; }
+.sign .head{ display:flex; align-items:baseline; gap:4mm; }
+.sign .badge{ flex:0 0 auto; width:10mm; height:10mm; border-radius:9px; background:var(--invert);
+      color:var(--primary); font-weight:800; font-size:10.5pt; display:flex; align-items:center; justify-content:center; }
+.sign h3{ font-size:12.8pt; font-weight:800; color:var(--text); line-height:1.18; letter-spacing:-0.2px; }
+.sign .body-txt{ margin-top:3mm; color:var(--text-alt); } .sign .body-txt p{ margin-top:2.6mm; }
+.pill{ display:inline-block; font-size:7.4pt; font-weight:700; letter-spacing:.4px; padding:2px 8px; border-radius:999px; vertical-align:middle; }
+.pill.risk{ background:rgba(239,68,68,.10); color:#b91c1c; } .pill.good{ background:rgba(16,185,129,.12); color:#047857; }
+.pill.info{ background:rgba(13,148,136,.10); color:#0f766e; }
+.test{ margin-top:3.2mm; background:var(--card); border:1px solid var(--border); border-left:3px solid var(--primary);
+       border-radius:0 8px 8px 0; padding:3mm 3.5mm; break-inside:avoid; }
+.test .t-lbl{ font-size:7.4pt; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:var(--primary); }
+.test .t-txt{ font-size:9.4pt; color:var(--text-alt); margin-top:1.3mm; line-height:1.42; }
+.check{ margin-top:2.8mm; display:flex; align-items:center; gap:3mm; font-size:9.4pt; font-weight:600; color:var(--text); }
+.check .box{ width:4.8mm; height:4.8mm; border:1.6px solid var(--primary); border-radius:5px; flex:0 0 auto; }
+ul.tight{ margin-top:2.5mm; padding-left:5mm; } ul.tight li{ margin-top:1.5mm; } ul.tight li b{ color:var(--text); }
+
+.callout{ background:var(--invert); color:#E5E7EB; border-radius:12px; padding:4mm 5mm; margin-top:4mm; break-inside:avoid; }
+.callout .ct{ font-size:7.6pt; font-weight:700; letter-spacing:1.8px; text-transform:uppercase; color:var(--primary); }
+.callout p{ color:#D1D5DB; margin-top:2.2mm; font-size:9.8pt; line-height:1.46; } .callout p b{ color:#fff; }
+
+table.score{ width:100%; border-collapse:collapse; margin-top:3.5mm; font-size:9.2pt; }
+table.score th{ text-align:left; font-size:7.6pt; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted);
+        font-weight:700; padding:2.2mm 3mm; border-bottom:1.5px solid var(--border); }
+table.score td{ padding:2.3mm 3mm; border-bottom:1px solid var(--border); color:var(--text-alt); vertical-align:middle; }
+table.score td.n{ width:10mm; color:var(--muted); font-weight:700; } table.score td.t{ font-weight:600; color:var(--text); }
+table.score td.s{ width:26mm; text-align:right; color:var(--second); font-size:8.4pt; }
+table.score td.c{ width:14mm; text-align:center; }
+table.score td.c .box{ display:inline-block; width:4.8mm; height:4.8mm; border:1.6px solid var(--border); border-radius:5px; }
+.sumline{ margin-top:3mm; font-weight:700; color:var(--text); font-size:9.6pt; }
+.tiers{ display:flex; gap:3.5mm; margin-top:4mm; }
+.tier{ flex:1; border-radius:10px; padding:3.5mm; border:1px solid var(--border); background:var(--card); break-inside:avoid; }
+.tier .rng{ font-size:12.5pt; font-weight:800; } .tier .hd{ font-size:9pt; font-weight:700; margin-top:1mm; }
+.tier .tx{ font-size:8.4pt; color:var(--second); margin-top:1.8mm; line-height:1.42; }
+.tier.ok .rng{ color:var(--success); } .tier.warn .rng{ color:#d97706; }
+.tier.bad{ border-color:rgba(239,68,68,.4); } .tier.bad .rng{ color:var(--error); }
+
+.offer{ display:grid; grid-template-columns:1fr 1fr; gap:3.5mm; margin-top:4mm; }
+.oc{ background:var(--card); border:1px solid var(--border); border-radius:10px; padding:3.5mm 4mm; break-inside:avoid; }
+.oc .on{ font-size:8pt; font-weight:800; color:var(--primary); letter-spacing:1px; }
+.oc .oh{ font-size:10.4pt; font-weight:700; color:var(--text); margin-top:1.3mm; }
+.oc .ot{ font-size:9pt; color:var(--second); margin-top:1.7mm; line-height:1.43; }
+
+.cta{ background:var(--invert); color:#fff; border-radius:16px; padding:6mm 6mm 5.5mm; position:relative; overflow:hidden; break-inside:avoid; }
+.cta::after{ content:""; position:absolute; right:-15%; bottom:-40%; width:60%; height:120%;
+        background:radial-gradient(circle, rgba(13,148,136,.30), transparent 65%); }
+.cta .ck{ font-size:8pt; font-weight:700; letter-spacing:2.2px; text-transform:uppercase; color:var(--primary); position:relative; z-index:2; }
+.cta h2{ font-size:19pt; font-weight:900; line-height:1.12; margin-top:2.5mm; position:relative; z-index:2; letter-spacing:-0.4px; }
+.cta p{ color:#CBD5E1; margin-top:3.5mm; font-size:10pt; position:relative; z-index:2; max-width:140mm; line-height:1.48; }
+.cta p b{ color:#fff; }
+.cta .code{ display:inline-flex; align-items:center; gap:3mm; margin-top:5mm; position:relative; z-index:2;
+        background:rgba(13,148,136,.12); border:1px dashed var(--primary); border-radius:10px; padding:3.5mm 4.5mm; }
+.cta .code .w{ font-size:14pt; font-weight:900; color:var(--primary); letter-spacing:1px; }
+.cta .code .d{ font-size:9pt; color:#94A3B8; }
+.cta .contact{ margin-top:5mm; position:relative; z-index:2; font-size:9.6pt; color:#E2E8F0; line-height:1.5; }
+.cta .contact b{ color:#fff; }
+.cta .guar{ margin-top:3.5mm; position:relative; z-index:2; font-size:8.6pt; color:#94A3B8; display:flex; gap:6mm; flex-wrap:wrap; }
+.cta .guar span::before{ content:"\2713 "; color:var(--success); font-weight:800; }
+
+.page-foot{ display:flex; justify-content:space-between; align-items:center; font-size:7.6pt; color:var(--muted);
+        border-top:1px solid var(--border); padding-top:2.5mm; margin-top:4mm; letter-spacing:.3px; }
+.page-foot .pg{ font-weight:700; color:var(--second); }
+
+table.vs{ width:100%; border-collapse:collapse; margin-top:4mm; font-size:9.2pt; background:var(--card); border-radius:10px; overflow:hidden; border:1px solid var(--border); }
+table.vs th{ text-align:left; font-size:7.6pt; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); font-weight:700; padding:2.6mm 3.5mm; border-bottom:1.5px solid var(--border); }
+table.vs td{ padding:2.6mm 3.5mm; border-bottom:1px solid var(--border); color:var(--text-alt); vertical-align:top; }
+table.vs tr:last-child td{ border-bottom:0; }
+table.vs td:first-child{ font-weight:600; color:var(--text); width:30mm; }
+</style>
+</head>
+<body>
+
+<!-- ============ P1: COVER ============ -->
+<section class="page cover">
+  <div class="top">
+    <span class="logo on-dark">
+      <svg width="24" height="19" viewBox="0 0 240 190" aria-hidden="true">
+        <path d="M40 165 V90 a40 40 0 0 1 80 0 V165" fill="none" stroke="var(--mark-active)" stroke-width="30" stroke-linecap="round"/>
+        <path d="M120 165 V90 a40 40 0 0 1 80 0 V165" fill="none" stroke="var(--mark-passive)" stroke-width="30" stroke-linecap="round"/>
+        <path d="M28 162 L204 46" fill="none" stroke="var(--mark-gap)" stroke-width="44" stroke-linecap="round"/>
+        <path d="M28 162 L204 46" fill="none" stroke="var(--mark-active)" stroke-width="24" stroke-linecap="round"/>
+        <path d="M216 22 L172 38 L200 70 Z" fill="var(--mark-active)"/>
+      </svg>
+      <span class="wm"><span class="m">maxima</span><span class="c">consulting</span></span>
+    </span>
+    <div style="margin-top:14mm;">
+      <span class="eyebrow">Гайд &middot; Управленческий учёт &middot; 2026</span>
+      <h1>Управленческий учёт <em>с нуля:</em> карта внедрения для собственника</h1>
+      <div class="rule"></div>
+      <div class="sub">Какие отчёты действительно нужны, с чего стартовать, сколько это занимает по времени и деньгам — и где учёт окупается решениями, а не красивыми таблицами.</div>
+
+      <div class="dash">
+        <div class="dots"><i></i><i></i><i></i></div>
+        <div class="lbl">Панель собственника &middot; пример</div>
+        <h3>Деньги, прибыль, капитал — на одном экране</h3>
+        <div class="kpis">
+          <div class="kpi"><div class="k">CASH FLOW</div><div class="v">4,2 млн</div></div>
+          <div class="kpi"><div class="k">МАРЖА</div><div class="v">31%</div></div>
+          <div class="kpi"><div class="k">П/А</div><div class="v">+9 дн</div></div>
+        </div>
+        <div class="chartwrap">
+          <div class="cl">Движение денег по неделям, &#8381; тыс.</div>
+          <svg viewBox="0 0 300 80" preserveAspectRatio="none">
+            <defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="rgba(13,148,136,.16)"/><stop offset="1" stop-color="rgba(13,148,136,0)"/>
+            </linearGradient></defs>
+            <line x1="0" y1="20" x2="300" y2="20" stroke="#1f2a3a" stroke-width="1"/>
+            <line x1="0" y1="45" x2="300" y2="45" stroke="#1f2a3a" stroke-width="1"/>
+            <line x1="0" y1="70" x2="300" y2="70" stroke="#1f2a3a" stroke-width="1"/>
+            <path d="M0 60 L35 52 L70 58 L105 38 L140 44 L175 28 L210 34 L245 18 L275 24 L300 14 L300 80 L0 80 Z" fill="url(#ag)"/>
+            <path d="M0 60 L35 52 L70 58 L105 38 L140 44 L175 28 L210 34 L245 18 L275 24 L300 14" fill="none" stroke="#0D9488" stroke-width="2.4"/>
+            <circle cx="300" cy="14" r="4" fill="#0D9488"/>
+          </svg>
+        </div>
+        <div class="btns">
+          <div class="btn fill">Разобрать ситуацию</div>
+          <div class="btn line">Записаться на разбор</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <span><b>maxima-consulting.ru</b> &middot; внешний финансовый директор для МСБ</span>
+    <span>8 страниц</span>
+  </div>
+</section>
+
+<!-- ============ P2: PREFACE ============ -->
+<section class="page">
+<div class="body">
+  <div class="kicker">Проблема</div>
+  <h2 class="sec"><span class="num">01 /</span> Выручка есть. Ясности нет</h2>
+  <p class="lead">Большинство компаний закрываются не из-за плохого продукта, а из-за нехватки денег в нужный момент. Собственник не знает себестоимость, не видит кассовый разрыв за недели вперёд и принимает решения на ощущениях.</p>
+  <div class="quote">Прибыль — это мнение. Деньги на счету — факт. Управленческий учёт нужен, чтобы оперировать фактами.</div>
+  <p><strong>Управленческий учёт отвечает собственнику на вопросы:</strong> сколько мы заработали на самом деле, где лежат деньги, какая маржинальность у каждого направления, что можно забрать, куда расти. Бухгалтерский учёт этих вопросов не решает — он отвечает государству, чего мы должны в бюджет.</p>
+  <p>Рабочий профиль бизнеса, которому это уже нужно: выручка 5–990 млн ₽ в год, бухгалтерия есть, управленческой ясности нет. Триггеры: «выручка есть — прибыли нет», кассовые разрывы, нет P&amp;L и Cash Flow, рост, кредит, новое направление.</p>
+
+  <table class="vs">
+    <tr><th>Критерий</th><th>Бухгалтерский учёт</th><th>Управленческий учёт</th></tr>
+    <tr><td>Для кого</td><td>Государство: налоги и отчётность</td><td>Собственник: решения по деньгам и прибыли</td></tr>
+    <tr><td>Обязательность</td><td>Обязателен, штрафы за ошибки</td><td>Не регулируется — ведите как удобно</td></tr>
+    <tr><td>Формат</td><td>Жёстко регламентирован (РСБУ)</td><td>Свободный: Sheets, сервисы, 1С — на ваш выбор</td></tr>
+    <tr><td>Вопрос</td><td>«Что мы должны налоговой?»</td><td>«Что происходит с бизнесом и что делать?»</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="ct">Типичная ошибка</div>
+    <p>Ждать от бухгалтера управленческую аналитику — расшифровку по проектам, юнит-экономику, маржинальность. <b>Бухгалтер не для этого.</b> Если вы принимаете решения по данным бухучёта — считайте, что принимаете их вслепую.</p>
+  </div>
+</div>
+<div class="page-foot"><span>maxima consulting</span><span>01 / Проблема</span><span class="pg">02</span></div>
+</section>
+
+<!-- ============ P3: SIGNS — ДДС + ОПиУ ============ -->
+<section class="page">
+<div class="body">
+  <div class="kicker">База системы</div>
+  <h2 class="sec"><span class="num">02 /</span> Два отчёта, с которых всё начинается</h2>
+  <p class="lead">Весь управленческий учёт держится на трёх отчётах. Хорошая новость: их три, а не тридцать. Стартовать нужно с ДДС — именно он закрывает большинство вопросов собственника.</p>
+
+  <div class="sign">
+    <div class="head">
+      <div class="badge">1</div>
+      <h3>ДДС — сколько денег, откуда пришли, куда ушли <span class="pill good">старт здесь</span></h3>
+    </div>
+    <div class="body-txt">
+      <p>Отчёт о движении денежных средств работает по <b>кассовому методу</b>: фиксируем деньги в момент, когда они физически пришли или ушли со счетов. Это выписка по счёту, разложенная по понятным статьям: поступления, аренда, зарплата, налоги, маркетинг.</p>
+      <p>Именно ДДС показывает <b>кассовые разрывы</b> — ситуацию, когда платить надо сегодня, а деньги придут завтра. По нашему опыту, для трети компаний одного ДДС достаточно, чтобы закрыть до 90% вопросов по финансам.</p>
+      <div class="test">
+        <div class="t-lbl">Проверьте себя</div>
+        <div class="t-txt">Можете ли вы прямо сейчас открыть файл и быть уверенным, что остатки по счетам бьются с реальностью? Если нет — это ваша точка роста на ближайший месяц.</div>
+      </div>
+      <div class="check"><span class="box"></span>Счета и кассы собраны, структура статей заведена, остатки сходятся с банком</div>
+    </div>
+  </div>
+
+  <div class="sign">
+    <div class="head">
+      <div class="badge">2</div>
+      <h3>ОПиУ — сколько заработали на самом деле</h3>
+    </div>
+    <div class="body-txt">
+      <p>Отчёт о прибылях и убытках работает по <b>методу начисления</b>: доход признаётся, когда работа выполнена и акт подписан, — даже если деньги ещё не пришли. Показывает реальную маржинальность направлений и проектов.</p>
+      <p><b>Деньги ≠ прибыль.</b> Какая разница, что расчётная прибыль +5 млн, если забрать её нельзя? Для простого бизнеса без дебиторки P&amp;L почти совпадёт с ДДС — поэтому ДДС первичен. P&amp;L — инструмент аналитики эффективности, а не ответ на вопрос «можно ли тратить».</p>
+      <div class="test">
+        <div class="t-lbl">Когда подключать</div>
+        <div class="t-txt">Через 3–4 недели после стабилизации ДДС. Структуру доходов и расходов делайте максимально близкой к статьям ДДС — так отчёты будут сходиться между собой.</div>
+      </div>
+      <div class="check"><span class="box"></span>Маржинальность видна по направлениям, проектам или СФО — не «в среднем по компании»</div>
+    </div>
+  </div>
+</div>
+<div class="page-foot"><span>maxima consulting</span><span>02 / ДДС и ОПиУ</span><span class="pg">03</span></div>
+</section>
+
+<!-- ============ P4: БАЛАНС + ТИРЫ ============ -->
+<section class="page">
+<div class="body">
+  <div class="kicker">Третий отчёт</div>
+  <h2 class="sec"><span class="num">03 /</span> Баланс: нужен ли на старте</h2>
+  <p class="lead">Баланс — самый недооценённый отчёт: он про капитал. Что вам принадлежит, кому вы должны, чего реально стоит бизнес. Собирается на дату, а не за период — в отличие от ДДС и ОПиУ.</p>
+
+  <p><strong>Активы:</strong> деньги, товар, оборудование, дебиторка, авансы. <strong>Пассивы:</strong> кредиты, долги поставщикам, собственный капитал. Баланс показывает, не «проедаете» ли вы компанию: деньги на счёте — это не богатство бизнеса.</p>
+  <p>Полноценный баланс на старте — <strong>не камень преткновения</strong>. Достаточно ключевых балансовых показателей под специфику: запасы, дебиторка, кредиторка, основные средства. Рано или поздно скажете себе спасибо.</p>
+
+  <div class="tiers">
+    <div class="tier ok">
+      <div class="rng">Не нужен</div>
+      <div class="hd">Услуги, микробизнес</div>
+      <div class="tx">Нет дебиторки, кредиторки, запасов, основных средств и авансов — полный баланс не даст ценности. Хватит балансовых метрик.</div>
+    </div>
+    <div class="tier warn">
+      <div class="rng">Скоро понадобится</div>
+      <div class="hd">Торговля, e-com</div>
+      <div class="tx">Торговой компании баланс понадобится раньше, чем услугам или IT: склады, отсрочки, закупки в кредит.</div>
+    </div>
+    <div class="tier bad">
+      <div class="rng">Обязателен</div>
+      <div class="hd">Оценка и продажа бизнеса</div>
+      <div class="tx">Задумались, сколько стоит бизнес? Коэффициенты и стоимость считаются на базе баланса — это чекап компании.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="ct">Главное правило</div>
+    <p>Отчёты не живут по отдельности. <b>Прибыль из ОПиУ перетекает в капитал баланса; изменение денег в ДДС совпадает с изменением денег в балансе.</b> Если цифры не бьются — это ошибка, и такому учёту доверять нельзя.</p>
+  </div>
+</div>
+<div class="page-foot"><span>maxima consulting</span><span>03 / Баланс</span><span class="pg">04</span></div>
+</section>
+
+<!-- ============ P5: ROADMAP (SCORECARD) ============ -->
+<section class="page">
+<div class="body">
+  <div class="kicker">Дорожная карта</div>
+  <h2 class="sec"><span class="num">04 /</span> Внедрение за 11 шагов: от диагностики до метрик</h2>
+  <p class="lead">Полноформатный учёт — это минимум 4–8 недель системной работы над процессами, а не над табличками. Шаблон — только половина успеха.</p>
+
+  <table class="score">
+    <tr><th style="width:10mm;">#</th><th>Шаг</th><th>Что получаете</th><th style="width:26mm; text-align:right;">Эффект</th></tr>
+    <tr><td class="n">0</td><td class="t">Диагностика и план</td><td>Что болит, что уже ведётся, какая система нужна. Карта работ с вариантами: «закрыть боли» или «полная постановка».</td><td class="s">точка входа</td></tr>
+    <tr><td class="n">1</td><td class="t">ДДС</td><td>Счета, кассы, структура статей, недели фактических данных — первый честный отчёт о деньгах.</td><td class="s">контроль денег</td></tr>
+    <tr><td class="n">2</td><td class="t">ОПиУ</td><td>Метод начисления, маржинальность по направлениям и проектам.</td><td class="s">честная прибыль</td></tr>
+    <tr><td class="n">3</td><td class="t">Баланс</td><td>Остатки: деньги, склад, оборудование, долги. Сводим «в ноль» регулярно.</td><td class="s">сколько стоит бизнес</td></tr>
+    <tr><td class="n">4</td><td class="t">Бюджет и план-факт</td><td>Оцифрованные ожидания + ежемесячный разбор отклонений по статьям.</td><td class="s">управляемость</td></tr>
+    <tr><td class="n">5</td><td class="t">Платёжный календарь</td><td>План платежей на 4–6 недель вперёд — кассовый разрыв видно до того, как он случится.</td><td class="s">защита от разрывов</td></tr>
+    <tr><td class="n">6</td><td class="t">Регламенты закрытия месяца</td><td>Чек-листы: отчёт на столе к 5–10 числу, одинаково из месяца в месяц.</td><td class="s">стабильность</td></tr>
+    <tr><td class="n">7</td><td class="t">Контрольные дашборды</td><td>Проверка данных до сбора отчётов + визуализация итогов на «первом экране».</td><td class="s">данным можно верить</td></tr>
+    <tr><td class="n">8</td><td class="t">Автоматизация</td><td>Выгрузки из 1С, маркетплейсы, меньше ручных операций и ошибок. Только после устаканивания процессов.</td><td class="s">скорость</td></tr>
+    <tr><td class="n">9</td><td class="t">Спецмодули</td><td>Основные средства, дебиторка/кредиторка, кредиты, налоговый календарь — под потребность, не «всё сразу».</td><td class="s">глубина</td></tr>
+    <tr><td class="n">10</td><td class="t">Обучение команды</td><td>Тестовый режим, культура работы с данными, докрутка регламентов.</td><td class="s">привычка считать</td></tr>
+    <tr><td class="n">11</td><td class="t">Нефинансовые метрики</td><td>Загрузка мощностей, стоимость лида, средний чек, конверсии — то, что забывают даже опытные финансисты.</td><td class="s">точки роста</td></tr>
+  </table>
+
+  <div class="sumline">Учёт станет управленческим только тогда, когда собран микс финансовых и нефинансовых метрик.</div>
+</div>
+<div class="page-foot"><span>maxima consulting</span><span>04 / Дорожная карта</span><span class="pg">05</span></div>
+</section>
+
+<!-- ============ P6: ЧТО СДЕЛАТЬ ЗАВТРА ============ -->
+<section class="page">
+<div class="body">
+  <div class="kicker">Рекомендации</div>
+  <h2 class="sec"><span class="num">05 /</span> Что сделать уже завтра</h2>
+  <p class="lead">Не ждите «полной системы». Реалистичная цель на 2–3 месяца: ДДС + ОПиУ + расчётные таблицы + балансовые метрики. Этого достаточно, чтобы смотреть на финансы системно и без хаоса.</p>
+
+  <div class="sign">
+    <div class="head"><div class="badge">1</div><h3>Сегодня: заведите ДДС</h3></div>
+    <div class="body-txt"><p>Google-таблица или сервис — не важно. Начните фиксировать <b>каждое поступление и каждый платёж</b> по статьям. Если файл уже есть — проверьте, сходятся ли остатки с банком.</p>
+    <div class="check"><span class="box"></span>ДДС создан, статьи согласованы, заполняется ежедневно</div></div>
+  </div>
+
+  <div class="sign">
+    <div class="head"><div class="badge">2</div><h3>Через месяц: добавьте ОПиУ</h3></div>
+    <div class="body-txt"><p>Когда ДДС вошёл в привычку — настройте отчёт о прибылях и убытках по методу начисления и посчитайте <b>правильную прибыль</b> по направлениям.</p>
+    <div class="check"><span class="box"></span>ОПиУ собирается до 10 числа, маржа видна по направлениям</div></div>
+  </div>
+
+  <div class="sign">
+    <div class="head"><div class="badge">3</div><h3>Далее: расчётные таблицы и балансовые метрики</h3></div>
+    <div class="body-txt"><p>Зарплаты, сделки, обязательства («мы должны / нам должны»), начисленные налоги, активы и амортизация, займы и кредиты. Затем — балансовые показатели, начиная с активов.</p>
+    <div class="check"><span class="box"></span>Дебиторка и кредиторка со сроками — в одной таблице</div></div>
+  </div>
+
+  <div class="callout">
+    <div class="ct">Где учёт окупается</div>
+    <p>Эффект в основном косвенный — <b>учёт показывает, что произошло, до того как станет дорого</b>: стагнация выручки при растущей дебиторке, продажи в минус, закупка на 30 млн, под которую нужны деньги ещё в этом квартале. Решения всегда остаются за собственником — но он принимает их на цифрах, а не на ощущениях.</p>
+  </div>
+</div>
+<div class="page-foot"><span>maxima consulting</span><span>05 / Next steps</span><span class="pg">06</span></div>
+</section>
+
+<!-- ============ P7: РЕШЕНИЕ / OFFER ============ -->
+<section class="page">
+<div class="body">
+  <div class="kicker">Решение</div>
+  <h2 class="sec"><span class="num">06 /</span> Если нужно быстрее, чем своими силами</h2>
+  <p class="lead">Можно собирать систему сами по карте из этого гайда — или прийти с этим списком к нам и пройти его за считанные недели. Мы работаем как внешний финансовый директор: между бухгалтерским аутсорсом и корпоративным CFO.</p>
+
+  <div class="offer">
+    <div class="oc">
+      <div class="on">ТОЧКА ВХОДА</div>
+      <div class="oh">Финансовая диагностика — 20 000–45 000 ₽, 7 дней</div>
+      <div class="ot">Разбираем текущее состояние, приоритизируем боли и даём карту работ. Основа любого внедрения — шаг 0 дорожной карты.</div>
+    </div>
+    <div class="oc">
+      <div class="on">ЭКСПРЕСС</div>
+      <div class="oh">Где бизнес теряет деньги — от 15 000 ₽, 1–2 дня</div>
+      <div class="ot">Быстрый разбор одного сегмента: маржа, оборотный капитал, платежи. Понятный ответ без длинного проекта.</div>
+    </div>
+    <div class="oc">
+      <div class="on">СИСТЕМА</div>
+      <div class="oh">Управленческий учёт с нуля — 60 000–150 000 ₽, 4–8 недель</div>
+      <div class="ot">ДДС, ОПиУ, балансовые метрики, регламенты закрытия месяца. Отчёты в системе сходятся — данным можно верить.</div>
+    </div>
+    <div class="oc">
+      <div class="on">МОДЕЛЬ</div>
+      <div class="oh">Финансовая модель — 40 000–100 000 ₽, 2–4 недели</div>
+      <div class="ot">Сценарии решений до коммитмента: рост, кредит, новое направление. Каждый проект — документ с цифрами, а не разговор.</div>
+    </div>
+    <div class="oc">
+      <div class="on">ПОДДЕРЖКА</div>
+      <div class="oh">CFO-light — 20 000–55 000 ₽/мес</div>
+      <div class="ot">Регулярный контроль после внедрения: отчёты собираются вовремя, отклонения разбираются, система не растаскивается.</div>
+    </div>
+    <div class="oc">
+      <div class="on">ДЛЯ СОБСТВЕННИКА</div>
+      <div class="oh">Advisory — 40 000–80 000 ₽/мес</div>
+      <div class="ot">Финансовый партнёр на стратегические вопросы: дивиденды, инвестиции, сделки, структура капитала.</div>
+    </div>
+  </div>
+
+  <div class="quote">Кейс с сайта: НДС-аудит торговой компании — 5 дней, экономия 3 429 410 ₽/год.</div>
+
+  <p class="muted" style="font-size:9pt;">Мы заключаем NDA до передачи данных. Первичный разбор — 30 минут, бесплатно, без обязательств: вы приходите с вопросом, уходите с картой следующих действий.</p>
+</div>
+<div class="page-foot"><span>maxima consulting</span><span>06 / Решение</span><span class="pg">07</span></div>
+</section>
+
+<!-- ============ P8: CTA ============ -->
+<section class="page">
+<div class="body">
+  <div class="cta">
+    <div class="ck">Следующий шаг</div>
+    <h2>Разберём вашу ситуацию за 30 минут — бесплатно и без обязательств</h2>
+    <p>Приносите вопрос: «выручка есть — прибыли нет», кассовые разрывы, нет P&amp;L и Cash Flow. Уходите с конкретной картой: <b>что считать, в каком порядке и сколько это займёт</b> — у вас или у нас.</p>
+    <div class="code">
+      <span class="w">«РАЗБОР»</span>
+      <span class="d">Кодовое слово из этого гайда — упомяните в первом сообщении</span>
+    </div>
+    <div class="contact">
+      Напишите: <b>maxima-consulting.ru</b> &middot; Telegram <b>@maxima_com</b> &middot; <b>+7 980 848-84-80</b> &middot; <b>info@maxima-consulting.ru</b>. В первом сообщении — кодовое слово <b>«РАЗБОР»</b>.
+    </div>
+    <div class="guar">
+      <span>NDA до передачи данных</span>
+      <span>Диагностика — 7 дней</span>
+      <span>Каждый проект — документ с цифрами</span>
+    </div>
+  </div>
+
+  <p style="margin-top:8mm;">Если гайд показался полезным — перешлите собственнику, который «вроде ведёт учёт, но цифрам не верит». Самый дорогой учёт — тот, данным data которому нельзя доверять.</p>
+  <p class="muted" style="margin-top:4mm; font-size:8.4pt;">maxima consulting — внешний финансовый партнёр для собственников МСБ с выручкой 5–990 млн ₽/год, которым уже недостаточно бухгалтерии, но ещё рано содержать штатного CFO. Гайд носит образовательный характер; цифры по рынку в разделе «Проблема» приведены по открытым исследованиям и требуют проверки применительно к вашему бизнесу.</p>
+</div>
+<div class="page-foot">
+  <span class="logo on-dark" style="--mark-gap:#F8F8F7;">
+    <svg width="20" height="16" viewBox="0 0 240 190" aria-hidden="true">
+      <path d="M40 165 V90 a40 40 0 0 1 80 0 V165" fill="none" stroke="var(--mark-active)" stroke-width="30" stroke-linecap="round"/>
+      <path d="M120 165 V90 a40 40 0 0 1 80 0 V165" fill="none" stroke="var(--mark-passive)" stroke-width="30" stroke-linecap="round"/>
+      <path d="M28 162 L204 46" fill="none" stroke="#F8F8F7" stroke-width="44" stroke-linecap="round"/>
+      <path d="M28 162 L204 46" fill="none" stroke="var(--mark-active)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M216 22 L172 38 L200 70 Z" fill="var(--mark-active)"/>
+    </svg>
+    <span class="wm"><span class="m" style="font-size:11pt;">maxima</span><span class="c" style="font-size:7pt;">consulting</span></span>
+  </span>
+  <span>maxima consulting &middot; maxima-consulting.ru &middot; +7 980 848-84-80 &middot; @maxima_com &middot; info@maxima-consulting.ru</span>
+  <span class="pg">08</span>
+</div>
+</section>
+
+</body>
+</html>

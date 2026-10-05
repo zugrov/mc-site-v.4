@@ -12,7 +12,8 @@ from publish_common import (
     LEAD_THANKYOU_CSS,
     YANDEX_METRIKA,
 )
-from service_landing_common import breadcrumb_ld, faq_ld, json_ld_script, service_ld
+from site_contacts import SOCIAL_ICONS_CSS
+from service_landing_common import breadcrumb_ld, faq_ld, footer_social_links_html, json_ld_script, service_ld
 
 SITE_HOME = "https://maxima-consulting.ru/"
 
@@ -32,7 +33,7 @@ EXTRA_CSS = """
 }
 .honeypot { position: absolute; left: -10000px; opacity: 0; height: 0; overflow: hidden; }
 .faq-item:not(.faq-item--open) .faq-answer p { padding: 0; opacity: 0; max-height: 0; overflow: hidden; }
-""" + LEAD_THANKYOU_CSS + LEAD_THANKYOU_CSS
+""" + SOCIAL_ICONS_CSS + LEAD_THANKYOU_CSS + LEAD_THANKYOU_CSS
 
 
 def load_css() -> str:
@@ -121,7 +122,7 @@ FOOTER = f"""
         <div class="container footer-top">
           <a class="brand" href="{SITE_HOME}">{BRAND_INNER}</a>
           <p>Финансовый партнёр<br />для МСБ</p>
-          <div class="footer-social"><span>Соцсети</span><a href="https://t.me/maxima_cfo" data-tg-source="diag_s1" target="_blank" rel="noopener noreferrer">Канал @maxima-cfo</a><a href="https://vk.com/maxima_consulting" target="_blank" rel="noopener noreferrer">VK</a><a href="https://m.tenchat.ru/u/eei8UmQE" target="_blank" rel="noopener noreferrer">TenChat</a></div>
+          {footer_social_links_html("diag_s1")}
           <div class="footer-services"><span>Услуги</span><a href="/uslugi">Все услуги</a><a href="/financial-diagnostics">Финансовая диагностика</a><a href="/nds-2026">НДС-2026</a><a href="/upravlenchesky-uchet">Управленческий учёт</a><a href="/cfo-light">CFO-light</a></div>
         </div>
         <div class="container footer-bottom"><span>© 2026 maxima consulting</span><div><a href="nda.html">NDA</a><a href="privacy.html">Политика ПД</a></div><span>made by maxima lab <span class="footer-star">✦</span></span></div>
@@ -243,7 +244,7 @@ html = f"""<!DOCTYPE html>
       <div class="container header-inner">
         <a class="brand" href="{SITE_HOME}" aria-label="Maxima Consulting — на главную">{BRAND_INNER}</a>
         <nav class="desktop-nav" aria-label="Основная навигация">
-          <a href="/uslugi">Услуги</a><a href="#process" data-scroll="process">Как работаем</a><a href="#pricing" data-scroll="pricing">Цены</a><a href="#faq" data-scroll="faq">FAQ</a><a href="/blog/">Статьи</a>
+          <a href="/uslugi">Услуги</a><a href="#process" data-scroll="process">Как работаем</a><a href="#pricing" data-scroll="pricing">Цены</a><a href="#faq" data-scroll="faq">FAQ</a><a href="/gajdy">Гайды</a><a href="/blog/">Статьи</a>
         </nav>
         <div class="header-actions">
           <a class="header-phone" href="tel:+79808488480">+7 980 848-84-80</a>
@@ -256,6 +257,7 @@ html = f"""<!DOCTYPE html>
         <a href="#process" data-scroll="process">Как работаем {I["chr"]}</a>
         <a href="#pricing" data-scroll="pricing">Цены {I["chr"]}</a>
         <a href="#faq" data-scroll="faq">FAQ {I["chr"]}</a>
+        <a href="/gajdy">Гайды {I["chr"]}</a>
         <a href="/blog/">Статьи {I["chr"]}</a>
         <button class="button button--lime" type="button" data-scroll="request">Разобрать цифры {I["aur"]}</button>
       </nav>

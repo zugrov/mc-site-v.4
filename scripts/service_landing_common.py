@@ -5,10 +5,14 @@ from typing import Any
 from site_contacts import (
     PHONE_DISPLAY,
     PHONE_TEL,
+    SOCIAL_ICONS_CSS,
+    TENCHAT_URL,
     TELEGRAM_CHANNEL_HANDLE,
     TELEGRAM_CHANNEL_URL,
     TELEGRAM_CONTACT_HANDLE,
     TELEGRAM_CONTACT_URL,
+    VK_URL,
+    channel_icon_links_html,
 )
 
 SITE_HOME = "https://maxima-consulting.ru/"
@@ -263,7 +267,18 @@ a.hub-card:hover .hub-card-cta .icon { transform: translate(3px, -3px); }
   .hub-card:hover { transform: none; box-shadow: none; }
   .hub-card:hover::after { opacity: 0; }
 }
-"""
+""" + SOCIAL_ICONS_CSS
+
+
+def footer_social_links_html(tg_start: str) -> str:
+    return (
+        f'<div class="footer-social"><span>Соцсети</span>'
+        f"{channel_icon_links_html(tg_start)}"
+        f'<a href="{TELEGRAM_CONTACT_URL}" data-tg-source="{tg_start}" target="_blank" '
+        f'rel="noopener noreferrer">Контакт {TELEGRAM_CONTACT_HANDLE}</a>'
+        f'<a href="{VK_URL}" target="_blank" rel="noopener noreferrer">VK</a>'
+        f'<a href="{TENCHAT_URL}" target="_blank" rel="noopener noreferrer">TenChat</a></div>'
+    )
 
 
 def footer_html(tg_start: str) -> str:
@@ -273,7 +288,7 @@ def footer_html(tg_start: str) -> str:
         <div class="container footer-top">
           <a class="brand" href="{SITE_HOME}">{BRAND_INNER}</a>
           <p>Финансовый партнёр<br />для МСБ</p>
-          <div class="footer-social"><span>Соцсети</span><a href="{TELEGRAM_CHANNEL_URL}" data-tg-source="{tg_start}" target="_blank" rel="noopener noreferrer">Канал {TELEGRAM_CHANNEL_HANDLE}</a><a href="https://vk.com/maxima_consulting" target="_blank" rel="noopener noreferrer">VK</a><a href="https://m.tenchat.ru/u/eei8UmQE" target="_blank" rel="noopener noreferrer">TenChat</a></div>
+          {footer_social_links_html(tg_start)}
           <div class="footer-services"><span>Услуги</span>{links}</div>
         </div>
         <div class="container footer-bottom"><span>© 2026 maxima consulting</span><div><a href="nda.html">NDA</a><a href="privacy.html">Политика ПД</a></div><span>Обновлено: сентябрь 2026</span></div>

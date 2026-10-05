@@ -12,7 +12,8 @@ from publish_common import (
     LEAD_THANKYOU_CSS,
     YANDEX_METRIKA,
 )
-from service_landing_common import breadcrumb_ld, faq_ld, json_ld_script, service_ld
+from site_contacts import SOCIAL_ICONS_CSS
+from service_landing_common import breadcrumb_ld, faq_ld, footer_social_links_html, json_ld_script, service_ld
 
 SITE_HOME = "https://maxima-consulting.ru/"
 
@@ -26,7 +27,7 @@ EXTRA_CSS = """
 .icon { display: inline-block; vertical-align: middle; flex-shrink: 0; }
 #floatingCta[hidden] { display: none !important; }
 .faq-item:not(.is-open) .faq-answer { display: none; }
-""" + LEAD_THANKYOU_CSS
+""" + SOCIAL_ICONS_CSS + LEAD_THANKYOU_CSS
 
 
 def load_css() -> str:
@@ -117,7 +118,7 @@ FOOTER = f"""
       <div class="footer-top">
         <a class="brand" href="{SITE_HOME}">{BRAND_INNER}</a>
         <p>Финансовый партнёр<br />для МСБ</p>
-        <div class="footer-social"><span>Соцсети</span><a href="https://t.me/maxima_cfo" data-tg-source="nds_s1" target="_blank" rel="noopener noreferrer">Канал @maxima-cfo</a><a href="https://vk.com/maxima_consulting" target="_blank" rel="noopener noreferrer">VK</a><a href="https://m.tenchat.ru/u/eei8UmQE" target="_blank" rel="noopener noreferrer">TenChat</a></div>
+        {footer_social_links_html("nds_s1")}
         <div class="footer-services"><span>Услуги</span><a href="/uslugi">Все услуги</a><a href="/financial-diagnostics">Финансовая диагностика</a><a href="/nds-2026">НДС-2026</a><a href="/upravlenchesky-uchet">Управленческий учёт</a><a href="/cfo-light">CFO-light</a></div>
       </div>
       <div class="footer-bottom"><span>© maxima consulting, 2026</span><div><a href="nda.html">NDA</a><a href="privacy.html">Политика ПД</a></div><span class="footer-signature">made by maxima lab {I["spk"]}</span></div>
@@ -206,7 +207,7 @@ html = f"""<!DOCTYPE html>
     <header class="site-header">
       <a class="brand" href="{SITE_HOME}" aria-label="Maxima Consulting — на главную">{BRAND_INNER}</a>
       <nav class="main-nav" aria-label="Основная навигация">
-        <a href="/uslugi">Услуги</a><a href="#scenarios">Сценарии</a><a href="#pricing">Цены</a><a href="#faq">FAQ</a><a href="/blog/">Статьи</a>
+        <a href="/uslugi">Услуги</a><a href="#scenarios">Сценарии</a><a href="#pricing">Цены</a><a href="#faq">FAQ</a><a href="/gajdy">Гайды</a><a href="/blog/">Статьи</a>
       </nav>
       <div class="header-actions">
         <a class="header-phone" href="tel:+79808488480">+7 980 848-84-80</a>

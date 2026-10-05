@@ -13,6 +13,7 @@ from landing_hero_visuals import (
     hub_services_visual_html,
     product_hero_for,
 )
+from site_nav import nav_guides_and_blog_desktop, nav_guides_and_blog_mobile
 from service_landing_common import (
     BRAND_INNER,
     EXTRA_CSS,
@@ -221,7 +222,7 @@ def header_block(is_hub: bool = False) -> str:
       <div class="container header-inner">
         <a class="brand" href="{SITE_HOME}">{BRAND_INNER}</a>
         <nav class="desktop-nav" aria-label="Основная навигация">
-          {services_desktop}{pricing_desktop}<a href="#faq" data-scroll="faq">FAQ</a><a href="/blog/">Статьи</a>
+          {services_desktop}{pricing_desktop}<a href="#faq" data-scroll="faq">FAQ</a>{nav_guides_and_blog_desktop()}
         </nav>
         <div class="header-actions">
           <a class="header-phone" href="tel:+79808488480">+7 980 848-84-80</a>
@@ -231,7 +232,7 @@ def header_block(is_hub: bool = False) -> str:
       </div>
       <nav class="mobile-nav" aria-label="Мобильная навигация">
         {services_mobile}{pricing_mobile}<a href="#faq" data-scroll="faq">FAQ {I["chr"]}</a>
-        <a href="/blog/">Статьи {I["chr"]}</a>
+        {nav_guides_and_blog_mobile(I["chr"])}
         <button class="button button--lime" type="button" data-scroll="request">Разобрать ситуацию {I["aur"]}</button>
       </nav>
     </header>

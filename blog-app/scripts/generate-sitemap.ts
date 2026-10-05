@@ -59,6 +59,12 @@ const staticPages: UrlEntry[] = [
     priority: "0.85",
   },
   {
+    loc: "https://maxima-consulting.ru/gajdy",
+    lastmod: "2026-10-05",
+    changefreq: "monthly",
+    priority: "0.85",
+  },
+  {
     loc: "https://maxima-consulting.ru/blog/",
     lastmod: "2026-09-16",
     changefreq: "weekly",

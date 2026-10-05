@@ -41,6 +41,7 @@ SLUGS=(
   finansovyj-tsikl-oborotnyj-kapital
   4-zakona-biznes-1-oktyabrya-2026
   ponyatiya-po-ponyatiyam-pribyl
+  zakonoproekt-617-9-shtrafy-marketplejsy-2027
 )
 
 SOURCES=(
@@ -69,6 +70,7 @@ SOURCES=(
   14684075_3840_2160_30fps.mp4
   5981205-uhd_4096_2160_25fps.mp4
   01Butcher-Final.jpg
+  1488099915_583619a1dc362.jpeg
 )
 
 make_thumb() {
