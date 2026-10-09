@@ -42,6 +42,8 @@ SLUGS=(
   4-zakona-biznes-1-oktyabrya-2026
   ponyatiya-po-ponyatiyam-pribyl
   zakonoproekt-617-9-shtrafy-marketplejsy-2027
+  faktoring-debitorka-v-dengi
+  droblenie-biznesa-neskolko-ip
 )
 
 SOURCES=(
@@ -71,6 +73,8 @@ SOURCES=(
   5981205-uhd_4096_2160_25fps.mp4
   01Butcher-Final.jpg
   1488099915_583619a1dc362.jpeg
+  5f4e8e4331654.jpg
+  analytics_maturity_model.jpg
 )
 
 make_thumb() {
