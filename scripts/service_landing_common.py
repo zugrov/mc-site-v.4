@@ -291,7 +291,7 @@ def footer_html(tg_start: str) -> str:
           {footer_social_links_html(tg_start)}
           <div class="footer-services"><span>Услуги</span>{links}</div>
         </div>
-        <div class="container footer-bottom"><span>© 2026 maxima consulting</span><div><a href="nda.html">NDA</a><a href="privacy.html">Политика ПД</a></div><span>Обновлено: сентябрь 2026</span></div>
+        <div class="container footer-bottom"><span>© 2026 maxima consulting</span><div><a href="nda.html">NDA</a><a href="/privacy">Политика ПД</a></div><span>Обновлено: сентябрь 2026</span></div>
       </footer>
 """
 
@@ -312,7 +312,7 @@ def lead_form_html(tg_start: str, submit_label: str, aur: str) -> str:
                 <label><span>Срочность <b>*</b></span><select id="urgency" name="urgency" required><option value="">Выберите вариант</option><option value="urgent">Срочно — решение на этой неделе</option><option value="month">В течение месяца</option><option value="not_urgent">Не срочно</option><option value="researching">Изучаю рынок</option></select></label>
                 <label class="form-full"><span>Главный вопрос <b>*</b></span><textarea id="question" name="question" placeholder="Что сейчас больше всего мешает принимать решения?" required></textarea></label>
               </div>
-              <label class="consent"><input type="checkbox" name="consent_pdn" required /><span class="checkbox-ui">✓</span><span>Согласен(на) на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank" rel="noopener">Политикой обработки персональных данных</a> <b>*</b></span></label>
+              <label class="consent"><input type="checkbox" name="consent_pdn" required /><span class="checkbox-ui">✓</span><span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" target="_blank" rel="noopener">Политикой обработки персональных данных</a> <b>*</b></span></label>
               <button class="button button--lime button--submit" type="submit" disabled>{submit_label} {aur}</button>
               <p class="form-note" style="margin-top:12px;font-size:12px;color:#8a9189;">Или напишите: <a href="{PHONE_TEL}">{PHONE_DISPLAY}</a> · <a href="{TELEGRAM_CONTACT_URL}" data-tg-source="{tg_start}" target="_blank" rel="noopener">{TELEGRAM_CONTACT_HANDLE}</a></p>
             </form>

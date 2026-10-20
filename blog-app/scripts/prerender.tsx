@@ -32,6 +32,12 @@ async function renderRoute(
     "</body>",
     `<script>${injectScript}</script></body>`,
   );
+  if (!html.includes("/assets/cookie-consent.js")) {
+    html = html.replace(
+      "</head>",
+      `  <script src="/assets/cookie-consent.js?v=20261020"></script>\n</head>`,
+    );
+  }
   return html;
 }
 

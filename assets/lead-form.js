@@ -340,6 +340,18 @@
     }
   }
 
+  function reachVkGoal(goalId) {
+    var pixelId = window.MC_VK_PIXEL_ID;
+    if (!pixelId || !window._tmr || typeof window._tmr.push !== 'function') {
+      return;
+    }
+    window._tmr.push({
+      type: 'reachGoal',
+      id: pixelId,
+      goal: goalId,
+    });
+  }
+
   function renderThankYou(container, leadId) {
     container.innerHTML =
       '<div class="lead-thankyou">' +
@@ -499,6 +511,7 @@
           }
 
           reachGoal('lead_submit');
+          reachVkGoal('lead_submit');
           var wrap = form.closest('.cta-form__form-wrap') || form.parentElement;
           renderThankYou(wrap, result.data.lead_id);
         })
@@ -582,5 +595,9 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('[data-lead-form]').forEach(bindForm);
+  });
+
+  document.addEventListener('mc:consent-accepted', function () {
+    document.querySelectorAll('[data-lead-form]').forEach(initTracking);
   });
 })();

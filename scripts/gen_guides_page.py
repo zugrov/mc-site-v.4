@@ -9,7 +9,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from guides_catalog import load_guides
 from pro_css import load_diag_css
-from publish_common import YANDEX_METRIKA
+from publish_common import YANDEX_METRIKA, open_graph_meta
 from service_landing_common import (
     BRAND_INNER,
     EXTRA_CSS,
@@ -198,6 +198,10 @@ def render() -> str:
   <link rel="canonical" href="{url}" />
   <title>Гайды для собственников бизнеса — maxima consulting</title>
   <meta name="description" content="Практические гайды в PDF и HTML: чек-листы и разборы по управленческому учёту, налогам и деньгам в бизнесе МСБ." />
+  <meta property="og:title" content="Гайды для собственников бизнеса — maxima consulting" />
+  <meta property="og:description" content="Практические гайды в PDF и HTML: чек-листы и разборы по управленческому учёту, налогам и деньгам в бизнесе МСБ." />
+  <meta property="og:type" content="website" />
+{open_graph_meta(url)}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
