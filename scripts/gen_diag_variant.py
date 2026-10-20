@@ -11,6 +11,7 @@ from publish_common import (
     LEAD_FORM_SCRIPT,
     LEAD_THANKYOU_CSS,
     YANDEX_METRIKA,
+    open_graph_meta,
 )
 from site_contacts import SOCIAL_ICONS_CSS
 from service_landing_common import breadcrumb_ld, faq_ld, footer_social_links_html, json_ld_script, service_ld
@@ -125,7 +126,7 @@ FOOTER = f"""
           {footer_social_links_html("diag_s1")}
           <div class="footer-services"><span>Услуги</span><a href="/uslugi">Все услуги</a><a href="/financial-diagnostics">Финансовая диагностика</a><a href="/nds-2026">НДС-2026</a><a href="/upravlenchesky-uchet">Управленческий учёт</a><a href="/cfo-light">CFO-light</a></div>
         </div>
-        <div class="container footer-bottom"><span>© 2026 maxima consulting</span><div><a href="nda.html">NDA</a><a href="privacy.html">Политика ПД</a></div><span>made by maxima lab <span class="footer-star">✦</span></span></div>
+        <div class="container footer-bottom"><span>© 2026 maxima consulting</span><div><a href="nda.html">NDA</a><a href="/privacy">Политика ПД</a></div><span>made by maxima lab <span class="footer-star">✦</span></span></div>
       </footer>
 """
 
@@ -223,6 +224,7 @@ html = f"""<!DOCTYPE html>
   <meta property="og:title" content="Финансовая диагностика за 7 дней — maxima consulting" />
   <meta property="og:description" content="Прибыль, деньги, риски и приоритеты — в одном понятном отчёте для собственника." />
   <meta property="og:type" content="website" />
+{open_graph_meta("https://maxima-consulting.ru/financial-diagnostics")}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -411,7 +413,7 @@ html = f"""<!DOCTYPE html>
                 <label><span>Срочность <b>*</b></span><select id="urgency" name="urgency" required><option value="">Выберите вариант</option><option value="urgent">Срочно — решение на этой неделе</option><option value="month">В течение месяца</option><option value="not_urgent">Не срочно</option><option value="researching">Изучаю рынок</option></select></label>
                 <label class="form-full"><span>Главный вопрос <b>*</b></span><textarea id="question" name="question" placeholder="Что сейчас больше всего мешает принимать решения?" required></textarea></label>
               </div>
-              <label class="consent"><input type="checkbox" name="consent_pdn" required /><span class="checkbox-ui">{I["chk"]}</span><span>Согласен(на) на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank" rel="noopener">Политикой обработки персональных данных</a> <b>*</b></span></label>
+              <label class="consent"><input type="checkbox" name="consent_pdn" required /><span class="checkbox-ui">{I["chk"]}</span><span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" target="_blank" rel="noopener">Политикой обработки персональных данных</a> <b>*</b></span></label>
               <button class="button button--lime button--submit" type="submit" disabled>Разобрать цифры {I["aur"]}</button>
               <p class="form-note" style="margin-top:12px;font-size:12px;color:#8a9189;">Или напишите: <a href="tel:+79808488480">+7 980 848-84-80</a> · <a href="https://t.me/maxima_com" data-tg-source="diag_s1" target="_blank" rel="noopener">@maxima_com</a></p>
             </form>

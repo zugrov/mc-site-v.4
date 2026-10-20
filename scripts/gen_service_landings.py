@@ -7,7 +7,12 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from pro_css import load_diag_css
-from publish_common import LEAD_FORM_SCRIPT, LEAD_THANKYOU_CSS, YANDEX_METRIKA
+from publish_common import (
+    LEAD_FORM_SCRIPT,
+    LEAD_THANKYOU_CSS,
+    YANDEX_METRIKA,
+    open_graph_meta,
+)
 from landing_hero_visuals import (
     HUB_MAP_VISUAL_CSS,
     hub_services_visual_html,
@@ -277,6 +282,7 @@ def render_product(page: dict) -> str:
   <meta property="og:title" content="{page["title"]}" />
   <meta property="og:description" content="{page["meta_description"]}" />
   <meta property="og:type" content="website" />
+{open_graph_meta(url)}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -400,6 +406,10 @@ def render_hub() -> str:
   <link rel="canonical" href="{url}" />
   <title>Услуги финансового консалтинга для бизнеса — maxima consulting</title>
   <meta name="description" content="НДС-аудит, финансовая диагностика, управленческий учёт, финмодель, налоговая оптимизация и CFO-light для МСБ 5–990 млн ₽. Разбор ситуации бесплатно." />
+  <meta property="og:title" content="Услуги финансового консалтинга для бизнеса — maxima consulting" />
+  <meta property="og:description" content="НДС-аудит, финансовая диагностика, управленческий учёт, финмодель, налоговая оптимизация и CFO-light для МСБ 5–990 млн ₽. Разбор ситуации бесплатно." />
+  <meta property="og:type" content="website" />
+{open_graph_meta(url)}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
