@@ -29,8 +29,11 @@ app.use((err, _req, res, _next) => {
   });
 });
 
-const PORT = Number(process.env.PORT) || 3001;
+if (require.main === module) {
+  const port = Number(process.env.PORT) || 3001;
+  app.listen(port, () => {
+    console.log(`Lead API listening on port ${port}`);
+  });
+}
 
-app.listen(PORT, () => {
-  console.log(`Lead API listening on port ${PORT}`);
-});
+module.exports = app;

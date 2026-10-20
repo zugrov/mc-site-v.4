@@ -74,7 +74,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             NDA
           </a>
           {" · "}
-          <a href="https://maxima-consulting.ru/privacy.html" className="hover:text-teal-300">
+          <a href="https://maxima-consulting.ru/privacy" className="hover:text-teal-300">
             Политика ПД
           </a>
         </p>
