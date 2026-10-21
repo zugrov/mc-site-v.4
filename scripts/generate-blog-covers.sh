@@ -44,6 +44,7 @@ SLUGS=(
   zakonoproekt-617-9-shtrafy-marketplejsy-2027
   faktoring-debitorka-v-dengi
   droblenie-biznesa-neskolko-ip
+  tri-stereotipa-o-finansah
 )
 
 SOURCES=(
@@ -74,7 +75,8 @@ SOURCES=(
   01Butcher-Final.jpg
   1488099915_583619a1dc362.jpeg
   5f4e8e4331654.jpg
-  analytics_maturity_model.jpg
+  portnyagin-sud.jpg
+  na-2-3.jpg
 )
 
 make_thumb() {
