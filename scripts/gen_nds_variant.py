@@ -12,7 +12,7 @@ from publish_common import (
     LEAD_THANKYOU_CSS,
     YANDEX_METRIKA,
 )
-from site_contacts import SOCIAL_ICONS_CSS
+from site_contacts import PRICE_NOTE_HTML, SOCIAL_ICONS_CSS
 from service_landing_common import breadcrumb_ld, faq_ld, footer_social_links_html, json_ld_script, service_ld
 
 SITE_HOME = "https://maxima-consulting.ru/"
@@ -122,6 +122,7 @@ FOOTER = f"""
         <div class="footer-services"><span>Услуги</span><a href="/uslugi">Все услуги</a><a href="/financial-diagnostics">Финансовая диагностика</a><a href="/nds-2026">НДС-2026</a><a href="/upravlenchesky-uchet">Управленческий учёт</a><a href="/cfo-light">CFO-light</a></div>
       </div>
       <div class="footer-bottom"><span>© maxima consulting, 2026</span><div><a href="nda.html">NDA</a><a href="privacy.html">Политика ПД</a></div><span class="footer-signature">made by maxima lab {I["spk"]}</span></div>
+      {PRICE_NOTE_HTML}
     </footer>
 """
 

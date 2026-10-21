@@ -12,6 +12,7 @@ from site_contacts import (
     TELEGRAM_CONTACT_HANDLE,
     TELEGRAM_CONTACT_URL,
     VK_URL,
+    PRICE_NOTE_HTML,
     channel_icon_links_html,
 )
 
@@ -292,6 +293,7 @@ def footer_html(tg_start: str) -> str:
           <div class="footer-services"><span>Услуги</span>{links}</div>
         </div>
         <div class="container footer-bottom"><span>© 2026 maxima consulting</span><div><a href="nda.html">NDA</a><a href="privacy.html">Политика ПД</a></div><span>Обновлено: сентябрь 2026</span></div>
+        <div class="container">{PRICE_NOTE_HTML}</div>
       </footer>
 """
 

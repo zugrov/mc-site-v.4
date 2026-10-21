@@ -78,6 +78,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             Политика ПД
           </a>
         </p>
+        <p className="mx-auto mt-3 max-w-xl text-[11px] leading-snug text-[#6b7280]">
+          Указанные цены не являются офертой и носят ознакомительный характер.
+        </p>
       </footer>
     </div>
   );

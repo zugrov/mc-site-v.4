@@ -18,6 +18,13 @@ TELEGRAM_PUBLIC_USERNAME = TELEGRAM_CONTACT_USERNAME
 TELEGRAM_PUBLIC_URL = TELEGRAM_CONTACT_URL
 TELEGRAM_PUBLIC_HANDLE = TELEGRAM_CONTACT_HANDLE
 
+PRICE_NOTE = "Указанные цены не являются офертой и носят ознакомительный характер."
+PRICE_NOTE_HTML = (
+    f'<p class="price-note" style="margin:14px 0 0;padding:0;font-size:11px;'
+    f'line-height:1.45;letter-spacing:0;text-transform:none;font-weight:400;'
+    f'color:#6a716a">{PRICE_NOTE}</p>'
+)
+
 PHONE_E164 = "+79808488480"
 PHONE_TEL = f"tel:{PHONE_E164}"
 PHONE_DISPLAY = "+7 980 848-84-80"
