@@ -1,22 +1,25 @@
-"""Общие фрагменты для production-лендингов (Metrika, lead-form, thank-you CSS)."""
+"""Общие фрагменты для production-лендингов (согласие, lead-form, thank-you CSS)."""
 
+OG_IMAGE_URL = "https://maxima-consulting.ru/assets/og-image.png"
+
+# Счётчик Метрики и рекламные пиксели подключает assets/cookie-consent.js
+# только после согласия. Пустой noscript-пиксель не ставим: он сработал бы без выбора.
 YANDEX_METRIKA = """
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=112291401', 'ym');
-
-    ym(112291401, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-  </script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/112291401" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <!-- /Yandex.Metrika counter -->
+  <!-- Аналитика и рекламные пиксели — только после согласия -->
+  <script src="/assets/cookie-consent.js?v=20261020"></script>
 """
 
-LEAD_FORM_SCRIPT = '<script src="assets/lead-form.js?v=20260905"></script>'
+LEAD_FORM_SCRIPT = '<script src="assets/lead-form.js?v=20261020"></script>'
+
+
+def open_graph_meta(url):
+    return (
+        f'  <meta property="og:url" content="{url}" />\n'
+        f'  <meta property="og:image" content="{OG_IMAGE_URL}" />\n'
+        '  <meta property="og:image:width" content="1200" />\n'
+        '  <meta property="og:image:height" content="630" />\n'
+        '  <meta name="twitter:card" content="summary_large_image" />'
+    )
 
 LEAD_FORM_HIDDEN_FIELDS = """
               <div class="honeypot" aria-hidden="true">

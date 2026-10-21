@@ -18,6 +18,7 @@ const {
   sendLeadMessage,
   editMessageMarkCrmOk,
   sendEnrichMessage,
+  notifyFailedLeadFallback,
   notifyManagerNewTask,
 } = require('../lib/telegram');
 const { logLeadAttempt } = require('../lib/logger');
@@ -163,6 +164,21 @@ router.post('/lead', rateLimit({
       telegram_error: telegramError,
       ip: getClientIp(req),
     });
+
+    try {
+      await notifyFailedLeadFallback(leadId, {
+        name: payload.name,
+        contact: payload.contact,
+        bitrixError,
+        telegramError,
+      });
+    } catch (error) {
+      logLeadAttempt({
+        lead_id: leadId,
+        event: 'fallback_alert_error',
+        error: error.message,
+      });
+    }
   }
 
   saveLeadMeta(leadId, {
@@ -194,7 +210,16 @@ router.post('/lead', rateLimit({
   });
 });
 
-router.post('/lead/:leadId/enrich', async (req, res) => {
+router.post('/lead/:leadId/enrich', rateLimit({
+  windowMs: 10 * 60 * 1000,
+  max: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    status: 'error',
+    message: 'Слишком много запросов. Попробуйте ещё раз через несколько минут.',
+  },
+}), async (req, res) => {
   const { leadId } = req.params;
   const parsed = leadStep2Schema.safeParse(req.body);
 

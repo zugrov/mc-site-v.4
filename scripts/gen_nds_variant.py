@@ -11,6 +11,7 @@ from publish_common import (
     LEAD_FORM_SCRIPT,
     LEAD_THANKYOU_CSS,
     YANDEX_METRIKA,
+    open_graph_meta,
 )
 from site_contacts import PRICE_NOTE_HTML, SOCIAL_ICONS_CSS
 from service_landing_common import breadcrumb_ld, faq_ld, footer_social_links_html, json_ld_script, service_ld
@@ -121,8 +122,8 @@ FOOTER = f"""
         {footer_social_links_html("nds_s1")}
         <div class="footer-services"><span>Услуги</span><a href="/uslugi">Все услуги</a><a href="/financial-diagnostics">Финансовая диагностика</a><a href="/nds-2026">НДС-2026</a><a href="/upravlenchesky-uchet">Управленческий учёт</a><a href="/cfo-light">CFO-light</a></div>
       </div>
-      <div class="footer-bottom"><span>© maxima consulting, 2026</span><div><a href="nda.html">NDA</a><a href="privacy.html">Политика ПД</a></div><span class="footer-signature">made by maxima lab {I["spk"]}</span></div>
-      {PRICE_NOTE_HTML}
+      <div class="footer-bottom"><span>© maxima consulting, 2026</span><div><a href="nda.html">NDA</a><a href="/privacy">Политика ПД</a></div><span class="footer-signature">made by maxima lab {I["spk"]}</span></div>
+      <div class="container">{PRICE_NOTE_HTML}</div>
     </footer>
 """
 
@@ -188,6 +189,7 @@ html = f"""<!DOCTYPE html>
   <meta property="og:title" content="НДС-2026: сценарии для вашего бизнеса — maxima consulting" />
   <meta property="og:description" content="Цена, маржа и движение денежных средств — без решений наугад." />
   <meta property="og:type" content="website" />
+{open_graph_meta("https://maxima-consulting.ru/nds-2026")}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -346,7 +348,7 @@ html = f"""<!DOCTYPE html>
                 <label>Срочность *<select id="urgency" required name="urgency"><option value="">Выберите</option><option value="urgent">Срочно (нужно решение на этой неделе)</option><option value="month">В течение месяца</option><option value="not_urgent">Не срочно</option><option value="researching">Изучаю рынок</option></select></label>
                 <label class="full-width">Главный вопрос *<textarea id="question" required name="question" placeholder="Что хотите просчитать в первую очередь?" rows="3"></textarea></label>
               </div>
-              <label class="consent"><input type="checkbox" name="consent_pdn" required /> <span>Согласен(на) на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank" rel="noopener">Политикой обработки персональных данных</a> *</span></label>
+              <label class="consent"><input type="checkbox" name="consent_pdn" required /> <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" target="_blank" rel="noopener">Политикой обработки персональных данных</a> *</span></label>
               <button class="button button-primary submit-button" type="submit" disabled>Проверить сценарий {I["aur18"]}</button>
               <p class="form-note" style="margin-top:12px;font-size:12px;opacity:.75;">Или напишите: <a href="tel:+79808488480">+7 980 848-84-80</a> · <a href="https://t.me/maxima_com" data-tg-source="nds_s1" target="_blank" rel="noopener">@maxima_com</a></p>
             </form>

@@ -77,7 +77,7 @@ const staticPages: UrlEntry[] = [
     priority: "0.2",
   },
   {
-    loc: "https://maxima-consulting.ru/privacy.html",
+    loc: "https://maxima-consulting.ru/privacy",
     lastmod: "2026-07-05",
     changefreq: "yearly",
     priority: "0.2",

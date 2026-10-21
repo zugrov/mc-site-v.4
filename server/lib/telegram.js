@@ -144,6 +144,25 @@ async function sendToChat(chatId, text) {
   });
 }
 
+async function notifyFailedLeadFallback(leadId, details) {
+  const chatId = process.env.TELEGRAM_FALLBACK_ALERT_CHAT_ID;
+  if (!chatId) {
+    throw new Error('TELEGRAM_FALLBACK_ALERT_CHAT_ID не настроен');
+  }
+
+  const text = [
+    '⚠ Заявка не попала ни в Bitrix, ни в основной Telegram',
+    `lead_id: ${leadId}`,
+    `Имя: ${details.name || '—'}`,
+    `Контакт: ${details.contact || '—'}`,
+    `Bitrix: ${details.bitrixError || '—'}`,
+    `Telegram: ${details.telegramError || '—'}`,
+    'Резервная копия: server/data/failed-leads.log',
+  ].join('\n');
+
+  return sendToChat(chatId, text);
+}
+
 async function notifyManagerNewTask(payload, leadId, deadlineIso) {
   const chatId = process.env.TELEGRAM_MANAGER_CHAT_ID;
   if (!chatId) {
@@ -232,6 +251,7 @@ module.exports = {
   sendLeadMessage,
   editMessageMarkCrmOk,
   sendEnrichMessage,
+  notifyFailedLeadFallback,
   notifyManagerNewTask,
   notifySlaEscalation,
   sendWelcomeMessage,

@@ -4,10 +4,31 @@ on:
   push:
     branches:
       - main
+  pull_request:
   workflow_dispatch:
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+      - name: Install server dependencies
+        working-directory: server
+        run: npm ci
+      - name: Run server tests
+        working-directory: server
+        run: npm test
+
   deploy:
+    needs: test
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Deploy via SSH
@@ -18,5 +39,5 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script_stop: true
           script: |
-            /opt/maxima-consulting/apps/mc-site-v.4/deploy/deploy.sh
-            nginx -t && systemctl reload nginx
+            git -C /opt/maxima-consulting/apps/mc-site-v.4 pull origin main
+            bash /opt/maxima-consulting/apps/mc-site-v.4/deploy/deploy.sh
