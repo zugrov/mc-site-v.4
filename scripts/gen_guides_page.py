@@ -121,10 +121,12 @@ def guide_card(g: dict) -> str:
             f'target="_blank" rel="noopener">Скачать PDF {I["aur"]}</a>'
         )
     if g.get("html"):
-        badges.append('<span class="guide-badge">HTML</span>')
+        html_label = html.escape(str(g.get("htmlLabel", "HTML")))
+        html_cta = html.escape(str(g.get("htmlCta", "Читать онлайн")))
+        badges.append(f'<span class="guide-badge">{html_label}</span>')
         html_url = html.escape(str(g["html"]))
         actions.append(
-            f'<a class="button button--small button--lime" href="{html_url}">Читать онлайн {I["aur"]}</a>'
+            f'<a class="button button--small button--lime" href="{html_url}">{html_cta} {I["aur"]}</a>'
         )
     badge_html = '<div class="guide-badges">' + "".join(badges) + "</div>" if badges else ""
     actions_html = '<div class="guide-actions">' + "".join(actions) + "</div>" if actions else ""
