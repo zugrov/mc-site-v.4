@@ -11,6 +11,8 @@ process.env.TELEGRAM_BOT_TOKEN = 'test-token';
 process.env.TELEGRAM_CHAT_ID = '111';
 process.env.TELEGRAM_FALLBACK_ALERT_CHAT_ID = '222';
 process.env.EXTERNAL_TIMEOUT_MS = '1000';
+delete process.env.SMTP_USER;
+delete process.env.SMTP_PASS;
 
 const app = require('../index');
 
