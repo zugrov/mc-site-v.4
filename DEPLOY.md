@@ -163,6 +163,43 @@ curl -s -X POST http://127.0.0.1:3011/api/lead \
 
 После деплоя nginx перезагрузить: `sudo nginx -t && sudo systemctl reload nginx`
 
+### 5. Копия заявки на почту (Resend)
+
+`POST /api/lead` и дозаполнение шлют текст заявки на `LEAD_NOTIFY_TO`
+(по умолчанию `maxima+leed@mail.grokbot.com`), если в `server/.env` заданы
+`LEAD_EMAIL_FROM` и `RESEND_API_KEY`. Без ключа заявка сохраняется как обычно,
+письмо просто не уходит. Ключ не коммитить: `deploy/deploy.sh` не перезаписывает `server/.env`.
+
+Провайдер — [Resend](https://resend.com/domains). Домен `maxima-consulting.ru`
+уже обслуживает почту Mail.ru (NS `ns1.reg.ru` / `ns2.reg.ru`):
+
+- TXT на `@`: `v=spf1 redirect=_spf.mail.ru` и `mailru-domain: …`
+- MX на `@`: `emx.mail.ru`
+
+Эти записи **не менять**. SPF и MX Resend ставятся на поддомен `send`, DKIM — на
+`resend._domainkey`. Значения уникальны для аккаунта: копировать из вкладки Records
+в кабинете Resend, не из этого файла.
+
+1. Resend → Domains → Add Domain → `maxima-consulting.ru`, регион `eu-west-1`.
+2. В DNS reg.ru добавить записи из кабинета (имя без зоны: `send`, `resend._domainkey`).
+   Если Resend показывает CNAME на `send`, на этом имени не должно быть других записей.
+3. Дождаться статуса Verified (часто 15 минут, иногда до 72 часов).
+4. API Keys → ключ с правом Sending access.
+5. В `/opt/maxima-consulting/apps/mc-site-v.4/server/.env`:
+
+```bash
+LEAD_NOTIFY_TO=maxima+leed@mail.grokbot.com
+LEAD_EMAIL_FROM=leads@maxima-consulting.ru
+RESEND_API_KEY=re_...
+```
+
+6. `sudo systemctl restart maxima-lead-api`
+7. Проверка тем же `curl` из пункта 4. Ответ `{"status":"ok",...}` не доказывает
+   доставку: смотреть Resend → Emails и, при ошибке, `lead_email_error` в логе заявок.
+
+Альтернатива — Brevo: `BREVO_API_KEY` вместо `RESEND_API_KEY`, тот же `LEAD_EMAIL_FROM`.
+Если заданы оба ключа, используется Resend.
+
 ## Экспорт офлайн-конверсий в Яндекс.Метрику
 
 Основной путь — **триггер по событию** (робот Bitrix24 → HTTP-вебхук на наш сервер).

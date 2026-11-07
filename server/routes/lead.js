@@ -28,6 +28,10 @@ const { findRecent, upsert } = require('../lib/contactsIndex');
 const { getSlaDeadline } = require('../lib/businessHours');
 const { createFirstContactTask } = require('../lib/bitrixTasks');
 const { saveTask } = require('../lib/slaStore');
+const {
+  sendLeadNotifyEmail,
+  sendEnrichNotifyEmail,
+} = require('../lib/leadEmail');
 
 const router = express.Router();
 
@@ -100,6 +104,7 @@ router.post('/lead', rateLimit({
   let bitrixError = null;
   let telegramError = null;
   let slaError = null;
+  let leadEmailError = null;
 
   const duplicate = findRecent(payload.contact);
 
@@ -134,6 +139,12 @@ router.post('/lead', rateLimit({
     telegramResult = await sendLeadMessage(payload, leadId, crmStatus);
   } catch (error) {
     telegramError = error.message;
+  }
+
+  try {
+    await sendLeadNotifyEmail(payload, leadId, crmStatus);
+  } catch (error) {
+    leadEmailError = error.message;
   }
 
   if (crmStatus === 'created' && telegramResult) {
@@ -197,6 +208,7 @@ router.post('/lead', rateLimit({
     bitrix_error: bitrixError,
     telegram_error: telegramError,
     sla_error: slaError,
+    lead_email_error: leadEmailError,
     duplicate_of: duplicate?.lead_id || null,
     ip: getClientIp(req),
     timestamp,
@@ -257,6 +269,16 @@ router.post('/lead/:leadId/enrich', rateLimit({
     logLeadAttempt({
       lead_id: leadId,
       event: 'enrich_telegram_error',
+      error: error.message,
+    });
+  }
+
+  try {
+    await sendEnrichNotifyEmail(enrichPayload, leadId);
+  } catch (error) {
+    logLeadAttempt({
+      lead_id: leadId,
+      event: 'enrich_email_error',
       error: error.message,
     });
   }

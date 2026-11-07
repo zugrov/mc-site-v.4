@@ -40,7 +40,9 @@ async function telegramRequest(method, body) {
 function buildLeadMessage(payload, leadId, crmStatus) {
   const statusLine = crmStatus === 'created'
     ? '✅ создана'
-    : '⚠ ошибка записи — завести вручную';
+    : crmStatus === 'duplicate'
+      ? '↻ дубль контакта'
+      : '⚠ ошибка записи — завести вручную';
 
   return [
     `Новая заявка [lead_id: ${leadId}]`,
@@ -248,6 +250,7 @@ async function notifyManagerNewDialog(payload, leadId, crmStatus) {
 }
 
 module.exports = {
+  buildLeadMessage,
   sendLeadMessage,
   editMessageMarkCrmOk,
   sendEnrichMessage,
