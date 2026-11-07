@@ -167,14 +167,14 @@ curl -s -X POST http://127.0.0.1:3011/api/lead \
 
 `POST /api/lead` и дозаполнение шлют текст заявки с ящика
 `info@maxima-consulting.ru` на `LEAD_NOTIFY_TO`
-(по умолчанию `maxima+leed@mail.grokbot.com`). DNS менять не нужно: почта домена
+(по умолчанию `maxima@mail.grokbot.com`). DNS менять не нужно: почта домена
 уже идёт через Mail.ru. Без `SMTP_USER` и `SMTP_PASS` заявка сохраняется как обычно,
 письмо просто не уходит. Пароль не коммитить: `deploy/deploy.sh` не перезаписывает `server/.env`.
 
 В `/opt/maxima-consulting/apps/mc-site-v.4/server/.env`:
 
 ```bash
-LEAD_NOTIFY_TO=maxima+leed@mail.grokbot.com
+LEAD_NOTIFY_TO=maxima@mail.grokbot.com
 LEAD_EMAIL_FROM=info@maxima-consulting.ru
 SMTP_HOST=smtp.mail.ru
 SMTP_PORT=465
@@ -190,7 +190,7 @@ sudo systemctl restart maxima-lead-api
 ```
 
 Проверка тем же `curl` из пункта 4. Ответ `{"status":"ok",...}` не доказывает
-доставку: письмо должно появиться на `maxima+leed@mail.grokbot.com`. При ошибке
+доставку: письмо должно появиться на `maxima@mail.grokbot.com`. При ошибке
 смотрите `lead_email_error` в логе заявок.
 
 Запасной путь без SMTP: `RESEND_API_KEY` или `BREVO_API_KEY` и `LEAD_EMAIL_FROM`.

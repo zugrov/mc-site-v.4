@@ -59,7 +59,7 @@ describe('leadEmail', () => {
   });
 
   it('по умолчанию шлёт на grokbot-inbox', () => {
-    assert.equal(DEFAULT_NOTIFY_TO, 'maxima+leed@mail.grokbot.com');
+    assert.equal(DEFAULT_NOTIFY_TO, 'maxima@mail.grokbot.com');
   });
 
   it('без API-ключей письмо не отправляется', async () => {
@@ -235,7 +235,7 @@ describe('leadEmail', () => {
 
     assert.equal(messages.length, 1);
     assert.match(messages[0], /info@maxima-consulting\.ru/);
-    assert.match(messages[0], /maxima\+leed@mail\.grokbot\.com/);
+    assert.match(messages[0], /maxima@mail\.grokbot\.com/);
     assert.match(messages[0], /lead-smtp-1/);
     assert.match(messages[0], /Анна/);
     assert.equal(fetchCalls.length, 0);

@@ -3,7 +3,7 @@ const tls = require('node:tls');
 const { buildLeadMessage } = require('./telegram');
 
 const TIMEOUT_MS = Number(process.env.EXTERNAL_TIMEOUT_MS) || 5000;
-const DEFAULT_NOTIFY_TO = 'maxima+leed@mail.grokbot.com';
+const DEFAULT_NOTIFY_TO = 'maxima@mail.grokbot.com';
 const DEFAULT_SMTP_HOST = 'smtp.mail.ru';
 const DEFAULT_SMTP_PORT = 465;
 
