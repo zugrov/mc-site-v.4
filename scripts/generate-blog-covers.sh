@@ -45,6 +45,11 @@ SLUGS=(
   faktoring-debitorka-v-dengi
   droblenie-biznesa-neskolko-ip
   tri-stereotipa-o-finansah
+  nds-22-zarubezhnye-pokupki-2027
+  fns-rannee-vyyavlenie-riskov
+  perevozki-stavki-i-pribyl
+  okved-podtverzhdenie-2026-2027
+  perevody-fizlic-kontrol-cb-fns
 )
 
 SOURCES=(
@@ -77,6 +82,11 @@ SOURCES=(
   5f4e8e4331654.jpg
   portnyagin-sud.jpg
   na-2-3.jpg
+  photo_2026-01-20_13-02-40-1024x682.jpg
+  main.jpg
+  fish.jpg
+  "i (1).jpeg"
+  subsidii-malomu-predpriyatiyu.jpg
 )
 
 make_thumb() {

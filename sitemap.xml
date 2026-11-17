@@ -121,6 +121,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://maxima-consulting.ru/blog/fns-rannee-vyyavlenie-riskov/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://maxima-consulting.ru/blog/kassovyj-razryv-prognoz-30-60-dnej/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
@@ -163,8 +169,32 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://maxima-consulting.ru/blog/nds-22-zarubezhnye-pokupki-2027/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://maxima-consulting.ru/blog/nds-pri-importe-iz-eaes-2026/</loc>
     <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://maxima-consulting.ru/blog/okved-podtverzhdenie-2026-2027/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://maxima-consulting.ru/blog/perevody-fizlic-kontrol-cb-fns/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://maxima-consulting.ru/blog/perevozki-stavki-i-pribyl/</loc>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
