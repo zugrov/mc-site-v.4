@@ -104,11 +104,14 @@ function useScrollReveal() {
     const items = Array.from(document.querySelectorAll<HTMLElement>(".scroll-reveal"));
     if (!items.length) return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const canReveal = !reduced && "IntersectionObserver" in window;
+    if (!canReveal) {
       items.forEach((item) => item.classList.add("is-visible"));
       return;
     }
 
+    document.documentElement.classList.add("js-reveal");
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => {
         if (entry.isIntersecting) {

@@ -10,6 +10,7 @@ from publish_common import (
     LEAD_FORM_HIDDEN_FIELDS,
     LEAD_FORM_SCRIPT,
     LEAD_THANKYOU_CSS,
+    REVEAL_BOOT_SCRIPT,
     YANDEX_METRIKA,
     open_graph_meta,
 )
@@ -146,8 +147,10 @@ JS = r"""
     });
   }
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canReveal = !reduced && "IntersectionObserver" in window;
+  if (canReveal) document.documentElement.classList.add("js-reveal");
   document.querySelectorAll(".reveal").forEach(function (node) {
-    if (reduced) { node.classList.add("is-visible"); return; }
+    if (!canReveal) { node.classList.add("is-visible"); return; }
     new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) { entry.target.classList.add("is-visible"); obs.unobserve(entry.target); }
@@ -166,7 +169,7 @@ JS = r"""
   });
   var floating = document.getElementById("floatingCta");
   var request = document.getElementById("request");
-  if (floating && request) {
+  if (floating && request && "IntersectionObserver" in window) {
     new IntersectionObserver(function (entries) { floating.hidden = entries[0].isIntersecting; }, { threshold: 0.15 }).observe(request);
   }
 })();
@@ -178,6 +181,7 @@ html = f"""<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
+  {REVEAL_BOOT_SCRIPT}
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32" />

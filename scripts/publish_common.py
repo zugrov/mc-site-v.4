@@ -11,6 +11,15 @@ YANDEX_METRIKA = """
 
 LEAD_FORM_SCRIPT = '<script src="assets/lead-form.js?v=20261020"></script>'
 
+# Класс js-reveal включает анимацию появления. Без него блоки видны сразу:
+# страница остаётся читаемой без JavaScript и без IntersectionObserver.
+REVEAL_BOOT_SCRIPT = (
+    '<script>(function(){try{var reduced=window.matchMedia('
+    '"(prefers-reduced-motion: reduce)").matches;if(!reduced&&'
+    '"IntersectionObserver"in window)document.documentElement.classList.add("js-reveal");}'
+    'catch(e){}})();</script>'
+)
+
 
 def open_graph_meta(url):
     return (

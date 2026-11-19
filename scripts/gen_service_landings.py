@@ -10,6 +10,7 @@ from pro_css import load_diag_css
 from publish_common import (
     LEAD_FORM_SCRIPT,
     LEAD_THANKYOU_CSS,
+    REVEAL_BOOT_SCRIPT,
     YANDEX_METRIKA,
     open_graph_meta,
 )
@@ -81,8 +82,10 @@ BASE_JS = """
     el.addEventListener("click", function () { header.classList.remove("site-header--open"); });
   });
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canReveal = !reduced && "IntersectionObserver" in window;
+  if (canReveal) document.documentElement.classList.add("js-reveal");
   document.querySelectorAll(".reveal").forEach(function (node) {
-    if (reduced) { node.classList.add("is-visible"); return; }
+    if (!canReveal) { node.classList.add("is-visible"); return; }
     new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) { entry.target.classList.add("is-visible"); obs.unobserve(entry.target); }
@@ -101,7 +104,7 @@ BASE_JS = """
   });
   var floating = document.getElementById("floatingCta");
   var request = document.getElementById("request");
-  if (floating && request) {
+  if (floating && request && "IntersectionObserver" in window) {
     new IntersectionObserver(function (entries) { floating.hidden = entries[0].isIntersecting; }, { threshold: 0.12 }).observe(request);
     window.addEventListener("scroll", function () {
       if (window.scrollY < 600) floating.hidden = true;
@@ -109,7 +112,7 @@ BASE_JS = """
   }
   document.querySelectorAll("[data-count]").forEach(function (el) {
     var target = parseInt(el.getAttribute("data-count"), 10);
-    if (!target || reduced) { el.textContent = target.toLocaleString("ru-RU"); return; }
+    if (!target || reduced || !("IntersectionObserver" in window)) { el.textContent = target.toLocaleString("ru-RU"); return; }
     new IntersectionObserver(function (entries, obs) {
       if (!entries[0].isIntersecting) return;
       obs.unobserve(el);
@@ -274,6 +277,7 @@ def render_product(page: dict) -> str:
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
+  {REVEAL_BOOT_SCRIPT}
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="canonical" href="{url}" />
@@ -402,6 +406,7 @@ def render_hub() -> str:
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
+  {REVEAL_BOOT_SCRIPT}
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="canonical" href="{url}" />
   <title>Услуги финансового консалтинга для бизнеса — maxima consulting</title>

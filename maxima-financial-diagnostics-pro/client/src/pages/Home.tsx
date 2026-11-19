@@ -225,6 +225,13 @@ export default function Home() {
 
   useEffect(() => {
     const nodes = document.querySelectorAll<HTMLElement>(".reveal");
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const canReveal = !reduced && "IntersectionObserver" in window;
+    if (!canReveal) {
+      nodes.forEach((node) => node.classList.add("is-visible"));
+      return;
+    }
+    document.documentElement.classList.add("js-reveal");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

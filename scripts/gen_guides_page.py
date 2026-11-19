@@ -9,7 +9,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from guides_catalog import load_guides
 from pro_css import load_diag_css
-from publish_common import YANDEX_METRIKA, open_graph_meta
+from publish_common import REVEAL_BOOT_SCRIPT, YANDEX_METRIKA, open_graph_meta
 from service_landing_common import (
     BRAND_INNER,
     EXTRA_CSS,
@@ -94,6 +94,17 @@ BASE_JS = """
   }
   document.querySelectorAll(".mobile-nav a").forEach(function (el) {
     el.addEventListener("click", function () { header.classList.remove("site-header--open"); });
+  });
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canReveal = !reduced && "IntersectionObserver" in window;
+  if (canReveal) document.documentElement.classList.add("js-reveal");
+  document.querySelectorAll(".reveal").forEach(function (node) {
+    if (!canReveal) { node.classList.add("is-visible"); return; }
+    new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add("is-visible"); obs.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12 }).observe(node);
   });
 })();
 """
@@ -196,6 +207,7 @@ def render() -> str:
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
+  {REVEAL_BOOT_SCRIPT}
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="canonical" href="{url}" />
   <title>Гайды для собственников бизнеса — maxima consulting</title>

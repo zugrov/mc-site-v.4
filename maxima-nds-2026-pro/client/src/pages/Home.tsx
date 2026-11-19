@@ -102,11 +102,14 @@ export default function Home() {
 
   useEffect(() => {
     const revealItems = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const canReveal = !reduced && "IntersectionObserver" in window;
+    if (!canReveal) {
       revealItems.forEach((item) => item.classList.add("is-visible"));
       return;
     }
 
+    document.documentElement.classList.add("js-reveal");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
