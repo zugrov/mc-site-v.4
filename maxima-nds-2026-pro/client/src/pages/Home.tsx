@@ -61,7 +61,7 @@ const faqs = [
   {
     question: "Вы поможете снизить НДС?",
     answer:
-      "Нет. Мы не занимаемся налоговой оптимизацией и не даём таких обещаний. Мы считаем, как разные решения по цене и режиму отражаются на марже и деньгах, чтобы вы могли принять взвешенное решение.",
+      "Обещаний снизить НДС не даём и серых схем не предлагаем. Мы считаем, как разные решения по цене, ставке и режиму отражаются на марже и деньгах, чтобы вы могли принять взвешенное решение. Если нужна легальная налоговая оптимизация в рамках закона, это отдельная услуга — «Налоговая оптимизация».",
   },
   {
     question: "Это консультация по налогам?",
@@ -217,7 +217,7 @@ export default function Home() {
         <section id="trust" className="section-pad trust-section">
           <div className="section-intro reveal"><div className="section-kicker">03 / ДОВЕРИЕ</div><div><h2>Почему можно<br /><em>доверять</em> результату</h2></div></div>
           <div className="trust-grid">
-            <div className="trust-list reveal"><div className="trust-item"><span className="trust-icon"><BarChart3 size={19} /></span><div><h3>Финансовые сценарии, а не налоговые схемы</h3><p>Мы работаем с финансовыми сценариями, а не с налоговыми схемами и не занимаемся налоговой оптимизацией.</p></div></div><div className="trust-item"><span className="trust-icon"><LockKeyhole size={19} /></span><div><h3>Формат работы по NDA</h3><p>Данные бизнеса не передаются третьим лицам. Соглашение о конфиденциальности подписывается до начала работы.</p></div></div></div>
+            <div className="trust-list reveal"><div className="trust-item"><span className="trust-icon"><BarChart3 size={19} /></span><div><h3>Финансовые сценарии, а не налоговые схемы</h3><p>Мы работаем с финансовыми сценариями, а не с налоговыми схемами. Серые схемы и дробление не предлагаем: налоговой оптимизацией занимаемся только легально, в рамках закона.</p></div></div><div className="trust-item"><span className="trust-icon"><LockKeyhole size={19} /></span><div><h3>Формат работы по NDA</h3><p>Данные бизнеса не передаются третьим лицам. Соглашение о конфиденциальности подписывается до начала работы.</p></div></div></div>
             <div className="memo-card reveal reveal-delay-2"><div className="memo-header"><span className="memo-file"><FileText size={18} /></span><span>MEMO / STRUCTURE</span><span className="memo-status">ANONYMIZED</span></div><div className="memo-title">Пример структуры memo</div><div className="memo-lines"><div><Check size={14} /> Сравнение сценариев по цене, марже и движению денежных средств</div><div><Check size={14} /> Ключевые допущения и ограничения расчёта</div><div><Check size={14} /> Риски каждого варианта</div><div><Check size={14} /> Рекомендации по приоритетным следующим шагам</div></div><div className="memo-footer">Пример структуры документа — не расчёт на данных конкретного клиента.</div></div>
           </div>
         </section>

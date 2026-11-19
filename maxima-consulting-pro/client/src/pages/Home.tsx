@@ -305,7 +305,7 @@ export default function Home() {
             <div className="visual-grid" />
             <div className="visual-ring visual-ring--one" /><div className="visual-ring visual-ring--two" />
             <div className="metric-card metric-card--top"><span>последний результат</span><strong>3 429 410 ₽</strong><small>экономия в год для торговой компании</small></div>
-            <div className="metric-card metric-card--bottom"><div className="metric-icon"><ArrowUpRight size={18} /></div><span>за 5 рабочих дней</span><strong>− 22% налоговой нагрузки</strong></div>
+            <div className="metric-card metric-card--bottom"><div className="metric-icon"><ArrowUpRight size={18} /></div><span>за 5 рабочих дней</span><strong>−10 п.п. налоговой нагрузки</strong><small>с 22% до 12%, результат конкретного клиента</small></div>
             <div className="orbit-label">cash flow <span>↗</span></div>
             <div className="hero-graph"><div className="graph-bars"><i /><i /><i /><i /><i /><i /><i /></div><svg viewBox="0 0 390 150" preserveAspectRatio="none"><path d="M0,124 C28,119 37,97 63,101 S103,125 129,91 S165,54 188,73 S227,98 252,62 S285,47 310,37 S348,55 390,9" fill="none" stroke="currentColor" strokeWidth="3" /></svg><div className="graph-axis"><span>янв</span><span>мар</span><span>май</span><span>июль</span><span>сен</span></div></div>
           </div>

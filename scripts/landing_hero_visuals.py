@@ -37,7 +37,7 @@ HUB_MAP_VISUAL_CSS = """
   align-items: center;
   justify-content: space-between;
   margin-bottom: 18px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 9px;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -69,7 +69,7 @@ HUB_MAP_VISUAL_CSS = """
   background: rgba(255, 255, 255, .02);
 }
 .hub-map-tier__label {
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 8px;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -117,7 +117,7 @@ HUB_MAP_VISUAL_CSS = """
   color: #b8c4be;
   box-shadow: 0 16px 40px rgba(0, 0, 0, .28);
 }
-.hub-map-chip b { display: block; color: var(--accent-light); font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 500; }
+.hub-map-chip b { display: block; color: var(--accent-light); font-family: 'Manrope', Arial, sans-serif; font-size: 13px; font-weight: 500; }
 .hub-map-chip--top { top: 18px; right: 0; transform: rotate(4deg); }
 .hub-map-chip--bottom { bottom: 28px; left: 0; transform: rotate(-3deg); }
 @keyframes hubMapPulse { 0%, 100% { opacity: 1; } 50% { opacity: .45; } }
@@ -150,7 +150,7 @@ UCET_HERO_VISUAL_CSS = """
 }
 .uchet-kpi-row span {
   display: block;
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 8px;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -159,7 +159,7 @@ UCET_HERO_VISUAL_CSS = """
 .uchet-kpi-row strong {
   display: block;
   margin-top: 8px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Manrope', Arial, sans-serif;
   font-size: 22px;
   font-weight: 500;
   letter-spacing: -.05em;
@@ -207,7 +207,7 @@ UCET_HERO_VISUAL_CSS = """
   padding: 6px 10px;
   border: 1px solid rgba(215, 243, 107, .22);
   border-radius: 999px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 8px;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -328,7 +328,7 @@ MODEL_HERO_VISUAL_CSS = (
   display: flex;
   gap: 14px;
   margin-top: 10px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 8px;
   color: #8a9484;
   text-transform: uppercase;
@@ -391,7 +391,7 @@ TAX_HERO_VISUAL_CSS = (
   background: rgba(215, 243, 107, .06);
 }
 .tax-savings span {
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 8px;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -400,7 +400,7 @@ TAX_HERO_VISUAL_CSS = (
 .tax-savings strong {
   display: block;
   margin-top: 6px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Manrope', Arial, sans-serif;
   font-size: 24px;
   color: #e9ff86;
   letter-spacing: -.05em;
@@ -433,7 +433,7 @@ CFO_HERO_VISUAL_CSS = (
 }
 .cfo-metric-item em {
   font-style: normal;
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 8px;
   color: #d7f36b;
   text-transform: uppercase;
@@ -462,7 +462,7 @@ CFO_HERO_VISUAL_CSS = (
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 8px;
   color: #697363;
 }
@@ -489,7 +489,7 @@ ADVISORY_HERO_VISUAL_CSS = (
 }
 .adv-decision b { color: #ecf0e4; font-weight: 600; }
 .adv-decision span.tag {
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 8px;
   letter-spacing: .06em;
   text-transform: uppercase;

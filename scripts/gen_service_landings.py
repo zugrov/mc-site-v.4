@@ -285,7 +285,7 @@ def render_product(page: dict) -> str:
 {open_graph_meta(url)}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>.container {{ width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 40px; }}
 {CSS}
 {page_hero_css}
@@ -412,7 +412,7 @@ def render_hub() -> str:
 {open_graph_meta(url)}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>.container {{ width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 40px; }}
 {CSS}
 {HUB_PRO_THEME_CSS}
