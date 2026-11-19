@@ -41,7 +41,7 @@ EXTRA_CSS = """
 .site-header:not(.site-header--open) .mobile-nav { display: none !important; }
 .honeypot { position: absolute; left: -10000px; opacity: 0; height: 0; overflow: hidden; }
 .faq-item:not(.faq-item--open) .faq-answer p { padding: 0; opacity: 0; max-height: 0; overflow: hidden; }
-.breadcrumbs { font: 500 11px/1.4 "DM Mono", monospace; color: #89918b; margin-bottom: 18px; }
+.breadcrumbs { font: 500 11px/1.4 "JetBrains Mono", ui-monospace, monospace; color: #89918b; margin-bottom: 18px; }
 .breadcrumbs a { color: #b8c0b8; }
 .breadcrumbs a:hover { color: #d7f36b; }
 .content-updated { margin-top: 48px; font-size: 12px; color: #6f776f; }
@@ -161,7 +161,7 @@ a.hub-card:hover .hub-card-cta .icon { transform: translate(3px, -3px); }
 .quiz-box__eyebrow {
   display: inline-block;
   margin-bottom: 12px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 10px;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -169,7 +169,7 @@ a.hub-card:hover .hub-card-cta .icon { transform: translate(3px, -3px); }
 }
 .quiz-box--hub h2 {
   margin: 0 0 12px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Manrope', Arial, sans-serif;
   font-size: clamp(26px, 3.2vw, 36px);
   font-weight: 500;
   letter-spacing: -.04em;
@@ -199,7 +199,7 @@ a.hub-card:hover .hub-card-cta .icon { transform: translate(3px, -3px); }
 }
 .quiz-progress__label {
   margin: 0 0 24px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 11px;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -207,7 +207,7 @@ a.hub-card:hover .hub-card-cta .icon { transform: translate(3px, -3px); }
 }
 .quiz-box--hub .quiz-step > p {
   margin: 0 0 6px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 10px;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -215,7 +215,7 @@ a.hub-card:hover .hub-card-cta .icon { transform: translate(3px, -3px); }
 }
 .quiz-box--hub .quiz-step h3 {
   margin: 0 0 18px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Manrope', Arial, sans-serif;
   font-size: 22px;
   font-weight: 500;
   letter-spacing: -.03em;

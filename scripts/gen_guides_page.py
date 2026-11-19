@@ -41,9 +41,9 @@ GUIDES_CSS = """
   flex-direction: column;
   min-height: 220px;
 }
-.guide-card h2 { margin: 10px 0 8px; font-size: 20px; font-family: 'Space Grotesk', sans-serif; letter-spacing: -.03em; }
+.guide-card h2 { margin: 10px 0 8px; font-size: 20px; font-family: 'Manrope', Arial, sans-serif; letter-spacing: -.03em; }
 .guide-card p { flex: 1; margin: 0; font-size: 14px; line-height: 1.5; color: #a8aea6; }
-.guide-card__meta { margin-top: 12px; font-family: 'DM Mono', monospace; font-size: 10px; color: #7a8279; letter-spacing: .06em; text-transform: uppercase; }
+.guide-card__meta { margin-top: 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: #7a8279; letter-spacing: .06em; text-transform: uppercase; }
 .guide-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
 .guide-badge {
   display: inline-flex;
@@ -206,7 +206,7 @@ def render() -> str:
 {open_graph_meta(url)}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>.container {{ width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 40px; }}
 {CSS}
 {HUB_PRO_THEME_CSS}
