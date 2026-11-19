@@ -174,8 +174,9 @@ h1 em, h2 em { color: #d9f96b; font-style: normal; }
 
 
 /* Scroll reveal and floating conversion action */
-.reveal { opacity: 0; transform: translateY(26px); animation: none; }
-.reveal.is-visible { animation: reveal-in .72s cubic-bezier(.23,1,.32,1) both; }
+.reveal { opacity: 1; transform: none; animation: none; }
+html.js-reveal .reveal { opacity: 0; transform: translateY(26px); animation: none; }
+html.js-reveal .reveal.is-visible { animation: reveal-in .72s cubic-bezier(.23,1,.32,1) both; }
 .floating-cta { position: fixed; z-index: 30; right: 28px; bottom: 26px; display: inline-flex; align-items: center; gap: 9px; padding: 13px 16px 13px 14px; border: 1px solid rgba(217,249,107,.5); border-radius: 999px; color: #11140f; background: #d9f96b; box-shadow: 0 12px 32px rgba(0,0,0,.28), 0 0 0 0 rgba(217,249,107,.35); font-size: 11px; font-weight: 800; cursor: pointer; transition: transform .22s cubic-bezier(.23,1,.32,1), background .2s ease, box-shadow .25s ease; animation: floating-cta-in .65s .6s cubic-bezier(.23,1,.32,1) both; }
 .floating-cta:hover { transform: translateY(-4px); background: #e7ff91; box-shadow: 0 16px 38px rgba(0,0,0,.34), 0 0 0 6px rgba(217,249,107,.1); }
 .floating-cta:active { transform: translateY(-1px) scale(.97); }
@@ -185,4 +186,4 @@ h1 em, h2 em { color: #d9f96b; font-style: normal; }
 @keyframes floating-cta-in { from { opacity: 0; transform: translateY(12px) scale(.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @keyframes cta-pulse { 0%, 72%, 100% { box-shadow: 0 0 0 0 rgba(17,20,15,.32); } 82% { box-shadow: 0 0 0 6px rgba(17,20,15,0); } }
 @media (max-width: 760px) { .floating-cta { right: 16px; bottom: 16px; padding: 12px 14px 12px 12px; font-size: 10px; } }
-@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } .reveal.is-visible { animation: none; } .floating-cta { animation: none; } .floating-cta-pulse { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .reveal, html.js-reveal .reveal { opacity: 1; transform: none; animation: none; transition: none; } .reveal.is-visible, html.js-reveal .reveal.is-visible { animation: none; } .floating-cta { animation: none; } .floating-cta-pulse { animation: none; } }

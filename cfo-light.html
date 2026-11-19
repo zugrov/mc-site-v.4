@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
+  <script>(function(){try{var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;if(!reduced&&"IntersectionObserver"in window)document.documentElement.classList.add("js-reveal");}catch(e){}})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="canonical" href="https://maxima-consulting.ru/cfo-light" />
@@ -343,16 +344,17 @@ a { color: inherit; text-decoration: none; }
 .footer-bottom a:hover { color: var(--primary); }
 .footer-star { color: var(--primary); font-size: 12px; }
 
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease-out), transform .7s var(--ease-out); }
-.reveal.is-visible { opacity: 1; transform: translateY(0); }
-.reveal--delay-1 { transition-delay: 90ms; }
-.reveal--delay-2 { transition-delay: 170ms; }
-.reveal--delay-3 { transition-delay: 250ms; }
-.process-row.reveal { transition-delay: var(--row-delay, 0ms); }
+.reveal { opacity: 1; transform: none; }
+html.js-reveal .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+html.js-reveal .reveal.is-visible { opacity: 1; transform: translateY(0); }
+html.js-reveal .reveal--delay-1 { transition-delay: 90ms; }
+html.js-reveal .reveal--delay-2 { transition-delay: 170ms; }
+html.js-reveal .reveal--delay-3 { transition-delay: 250ms; }
+html.js-reveal .process-row.reveal { transition-delay: var(--row-delay, 0ms); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
-  .reveal { opacity: 1; transform: none; }
+  .reveal, html.js-reveal .reveal { opacity: 1; transform: none; transition: none; }
 }
 
 @media (max-width: 1050px) {
@@ -898,8 +900,10 @@ a { color: inherit; text-decoration: none; }
     el.addEventListener("click", function () { header.classList.remove("site-header--open"); });
   });
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canReveal = !reduced && "IntersectionObserver" in window;
+  if (canReveal) document.documentElement.classList.add("js-reveal");
   document.querySelectorAll(".reveal").forEach(function (node) {
-    if (reduced) { node.classList.add("is-visible"); return; }
+    if (!canReveal) { node.classList.add("is-visible"); return; }
     new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) { entry.target.classList.add("is-visible"); obs.unobserve(entry.target); }
@@ -918,7 +922,7 @@ a { color: inherit; text-decoration: none; }
   });
   var floating = document.getElementById("floatingCta");
   var request = document.getElementById("request");
-  if (floating && request) {
+  if (floating && request && "IntersectionObserver" in window) {
     new IntersectionObserver(function (entries) { floating.hidden = entries[0].isIntersecting; }, { threshold: 0.12 }).observe(request);
     window.addEventListener("scroll", function () {
       if (window.scrollY < 600) floating.hidden = true;
@@ -926,7 +930,7 @@ a { color: inherit; text-decoration: none; }
   }
   document.querySelectorAll("[data-count]").forEach(function (el) {
     var target = parseInt(el.getAttribute("data-count"), 10);
-    if (!target || reduced) { el.textContent = target.toLocaleString("ru-RU"); return; }
+    if (!target || reduced || !("IntersectionObserver" in window)) { el.textContent = target.toLocaleString("ru-RU"); return; }
     new IntersectionObserver(function (entries, obs) {
       if (!entries[0].isIntersecting) return;
       obs.unobserve(el);
