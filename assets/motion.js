@@ -189,6 +189,7 @@
     if (reduced) return;
     if (navigator.connection && navigator.connection.saveData) return;
     if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) return;
+    if (window.matchMedia("(max-width: 900px)").matches) return;
     var canvas = document.querySelector("[data-waves]");
     if (!canvas) return;
     var ctx = canvas.getContext("2d");
@@ -207,6 +208,7 @@
     canvas.setAttribute("aria-hidden", "true");
     function draw(now) {
       if (!running) return;
+      var frameStart = performance.now();
       var t = (now - start) / 1000;
       var w = canvas.width;
       var h = canvas.height;
@@ -223,6 +225,7 @@
         }
         ctx.stroke();
       }
+      if (performance.now() - frameStart > 12) return;
       requestAnimationFrame(draw);
     }
     requestAnimationFrame(draw);
