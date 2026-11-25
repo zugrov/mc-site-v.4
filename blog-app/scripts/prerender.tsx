@@ -6,14 +6,36 @@ import { renderToString } from "react-dom/server";
 import BlogIndex from "../src/pages/BlogIndex";
 import BlogPost from "../src/pages/BlogPost";
 import { indexHead, postHead } from "./seo-head";
-import {
-  buildBlogPostPayload,
-  serializeForInlineScript,
-} from "./blog-post-payload";
+import { buildBlogPostPayload } from "./blog-post-payload";
 import { loadPostSummaries } from "./blog-server";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const outDir = path.join(repoRoot, "blog");
+
+function stylesheetFile(href: string): string | null {
+  const rel = href.split("?")[0];
+  if (!rel.startsWith("/")) return null;
+  const file = path.join(repoRoot, rel);
+  return fs.existsSync(file) ? file : null;
+}
+
+function fastBlog(html: string): string {
+  const deferred = html.replace(
+    /<script(?: fetchpriority="low")? type="module" crossorigin src="([^"]+)"><\/script>\s*/g,
+    "",
+  );
+  return deferred.replace(
+    /<link rel="stylesheet"(?: crossorigin)? href="([^"]+)"\s*\/?>/g,
+    (full, href: string) => {
+      const file = stylesheetFile(href);
+      if (!file) return full;
+      const css = fs.readFileSync(file, "utf-8")
+        .replace(/font-display:\s*swap/g, "font-display: optional")
+        .replace(/<\/style/gi, "<\\/style");
+      return `<style data-href="${href}">${css}</style>`;
+    },
+  );
+}
 
 async function renderRoute(
   injectScript: string,
@@ -28,10 +50,12 @@ async function renderRoute(
     `<div id="root">${body}</div>`,
   );
   html = html.replace("</head>", `${headExtra}</head>`);
-  html = html.replace(
-    "</body>",
-    `<script>${injectScript}</script></body>`,
-  );
+  if (injectScript) {
+    html = html.replace(
+      "</body>",
+      `<script>${injectScript}</script></body>`,
+    );
+  }
   if (!html.includes("/assets/cookie-consent.js")) {
     html = html.replace(
       "</head>",
@@ -44,26 +68,29 @@ async function renderRoute(
 async function main() {
   const viteTemplate = fs.readFileSync(path.join(outDir, "index.html"), "utf-8");
   const posts = loadPostSummaries();
-  const postsJson = serializeForInlineScript(posts);
 
-  const indexHtml = await renderRoute(
-    `window.__BLOG_POSTS__=${postsJson};`,
+  const indexHtml = fastBlog(await renderRoute(
+    "",
     viteTemplate,
-    indexHead(),
+    indexHead() + '\n  <script src="/assets/motion.js" defer></script>',
     <BlogIndex initialPosts={posts} />,
-  );
+  ));
   fs.writeFileSync(path.join(outDir, "index.html"), indexHtml, "utf-8");
 
   for (const summary of posts) {
     const payload = await buildBlogPostPayload(summary.slug, posts);
     if (!payload) continue;
 
-    const script = `window.__BLOG_POST__=${serializeForInlineScript(payload)};window.__BLOG_POSTS__=${postsJson};`;
+    const script = "";
 
     const slugDir = path.join(outDir, summary.slug);
     fs.mkdirSync(slugDir, { recursive: true });
-    const html = await renderRoute(script, viteTemplate, postHead(summary), (
-      <BlogPost initialPost={payload} />
+    const html = fastBlog(await renderRoute(
+      script,
+      viteTemplate,
+      postHead(summary) +
+        '\n  <script src="/assets/motion.js" defer></script>\n  <script src="/assets/lead-form.js?v=20260905" defer></script>',
+      <BlogPost initialPost={payload} />,
     ));
     fs.writeFileSync(path.join(slugDir, "index.html"), html, "utf-8");
   }

@@ -4,10 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Договор о конфиденциальности (NDA) | maxima consulting</title>
+  <link rel="canonical" href="https://maxima-consulting.ru/nda.html">
+
   <meta name="robots" content="noindex, nofollow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/tokens.css">
+  <link rel="stylesheet" href="/assets/base.css">
+  <link rel="stylesheet" href="/assets/skin.css">
+
   <style>
     :root {
       --bg: #FAFAF8;
@@ -20,7 +26,7 @@
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: Manrope, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
       font-size: 16px;
@@ -151,7 +157,7 @@
     }
   </style>
 
-  <script src="/assets/cookie-consent.js?v=20261020"></script>
+  <script src="/assets/cookie-consent.js?v=20261125" defer></script>
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16" />
@@ -159,17 +165,21 @@
 </head>
 <body>
 
-  <header class="header">
-    <div class="container header__inner">
-      <a href="index.html" class="logo">
-        <img src="assets/logo.png" alt="maxima consulting">
-        maxima consulting
-      </a>
-      <a href="index.html" class="back-link">
-        ← На главную
-      </a>
-    </div>
-  </header>
+  
+    <a class="skip-link" href="#content">Перейти к содержимому</a>
+    <div class="read-progress" data-reading-progress hidden></div>
+    <header class="site-header" data-header data-mc-chrome>
+      <div class="header-inner">
+        <a class="logo" href="/" aria-label="maxima consulting — на главную">
+          <img src="/assets/logo-maxima.png" alt="" width="28" height="28">
+          <span>maxima <b>consulting</b></span>
+        </a>
+        <nav class="main-nav" id="mainNav" aria-label="Основная навигация"><a href="/uslugi">Услуги</a><a href="/#services">Цены</a><a href="/#case">Кейсы</a><a href="/gajdy">Гайды</a><a href="/blog/">Статьи</a><a href="/#process">Как работаем</a><a href="/#contact">Контакты</a><a class="button nav-cta" href="/#contact">Записаться на разбор <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a></nav>
+        <a class="button header-cta" href="/#contact">Записаться на разбор <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </header>
+
 
   <div class="doc-wrap">
     <div class="container">
@@ -257,6 +267,53 @@
     </div>
   </div>
 
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <a class="logo" href="/" aria-label="maxima consulting — на главную">
+            <img src="/assets/logo-maxima.png" alt="" width="28" height="28">
+            <span>maxima <b>consulting</b></span>
+          </a>
+          <p class="muted">Финансовый партнёр для МСБ</p>
+        </div>
+        <div class="footer-col">
+          <span class="footer-label">Навигация</span>
+          <a href="/uslugi">Услуги</a>
+          <a href="/#services">Цены</a>
+          <a href="/#case">Кейсы</a>
+          <a href="/gajdy">Гайды</a>
+          <a href="/blog/">Статьи</a>
+          <a href="/#process">Как работаем</a>
+          <a href="/#contact">Контакты</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-label">Контакты</span>
+          <a href="tel:+79808488480">+7 980 848-84-80</a>
+          <a href="https://t.me/maxima_com" data-tg-source="site_organic">@maxima_com</a>
+          <a href="https://vk.com/maxima_consulting">VK</a>
+          <a href="https://m.tenchat.ru/u/eei8UmQE">TenChat</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-label">Каналы</span>
+          <div class="social-icons">
+            <a href="https://t.me/maxima_com" data-tg-source="site_organic" target="_blank" rel="noopener noreferrer" aria-label="Telegram @maxima_com"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
+            <a href="https://max.ru/se14042176_biz" target="_blank" rel="noopener noreferrer" aria-label="Канал maxima consulting в MAX">MAX</a>
+            <a href="https://vk.com/maxima_consulting" aria-label="VK">VK</a>
+          </div>
+          <!-- TODO(owner): добавить ИНН и реквизиты, когда будут утверждены. ТЗ 4.13. -->
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© maxima consulting, 2026</span>
+        <span><a href="/nda.html">NDA</a> · <a href="/privacy">Политика ПД</a></span>
+        <span>made by maxima lab ✳</span>
+      </div>
+      <p class="container price-note">Указанные цены не являются офертой и носят ознакомительный характер.</p>
+    </footer>
+    <div class="toast" data-toast role="status" hidden></div>
+
+<script src="/assets/motion.js" defer></script>
 </body>
 <script src="assets/lead-form.js?v=20260905"></script>
 </html>

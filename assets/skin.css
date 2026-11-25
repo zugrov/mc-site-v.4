@@ -1,0 +1,173 @@
+/* Слой поверх старых лендингов: те же токены, без салатового акцента. */
+.legacy-page {
+  background: var(--ink-950) !important;
+  color: var(--paper-100) !important;
+  font-family: var(--font-sans) !important;
+}
+
+.legacy-page .button--lime,
+.legacy-page .button-primary,
+.legacy-page .floating-cta,
+.legacy-page .button--submit {
+  background: var(--teal-500) !important;
+  color: var(--ink-950) !important;
+  border-color: var(--teal-500) !important;
+}
+
+.legacy-page .button--lime:hover,
+.legacy-page .floating-cta:hover {
+  background: var(--teal-300) !important;
+  color: var(--ink-950) !important;
+}
+
+.legacy-page .quiz-box--hub,
+.legacy-page #quiz {
+  min-height: 460px;
+}
+
+/* Светлые блоки FAQ и формы: тёмный текст. Тёмный подвал: светлый вторичный. */
+.legacy-page .faq-section,
+.legacy-page .faq-section p,
+.legacy-page .faq-section small,
+.legacy-page .faq-section button,
+.legacy-page .faq-section h2,
+.legacy-page .form-card,
+.legacy-page .form-card label,
+.legacy-page .form-card label span,
+.legacy-page .form-card .form-note,
+.legacy-page .form-card .form-note a,
+.legacy-page .form-card .consent,
+.legacy-page .form-card .consent span,
+.legacy-page .form-card__top span {
+  color: #3f3d38 !important;
+}
+
+.legacy-page .form-card__top span:first-child,
+.legacy-page .form-card .button,
+.legacy-page .form-card .button--lime {
+  color: var(--ink-950) !important;
+}
+
+.legacy-page .footer-bottom,
+.legacy-page .footer-bottom a,
+.legacy-page .footer-bottom span {
+  color: var(--mute-on-ink) !important;
+}
+
+/* Печатные гайды: мелкий текст на белом не ниже AA. Обложка остаётся тёмной. */
+.page:not(.cover) .kicker,
+.page:not(.cover) .label,
+.page:not(.cover) .tl,
+.page:not(.cover) .ct,
+.page:not(.cover) .kpi {
+  color: #0f766e !important;
+}
+
+.page th,
+.page .small,
+.page .legal,
+.page .sub,
+.page .lead,
+.page .pg,
+.page .contact-foot {
+  color: #3f3d38 !important;
+}
+
+.page.cover,
+.page.cover h1,
+.page.cover .sub,
+.page.cover .kicker {
+  color: #eeeae1 !important;
+}
+
+.page.cover em,
+.page.cover .kicker,
+.page.on-dark .kicker {
+  color: #5eead4 !important;
+}
+
+.page:not(.cover),
+.page:not(.cover) p,
+.page:not(.cover) td,
+.page:not(.cover) .tt,
+.page:not(.cover) .check,
+.page:not(.cover) .check div,
+.page:not(.cover) .sign p {
+  color: #3f3d38 !important;
+}
+
+.page .callout,
+.page .callout p {
+  color: #eeeae1 !important;
+}
+
+.page .callout .ct {
+  color: #5eead4 !important;
+}
+
+.guide-cta-band,
+.guide-cta-band h2,
+.guide-cta-band p,
+.guide-cta-band label,
+.guide-cta-band .field-label {
+  color: var(--paper-100) !important;
+}
+
+.legacy-page .form-card a,
+.legacy-page .consent a {
+  color: #0a0b0b !important;
+}
+
+.legacy-page .marquee-track,
+.legacy-page .marquee-track span,
+.legacy-page .disclaimer {
+  color: var(--mute-on-ink) !important;
+}
+
+.legacy-page em {
+  color: var(--teal-300) !important;
+}
+
+.legacy-page .guides-cta,
+.legacy-page .guides-cta p,
+.legacy-page .guides-cta h2 {
+  color: var(--paper-100) !important;
+}
+
+.legacy-page .guides-cta .button,
+.view-toggle button[aria-pressed="true"] {
+  background: var(--teal-500) !important;
+  color: var(--ink-950) !important;
+}
+
+.view-toggle button[aria-pressed="false"] {
+  background: transparent !important;
+  color: var(--paper-100) !important;
+  border: 1px solid var(--ink-700);
+}
+
+.legacy-page .social-icons a.social-icon,
+.legacy-page .contact-channels a.social-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.legacy-page a:focus-visible,
+.legacy-page button:focus-visible {
+  outline: 2px solid var(--teal-300);
+  outline-offset: 3px;
+}
+
+.guide-shell { background: var(--ink-950); }
+.guide-shell .guide-doc { background: var(--paper-100); color: var(--ink-950); }
+.guide-shell .guide-doc :focus-visible { outline-color: var(--teal-700); }
+
+.guide-cta-band {
+  width: min(var(--container), calc(100% - var(--gutter) * 2));
+  margin: 32px auto 48px;
+  padding: 28px;
+  border: 1px solid var(--ink-700);
+  background: var(--ink-900);
+}
+
+.mc-header-slot .site-header { position: sticky; }

@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: |
+            server/package-lock.json
+            blog-app/package-lock.json
+
+      - name: Тесты сервера
+        working-directory: server
+        run: npm ci && npm test
+
+      - name: Сборка блога
+        working-directory: blog-app
+        run: npm ci && npm test && npm run build
+
+      - name: Проверка URL, title и шрифтов
+        run: python3 scripts/check_pages.py
+
+      - name: Статический сервер
+        run: python3 -m http.server 4173 >/tmp/site-server.log 2>&1 &
+
+      - name: Lighthouse
+        run: npx --yes @lhci/cli@0.14.0 autorun
+
+      - name: axe
+        run: |
+          mkdir -p /tmp/axe-run
+          cp scripts/axe_check.mjs /tmp/axe-run/axe_check.mjs
+          cd /tmp/axe-run
+          npm init -y >/dev/null
+          npm pkg set type=module >/dev/null
+          npm install playwright @axe-core/playwright
+          npx playwright install --with-deps chromium
+          node axe_check.mjs

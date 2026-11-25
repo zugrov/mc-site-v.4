@@ -9,7 +9,7 @@ export function CTA() {
       </p>
       <a
         href="https://maxima-consulting.ru/#contact"
-        className="mt-4 inline-flex items-center gap-2 rounded-md bg-[#0d9488] px-4 py-2 text-sm font-medium text-white hover:bg-[#0f766e]"
+        className="button mt-4"
       >
         Записаться на разбор →
       </a>

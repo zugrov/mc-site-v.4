@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <!-- TODO(owner): черновик. Удалить или закрыть от индексации? ТЗ 4.13. Сейчас страница оставлена как была. -->
+
   <meta charset="UTF-8" />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32" />
@@ -10,6 +12,13 @@
   <meta name="robots" content="noindex, nofollow" />
   <title>Redirect — Variant Dark</title>
   <script>window.location.replace('variant-dark.html');</script>
+
+  <link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/tokens.css">
+  <link rel="stylesheet" href="/assets/base.css">
+  <link rel="stylesheet" href="/assets/skin.css">
+
 </head>
 <body>
   <p>Перенаправление на <a href="variant-dark.html">variant-dark.html</a>…</p>

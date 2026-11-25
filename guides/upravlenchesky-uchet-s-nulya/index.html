@@ -4,8 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Управленческий учёт с нуля — гайд | maxima consulting</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta name="description" content="Большинство компаний закрываются не из-за плохого продукта, а из-за нехватки денег в нужный момент. Собственник не знает себестоимость, не видит кассовый разрыв за недели вперёд и ">
+  <link rel="canonical" href="https://maxima-consulting.ru/guides/upravlenchesky-uchet-s-nulya/">
+
+
+  <link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/tokens.css">
+  <link rel="stylesheet" href="/assets/base.css">
+  <link rel="stylesheet" href="/assets/skin.css">
+
 <style>
 :root{
   --primary:#0D9488; --bg:#F8F8F7; --card:#FFFFFF; --text:#111827;
@@ -15,7 +23,7 @@
 }
 *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; box-sizing:border-box; margin:0; padding:0; }
 html,body{ background:var(--bg); }
-body{ font-family:'Inter',-apple-system,'Segoe UI',Roboto,Arial,sans-serif; color:var(--text-alt);
+body{ font-family:Manrope,Arial,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; color:var(--text-alt);
       font-size:10pt; line-height:1.47; -webkit-font-smoothing:antialiased; }
 @page{ size:A4; margin:0; }
 .page{ width:210mm; height:297mm; overflow:hidden; padding:13mm 16mm 10mm;
@@ -141,6 +149,21 @@ table.vs td:first-child{ font-weight:600; color:var(--text); width:30mm; }
 </style>
 </head>
 <body>
+
+    <a class="skip-link" href="#content">Перейти к содержимому</a>
+    <div class="read-progress" data-reading-progress hidden></div>
+    <header class="site-header" data-header data-mc-chrome>
+      <div class="header-inner">
+        <a class="logo" href="/" aria-label="maxima consulting — на главную">
+          <img src="/assets/logo-maxima.png" alt="" width="28" height="28">
+          <span>maxima <b>consulting</b></span>
+        </a>
+        <nav class="main-nav" id="mainNav" aria-label="Основная навигация"><a href="/uslugi">Услуги</a><a href="/#services">Цены</a><a href="/#case">Кейсы</a><a href="/gajdy" aria-current="page">Гайды</a><a href="/blog/">Статьи</a><a href="/#process">Как работаем</a><a href="/#contact">Контакты</a><a class="button nav-cta" href="/#contact">Записаться на разбор <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a></nav>
+        <a class="button header-cta" href="/#contact">Записаться на разбор <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </header>
+<main id="content">
 
 <!-- ============ P1: COVER ============ -->
 <section class="page cover">
@@ -449,5 +472,137 @@ table.vs td:first-child{ font-weight:600; color:var(--text); width:30mm; }
 </div>
 </section>
 
+<script src="/assets/motion.js" defer></script>
+</main>
+<section class="guide-cta-band" id="request"><h2>Нужен разбор под вашу компанию?</h2><p>30 минут, без обязательств.</p>
+            <form class="contact-form" data-lead-form data-wizard novalidate>
+              <div class="form-top"><span class="label">бесплатный разбор · 30 мин</span></div>
+              <div class="honeypot" aria-hidden="true">
+                <label for="middle_name">Middle name</label>
+                <input type="text" name="middle_name" id="middle_name" tabindex="-1" autocomplete="off">
+              </div>
+              <input type="hidden" name="utm_source">
+              <input type="hidden" name="utm_medium">
+              <input type="hidden" name="utm_campaign">
+              <input type="hidden" name="utm_content">
+              <input type="hidden" name="utm_term">
+              <input type="hidden" name="utm_campaign_name">
+              <input type="hidden" name="yclid">
+              <input type="hidden" name="client_id">
+              <input type="hidden" name="landing_url">
+              <input type="hidden" name="referrer">
+              <input type="hidden" name="client_id_missing">
+              <div data-wizard-step="1">
+                <label class="field">Ваше имя
+                  <input type="text" id="name" name="name" autocomplete="name" placeholder="Как к вам обращаться?" required>
+                </label>
+                <label class="field">Телефон или Telegram
+                  <input type="text" id="contact" name="contact" autocomplete="tel" placeholder="+7 или @username" required>
+                </label>
+                <label class="field">Диапазон выручки
+                  <select id="revenue" name="revenue" required>
+                    <option value="">Выберите</option>
+                    <option value="under_20">до 20 млн ₽</option>
+                    <option value="20_60">20–60 млн ₽</option>
+                    <option value="60_150">60–150 млн ₽</option>
+                    <option value="150_500">150–500 млн ₽</option>
+                    <option value="over_500">свыше 500 млн ₽</option>
+                    <option value="unknown">затрудняюсь ответить</option>
+                  </select>
+                </label>
+                <button class="button" type="button" data-wizard-next>Дальше <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></button>
+              </div>
+              <div data-wizard-step="2" hidden>
+                <label class="field">Роль в компании
+                  <select id="role" name="role" required>
+                    <option value="">Выберите</option>
+                    <option value="owner">Собственник</option>
+                    <option value="ceo">Генеральный директор</option>
+                    <option value="cfo">Финансовый директор</option>
+                    <option value="coo">Операционный директор</option>
+                    <option value="other">Другое</option>
+                  </select>
+                </label>
+                <label class="field">Отрасль
+                  <select id="industry" name="industry" required>
+                    <option value="">Выберите</option>
+                    <option value="trade">Торговля/опт-розница</option>
+                    <option value="ecommerce">E-commerce/маркетплейсы</option>
+                    <option value="production">Производство</option>
+                    <option value="services">Услуги</option>
+                    <option value="local_services">Локальные сервисы</option>
+                    <option value="construction">Строительство</option>
+                    <option value="other">Другое</option>
+                  </select>
+                </label>
+                <label class="field">Срочность
+                  <select id="urgency" name="urgency" required>
+                    <option value="">Выберите</option>
+                    <option value="urgent">Срочно (нужно решение на этой неделе)</option>
+                    <option value="month">В течение месяца</option>
+                    <option value="not_urgent">Не срочно</option>
+                    <option value="researching">Изучаю рынок</option>
+                  </select>
+                </label>
+                <label class="field">Главный вопрос
+                  <textarea id="question" name="question" placeholder="Что сейчас беспокоит в финансах бизнеса?" rows="3" required></textarea>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="consent_pdn" required>
+                  <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy">Политикой обработки персональных данных</a> *</span>
+                </label>
+                <button class="button" type="submit">Записаться на разбор <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></button>
+                <small class="price-note">Не продаём данные. Не спамим. Ответим в течение рабочего дня.</small>
+                <p class="price-note">Или напишите: <a href="tel:+79808488480">+7&nbsp;980&nbsp;848-84-80</a> · <a href="https://t.me/maxima_com" data-tg-source="guide">@maxima_com</a></p>
+              </div>
+            </form>
+</section>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <a class="logo" href="/" aria-label="maxima consulting — на главную">
+            <img src="/assets/logo-maxima.png" alt="" width="28" height="28">
+            <span>maxima <b>consulting</b></span>
+          </a>
+          <p class="muted">Финансовый партнёр для МСБ</p>
+        </div>
+        <div class="footer-col">
+          <span class="footer-label">Навигация</span>
+          <a href="/uslugi">Услуги</a>
+          <a href="/#services">Цены</a>
+          <a href="/#case">Кейсы</a>
+          <a href="/gajdy">Гайды</a>
+          <a href="/blog/">Статьи</a>
+          <a href="/#process">Как работаем</a>
+          <a href="/#contact">Контакты</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-label">Контакты</span>
+          <a href="tel:+79808488480">+7 980 848-84-80</a>
+          <a href="https://t.me/maxima_com" data-tg-source="site_organic">@maxima_com</a>
+          <a href="https://vk.com/maxima_consulting">VK</a>
+          <a href="https://m.tenchat.ru/u/eei8UmQE">TenChat</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-label">Каналы</span>
+          <div class="social-icons">
+            <a href="https://t.me/maxima_com" data-tg-source="site_organic" target="_blank" rel="noopener noreferrer" aria-label="Telegram @maxima_com"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
+            <a href="https://max.ru/se14042176_biz" target="_blank" rel="noopener noreferrer" aria-label="Канал maxima consulting в MAX">MAX</a>
+            <a href="https://vk.com/maxima_consulting" aria-label="VK">VK</a>
+          </div>
+          <!-- TODO(owner): добавить ИНН и реквизиты, когда будут утверждены. ТЗ 4.13. -->
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© maxima consulting, 2026</span>
+        <span><a href="/nda.html">NDA</a> · <a href="/privacy">Политика ПД</a></span>
+        <span>made by maxima lab ✳</span>
+      </div>
+      <p class="container price-note">Указанные цены не являются офертой и носят ознакомительный характер.</p>
+    </footer>
+    <div class="toast" data-toast role="status" hidden></div>
+<script src="/assets/motion.js" defer></script>
+<script src="/assets/lead-form.js?v=20260905" defer></script>
 </body>
 </html>

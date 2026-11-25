@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Сборка production-лендингов из variant-pro и генераторов."""
-import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -27,12 +26,12 @@ def main() -> int:
         print(f"→ {script.name}")
         subprocess.run([sys.executable, str(script)], check=True, cwd=ROOT)
 
-    src = ROOT / "variant-pro.html"
-    dest = ROOT / "index.html"
-    shutil.copyfile(src, dest)
-    print(f"OK {dest}")
+    # Главная больше не копируется из черновика variant-pro.html.
+    # TODO(owner): черновики variant-*.html и preview-*.html не публиковать без решения. ТЗ 4.13.
+    print("→ общая шапка и шрифты")
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "apply_redesign.py")], check=True, cwd=ROOT)
 
-    print("Готово: index.html, financial-diagnostics.html, nds-2026.html, uslugi + продуктовые лендинги")
+    print("Готово: лендинги услуг, гайды. index.html не перезаписывается.")
     return 0
 
 

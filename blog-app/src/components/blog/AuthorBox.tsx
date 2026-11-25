@@ -2,7 +2,7 @@ export function AuthorBox() {
   return (
     <aside className="rounded-xl border border-[var(--line)] bg-[#111313] p-5 flex gap-4">
       <img
-        src="/images/blog/author-maxim.jpg"
+        src="/assets/founder-maxim.jpg"
         alt="Максим Зугров"
         width={72}
         height={72}
