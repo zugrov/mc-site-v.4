@@ -1,3 +1,4 @@
+import fs from "node:fs";
 import { chromium } from "playwright";
 import AxeBuilder from "@axe-core/playwright";
 
@@ -11,10 +12,12 @@ const pages = [
   "http://127.0.0.1:4173/blog/vneshnij-finansovyj-direktor-vmesto-shtatnogo-cfo/",
 ];
 
-const browser = await chromium.launch({
-  executablePath: process.env.CHROME_PATH || undefined,
-  args: ["--no-sandbox"],
-});
+const launchOptions = { args: ["--no-sandbox"] };
+if (process.env.CHROME_PATH && fs.existsSync(process.env.CHROME_PATH)) {
+  launchOptions.executablePath = process.env.CHROME_PATH;
+}
+
+const browser = await chromium.launch(launchOptions);
 const context = await browser.newContext();
 let failed = false;
 

@@ -38,6 +38,11 @@ jobs:
 
       - name: axe
         run: |
-          npm install --no-save --prefix /tmp/axe-run playwright @axe-core/playwright
-          cd /tmp/axe-run && npx playwright install --with-deps chromium
-          NODE_PATH=/tmp/axe-run/node_modules CHROME_PATH=$(find /tmp/axe-run/node_modules/playwright-core -name chrome -type f | head -1) node ${{ github.workspace }}/scripts/axe_check.mjs
+          mkdir -p /tmp/axe-run
+          cp scripts/axe_check.mjs /tmp/axe-run/axe_check.mjs
+          cd /tmp/axe-run
+          npm init -y >/dev/null
+          npm pkg set type=module >/dev/null
+          npm install playwright @axe-core/playwright
+          npx playwright install --with-deps chromium
+          node axe_check.mjs
