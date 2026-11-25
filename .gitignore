@@ -20,3 +20,6 @@ maxima-nds-2026-pro/node_modules/
 server/node_modules/
 server/.env
 server/data/
+
+__pycache__/
+*.pyc
