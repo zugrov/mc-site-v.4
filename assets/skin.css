@@ -1,0 +1,72 @@
+/* Слой поверх старых лендингов: те же токены, без салатового акцента. */
+.legacy-page {
+  background: var(--ink-950) !important;
+  color: var(--paper-100) !important;
+  font-family: var(--font-sans) !important;
+}
+
+.legacy-page .button--lime,
+.legacy-page .button-primary,
+.legacy-page .floating-cta,
+.legacy-page .button--submit {
+  background: var(--teal-500) !important;
+  color: var(--ink-950) !important;
+  border-color: var(--teal-500) !important;
+}
+
+.legacy-page .button--lime:hover,
+.legacy-page .floating-cta:hover {
+  background: var(--teal-300) !important;
+  color: var(--ink-950) !important;
+}
+
+.legacy-page .quiz-box--hub,
+.legacy-page #quiz {
+  min-height: 460px;
+}
+
+/* Старые лендинги красили подписи в серый ниже AA. */
+.legacy-page p,
+.legacy-page small,
+.legacy-page li,
+.legacy-page label,
+.legacy-page label span,
+.legacy-page .section-index,
+.legacy-page .form-note,
+.legacy-page .breadcrumbs {
+  color: var(--mute-on-ink) !important;
+}
+
+.legacy-page h1,
+.legacy-page h2,
+.legacy-page h3,
+.legacy-page h4,
+.legacy-page strong {
+  color: var(--paper-100) !important;
+}
+
+.legacy-page .social-icons a.social-icon,
+.legacy-page .contact-channels a.social-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.legacy-page a:focus-visible,
+.legacy-page button:focus-visible {
+  outline: 2px solid var(--teal-300);
+  outline-offset: 3px;
+}
+
+.guide-shell { background: var(--ink-950); }
+.guide-shell .guide-doc { background: var(--paper-100); color: var(--ink-950); }
+.guide-shell .guide-doc :focus-visible { outline-color: var(--teal-700); }
+
+.guide-cta-band {
+  width: min(var(--container), calc(100% - var(--gutter) * 2));
+  margin: 32px auto 48px;
+  padding: 28px;
+  border: 1px solid var(--ink-700);
+  background: var(--ink-900);
+}
+
+.mc-header-slot .site-header { position: sticky; }

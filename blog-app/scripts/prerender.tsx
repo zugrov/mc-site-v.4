@@ -46,11 +46,21 @@ async function main() {
   const posts = loadPostSummaries();
   const postsJson = serializeForInlineScript(posts);
 
-  const indexHtml = await renderRoute(
+  let indexHtml = await renderRoute(
     `window.__BLOG_POSTS__=${postsJson};`,
     viteTemplate,
-    indexHead(),
+    indexHead(posts[0]?.coverImage),
     <BlogIndex initialPosts={posts} />,
+  );
+  if (posts[0]?.coverImage) {
+    indexHtml = indexHtml.replace(
+      '<meta charset="UTF-8" />',
+      `<meta charset="UTF-8" />\n    <link rel="preload" as="image" href="${posts[0].coverImage}" fetchpriority="high" />`,
+    );
+  }
+  indexHtml = indexHtml.replace(
+    "<script type=\"module\"",
+    "<script fetchpriority=\"low\" type=\"module\"",
   );
   fs.writeFileSync(path.join(outDir, "index.html"), indexHtml, "utf-8");
 
@@ -62,9 +72,17 @@ async function main() {
 
     const slugDir = path.join(outDir, summary.slug);
     fs.mkdirSync(slugDir, { recursive: true });
-    const html = await renderRoute(script, viteTemplate, postHead(summary), (
-      <BlogPost initialPost={payload} />
-    ));
+    let html = await renderRoute(
+      script,
+      viteTemplate,
+      postHead(summary) +
+        '\n  <script src="/assets/motion.js" defer></script>\n  <script src="/assets/lead-form.js?v=20260905" defer></script>',
+      <BlogPost initialPost={payload} />,
+    );
+    html = html.replace(
+      "<script type=\"module\"",
+      "<script fetchpriority=\"low\" type=\"module\"",
+    );
     fs.writeFileSync(path.join(slugDir, "index.html"), html, "utf-8");
   }
 

@@ -1,6 +1,9 @@
 import type { PostSummary } from "../shared/blog-types";
 
-export function indexHead(): string {
+export function indexHead(preloadImage?: string): string {
+  const preload = preloadImage
+    ? `\n  <link rel="preload" as="image" href="${preloadImage}" fetchpriority="high" />`
+    : "";
   return `
   <title>Статьи — maxima consulting</title>
   <meta name="description" content="Статьи о НДС, управленческом учёте и финансах для собственников МСБ." />
@@ -12,7 +15,7 @@ export function indexHead(): string {
   <meta property="og:image" content="https://maxima-consulting.ru/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:card" content="summary_large_image" />${preload}
 `;
 }
 

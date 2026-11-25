@@ -11,7 +11,7 @@ export function ShareButtons({ url, title }: { url: string; title: string }) {
 
   return (
     <div className="flex flex-wrap gap-3 items-center text-sm">
-      <span className="text-[#6b7280]">Поделиться:</span>
+      <span className="text-[#a8a59c]">Поделиться:</span>
       <a
         href={tg}
         target="_blank"

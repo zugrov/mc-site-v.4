@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { PostCard } from "@/components/blog/PostCard";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { postsSnapshot } from "@/lib/blog-data";
@@ -47,10 +47,11 @@ export default function BlogIndex({
   }, [category, page, initialPosts]);
 
   const safePage = Math.min(page, totalPages);
+  const [isList, setIsList] = useState(false);
 
   return (
     <SiteLayout>
-      <h1 className="text-4xl font-bold font-[family-name:var(--font-display)] mb-3">
+      <h1 className="text-4xl md:text-6xl font-medium font-[family-name:var(--font-display)] mb-3">
         Статьи
       </h1>
       <p className="text-[#898e87] max-w-2xl mb-8">
@@ -73,9 +74,13 @@ export default function BlogIndex({
           </a>
         ))}
       </div>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {items.map((p) => (
-          <PostCard key={p.slug} post={p} />
+      <div className="view-toggle" data-view-toggle=".blog-grid">
+        <button type="button" aria-pressed={!isList} onClick={() => setIsList(false)}>Сетка</button>
+        <button type="button" aria-pressed={isList} onClick={() => setIsList(true)}>Список</button>
+      </div>
+      <div className={isList ? "grid gap-6 is-list" : "grid gap-6 md:grid-cols-2 lg:grid-cols-3"}>
+        {items.map((p, index) => (
+          <PostCard key={p.slug} post={p} eager={index === 0 && safePage === 1 && !category} />
         ))}
       </div>
       {totalPages > 1 && (
@@ -88,7 +93,7 @@ export default function BlogIndex({
               ← Назад
             </a>
           )}
-          <span className="text-[#6b7280]">
+          <span className="text-[#a8a59c]">
             {safePage} / {totalPages}
           </span>
           {safePage < totalPages && (

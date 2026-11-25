@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <!-- TODO(owner): черновик. Удалить или закрыть от индексации? ТЗ 4.13. Сейчас страница оставлена как была. -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
@@ -13,9 +15,6 @@
   <meta property="og:title" content="maxima consulting — финансовый партнёр для МСБ" />
   <meta property="og:description" content="Снижаем налоги и находим потери. Результат за 7 дней." />
   <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -54,7 +53,7 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: Manrope, Arial, sans-serif;
       font-size: 16px;
       line-height: 1.6;
       color: var(--text);
@@ -103,7 +102,7 @@
     }
 
     .header__brand-name {
-      font-family: 'Inter', sans-serif;
+      font-family: Manrope, Arial, sans-serif;
       font-weight: 600;
       font-size: 15px;
       color: var(--text);
@@ -210,7 +209,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-family: 'Inter', sans-serif;
+      font-family: Manrope, Arial, sans-serif;
       font-size: 15px;
       font-weight: 600;
       padding: 13px 26px;
@@ -894,7 +893,7 @@
     .form-field input[type="tel"] {
       width: 100%;
       padding: 12px 16px;
-      font-family: 'Inter', sans-serif;
+      font-family: Manrope, Arial, sans-serif;
       font-size: 15px;
       color: var(--text);
       background: #fff;
@@ -1201,6 +1200,13 @@
   </script>
   <noscript><div><img src="https://mc.yandex.ru/watch/112291401" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <!-- /Yandex.Metrika counter -->
+
+  <link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/tokens.css">
+  <link rel="stylesheet" href="/assets/base.css">
+  <link rel="stylesheet" href="/assets/skin.css">
+
 </head>
 <body>
 

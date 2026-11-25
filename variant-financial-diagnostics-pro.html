@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <!-- TODO(owner): черновик. Удалить или закрыть от индексации? ТЗ 4.13. Сейчас страница оставлена как была. -->
+
   <meta charset="UTF-8" />
   <script>(function(){try{var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;if(!reduced&&"IntersectionObserver"in window)document.documentElement.classList.add("js-reveal");}catch(e){}})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,9 +21,6 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
 .container { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 40px; }
 :root {
@@ -550,6 +549,13 @@ html.js-reveal .process-row.reveal { transition-delay: var(--row-delay, 0ms); }
 
   <!-- Аналитика и рекламные пиксели — только после согласия -->
   <script src="/assets/cookie-consent.js?v=20261020"></script>
+
+
+  <link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/tokens.css">
+  <link rel="stylesheet" href="/assets/base.css">
+  <link rel="stylesheet" href="/assets/skin.css">
 
 </head>
 <body>

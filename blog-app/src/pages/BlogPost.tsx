@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ArticleForm } from "@/components/blog/ArticleForm";
 import { CTA } from "@/components/blog/CTA";
 import { PostMeta } from "@/components/blog/PostMeta";
 import { ShareButtons } from "@/components/blog/ShareButtons";
@@ -68,7 +69,7 @@ export default function BlogPost({
 
   return (
     <SiteLayout>
-      <nav className="text-sm text-[#6b7280] mb-6">
+      <nav className="text-sm text-[#a8a59c] mb-6">
         <a href="https://maxima-consulting.ru/" className="hover:text-teal-300">
           Главная
         </a>
@@ -78,14 +79,16 @@ export default function BlogPost({
         <span className="text-[#bfc2ba]">{post.title}</span>
       </nav>
       <div className="grid gap-10 lg:grid-cols-[1fr_240px]">
-        <article>
+        <article data-reading>
           <img
             src={post.coverImage}
             alt=""
-            className="w-full max-h-[360px] object-cover rounded-xl mb-8"
-            fetchPriority="high"
+            width={1200}
+            height={630}
+            className="w-full max-h-[280px] object-cover rounded-xl mb-8"
+            loading="lazy"
           />
-          <h1 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-display)] mb-4">
+          <h1 className="text-3xl md:text-5xl font-medium font-[family-name:var(--font-display)] mb-4">
             {post.title}
           </h1>
           <PostMeta post={post} />
@@ -99,6 +102,7 @@ export default function BlogPost({
           <div className="mt-8">
             <ShareButtons url={pageUrl} title={post.title} />
           </div>
+          <ArticleForm />
         </article>
         <aside className="hidden lg:block self-start">
           <div className="sticky top-24 flex max-h-[calc(100vh-6.5rem)] flex-col gap-6">

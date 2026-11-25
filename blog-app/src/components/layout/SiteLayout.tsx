@@ -1,87 +1,100 @@
 import { ReactNode } from "react";
 
+const NAV = [
+  { href: "https://maxima-consulting.ru/uslugi", label: "Услуги" },
+  { href: "https://maxima-consulting.ru/#services", label: "Цены" },
+  { href: "https://maxima-consulting.ru/#case", label: "Кейсы" },
+  { href: "https://maxima-consulting.ru/gajdy", label: "Гайды" },
+  { href: "/blog/", label: "Статьи", current: true },
+  { href: "https://maxima-consulting.ru/#process", label: "Как работаем" },
+  { href: "https://maxima-consulting.ru/#contact", label: "Контакты" },
+];
+
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="sticky top-0 z-20 border-b border-white/10 bg-[#0a0b0b]/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-          <a href="https://maxima-consulting.ru/" className="flex items-center gap-2 text-sm">
-            <img
-              src="https://maxima-consulting.ru/assets/logo-maxima.png"
-              alt=""
-              width={28}
-              height={28}
-            />
+      <a className="skip-link" href="#content">
+        Перейти к содержимому
+      </a>
+      <div className="read-progress" data-reading-progress hidden />
+      <header className="site-header" data-header>
+        <div className="header-inner">
+          <a className="logo" href="https://maxima-consulting.ru/" aria-label="maxima consulting — на главную">
+            <img src="/assets/logo-maxima.png" alt="" width={28} height={28} />
             <span>
               maxima <b>consulting</b>
             </span>
           </a>
-          <nav className="hidden md:flex gap-6 text-sm text-[#bfc2ba]">
-            <a href="https://maxima-consulting.ru/uslugi" className="hover:text-white">
-              Услуги
-            </a>
-            <a href="https://maxima-consulting.ru/gajdy" className="hover:text-white">
-              Гайды
-            </a>
-            <a href="/blog/" className="text-white font-medium">Статьи</a>
-            <a href="https://maxima-consulting.ru/#contact" className="hover:text-white">
-              Контакты
+          <nav className="main-nav" id="mainNav" aria-label="Основная навигация">
+            {NAV.map((item) => (
+              <a key={item.label} href={item.href} aria-current={item.current ? "page" : undefined}>
+                {item.label}
+              </a>
+            ))}
+            <a className="button nav-cta" href="https://maxima-consulting.ru/#contact">
+              Записаться на разбор
             </a>
           </nav>
-          <a
-            href="https://maxima-consulting.ru/#contact"
-            className="text-xs md:text-sm rounded-md bg-[#0d9488] px-3 py-2 text-white hover:bg-[#0f766e]"
-          >
-            Записаться
+          <a className="button header-cta" href="https://maxima-consulting.ru/#contact">
+            Записаться на разбор
           </a>
+          <button className="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+            Меню
+          </button>
         </div>
       </header>
-      <main className="flex-1 mx-auto w-full max-w-6xl px-5 py-10">{children}</main>
-      <footer className="border-t border-white/10 py-8 text-center text-xs text-[#6b7280]">
-        <div className="mb-3 flex flex-wrap items-center justify-center gap-3">
-          <a
-            href="https://t.me/maxima_cfo"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-[#bfc2ba] hover:border-teal-400/40 hover:text-teal-300"
-            aria-label="Telegram-канал @maxima-cfo"
-            title="Telegram-канал @maxima-cfo"
-          >
-            <span className="text-[10px] font-bold">TG</span>
-          </a>
-          <a
-            href="https://max.ru/se14042176_biz"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-[#bfc2ba] hover:border-teal-400/40 hover:text-teal-300"
-            aria-label="Канал maxima consulting в MAX"
-            title="Канал в MAX"
-          >
-            <span className="text-[9px] font-bold">MAX</span>
-          </a>
-          <a
-            href="https://t.me/maxima_com"
-            className="hover:text-teal-300"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @maxima_com
-          </a>
+      <main id="content" className="flex-1 mx-auto w-full max-w-[1320px] px-5 py-10">
+        {children}
+      </main>
+      <footer className="site-footer">
+        <div className="container footer-grid">
+          <div className="footer-col">
+            <a className="logo" href="https://maxima-consulting.ru/">
+              maxima consulting
+            </a>
+            <p className="muted">Финансовый партнёр для МСБ</p>
+          </div>
+          <div className="footer-col">
+            <span className="footer-label">Навигация</span>
+            <a href="https://maxima-consulting.ru/uslugi">Услуги</a>
+            <a href="/blog/">Статьи</a>
+            <a href="https://maxima-consulting.ru/gajdy">Гайды</a>
+            <a href="https://maxima-consulting.ru/#contact">Контакты</a>
+          </div>
+          <div className="footer-col">
+            <span className="footer-label">Контакты</span>
+            <a href="tel:+79808488480">+7 980 848-84-80</a>
+            <a href="https://t.me/maxima_com">@maxima_com</a>
+            <a href="https://vk.com/maxima_consulting">VK</a>
+            <a href="https://m.tenchat.ru/u/eei8UmQE">TenChat</a>
+          </div>
+          <div className="footer-col">
+            <span className="footer-label">Каналы</span>
+            {/* TODO(owner): ссылку на канал @maxima_cfo в разделе «Каналы» оставляем? ТЗ 4.13. */}
+            <div className="social-icons">
+              <a href="https://t.me/maxima_cfo" aria-label="Telegram-канал @maxima-cfo">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>
+              </a>
+              <a href="https://max.ru/se14042176_biz" aria-label="Канал maxima consulting в MAX">
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" strokeWidth="1.5" /></svg>
+              </a>
+            </div>
+            {/* TODO(owner): добавить ИНН и реквизиты, когда будут утверждены. ТЗ 4.13. */}
+          </div>
         </div>
-        <p>
-          © maxima consulting ·{" "}
-          <a href="https://maxima-consulting.ru/nda.html" className="hover:text-teal-300">
-            NDA
-          </a>
-          {" · "}
-          <a href="https://maxima-consulting.ru/privacy" className="hover:text-teal-300">
-            Политика ПД
-          </a>
-        </p>
-        <p className="mx-auto mt-3 max-w-xl text-[11px] leading-snug text-[#6b7280]">
+        <div className="container footer-bottom">
+          <span>© maxima consulting, 2026</span>
+          <span>
+            <a href="https://maxima-consulting.ru/nda.html">NDA</a>
+            {" · "}
+            <a href="https://maxima-consulting.ru/privacy">Политика ПД</a>
+          </span>
+        </div>
+        <p className="container price-note">
           Указанные цены не являются офертой и носят ознакомительный характер.
         </p>
       </footer>
+      <div className="toast" data-toast role="status" hidden />
     </div>
   );
 }

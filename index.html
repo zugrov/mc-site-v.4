@@ -1,429 +1,449 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <script>(function(){try{var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;if(!reduced&&"IntersectionObserver"in window)document.documentElement.classList.add("js-reveal");}catch(e){}})();</script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/favicon.ico" sizes="48x48" />
-  <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32" />
-  <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16" />
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <title>Финансовый консультант для малого бизнеса | maxima consulting</title>
-  <meta name="description" content="Снижаем налоги и находим потери в финансах МСБ. НДС-аудит от 15 000 ₽, финансовая диагностика за 7 дней. Вся Россия онлайн — результат гарантирован документом." />
-  <meta name="keywords" content="финансовый консультант малый бизнес, НДС аудит, CFO аутсорсинг, управленческий учёт, финансовая диагностика бизнеса" />
-  <meta property="og:title" content="maxima consulting — финансовый партнёр для МСБ" />
-  <meta property="og:description" content="Снижаем налоги и находим потери. Результат за 7 дней." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://maxima-consulting.ru/" />
-  <meta property="og:image" content="https://maxima-consulting.ru/assets/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- TODO(owner): можно ли заменить meta description главной на подзаголовок первого экрана и убрать «Снижаем налоги… гарантирован»? ТЗ 4.13. Текст ниже оставлен как на текущем сайте. -->
+  <meta name="description" content="Снижаем налоги и находим потери в финансах МСБ. НДС-аудит от 15 000 ₽, финансовая диагностика за 7 дней. Вся Россия онлайн — результат гарантирован документом.">
+  <meta name="keywords" content="финансовый консультант малый бизнес, НДС аудит, CFO аутсорсинг, управленческий учёт, финансовая диагностика бизнеса">
+  <link rel="canonical" href="https://maxima-consulting.ru/">
+  <meta property="og:title" content="maxima consulting — финансовый партнёр для МСБ">
+  <meta property="og:description" content="Снижаем налоги и находим потери. Результат за 7 дней.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://maxima-consulting.ru/">
+  <meta property="og:image" content="https://maxima-consulting.ru/assets/og-home.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/tokens.css">
+  <link rel="stylesheet" href="/assets/base.css">
+  <link rel="stylesheet" href="/assets/skin.css">
+  <link rel="stylesheet" href="/assets/home.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "maxima consulting",
-    "description": "Финансовый консалтинг для малого и среднего бизнеса",
-    "telephone": "+79808488480",
-    "url": "https://maxima-consulting.ru",
-    "priceRange": "от 15 000 ₽",
-    "areaServed": "RU",
-    "knowsLanguage": "ru"
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "name": "maxima consulting",
+        "description": "Финансовый консалтинг для малого и среднего бизнеса",
+        "telephone": "+79808488480",
+        "url": "https://maxima-consulting.ru",
+        "priceRange": "от 15 000 ₽",
+        "areaServed": "RU",
+        "knowsLanguage": "ru"
+      },
+      {
+        "@type": "Organization",
+        "name": "maxima consulting",
+        "url": "https://maxima-consulting.ru/",
+        "logo": "https://maxima-consulting.ru/assets/logo-maxima.png",
+        "telephone": "+79808488480",
+        "sameAs": [
+          "https://vk.com/maxima_consulting",
+          "https://m.tenchat.ru/u/eei8UmQE",
+          "https://t.me/maxima_com"
+        ]
+      },
+      {
+        "@type": "Person",
+        "name": "Максим Зугров",
+        "jobTitle": "Основатель maxima consulting",
+        "image": "https://maxima-consulting.ru/assets/founder-maxim.jpg",
+        "worksFor": { "@type": "Organization", "name": "maxima consulting", "url": "https://maxima-consulting.ru/" }
+      }
+    ]
   }
   </script>
-  <style>
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; background: #0a0b0b; }
-body { overflow-x: hidden; margin: 0; font-family: 'Manrope', Arial, sans-serif; background: #0a0b0b; color: #eeeae1; }
-a { color: inherit; text-decoration: none; }
-button { font: inherit; cursor: pointer; }
-button:not(:disabled), a[href], select:not(:disabled), input:not(:disabled), textarea:not(:disabled) { cursor: pointer; }
-.container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 28px; }
-.icon { display: inline-block; vertical-align: middle; flex-shrink: 0; }
-.service-card { transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)); }
-:root { --accent: #0D9488; --accent-light: #CCFBF1; --accent-hover: #0f766e; --ink: #0a0b0b; --paper: #eeeae1; --muted-2: #626860; --line: rgba(238, 234, 225, .14); --ease: cubic-bezier(.23, 1, .32, 1); }
-.site-shell { position: relative; background: #0a0b0b; overflow: hidden; }
-.ambient { position: absolute; width: 520px; height: 520px; border-radius: 50%; filter: blur(110px); opacity: .11; pointer-events: none; }
-.ambient--one { top: -180px; right: -200px; background: var(--accent); opacity: .14; }
-.ambient--two { top: 800px; left: -280px; background: #6d5bff; opacity: .07; }
-.site-header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid rgba(238,234,225,.08); background: rgba(10,11,11,.76); backdrop-filter: blur(18px); }
-.header-inner { min-height: 78px; display: flex; align-items: center; justify-content: space-between; }
-.logo { display: inline-flex; gap: 10px; align-items: center; letter-spacing: -.03em; font-size: 15px; white-space: nowrap; }
-.logo b { color: var(--muted-2); font-weight: 400; }
-.logo-img { width: 28px; height: 28px; object-fit: contain; flex-shrink: 0; }
-.main-nav { display: flex; align-items: center; gap: 30px; }
-.main-nav button, .main-nav a { border: 0; background: transparent; color: #9fa59d; font-size: 12px; text-decoration: none; transition: color .2s var(--ease); }
-.main-nav button:hover, .main-nav a:hover { color: var(--paper); }
-.menu-toggle { display: none; border: 0; background: transparent; color: var(--paper); }
-.button { display: inline-flex; align-items: center; justify-content: center; gap: 11px; min-height: 48px; padding: 0 19px; border-radius: 5px; background: var(--accent); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .01em; transition: transform .2s var(--ease), background .2s var(--ease), color .2s var(--ease); }
-.button:hover { transform: translateY(-2px); background: var(--accent-hover); color: #fff; }
-.button:active { transform: scale(.97); }
-.button--secondary { background: transparent; border: 1px solid var(--line); color: var(--paper); }
-.button--secondary:hover { background: var(--paper); color: var(--ink); }
-.hero { min-height: 660px; padding-top: 93px; padding-bottom: 80px; display: grid; grid-template-columns: .92fr 1.08fr; gap: 35px; align-items: center; position: relative; }
-.hero-copy { position: relative; z-index: 2; max-width: 610px; }
-.status-pill { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 28px; color: var(--accent-light); text-transform: uppercase; font-size: 10px; font-weight: 700; letter-spacing: .15em; }
-.status-pill span { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-light); box-shadow: 0 0 0 5px rgba(13,148,136,.2); }
-h1, h2, h3, p { margin: 0; }
-h1, h2, h3 { font-family: 'Manrope', Arial, sans-serif; font-weight: 500; letter-spacing: -.055em; }
-h1 { max-width: 700px; font-size: clamp(50px, 6.1vw, 89px); line-height: .94; }
-h1 em, h2 em { color: var(--accent-light); font-style: normal; }
-.hero-lead { max-width: 530px; margin-top: 30px; color: #a7aaa4; font-size: 16px; line-height: 1.55; }
-.hero-lead strong { color: var(--paper); font-weight: 500; }
-.hero-actions { display: flex; align-items: center; gap: 25px; margin-top: 34px; }
-.text-link, .service-link, .section-cta a, .signal-note a, .services-footer a { display: inline-flex; align-items: center; gap: 9px; color: var(--paper); font-size: 12px; font-weight: 700; transition: color .2s, gap .2s var(--ease); }
-.text-link:hover, .service-link:hover, .section-cta a:hover, .signal-note a:hover, .services-footer a:hover { color: var(--accent-light); gap: 13px; }
-.hero-footnote { display: flex; align-items: center; gap: 7px; margin-top: 39px; color: #626860; font-size: 11px; }
-.hero-visual { position: relative; min-height: 485px; }
-.visual-grid { position: absolute; inset: 5% 0 0 5%; background-image: linear-gradient(rgba(238,234,225,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(238,234,225,.08) 1px, transparent 1px); background-size: 48px 48px; mask-image: radial-gradient(ellipse, #000 30%, transparent 72%); opacity: .6; }
-.visual-ring { position: absolute; left: 50%; top: 53%; transform: translate(-50%, -50%); border: 1px solid rgba(13,148,136,.35); border-radius: 50%; }
-.visual-ring--one { width: 350px; height: 350px; }
-.visual-ring--two { width: 510px; height: 510px; border-color: rgba(238,234,225,.09); }
-.metric-card { position: absolute; z-index: 2; display: flex; flex-direction: column; border: 1px solid rgba(238,234,225,.16); background: rgba(17,19,19,.82); box-shadow: 0 20px 60px rgba(0,0,0,.35); backdrop-filter: blur(15px); }
-.metric-card--top { top: 31px; right: 20px; width: 224px; padding: 19px 20px 17px; transform: rotate(3deg); }
-.metric-card--top span, .metric-card--bottom span, .case-result span, .case-chart-label, .form-top, .footer-label, .service-label, .process-tag { color: #798078; text-transform: uppercase; font-size: 9px; letter-spacing: .14em; }
-.metric-card--top strong { margin: 14px 0 4px; color: var(--accent-light); font-family: 'Manrope', Arial, sans-serif; font-size: 27px; font-weight: 500; letter-spacing: -.06em; }
-.metric-card--top small { color: #a7aaa4; font-size: 10px; line-height: 1.35; }
-.metric-card--bottom small { margin-top: 4px; color: #a7aaa4; font-size: 10px; line-height: 1.35; }
-.metric-card--bottom { bottom: 46px; left: 14px; width: 225px; padding: 16px; transform: rotate(-5deg); }
-.metric-icon { display: grid; place-items: center; width: 28px; height: 28px; margin-bottom: 13px; color: #fff; background: var(--accent); border-radius: 50%; }
-.metric-card--bottom strong { margin-top: 8px; color: var(--paper); font-family: 'Manrope', Arial, sans-serif; font-size: 15px; font-weight: 500; }
-.orbit-label { position: absolute; right: 13%; bottom: 15%; color: var(--accent-light); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; transform: rotate(18deg); }
-.orbit-label span { display: inline-grid; place-items: center; width: 21px; height: 21px; margin-left: 7px; border: 1px solid var(--accent-light); border-radius: 50%; }
-.hero-graph { position: absolute; z-index: 1; left: 13%; right: 7%; top: 24%; height: 220px; padding: 35px 0 0; color: var(--accent-light); }
-.hero-graph svg { position: absolute; inset: 30px 0 20px; width: 100%; height: 145px; filter: drop-shadow(0 0 9px rgba(13,148,136,.35)); }
-.graph-bars { position: absolute; inset: 45px 0 35px; display: flex; align-items: end; justify-content: space-around; opacity: .12; }
-.graph-bars i { display: block; width: 8%; background: var(--accent-light); border-radius: 4px 4px 0 0; }
-.graph-bars i:nth-child(1) { height: 30%; }.graph-bars i:nth-child(2) { height: 47%; }.graph-bars i:nth-child(3) { height: 38%; }.graph-bars i:nth-child(4) { height: 66%; }.graph-bars i:nth-child(5) { height: 54%; }.graph-bars i:nth-child(6) { height: 80%; }.graph-bars i:nth-child(7) { height: 100%; }
-.graph-axis { position: absolute; left: 0; right: 0; bottom: 7px; display: flex; justify-content: space-between; color: #626860; font-size: 9px; }
-.ticker { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 14px 0; color: rgba(238, 234, 225, .78); white-space: nowrap; font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-size: 15px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; }
-.ticker-track { display: flex; width: max-content; flex-wrap: nowrap; will-change: transform; }
-.ticker-group { display: inline-flex; align-items: center; flex-shrink: 0; padding-right: 2.5rem; }
-.ticker span { padding: 0 28px; color: rgba(238, 234, 225, .42); font-size: 12px; }
-.section { padding-top: 144px; padding-bottom: 144px; position: relative; }
-.section-heading { max-width: 720px; }.eyebrow { display: flex; align-items: center; gap: 9px; margin-bottom: 22px; color: var(--accent-light); text-transform: uppercase; font-size: 10px; font-weight: 700; letter-spacing: .17em; }.eyebrow-dot { display: inline-block; width: 7px; height: 7px; background: var(--accent-light); border-radius: 50%; }
-.section-heading h2, .signal-inner h2, .founder-copy h2, .contact-copy h2 { font-size: clamp(39px, 4.2vw, 64px); line-height: .98; }.section-heading p { max-width: 590px; margin-top: 23px; color: #898e87; font-size: 15px; line-height: 1.55; }
-.problems .section-heading { margin-bottom: 55px; }.problem-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }.problem-card { min-height: 380px; padding: 25px 21px 22px; display: flex; flex-direction: column; border: 1px solid var(--line); background: linear-gradient(140deg, rgba(255,255,255,.052), rgba(255,255,255,.01)); transition: transform .28s var(--ease), border-color .28s var(--ease), background .28s; }.problem-card:hover { transform: translateY(-7px); }.problem-card--lime:hover { border-color: rgba(13,148,136,.55); background: linear-gradient(140deg, rgba(13,148,136,.12), rgba(255,255,255,.01)); }.problem-card--violet:hover { border-color: rgba(166,155,255,.5); background: linear-gradient(140deg, rgba(166,155,255,.1), rgba(255,255,255,.01)); }.problem-card--orange:hover { border-color: rgba(255,171,112,.5); background: linear-gradient(140deg, rgba(255,171,112,.1), rgba(255,255,255,.01)); }.problem-card--blue:hover { border-color: rgba(112,202,255,.5); background: linear-gradient(140deg, rgba(112,202,255,.1), rgba(255,255,255,.01)); }.card-top { display: flex; justify-content: space-between; color: #717870; font-family: 'Manrope', Arial, sans-serif; font-size: 12px; }.problem-card h3 { max-width: 205px; margin-top: 65px; font-size: 24px; line-height: 1.06; }.problem-card p { margin-top: 14px; color: #8b9089; font-size: 12px; line-height: 1.55; }.result { display: flex; gap: 8px; align-items: flex-start; margin-top: auto; padding-top: 22px; color: var(--accent-light); font-size: 11px; line-height: 1.35; }.problem-card--violet .result { color: #a69bff; }.problem-card--orange .result { color: #ffab70; }.problem-card--blue .result { color: #70caff; }.section-cta { display: flex; align-items: center; justify-content: space-between; margin-top: 40px; padding-top: 21px; border-top: 1px solid var(--line); color: #9ba097; font-size: 13px; }
-.signal-section { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--accent); color: var(--paper); }.signal-inner { min-height: 330px; padding-top: 55px; padding-bottom: 55px; display: grid; grid-template-columns: 1.35fr .65fr; gap: 60px; align-items: center; }.signal-section .eyebrow { color: rgba(238,234,225,.75); }.signal-section .eyebrow-dot { background: var(--paper); }.signal-inner h2 { max-width: 690px; }.signal-inner h2 em { color: var(--accent-light); }.signal-note { padding-left: 37px; border-left: 1px solid rgba(238,234,225,.25); }.signal-number { display: flex; align-items: baseline; gap: 8px; font-family: 'Manrope', Arial, sans-serif; font-size: 66px; letter-spacing: -.08em; line-height: 1; }.signal-number span { font-size: 13px; font-family: 'Manrope', Arial, sans-serif; letter-spacing: 0; }.signal-note p { margin: 16px 0 18px; color: rgba(238,234,225,.78); font-size: 13px; line-height: 1.5; }.signal-note a { color: var(--paper); }
-.difference .section-heading { margin-bottom: 58px; }.difference-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 100px; }.difference-intro { border-top: 1px solid var(--line); padding-top: 25px; }.big-number { color: var(--accent-light); font-family: 'Manrope', Arial, sans-serif; font-size: 59px; letter-spacing: -.08em; line-height: .9; }.big-number span { color: var(--muted-2); }.difference-intro p { max-width: 230px; margin-top: 65px; color: #898e87; font-size: 13px; line-height: 1.5; }.difference-list { border-top: 1px solid var(--line); }.difference-item { position: relative; display: grid; grid-template-columns: 35px 29px 1fr; gap: 12px; align-items: start; padding: 22px 0; border-bottom: 1px solid var(--line); transition: padding .25s var(--ease); }.difference-item:hover { padding-left: 8px; }.difference-item svg { color: var(--accent-light); }.difference-index { color: #5e665d; font-size: 10px; }.difference-item h3 { font-size: 20px; letter-spacing: -.04em; }.difference-item p { margin-top: 6px; color: #828980; font-size: 12px; }
-.services { padding-top: 50px; }.services .section-heading { margin-bottom: 57px; }.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }.service-card { min-height: 475px; padding: 24px; border: 1px solid var(--line); background: #111313; }.service-card--featured { border-color: rgba(13,148,136,.55); background: linear-gradient(145deg, rgba(13,148,136,.12), #111313 44%); }.service-label { display: flex; justify-content: space-between; color: var(--accent-light); font-weight: 700; }.service-label span { color: #70786a; font-size: 8px; letter-spacing: .08em; }.service-card h3 { margin-top: 35px; font-size: 30px; }.service-card > p { min-height: 47px; margin-top: 13px; color: #898e87; font-size: 12px; line-height: 1.45; }.service-items { margin-top: 24px; border-top: 1px solid var(--line); }.service-item { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }.service-item span { color: #bfc2ba; font-size: 12px; }.service-item strong { color: var(--paper); font-size: 11px; font-weight: 500; }.service-item small { color: #6e756d; grid-column: 1 / -1; font-size: 10px; }.service-link { margin-top: 25px; color: var(--accent-light); }.services-footer { display: flex; align-items: center; justify-content: center; gap: 19px; margin-top: 30px; color: #8b9089; font-size: 12px; }.services-footer a { color: var(--accent-light); }
-.process-section { padding: 130px 0; color: var(--paper); background: #121613; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }.section-heading--light h2 { color: var(--paper); }.process-section .section-heading { margin-bottom: 63px; }.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }.process-step { position: relative; min-height: 220px; padding: 23px 20px; border: 1px solid rgba(238,234,225,.12); background: rgba(255,255,255,.015); }.process-num { color: var(--accent-light); font-family: 'Manrope', Arial, sans-serif; font-size: 28px; }.process-tag { position: absolute; top: 27px; right: 18px; color: #69736a; }.process-step h3 { margin-top: 47px; font-size: 21px; }.process-step p { max-width: 220px; margin-top: 12px; color: #89918a; font-size: 12px; line-height: 1.5; }.process-line { position: absolute; top: 37px; right: -10px; z-index: 1; width: 19px; height: 1px; background: var(--accent-light); }
-.case-section { padding-top: 130px; }.case-header { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 58px; }.case-result { min-width: 235px; padding: 19px 21px; border: 1px solid var(--accent-light); transform: rotate(-2deg); }.case-result strong { display: block; margin-top: 11px; color: var(--accent-light); font-family: 'Manrope', Arial, sans-serif; font-size: 31px; font-weight: 500; letter-spacing: -.07em; }.case-result small { color: #b0b4ac; font-size: 11px; }.case-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 90px; align-items: center; }.case-visual { min-height: 325px; padding: 24px; border: 1px solid var(--line); background: linear-gradient(145deg, #151a15, #0f1210); }.case-chart-label { color: #7d867d; }.case-chart { display: flex; align-items: end; justify-content: center; gap: 80px; height: 220px; margin-top: 20px; border-bottom: 1px solid var(--line); }.case-bar { position: relative; width: 78px; height: 100%; display: flex; align-items: end; justify-content: center; }.case-bar i { display: block; width: 100%; background: rgba(238,234,225,.16); border-radius: 4px 4px 0 0; }.case-bar--accent i { background: var(--accent-light); box-shadow: 0 0 34px rgba(204,251,241,.18); }.case-bar span { position: absolute; bottom: -23px; color: #717970; font-size: 10px; }.case-bar b { position: absolute; top: 15px; color: #aeb5aa; font-family: 'Manrope', Arial, sans-serif; font-size: 16px; font-weight: 500; }.case-bar--accent b { color: var(--accent-light); }.case-chart-foot { display: flex; justify-content: space-between; margin-top: 36px; color: #656d65; font-size: 10px; }.case-block { padding: 21px 0; border-top: 1px solid var(--line); }.case-block span { color: var(--accent-light); text-transform: uppercase; font-size: 10px; font-weight: 700; letter-spacing: .13em; }.case-block p { max-width: 510px; margin-top: 12px; color: #9a9e97; font-size: 13px; line-height: 1.58; }.case-foot { display: flex; flex-wrap: wrap; gap: 30px; margin-top: 55px; padding-top: 20px; border-top: 1px solid var(--line); color: #8a9189; font-size: 11px; }.case-foot span { display: flex; align-items: center; gap: 7px; }.case-foot svg { color: var(--accent-light); }
-.testimonial-section { padding: 130px 0; border-top: 1px solid var(--line); background: #121613; }.testimonial-section .section-heading { margin-bottom: 55px; }.quote-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }.quote-grid blockquote { position: relative; min-height: 315px; margin: 0; padding: 27px 23px; border: 1px solid rgba(238,234,225,.12); }.quote-mark { color: var(--accent-light); font-family: 'Manrope', Arial, sans-serif; font-size: 46px; line-height: .5; }.quote-grid blockquote p { min-height: 92px; margin-top: 20px; color: #b8bcb4; font-family: 'Manrope', Arial, sans-serif; font-size: 18px; line-height: 1.2; letter-spacing: -.035em; }.quote-grid footer { display: flex; flex-direction: column; gap: 3px; padding-top: 20px; border-top: 1px solid rgba(238,234,225,.12); color: #7c847c; font-size: 11px; }.quote-grid footer strong { color: var(--paper); font-weight: 500; }.quote-result { display: block; margin-top: 25px; color: var(--accent-light); font-family: 'Manrope', Arial, sans-serif; font-size: 23px; font-weight: 500; letter-spacing: -.04em; }.quote-result small { margin-left: 5px; color: #788078; font-family: 'Manrope', Arial, sans-serif; font-size: 10px; letter-spacing: 0; }
-.fit-section { padding-bottom: 120px; }.fit-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 110px; }.fit-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 35px; }.fit-column h3 { display: flex; align-items: center; gap: 9px; padding-bottom: 18px; border-bottom: 1px solid var(--line); color: var(--paper); font-size: 16px; }.fit-column--yes h3 svg { color: var(--accent-light); }.fit-column--no h3 svg { color: #ff8477; }.fit-column p { display: flex; gap: 10px; margin-top: 17px; color: #8c928b; font-size: 12px; line-height: 1.4; }.fit-column p span { flex: 0 0 auto; width: 5px; height: 5px; margin-top: 6px; border-radius: 50%; background: var(--accent-light); }.fit-column--no p span { background: #ff8477; }
-.founder-section { padding: 100px 0; background: var(--accent); color: var(--paper); }.founder-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 120px; align-items: center; }.founder-portrait { position: relative; min-height: 340px; overflow: hidden; border-radius: 14px; background: #0b5c54; }.portrait-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }.portrait-caption { position: absolute; right: 21px; bottom: 18px; color: rgba(238,234,225,.75); text-align: right; text-transform: uppercase; font-size: 10px; letter-spacing: .14em; }.portrait-caption span { color: rgba(238,234,225,.52); }.founder-copy .eyebrow { color: rgba(238,234,225,.75); }.founder-copy .eyebrow-dot { background: var(--paper); }.founder-copy h2 { max-width: 600px; }.founder-copy h2 em { color: var(--accent-light); }.founder-copy > p { max-width: 570px; margin-top: 25px; color: rgba(238,234,225,.78); font-size: 15px; line-height: 1.6; }.founder-copy blockquote { max-width: 500px; margin: 30px 0; padding: 18px 0 18px 18px; border-left: 2px solid var(--paper); font-family: 'Manrope', Arial, sans-serif; font-size: 18px; line-height: 1.25; }.founder-meta { display: flex; gap: 27px; color: rgba(238,234,225,.72); font-size: 11px; }.founder-meta span { display: flex; align-items: center; gap: 8px; }.founder-copy .founder-lead { max-width: 570px; margin-top: 22px; color: var(--paper); font-family: 'Manrope', Arial, sans-serif; font-size: 21px; line-height: 1.25; letter-spacing: -.02em; }.founder-principles { max-width: 570px; margin: 26px 0 0; padding: 0; list-style: none; display: grid; gap: 14px; }.founder-principles li { position: relative; padding-left: 22px; color: rgba(238,234,225,.78); font-size: 14px; line-height: 1.55; }.founder-principles li::before { content: ''; position: absolute; left: 0; top: .62em; width: 8px; height: 1px; background: var(--paper); }.founder-principles strong { color: var(--paper); font-weight: 600; }.founder-stats { max-width: 570px; margin-top: 30px; padding-top: 24px; border-top: 1px solid rgba(238,234,225,.23); display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }.founder-stats strong { display: block; font-family: 'Manrope', Arial, sans-serif; font-size: 28px; font-weight: 500; letter-spacing: -.04em; line-height: 1; }.founder-stats span { display: block; margin-top: 8px; color: rgba(238,234,225,.68); font-size: 11px; line-height: 1.4; }
-.faq-section { max-width: 1010px; }.faq-section .section-heading { margin-bottom: 55px; }.faq-list { border-top: 1px solid var(--line); }.faq-item { border-bottom: 1px solid var(--line); }.faq-item button { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; border: 0; background: transparent; color: var(--paper); text-align: left; font-family: 'Manrope', Arial, sans-serif; font-size: 19px; letter-spacing: -.025em; }.faq-item button svg { flex: 0 0 auto; color: var(--accent-light); }.faq-item p { max-width: 700px; padding: 0 60px 25px 0; color: #8e948d; font-size: 13px; line-height: 1.6; }
-.contact-section { padding: 130px 0; border-top: 1px solid var(--line); background: radial-gradient(circle at 20% 50%, rgba(13,148,136,.12), transparent 28%), #101312; }.contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 110px; align-items: start; }.contact-copy h2 { max-width: 460px; }.contact-copy > p { margin-top: 23px; color: #9da29b; font-size: 15px; }.contact-copy ul { display: grid; gap: 12px; margin: 35px 0 42px; padding: 0; color: #a5aaa3; font-size: 12px; list-style: none; }.contact-copy li { display: flex; align-items: center; gap: 9px; }.contact-copy li svg { color: var(--accent-light); }.contact-direct { display: grid; gap: 7px; padding-top: 20px; border-top: 1px solid var(--line); }.contact-direct span { color: #727a71; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; }.contact-direct a { color: var(--paper); font-family: 'Manrope', Arial, sans-serif; font-size: 16px; }.contact-direct a[href*="t.me"] { display: flex; align-items: center; gap: 7px; color: var(--accent-light); font-family: 'Manrope', Arial, sans-serif; font-size: 12px; }.contact-form { padding: 26px; border: 1px solid var(--line); background: rgba(17,19,19,.9); }.form-top { display: flex; justify-content: space-between; gap: 15px; padding-bottom: 21px; margin-bottom: 24px; border-bottom: 1px solid var(--line); }.form-top span:first-child { color: var(--accent-light); font-weight: 700; }.contact-form label { display: block; margin-bottom: 17px; color: #838b82; font-size: 10px; text-transform: uppercase; letter-spacing: .11em; }.contact-form input, .contact-form select, .contact-form textarea { width: 100%; margin-top: 8px; padding: 13px 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; outline: none; background: transparent; color: var(--paper); font: 13px 'Manrope', Arial, sans-serif; text-transform: none; letter-spacing: 0; transition: border-color .2s; }.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--accent-light); }.contact-form input::placeholder, .contact-form textarea::placeholder { color: #5d655d; }.contact-form select { color: #818a80; }.contact-form option { background: #111313; color: var(--paper); }.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }.contact-form textarea { resize: vertical; }.checkbox-label { display: flex !important; align-items: flex-start; gap: 9px; margin-top: 4px; text-transform: none !important; letter-spacing: 0 !important; line-height: 1.4; }.checkbox-label input { width: 14px; height: 14px; flex: 0 0 auto; margin: 0; accent-color: var(--accent); }.button--form { width: 100%; margin-top: 6px; border: 0; }.form-note { display: block; margin-top: 13px; color: #626a62; text-align: center; font-size: 10px; }.form-success[hidden] { display: none !important; }.form-success:not([hidden]) { min-height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }.form-success > div { display: grid; place-items: center; width: 51px; height: 51px; border-radius: 50%; background: var(--accent); color: #fff; }.form-success h3 { margin-top: 20px; font-size: 26px; }.form-success p { margin-top: 9px; color: #8f978e; font-size: 13px; }.form-success button { margin-top: 27px; border: 0; background: transparent; color: var(--accent-light); font-size: 11px; }
-.site-footer { padding: 70px 0 24px; background: #080909; border-top: 1px solid var(--line); }.footer-grid { display: grid; grid-template-columns: 1.35fr .75fr .85fr .65fr; gap: 35px; }.footer-grid > div { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }.footer-grid .logo { margin-bottom: 10px; }.footer-grid p { color: #6f766e; font-size: 11px; }.footer-label { margin-bottom: 9px; color: #596159; }.footer-grid a { color: #9ba29a; font-size: 11px; transition: color .2s; }.footer-grid a:hover { color: var(--accent-light); }.footer-social > div { display: flex; gap: 8px; }.footer-social > div a { display: grid; place-items: center; width: 33px; height: 33px; border: 1px solid var(--line); border-radius: 50%; }.social-icons { display: flex; gap: 8px; flex-wrap: wrap; }.social-icons a.social-icon, .contact-channels a.social-icon { display: grid; place-items: center; width: 33px; height: 33px; border: 1px solid var(--line); border-radius: 50%; color: #9ba29a; }.social-icons a.social-icon:hover, .contact-channels a.social-icon:hover { color: var(--accent-light); border-color: rgba(215,243,107,.35); }.contact-channels { display: flex; gap: 8px; margin-top: 4px; }.footer-bottom { display: flex; justify-content: space-between; margin-top: 70px; padding-top: 18px; border-top: 1px solid rgba(238,234,225,.09); color: #525a52; font-size: 10px; }.footer-heart { color: var(--accent-light); }
-.reveal { animation: reveal .8s var(--ease) both; }.reveal--delay { animation-delay: .14s; }
-.scroll-reveal { opacity: 1; transform: none; }
-html.js-reveal .scroll-reveal { opacity: 0; transform: translateY(34px); transition: opacity .78s var(--ease), transform .78s var(--ease); }
-html.js-reveal .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
-html.js-reveal .scroll-reveal--card { transition-duration: .68s; }
-html.js-reveal .scroll-reveal--card:nth-child(2) { transition-delay: 70ms; }
-html.js-reveal .scroll-reveal--card:nth-child(3) { transition-delay: 140ms; }
-html.js-reveal .scroll-reveal--card:nth-child(4) { transition-delay: 210ms; }
-html.js-reveal .scroll-reveal--card:nth-child(5) { transition-delay: 280ms; }
-@keyframes reveal { from { opacity: 0; transform: translateY(19px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes ticker-marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
-.ticker-track--css { animation: ticker-marquee 28s linear infinite; }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } .scroll-reveal { opacity: 1 !important; transform: none !important; } .ticker-track--css { animation-duration: 28s !important; animation-iteration-count: infinite !important; } }
-@media (max-width: 980px) { .main-nav { gap: 17px; }.main-nav .button { padding: 0 13px; }.hero { grid-template-columns: 1fr; padding-top: 75px; }.hero-copy { max-width: 700px; }.hero-visual { min-height: 430px; margin-top: 15px; }.problem-grid { grid-template-columns: repeat(2, 1fr); }.signal-inner { grid-template-columns: 1fr; gap: 26px; }.signal-note { padding: 25px 0 0; border-top: 1px solid rgba(238,234,225,.23); border-left: 0; }.difference-grid, .fit-grid, .contact-grid { gap: 55px; }.founder-grid { gap: 60px; }.case-grid { gap: 45px; }.footer-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 700px) { .container { padding: 0 19px; }.site-header { position: relative; }.header-inner { min-height: 68px; }.menu-toggle { display: block; padding: 7px; }.main-nav { display: none; position: absolute; left: 12px; right: 12px; top: 67px; padding: 19px; flex-direction: column; align-items: stretch; gap: 0; border: 1px solid var(--line); background: #111313; box-shadow: 0 20px 40px rgba(0,0,0,.35); }.main-nav--open { display: flex; }.main-nav button, .main-nav a:not(.button) { padding: 14px 0; text-align: left; border-bottom: 1px solid var(--line); }.main-nav .button { margin-top: 15px; text-align: center; }.hero { min-height: auto; padding-top: 67px; padding-bottom: 56px; }.status-pill { font-size: 9px; letter-spacing: .1em; }.hero-actions { align-items: flex-start; flex-direction: column; gap: 20px; }.hero-visual { min-height: 350px; margin: 25px -10px 0; transform: scale(.93); }.metric-card--top { right: 7px; }.metric-card--bottom { left: 8px; bottom: 22px; }.hero-graph { left: 13%; right: 5%; }.visual-ring--one { width: 260px; height: 260px; }.visual-ring--two { width: 370px; height: 370px; }.section { padding-top: 85px; padding-bottom: 85px; }.section-heading h2, .signal-inner h2, .founder-copy h2, .contact-copy h2 { font-size: 39px; }.problem-grid, .services-grid, .process-grid, .quote-grid { grid-template-columns: 1fr; }.problem-card { min-height: 310px; }.problem-card h3 { margin-top: 44px; }.section-cta, .services-footer { align-items: flex-start; flex-direction: column; gap: 13px; }.difference-grid, .fit-grid, .contact-grid, .case-grid, .founder-grid { grid-template-columns: 1fr; }.difference-grid { gap: 55px; }.difference-intro p { margin-top: 30px; }.services { padding-top: 0; }.service-card { min-height: auto; }.service-card--featured { order: -1; }.process-section, .testimonial-section, .contact-section { padding: 85px 0; }.process-grid { gap: 10px; }.process-step { min-height: 180px; }.process-line { display: none; }.case-header { align-items: flex-start; flex-direction: column; }.case-result { transform: none; }.case-grid { gap: 30px; }.case-chart { gap: 45px; }.case-foot { gap: 15px; }.quote-grid blockquote { min-height: auto; }.quote-grid blockquote p { min-height: auto; }.fit-columns { grid-template-columns: 1fr; gap: 32px; }.founder-section { padding: 70px 0; }.founder-portrait { min-height: 275px; }.portrait-initials { font-size: 95px; }.founder-grid { gap: 45px; }.founder-meta { align-items: flex-start; flex-direction: column; gap: 12px; }.founder-stats { grid-template-columns: 1fr; gap: 16px; }.founder-copy .founder-lead { font-size: 19px; }.faq-item button { font-size: 17px; }.faq-item p { padding-right: 10px; }.contact-grid { gap: 50px; }.form-row { grid-template-columns: 1fr; gap: 0; }.form-top { flex-direction: column; gap: 10px; }.contact-form { padding: 19px; }.footer-grid { grid-template-columns: 1fr 1fr; gap: 45px 25px; }.footer-grid > div:first-child { grid-column: 1 / -1; }.footer-bottom { align-items: flex-start; flex-direction: column; gap: 10px; margin-top: 50px; } }
-
-/* Interaction polish: hero depth, animated metrics, CTA feedback, FAQ reveal */
-.hero-visual { transform: translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0); transition: transform .35s var(--ease); will-change: transform; }
-.hero-graph svg path { stroke-dasharray: 600; stroke-dashoffset: 600; animation: drawGraph 1.8s 0.2s var(--ease) forwards; }
-.hero-graph .graph-bars i { transform-origin: bottom; animation: graphBars .9s var(--ease) forwards; }
-.hero-graph .graph-bars i:nth-child(2) { animation-delay: .08s; }.hero-graph .graph-bars i:nth-child(3) { animation-delay: .16s; }.hero-graph .graph-bars i:nth-child(4) { animation-delay: .24s; }.hero-graph .graph-bars i:nth-child(5) { animation-delay: .32s; }.hero-graph .graph-bars i:nth-child(6) { animation-delay: .4s; }.hero-graph .graph-bars i:nth-child(7) { animation-delay: .48s; }
-.button { position: relative; overflow: hidden; transition: transform .2s var(--ease), background .2s var(--ease), color .2s var(--ease), box-shadow .2s var(--ease); }
-.button::before { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 28%, rgba(255,255,255,.48) 48%, transparent 68%); transform: translateX(-130%); transition: transform .55s var(--ease); }
-.button:hover { box-shadow: 0 11px 27px rgba(13,148,136,.28); }
-.button:hover::before { transform: translateX(130%); }
-.button:hover svg { transform: translate(3px, -3px) rotate(8deg); }
-.button svg { position: relative; z-index: 1; transition: transform .25s var(--ease); }
-.case-bar i { transform-origin: bottom; }
-.scroll-reveal.is-visible .chart-fill { animation: chartFill .95s var(--ease) both; }
-.scroll-reveal.is-visible .chart-fill--low { animation-delay: 120ms; }
-@keyframes chartFill { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-@keyframes drawGraph { to { stroke-dashoffset: 0; } }
-@keyframes graphBars { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-.faq-item button svg { transition: transform .28s var(--ease); }
-.faq-item--open button svg { transform: rotate(180deg); }
-.faq-answer { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows .38s var(--ease), opacity .28s var(--ease); }
-.faq-answer p { min-height: 0; overflow: hidden; max-width: 700px; padding: 0 60px 0 0; color: #8e948d; font-size: 13px; line-height: 1.6; transition: padding .38s var(--ease); }
-.faq-item--open .faq-answer { grid-template-rows: 1fr; opacity: 1; }
-.faq-item--open .faq-answer p { padding-bottom: 25px; }
-@media (prefers-reduced-motion: reduce) { .hero-visual { transform: none !important; } .hero-graph svg path, .hero-graph .graph-bars i, .scroll-reveal.is-visible .chart-fill { animation: none !important; stroke-dashoffset: 0 !important; transform: none !important; } }
-
-/* Touch parallax: preserve vertical page scrolling while the hero responds to horizontal/vertical contact */
-.hero-parallax { touch-action: pan-y; }
-.service-card { position: relative; overflow: hidden; transition: transform .34s var(--ease), border-color .34s var(--ease), box-shadow .34s var(--ease), background .34s var(--ease); }
-.service-card::after { content: ""; position: absolute; width: 190px; height: 190px; right: -78px; top: -92px; border-radius: 50%; background: var(--accent); opacity: 0; filter: blur(46px); pointer-events: none; transition: opacity .38s var(--ease), transform .38s var(--ease); }
-.service-card:hover { transform: translateY(-8px); border-color: rgba(13,148,136,.52); box-shadow: 0 22px 52px rgba(0,0,0,.28), 0 0 30px rgba(13,148,136,.12); }
-.service-card:hover::after { opacity: .16; transform: translate(-18px, 18px); }
-.service-card--featured:hover { border-color: rgba(13,148,136,.82); box-shadow: 0 24px 58px rgba(0,0,0,.34), 0 0 42px rgba(13,148,136,.18); }
-.service-card > * { position: relative; z-index: 1; }
-@media (max-width: 700px) {
-  .hero-parallax { transition: transform .5s var(--ease); }
-}
-@media (hover: none), (pointer: coarse) {
-  .service-card:hover { transform: none; box-shadow: none; }
-  .service-card:hover::after { opacity: 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .service-card { transition: none; }
-  .service-card:hover { transform: none; }
-}
-
-
-.form-global-error {
-  margin-bottom: 16px;
-  padding: 12px 14px;
-  border-radius: 8px;
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  color: #b91c1c;
-  font-size: 13px;
-  line-height: 1.5;
-}
-.lead-thankyou__title { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
-.lead-thankyou__text { font-size: 15px; color: #5a635c; line-height: 1.6; margin-bottom: 10px; }
-.lead-thankyou__id { font-size: 14px; margin-bottom: 16px; }
-.lead-thankyou__list { margin: 0 0 20px 18px; font-size: 14px; color: #5a635c; line-height: 1.6; }
-.lead-thankyou__list a { color: #0d9488; text-decoration: underline; }
-.lead-step2 { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(0,0,0,.12); }
-.lead-step2__title { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
-.lead-step2__form .form-group { margin-bottom: 14px; }
-.lead-step2__form label { display: block; font-size: 12px; margin-bottom: 6px; }
-.lead-step2__form select { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid rgba(0,0,0,.15); }
-.lead-step2__submit { margin-top: 8px; }
-.lead-step2__skip, .lead-step2__done { margin-top: 10px; font-size: 12px; color: #6b7280; text-align: center; }
-.form-error { display: block; margin-top: 4px; font-size: 12px; color: #b91c1c; }
-
-  </style>
-
-  <!-- Аналитика и рекламные пиксели — только после согласия -->
-  <script src="/assets/cookie-consent.js?v=20261020"></script>
-
+  <script src="/assets/cookie-consent.js?v=20261125" defer></script>
+  <script src="/assets/motion.js" defer></script>
+  <script src="/assets/lead-form.js?v=20260905" defer></script>
 </head>
 <body>
-  <div class="site-shell" id="top">
-    <div class="ambient ambient--one"></div>
-    <div class="ambient ambient--two"></div>
-
-    <header class="site-header">
-      <div class="container header-inner">
-        <a class="logo" href="https://maxima-consulting.ru/" aria-label="Maxima Consulting — на главную"><img class="logo-img" src="assets/logo-maxima.png" alt="" width="28" height="28" /><span>maxima <b>consulting</b></span></a>
-        <nav class="main-nav" id="mainNav">
-          <button type="button" data-scroll="#problems">Проблемы</button>
-          <a href="/uslugi">Услуги</a>
-          <button type="button" data-scroll="#services">Цены</button>
-          <button type="button" data-scroll="#case">Кейсы</button>
-          <a href="/gajdy">Гайды</a>
-          <a href="/blog/">Статьи</a>
-          <button type="button" data-scroll="#process">Как работаем</button>
-          <a class="button" href="#contact">Записаться на разбор <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
-        </nav>
-        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg></button>
+  
+    <a class="skip-link" href="#content">Перейти к содержимому</a>
+    <div class="read-progress" data-reading-progress hidden></div>
+    <header class="site-header" data-header data-mc-chrome>
+      <div class="header-inner">
+        <a class="logo" href="/" aria-label="maxima consulting — на главную">
+          <img src="/assets/logo-maxima.png" alt="" width="28" height="28">
+          <span>maxima <b>consulting</b></span>
+        </a>
+        <nav class="main-nav" id="mainNav" aria-label="Основная навигация"><a href="/uslugi">Услуги</a><a href="/#services">Цены</a><a href="/#case">Кейсы</a><a href="/gajdy">Гайды</a><a href="/blog/">Статьи</a><a href="/#process">Как работаем</a><a href="/#contact">Контакты</a><a class="button nav-cta" href="#contact">Записаться на разбор <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a></nav>
+        <a class="button header-cta" href="#contact">Записаться на разбор <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       </div>
     </header>
 
-    <main>
-      <section class="hero container">
-        <div class="hero-copy reveal">
-          <div class="status-pill"><span></span> НДС-2026 уже считает вас плательщиком</div>
-          <h1>Выручка растёт — <em>а ясности</em> в деньгах не прибавляется</h1>
-          <p class="hero-lead">Внешний финансовый директор для МСБ <strong>5–990 млн ₽</strong>: от НДС-аудита и управленческого учёта до финмодели и cash flow — без штатной должности.</p>
-          <div class="hero-actions">
-            <a class="button" href="#contact">Записаться на разбор <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
-            <a class="text-link" href="#services">Посмотреть услуги <svg class="icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8 22 12l-4 4"/><path d="M2 12h20"/></svg></a>
+  <main id="content">
+    <section class="hero container">
+      <div class="hero-copy">
+        <p class="eyebrow">НДС-2026 уже считает вас плательщиком</p>
+        <h1>Выручка растёт&nbsp;— а&nbsp;ясности в&nbsp;деньгах не&nbsp;прибавляется</h1>
+        <p class="hero-lead">Внешний финансовый директор для МСБ <strong class="nowrap">5–990&nbsp;млн&nbsp;₽</strong>: от&nbsp;НДС-аудита и&nbsp;управленческого учёта до&nbsp;финмодели и&nbsp;cash flow&nbsp;— без штатной должности.</p>
+        <div class="hero-actions">
+          <a class="button" href="#contact">Записаться на разбор <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg><span class="line"></span></a>
+          <a class="text-link" href="#services">Посмотреть услуги →</a>
+        </div>
+        <p class="hero-note">NDA до&nbsp;передачи финансовых данных</p>
+      </div>
+      <div class="hero-stage">
+        <svg class="wave-fallback" viewBox="0 0 640 360" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 180 C80 140 120 220 200 180 S320 120 400 170 520 220 640 150" fill="none" stroke="#5EEAD4" stroke-opacity=".25" stroke-width="1"/>
+          <path d="M0 210 C90 170 150 250 240 200 S360 150 460 200 560 240 640 180" fill="none" stroke="#0D9488" stroke-opacity=".35" stroke-width="1"/>
+          <path d="M0 150 C70 190 140 110 220 160 S340 230 430 150 540 120 640 170" fill="none" stroke="#5EEAD4" stroke-opacity=".18" stroke-width="1"/>
+        </svg>
+        <canvas class="wave-canvas" data-waves></canvas>
+        <svg class="money-line" viewBox="0 0 640 200" aria-hidden="true">
+          <path id="moneyHero" fill="none" stroke="currentColor" stroke-width="1.5" d="M0 162 C27 162 53 150 80 150 C107 150 133 136 160 136 C187 136 213 120 240 120 C267 120 293 98 320 98 C347 98 373 76 400 76 C427 76 453 56 480 56 C507 56 533 40 560 40 C587 40 613 26 640 26" data-final="M0 162 C27 162 53 150 80 150 C107 150 133 136 160 136 C187 136 213 120 240 120 C267 120 293 98 320 98 C347 98 373 76 400 76 C427 76 453 56 480 56 C507 56 533 40 560 40 C587 40 613 26 640 26" data-from="M0 150 C27 150 53 72 80 72 C107 72 133 158 160 158 C187 158 213 48 240 48 C267 48 293 142 320 142 C347 142 373 96 400 96 C427 96 453 128 480 128 C507 128 533 44 560 44 C587 44 613 118 640 118"></path>
+        </svg>
+        <script>
+          (function () {
+            var path = document.getElementById("moneyHero");
+            if (!path) return;
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+            path.setAttribute("d", path.getAttribute("data-from"));
+            path.setAttribute("data-morph", "1");
+          })();
+        </script>
+        <article class="metric metric--a">
+          <span>последний результат</span>
+          <strong>3&nbsp;429&nbsp;410&nbsp;₽</strong>
+          <small>экономия в&nbsp;год для торговой компании</small>
+        </article>
+        <article class="metric metric--b">
+          <span>за&nbsp;5&nbsp;рабочих дней</span>
+          <strong>−10&nbsp;п.п. налоговой нагрузки</strong>
+          <small>с&nbsp;22% до&nbsp;12%, результат конкретного клиента</small>
+        </article>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Услуги">
+      <button class="pause-btn" type="button" data-pause aria-pressed="false">Пауза</button>
+      <div class="ticker-track">
+        <div class="ticker-group">НДС-АУДИТ <span>✳</span> ФИНМОДЕЛЬ <span>✳</span> CASH FLOW <span>✳</span> УПРАВЛЕНЧЕСКИЙ УЧЁТ <span>✳</span></div>
+        <div class="ticker-group" aria-hidden="true">НДС-АУДИТ <span>✳</span> ФИНМОДЕЛЬ <span>✳</span> CASH FLOW <span>✳</span> УПРАВЛЕНЧЕСКИЙ УЧЁТ <span>✳</span></div>
+      </div>
+    </section>
+
+    <section class="home-section container" id="problems">
+      <p class="eyebrow">Знакомо?</p>
+      <h2>Деньги в&nbsp;бизнесе есть. Но&nbsp;управлять ими&nbsp;— сложно.</h2>
+      <p class="muted">Проблемы, которые выглядят как «так бывает», но&nbsp;на&nbsp;самом деле решаются цифрами.</p>
+      <svg class="money-line" viewBox="0 0 640 160" aria-hidden="true">
+        <path d="M0 80 C27 80 53 140 80 140 C107 140 133 60 160 60 C187 60 213 150 240 150 C267 150 293 70 320 70 C347 70 373 130 400 130 C427 130 453 90 480 90 C507 90 533 110 560 110 C587 110 613 40 640 40"></path>
+      </svg>
+      <div class="problem-grid">
+        <article class="problem-card">
+          <span class="label">01</span>
+          <h3>Прибыль на&nbsp;бумаге, а&nbsp;денег нет</h3>
+          <p>P&amp;L показывает прибыль, но&nbsp;кассовые разрывы всё равно возникают из-за отсрочек платежей, неучтённых обязательств или скрыто убыточных клиентов.</p>
+          <p class="result">Выявление убыточных клиентов подняло маржу на&nbsp;9&nbsp;п.п.</p>
+        </article>
+        <article class="problem-card">
+          <span class="label">02</span>
+          <h3>Не&nbsp;понимаю реальную маржу</h3>
+          <p>Без разбивки маржинальности по&nbsp;SKU или клиентам собственник управляет бизнесом вслепую&nbsp;— высокая выручка может маскировать убыточные направления.</p>
+          <p class="result">12&nbsp;SKU разобраны за&nbsp;5&nbsp;дней&nbsp;— стало видно, что приносит деньги.</p>
+        </article>
+        <article class="problem-card">
+          <span class="label">03</span>
+          <h3>НДС-2026 приближается</h3>
+          <p>Порог освобождения от&nbsp;НДС при УСН зафиксирован на&nbsp;уровне 20&nbsp;млн&nbsp;₽ до&nbsp;2029&nbsp;года. Лучше подготовиться до&nbsp;момента перехода.</p>
+          <p class="result">12&nbsp;компаний подготовлены к&nbsp;переходу до&nbsp;дедлайна.</p>
+        </article>
+        <article class="problem-card">
+          <span class="label">04</span>
+          <h3>Решения принимаются на&nbsp;ощущениях</h3>
+          <p>Без управленческой картины&nbsp;— P&amp;L, cash flow, маржинальности&nbsp;— решения о&nbsp;ценах, найме и&nbsp;инвестициях основаны на&nbsp;интуиции.</p>
+          <p class="result">Управленческая картина собирается за&nbsp;7&nbsp;дней.</p>
+        </article>
+      </div>
+      <p class="hero-actions"><span class="muted">Узнали себя хотя бы в&nbsp;одном блоке?</span> <a class="text-link" href="#contact">Давайте разберёмся →</a></p>
+    </section>
+
+    <section class="signal home-section">
+      <div class="container signal-grid">
+        <div>
+          <p class="eyebrow">Важный сигнал</p>
+          <h2>Порог НДС заморожен на&nbsp;уровне 20&nbsp;млн до&nbsp;2029&nbsp;года</h2>
+          <svg class="money-line" viewBox="0 0 640 80" aria-hidden="true"><path d="M0 40 H640"></path></svg>
+        </div>
+        <div>
+          <p class="threshold">20&nbsp;<span style="font-size:.35em">млн&nbsp;₽</span></p>
+          <p class="muted">Если выручка растёт и&nbsp;вы&nbsp;приближаетесь к&nbsp;порогу&nbsp;— лучше подготовиться заранее, чем терять маржу в&nbsp;момент перехода.</p>
+          <a class="text-link" href="#contact">Разобрать вашу ситуацию →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section container" id="difference">
+      <p class="eyebrow">maxima consulting</p>
+      <h2>Между бухгалтерским аутсорсом и&nbsp;корпоративным CFO</h2>
+      <p class="muted">Не&nbsp;просто отчётность. Не&nbsp;«совет на&nbsp;словах». Партнёр, который помогает собственнику видеть бизнес целиком.</p>
+      <div class="split">
+        <div class="docs" aria-hidden="true">
+          <article class="doc"><p class="label">01</p><h3>Карта рисков</h3><p>Документ на&nbsp;выходе проекта.</p></article>
+          <article class="doc"><p class="label">02</p><h3>Расчёт сценариев</h3><p>Цифры, которые уже есть в&nbsp;кейсе.</p></article>
+          <article class="doc"><p class="label">03</p><h3>Дорожная карта</h3><p>План действий, а&nbsp;не разговор.</p></article>
+        </div>
+        <div>
+          <p>Каждый проект заканчивается конкретным документом: модель + план действий + карта рисков.</p>
+          <svg class="money-line" viewBox="0 0 640 40" aria-hidden="true"><path d="M20 20 H620"></path><circle cx="40" cy="20" r="4" fill="#5EEAD4"/><circle cx="320" cy="20" r="5" fill="#0D9488"/><circle cx="600" cy="20" r="4" fill="#5EEAD4"/></svg>
+          <p class="label">бухгалтерский аутсорс · maxima · корпоративный CFO</p>
+          <article class="problem-card"><h3>Документ, не&nbsp;разговор</h3><p>Модель и&nbsp;план действий вместо пересказа теории.</p></article>
+          <article class="problem-card"><h3>НДС-аудит за&nbsp;3–5&nbsp;дней</h3><p>Современные инструменты ускоряют анализ без потери глубины.</p></article>
+          <article class="problem-card"><h3>Партнёр, не&nbsp;подрядчик</h3><p>Объясняю логику каждого решения&nbsp;— вы&nbsp;понимаете свои финансы.</p></article>
+          <article class="problem-card"><h3>Фокус на&nbsp;МСБ 5–990&nbsp;млн&nbsp;₽</h3><p>Не&nbsp;работаю с&nbsp;крупными корпорациями и&nbsp;госструктурами.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section container" id="services">
+      <p class="eyebrow">Услуги и цены</p>
+      <h2>Три уровня вовлечённости</h2>
+      <p class="muted">От&nbsp;разовой диагностики до&nbsp;постоянной поддержки&nbsp;— выберите глубину, с&nbsp;которой готовы зайти в&nbsp;цифры.</p>
+      <div class="price-grid">
+        <article class="price-card">
+          <p class="label">Базовый</p>
+          <h3>Точка входа</h3>
+          <p>Быстрые проекты с&nbsp;понятным результатом. Идеально для знакомства.</p>
+          <div class="service-row"><span><a href="/nds-2026">НДС-аудит</a></span><strong class="price">15&nbsp;000&nbsp;— 30&nbsp;000&nbsp;₽</strong><small>3–5&nbsp;дней</small></div>
+          <div class="service-row"><span><a href="/financial-diagnostics">Финансовая диагностика</a></span><strong class="price">20&nbsp;000&nbsp;— 45&nbsp;000&nbsp;₽</strong><small>7&nbsp;дней</small></div>
+          <div class="service-row"><span><a href="/financial-diagnostics">Где бизнес теряет деньги</a></span><strong class="price">от&nbsp;15&nbsp;000&nbsp;₽</strong><small>1–2&nbsp;дня</small></div>
+          <a class="text-link" href="#contact">Обсудить задачу →</a>
+        </article>
+        <article class="price-card price-card--featured">
+          <p class="label">Проекты · самый популярный</p>
+          <h3>Собрать систему</h3>
+          <p>Полноценные проекты с&nbsp;документацией, моделями и&nbsp;дорожной картой.</p>
+          <div class="service-row"><span><a href="/nds-2026">НДС-2026: полная подготовка</a></span><strong class="price">50&nbsp;000&nbsp;— 120&nbsp;000&nbsp;₽</strong><small>3–6&nbsp;недель</small></div>
+          <div class="service-row"><span><a href="/upravlenchesky-uchet">Управленческий учёт с&nbsp;нуля</a></span><strong class="price">60&nbsp;000&nbsp;— 150&nbsp;000&nbsp;₽</strong><small>4–8&nbsp;недель</small></div>
+          <div class="service-row"><span><a href="/finansovaya-model">Финансовая модель</a></span><strong class="price">40&nbsp;000&nbsp;— 100&nbsp;000&nbsp;₽</strong><small>2–4&nbsp;недели</small></div>
+          <div class="service-row"><span><a href="/nalogovaya-optimizatsiya">Налогово-финансовая оптимизация</a></span><strong class="price">60&nbsp;000&nbsp;— 130&nbsp;000&nbsp;₽</strong><small>3–5&nbsp;недель</small></div>
+          <a class="text-link" href="#contact">Обсудить задачу →</a>
+        </article>
+        <article class="price-card">
+          <p class="label">Подписка</p>
+          <h3>Постоянная поддержка</h3>
+          <p>Ежемесячное сопровождение&nbsp;— когда нужен постоянный финансовый взгляд.</p>
+          <div class="service-row"><span><a href="/cfo-light">CFO-light</a></span><strong class="price">20&nbsp;000&nbsp;— 55&nbsp;000&nbsp;₽/мес</strong><small>Ежемесячно</small></div>
+          <div class="service-row"><span><a href="/advisory-dlya-sobstvennika">Advisory для собственника</a></span><strong class="price">40&nbsp;000&nbsp;— 80&nbsp;000&nbsp;₽/мес</strong><small>Ежемесячно</small></div>
+          <a class="text-link" href="#contact">Обсудить задачу →</a>
+        </article>
+      </div>
+      <p class="hero-actions"><span class="muted">Не&nbsp;знаете, с&nbsp;чего начать?</span> <a class="text-link" href="/uslugi">Карта услуг и&nbsp;квиз</a> <a class="text-link" href="https://t.me/maxima_com" data-tg-source="site_organic">Первичный разбор&nbsp;— бесплатно</a></p>
+    </section>
+
+    <section class="home-section" id="process">
+      <div class="container">
+        <p class="eyebrow">Как мы работаем</p>
+        <h2>Четыре шага&nbsp;— от&nbsp;первого звонка до&nbsp;результата на&nbsp;руках</h2>
+        <svg class="money-line" viewBox="0 0 640 48" aria-hidden="true">
+          <path d="M40 24 H600"></path>
+          <circle cx="40" cy="24" r="5" fill="#5EEAD4"/>
+          <circle cx="226" cy="24" r="5" fill="#5EEAD4"/>
+          <circle cx="414" cy="24" r="5" fill="#5EEAD4"/>
+          <circle cx="600" cy="24" r="5" fill="#0D9488"/>
+        </svg>
+        <div class="steps">
+          <article class="step"><p class="step-num">01 · 30&nbsp;мин</p><h3>Бесплатный разбор</h3><p>Zoom, Яндекс Телемост или Telegram. Разбираем ситуацию, понимаем задачу. Никакого давления.</p></article>
+          <article class="step"><p class="step-num">02 · NDA</p><h3>Предложение и&nbsp;договор</h3><p>Фиксируем объём, сроки, цену. Подписываем соглашение о&nbsp;конфиденциальности до&nbsp;передачи данных.</p></article>
+          <article class="step"><p class="step-num">03 · онлайн</p><h3>Работа</h3><p>Сбор данных, анализ, подготовка документов. Онлайн-чат для вопросов.</p></article>
+          <article class="step"><p class="step-num">04 · PDF</p><h3>Результат и&nbsp;разбор</h3><p>Презентую выводы и&nbsp;объясняю логику. Вы&nbsp;уходите с&nbsp;документом и&nbsp;планом действий.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section container" id="case">
+      <p class="eyebrow">Кейс / НДС-аудит</p>
+      <h2>Как мы&nbsp;сэкономили 3,4&nbsp;млн&nbsp;₽ на&nbsp;НДС</h2>
+      <p class="muted">Реальный проект, реальные цифры&nbsp;— без красивых обещаний.</p>
+      <div class="case-grid">
+        <div>
+          <p class="label">налоговая нагрузка</p>
+          <div class="case-bars" role="img" aria-label="Налоговая нагрузка: было 22%, стало 12%">
+            <div><b>22%</b><i style="height:86%"></i><span class="label">было</span></div>
+            <div><b>12%</b><i class="is-after" style="height:46%"></i><span class="label">стало</span></div>
           </div>
-          <div class="hero-footnote"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> NDA до передачи финансовых данных</div>
+          <p class="figure" style="font-size:clamp(2rem,4vw,3.2rem);margin-top:16px">3&nbsp;429&nbsp;410&nbsp;₽</p>
+          <p class="muted">экономия в&nbsp;год · итог проекта · 5&nbsp;рабочих дней</p>
         </div>
-        <div class="hero-visual hero-parallax reveal reveal--delay">
-          <div class="visual-grid"></div>
-          <div class="visual-ring visual-ring--one"></div>
-          <div class="visual-ring visual-ring--two"></div>
-          <div class="metric-card metric-card--top"><span>последний результат</span><strong>3 429 410 ₽</strong><small>экономия в год для торговой компании</small></div>
-          <div class="metric-card metric-card--bottom"><div class="metric-icon"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></div><span>за 5 рабочих дней</span><strong>−10 п.п. налоговой нагрузки</strong><small>с 22% до 12%, результат конкретного клиента</small></div>
-          <div class="orbit-label">cash flow <span>↗</span></div>
-          <div class="hero-graph">
-            <div class="graph-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <svg viewBox="0 0 390 150" preserveAspectRatio="none"><path d="M0,124 C28,119 37,97 63,101 S103,125 129,91 S165,54 188,73 S227,98 252,62 S285,47 310,37 S348,55 390,9" fill="none" stroke="currentColor" stroke-width="3" /></svg>
-            <div class="graph-axis"><span>янв</span><span>мар</span><span>май</span><span>июль</span><span>сен</span></div>
+        <div>
+          <article class="problem-card"><p class="label">Ситуация</p><p>Торговая компания, выручка 87,4&nbsp;млн&nbsp;₽. В&nbsp;начале 2025&nbsp;года обязана перейти на&nbsp;НДС. Непонятно, какую ставку выбрать и&nbsp;как это скажется на&nbsp;марже.</p></article>
+          <article class="problem-card"><p class="label">Что сделали</p><p>Рассчитали три сценария: ставка 22% с&nbsp;вычетами, 5% и&nbsp;7% без вычетов. Проанализировали клиентскую базу: 40%&nbsp;— неплательщики НДС.</p></article>
+          <article class="problem-card"><p class="label">Итог</p><p>Выбрана оптимальная ставка. Составлена дорожная карта перехода с&nbsp;минимальными потерями для бизнеса.</p></article>
+          <p class="muted">Карта рисков · Расчёт сценариев · Дорожная карта</p>
+        </div>
+      </div>
+      <div data-carousel>
+        <h2 style="margin-top:48px">Реальные результаты собственников МСБ</h2>
+        <div class="quotes">
+          <blockquote class="quote"><p>При выручке 87&nbsp;млн не&nbsp;понимал, какую ставку НДС выбрать. Получил три сценария с&nbsp;цифрами&nbsp;— принял решение за&nbsp;один день.</p><footer><strong>А.&nbsp;К.</strong><br>собственник, оптовая торговля<br><span class="label">3&nbsp;429&nbsp;410&nbsp;₽ экономии в&nbsp;год</span></footer></blockquote>
+          <blockquote class="quote"><p>Думал, что маржа 18%, оказалось 9% на&nbsp;двух ключевых клиентах. Пересмотрел условия&nbsp;— объём не&nbsp;потеряли.</p><footer><strong>Е.&nbsp;Р.</strong><br>собственник, логистика, 35&nbsp;млн<br><span class="label">+9&nbsp;п.п. маржа</span></footer></blockquote>
+          <blockquote class="quote"><p>Бухгалтер сдаёт отчётность, но&nbsp;управленческой картины не&nbsp;было. За&nbsp;неделю получил P&amp;L и&nbsp;cash flow.</p><footer><strong>И.&nbsp;П.</strong><br>собственник, производство, 45&nbsp;млн<br><span class="label">7&nbsp;дней до&nbsp;результата</span></footer></blockquote>
+        </div>
+        <div class="carousel-nav">
+          <button type="button" data-carousel-dir="-1" aria-label="Предыдущий отзыв">←</button>
+          <button type="button" data-carousel-dir="1" aria-label="Следующий отзыв">→</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section container">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Подходим ли мы друг другу?</p>
+          <h2>Работаю не&nbsp;со&nbsp;всеми&nbsp;— и&nbsp;это осознанный выбор</h2>
+        </div>
+        <div class="fit-columns">
+          <div class="fit-column">
+            <h3>Подходит вам, если:</h3>
+            <p>Выручка 5–990&nbsp;млн, ИП или ООО</p>
+            <p>Есть бухгалтер, но&nbsp;нет управленческой картины</p>
+            <p>Надоело принимать решения на&nbsp;ощущениях</p>
+            <p>Приближаетесь к&nbsp;порогу НДС или уже перешли</p>
+            <p>Нужен документ с&nbsp;цифрами, а&nbsp;не консультация «на&nbsp;словах»</p>
+          </div>
+          <div class="fit-column fit-column--no">
+            <h3>Не&nbsp;подхожу, если:</h3>
+            <p>Нужен штатный бухгалтер или сдача отчётности</p>
+            <p>Выручка свыше 990&nbsp;млн&nbsp;₽</p>
+            <p>Крупная корпорация или госструктура</p>
+            <p>Ищете «волшебную схему» без цифр и&nbsp;документов</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="ticker" aria-hidden="true"><div class="ticker-track ticker-track--css"><div class="ticker-group">НДС-АУДИТ <span>✳</span> ФИНМОДЕЛЬ <span>✳</span> CASH FLOW <span>✳</span> УПРАВЛЕНЧЕСКИЙ УЧЁТ <span>✳</span></div><div class="ticker-group" aria-hidden="true">НДС-АУДИТ <span>✳</span> ФИНМОДЕЛЬ <span>✳</span> CASH FLOW <span>✳</span> УПРАВЛЕНЧЕСКИЙ УЧЁТ <span>✳</span></div></div></section>
+    <section class="home-section paper">
+      <div class="container founder-grid">
+        <img class="founder-photo" src="/assets/founder-maxim.jpg" alt="Максим Зугров, основатель maxima consulting" width="480" height="640" loading="lazy">
+        <div>
+          <p class="eyebrow">Основатель maxima consulting</p>
+          <h2>Привет, я&nbsp;Максим Зугров</h2>
+          <p><strong>Не&nbsp;только финансовый директор&nbsp;— предприниматель.</strong></p>
+          <p>25&nbsp;лет я&nbsp;строил и&nbsp;вёл собственные бизнесы в&nbsp;интернет-инфраструктуре и&nbsp;телекоммуникациях, электроэнергетике, ЖКХ и&nbsp;финтехе. Сам отвечал за&nbsp;кассовый разрыв в&nbsp;понедельник утром, решал, поднимать&nbsp;ли цену, когда конкуренты демпингуют, и&nbsp;разбирался, почему прибыль в&nbsp;отчёте есть, а&nbsp;денег на&nbsp;счёте нет. Поэтому смотрю на&nbsp;цифры вашей компании так&nbsp;же требовательно, как на&nbsp;свои&nbsp;— и&nbsp;мои рекомендации практичные, а&nbsp;не теоретические.</p>
+          <ul class="founder-principles">
+            <li><strong>Расчёт, а&nbsp;не оценка на&nbsp;глаз.</strong> Каждый вывод подтверждён данными вашего бизнеса.</li>
+            <li><strong>Прямота без лекций.</strong> Говорю то, что есть в&nbsp;цифрах, даже если это неудобно. Не&nbsp;продаю несуществующий эффект.</li>
+            <li><strong>Скорость без потери глубины.</strong> AI-инструменты ускоряют диагностику и&nbsp;сборку отчётности, а&nbsp;расчёты проверяю сам.</li>
+          </ul>
+          <blockquote>Каждый проект заканчивается конкретным документом&nbsp;— не&nbsp;разговором.</blockquote>
+          <p>Работаю онлайн по&nbsp;всей России. Первый разбор бесплатно.</p>
+        </div>
+      </div>
+    </section>
 
-      <section class="section container problems scroll-reveal" id="problems">
-        <div class="section-heading"><div class="eyebrow"><span class="eyebrow-dot"></span>Знакомо?</div><h2>Деньги в бизнесе есть. Но управлять ими — сложно.</h2><p>Проблемы, которые выглядят как «так бывает», но на самом деле решаются цифрами.</p></div>
-        <div class="problem-grid"><article class="problem-card problem-card--lime scroll-reveal scroll-reveal--card"><div class="card-top"><span>01</span><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg></div><h3>Прибыль на бумаге, а денег нет</h3><p>P&L показывает прибыль, но кассовые разрывы всё равно возникают из-за отсрочек платежей, неучтённых обязательств или скрыто убыточных клиентов.</p><div class="result"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span>Выявление убыточных клиентов подняло маржу на 9 п.п.</span></div></article><article class="problem-card problem-card--violet scroll-reveal scroll-reveal--card"><div class="card-top"><span>02</span><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg></div><h3>Не понимаю реальную маржу</h3><p>Без разбивки маржинальности по SKU или клиентам собственник управляет бизнесом вслепую — высокая выручка может маскировать убыточные направления.</p><div class="result"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span>12 SKU разобраны за 5 дней — стало видно, что приносит деньги.</span></div></article><article class="problem-card problem-card--orange scroll-reveal scroll-reveal--card"><div class="card-top"><span>03</span><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg></div><h3>НДС-2026 приближается</h3><p>Порог освобождения от НДС при УСН зафиксирован на уровне 20 млн ₽ до 2029 года. Лучше подготовиться до момента перехода.</p><div class="result"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span>12 компаний подготовлены к переходу до дедлайна.</span></div></article><article class="problem-card problem-card--blue scroll-reveal scroll-reveal--card"><div class="card-top"><span>04</span><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg></div><h3>Решения принимаются на ощущениях</h3><p>Без управленческой картины — P&L, cash flow, маржинальности — решения о ценах, найме и инвестициях основаны на интуиции.</p><div class="result"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span>Управленческая картина собирается за 7 дней.</span></div></article></div>
-        <div class="section-cta"><span>Узнали себя хотя бы в одном блоке?</span><a href="#contact">Давайте разберёмся <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
-      </section>
+    <section class="home-section container" id="faq">
+      <p class="eyebrow">FAQ</p>
+      <h2>Отвечаю на&nbsp;то, что спрашивают чаще всего</h2>
+      <div class="faq-list">
+        <div class="faq-item faq-item--open" data-faq>
+          <button type="button" aria-expanded="true">Работаете онлайн по&nbsp;всей России? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          <div class="faq-answer"><p>Да, все проекты&nbsp;— от&nbsp;НДС-аудита до&nbsp;управленческого учёта&nbsp;— проводятся удалённо через Zoom, Яндекс Телемост или Telegram, независимо от&nbsp;региона клиента.</p></div>
+        </div>
+        <div class="faq-item" data-faq>
+          <button type="button" aria-expanded="false">У&nbsp;меня есть бухгалтер. Зачем мне финансовый директор на&nbsp;аутсорсе? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          <div class="faq-answer"><p>Бухгалтер отвечает за&nbsp;корректную отчётность перед налоговой, а&nbsp;финансовый директор&nbsp;— за&nbsp;управленческие решения: маржинальность, cash flow, налоговую оптимизацию и&nbsp;финмодели. Это разные задачи.</p></div>
+        </div>
+        <div class="faq-item" data-faq>
+          <button type="button" aria-expanded="false">Как быстро будет результат? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          <div class="faq-answer"><p>Базовые продукты дают результат за&nbsp;3–7&nbsp;дней. Полноценные проекты занимают от&nbsp;2&nbsp;до&nbsp;8&nbsp;недель в&nbsp;зависимости от&nbsp;объёма.</p></div>
+        </div>
+        <div class="faq-item" data-faq>
+          <button type="button" aria-expanded="false">Что такое «бесплатный разбор»? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          <div class="faq-answer"><p>Это 30-минутный звонок, на&nbsp;котором разбирается ситуация клиента и&nbsp;даются первые рекомендации без оплаты и&nbsp;обязательств. NDA подписывается до&nbsp;передачи любых финансовых данных.</p></div>
+        </div>
+        <div class="faq-item" data-faq>
+          <button type="button" aria-expanded="false">Мои финансовые данные в&nbsp;безопасности? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          <div class="faq-answer"><p>Да, NDA подписывается до&nbsp;начала работы и&nbsp;передачи любых данных, а&nbsp;сами данные не&nbsp;передаются третьим лицам.</p></div>
+        </div>
+        <div class="faq-item" data-faq>
+          <button type="button" aria-expanded="false">Как оплата? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          <div class="faq-answer"><p>Оплата фиксируется в&nbsp;договоре по&nbsp;итогам бесплатного разбора. <!-- TODO(owner): строка FAQ про возврат денег через 7 дней. Менять только после решения Макса. ТЗ 4.1 и 4.13. -->Если через 7&nbsp;дней клиент не&nbsp;получает конкретных цифр&nbsp;— деньги возвращаются.</p></div>
+        </div>
+      </div>
+    </section>
 
-      <section class="signal-section scroll-reveal">
-        <div class="container signal-inner">
-          <div>
-            <div class="eyebrow"><span class="eyebrow-dot"></span>Важный сигнал</div>
-            <h2>Порог НДС заморожен на уровне <em>20 млн</em> до 2029 года</h2>
+    <section class="home-section" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">Следующий шаг</p>
+          <h2>Начните с&nbsp;бесплатного разбора</h2>
+          <svg class="money-line" viewBox="0 0 280 24" aria-hidden="true"><path d="M0 16 H220" stroke-width="2"></path></svg>
+          <p>30&nbsp;минут. Разберём вашу ситуацию. Без обязательств.</p>
+          <ul class="founder-principles">
+            <li>Zoom, Яндекс Телемост, Telegram или телефон&nbsp;— на&nbsp;ваш выбор</li>
+            <li>Первые рекомендации уже на&nbsp;звонке</li>
+            <li>Никакого давления и&nbsp;навязчивых продаж</li>
+            <li>NDA подписываем до&nbsp;передачи данных</li>
+          </ul>
+          <p class="label">Или напишите напрямую</p>
+          <div class="copy-row">
+            <a href="tel:+79808488480">+7&nbsp;980&nbsp;848-84-80</a>
+            <button type="button" data-copy="+7 980 848-84-80">Скопировать телефон</button>
           </div>
-          <div class="signal-note">
-            <div class="signal-number">20<span>млн ₽</span></div>
-            <p>Если выручка растёт и вы приближаетесь к порогу — лучше подготовиться заранее, чем терять маржу в момент перехода.</p>
-            <a href="#contact">Разобрать вашу ситуацию <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+          <div class="copy-row">
+            <a href="https://t.me/maxima_com" data-tg-source="site_organic">@maxima_com</a>
+            <button type="button" data-copy="@maxima_com">Скопировать Telegram</button>
           </div>
-        </div>
-      </section>
-
-      <section class="section container difference scroll-reveal">
-        <div class="section-heading"><div class="eyebrow"><span class="eyebrow-dot"></span>maxima consulting</div><h2>Между бухгалтерским аутсорсом и корпоративным CFO</h2><p>Не просто отчётность. Не «совет на словах». Партнёр, который помогает собственнику видеть бизнес целиком.</p></div>
-        <div class="difference-grid">
-          <div class="difference-intro">
-            <div class="big-number">01—<br /><span>04</span></div>
-            <p>Каждый проект заканчивается конкретным документом: модель + план действий + карта рисков.</p>
-          </div>
-          <div class="difference-list"><div class="difference-item"><span class="difference-index">01</span><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg><div><h3>Документ, не разговор</h3><p>Модель и план действий вместо пересказа теории.</p></div></div><div class="difference-item"><span class="difference-index">02</span><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg><div><h3>НДС-аудит за 3–5 дней</h3><p>Современные инструменты ускоряют анализ без потери глубины.</p></div></div><div class="difference-item"><span class="difference-index">03</span><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><div><h3>Партнёр, не подрядчик</h3><p>Объясняю логику каждого решения — вы понимаете свои финансы.</p></div></div><div class="difference-item"><span class="difference-index">04</span><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><div><h3>Фокус на МСБ 5–990 млн ₽</h3><p>Не работаю с крупными корпорациями и госструктурами.</p></div></div></div>
-        </div>
-      </section>
-
-      <section class="section container services scroll-reveal" id="services">
-        <div class="section-heading"><div class="eyebrow"><span class="eyebrow-dot"></span>Услуги и цены</div><h2>Три уровня вовлечённости</h2><p>От разовой диагностики до постоянной поддержки — выберите глубину, с которой готовы зайти в цифры.</p></div>
-        <div class="services-grid"><article class="service-card scroll-reveal scroll-reveal--card"><div class="service-label">БАЗОВЫЙ <span></span></div><h3>Точка входа</h3><p>Быстрые проекты с понятным результатом. Идеально для знакомства.</p><div class="service-items"><div class="service-item"><span><a href="/nds-2026">НДС-аудит</a></span><strong>15 000 — 30 000 ₽</strong><small>3–5 дней</small></div><div class="service-item"><span><a href="/financial-diagnostics">Финансовая диагностика</a></span><strong>20 000 — 45 000 ₽</strong><small>7 дней</small></div><div class="service-item"><span><a href="/financial-diagnostics">Где бизнес теряет деньги</a></span><strong>от 15 000 ₽</strong><small>1–2 дня</small></div></div><a href="#contact" class="service-link">Обсудить задачу <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></article><article class="service-card service-card--featured scroll-reveal scroll-reveal--card"><div class="service-label">ПРОЕКТЫ <span>самый популярный</span></div><h3>Собрать систему</h3><p>Полноценные проекты с документацией, моделями и дорожной картой.</p><div class="service-items"><div class="service-item"><span><a href="/nds-2026">НДС-2026: полная подготовка</a></span><strong>50 000 — 120 000 ₽</strong><small>3–6 недель</small></div><div class="service-item"><span><a href="/upravlenchesky-uchet">Управленческий учёт с нуля</a></span><strong>60 000 — 150 000 ₽</strong><small>4–8 недель</small></div><div class="service-item"><span><a href="/finansovaya-model">Финансовая модель</a></span><strong>40 000 — 100 000 ₽</strong><small>2–4 недели</small></div><div class="service-item"><span><a href="/nalogovaya-optimizatsiya">Налогово-финансовая оптимизация</a></span><strong>60 000 — 130 000 ₽</strong><small>3–5 недель</small></div></div><a href="#contact" class="service-link">Обсудить задачу <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></article><article class="service-card scroll-reveal scroll-reveal--card"><div class="service-label">ПОДПИСКА <span></span></div><h3>Постоянная поддержка</h3><p>Ежемесячное сопровождение — когда нужен постоянный финансовый взгляд.</p><div class="service-items"><div class="service-item"><span><a href="/cfo-light">CFO-light</a></span><strong>20 000 — 55 000 ₽/мес</strong><small>Ежемесячно</small></div><div class="service-item"><span><a href="/advisory-dlya-sobstvennika">Advisory для собственника</a></span><strong>40 000 — 80 000 ₽/мес</strong><small>Ежемесячно</small></div></div><a href="#contact" class="service-link">Обсудить задачу <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></article></div>
-        <div class="services-footer"><span>Не знаете, с чего начать?</span><a href="/uslugi">Карта услуг и квиз</a><span>·</span><a href="https://t.me/maxima_com" target="_blank" rel="noreferrer">Первичный разбор — бесплатно <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 8v8"/><path d="m8 12 4-4 4 4"/></svg></a></div>
-      </section>
-
-      <section class="process-section scroll-reveal" id="process">
-        <div class="container">
-          <div class="section-heading section-heading--light"><div class="eyebrow"><span class="eyebrow-dot"></span>Как мы работаем</div><h2>Четыре шага — от первого звонка до результата на руках</h2></div>
-          <div class="process-grid"><div class="process-step scroll-reveal scroll-reveal--card"><div class="process-num">01</div><div class="process-tag">30 мин</div><h3>Бесплатный разбор</h3><p>Zoom, Яндекс Телемост или Telegram. Разбираем ситуацию, понимаем задачу. Никакого давления.</p><div class="process-line"></div></div><div class="process-step scroll-reveal scroll-reveal--card"><div class="process-num">02</div><div class="process-tag">NDA</div><h3>Предложение и договор</h3><p>Фиксируем объём, сроки, цену. Подписываем соглашение о конфиденциальности до передачи данных.</p><div class="process-line"></div></div><div class="process-step scroll-reveal scroll-reveal--card"><div class="process-num">03</div><div class="process-tag">онлайн</div><h3>Работа</h3><p>Сбор данных, анализ, подготовка документов. Онлайн-чат для вопросов.</p><div class="process-line"></div></div><div class="process-step scroll-reveal scroll-reveal--card"><div class="process-num">04</div><div class="process-tag">PDF</div><h3>Результат и разбор</h3><p>Презентую выводы и объясняю логику. Вы уходите с документом и планом действий.</p></div></div>
-        </div>
-      </section>
-
-      <section class="section container case-section scroll-reveal" id="case">
-        <div class="case-header">
-          <div class="section-heading"><div class="eyebrow"><span class="eyebrow-dot"></span>Кейс / НДС-аудит</div><h2>Как мы сэкономили 3,4 млн ₽ на НДС</h2><p>Реальный проект, реальные цифры — без красивых обещаний.</p></div>
-          <div class="case-result"><span>итог проекта</span><strong id="caseCounter">0 ₽</strong><small>экономия в год</small></div>
-        </div>
-        <div class="case-grid">
-          <div class="case-visual">
-            <div class="case-chart-label">налоговая нагрузка</div>
-            <div class="case-chart">
-              <div class="case-bar"><span>было</span><i class="chart-fill chart-fill--high" style="height: 86%"></i><b>22%</b></div>
-              <div class="case-bar case-bar--accent"><span>стало</span><i class="chart-fill chart-fill--low" style="height: 46%"></i><b>12%</b></div>
-            </div>
-            <div class="case-chart-foot"><span>до оптимизации</span><span>после сценарного анализа</span></div>
-          </div>
-          <div class="case-copy">
-            <div class="case-block"><span>Ситуация</span><p>Торговая компания, выручка 87,4 млн ₽. В начале 2025 года обязана перейти на НДС. Непонятно, какую ставку выбрать и как это скажется на марже.</p></div>
-            <div class="case-block"><span>Что сделали</span><p>Рассчитали три сценария: ставка 22% с вычетами, 5% и 7% без вычетов. Проанализировали клиентскую базу: 40% — неплательщики НДС.</p></div>
-            <div class="case-block"><span>Итог</span><p>Выбрана оптимальная ставка. Составлена дорожная карта перехода с минимальными потерями для бизнеса.</p></div>
-          </div>
-        </div>
-        <div class="case-foot">
-          <span><svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 5 рабочих дней</span>
-          <span><svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Карта рисков</span>
-          <span><svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Расчёт сценариев</span>
-          <span><svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Дорожная карта</span>
-        </div>
-      </section>
-
-      <section class="testimonial-section scroll-reveal">
-        <div class="container">
-          <div class="section-heading section-heading--light"><div class="eyebrow"><span class="eyebrow-dot"></span>Что говорят клиенты</div><h2>Реальные результаты собственников МСБ</h2></div>
-          <div class="quote-grid"><blockquote><span class="quote-mark">“</span><p>При выручке 87 млн не понимал, какую ставку НДС выбрать. Получил три сценария с цифрами — принял решение за один день.</p><footer><strong>А. К.</strong><span>собственник, оптовая торговля</span></footer><b class="quote-result">3 429 410 ₽ <small>экономии в год</small></b></blockquote><blockquote><span class="quote-mark">“</span><p>Думал, что маржа 18%, оказалось 9% на двух ключевых клиентах. Пересмотрел условия — объём не потеряли.</p><footer><strong>Е. Р.</strong><span>собственник, логистика, 35 млн</span></footer><b class="quote-result">+9 п.п. <small>маржа</small></b></blockquote><blockquote><span class="quote-mark">“</span><p>Бухгалтер сдаёт отчётность, но управленческой картины не было. За неделю получил P&L и cash flow.</p><footer><strong>И. П.</strong><span>собственник, производство, 45 млн</span></footer><b class="quote-result">7 дней <small>до результата</small></b></blockquote></div>
-        </div>
-      </section>
-
-      <section class="section container fit-section">
-        <div class="fit-grid">
-          <div><div class="section-heading"><div class="eyebrow"><span class="eyebrow-dot"></span>Подходим ли мы друг другу?</div><h2>Работаю не со всеми — и это осознанный выбор</h2></div></div>
-          <div class="fit-columns">
-            <div class="fit-column fit-column--yes"><h3><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Подходит вам, если:</h3><p><span></span>Выручка 5–990 млн, ИП или ООО</p><p><span></span>Есть бухгалтер, но нет управленческой картины</p><p><span></span>Надоело принимать решения на ощущениях</p><p><span></span>Приближаетесь к порогу НДС или уже перешли</p><p><span></span>Нужен документ с цифрами, а не консультация «на словах»</p></div>
-            <div class="fit-column fit-column--no"><h3><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg> Не подхожу, если:</h3><p><span></span>Нужен штатный бухгалтер или сдача отчётности</p><p><span></span>Выручка свыше 990 млн ₽</p><p><span></span>Крупная корпорация или госструктура</p><p><span></span>Ищете «волшебную схему» без цифр и документов</p></div>
+          <p class="label">Каналы</p>
+          <!-- TODO(owner): ссылку на канал @maxima_cfo в разделе «Каналы» оставляем? ТЗ 4.13. -->
+          <div class="social-icons">
+            <a href="https://t.me/maxima_cfo" data-tg-source="site_organic" aria-label="Telegram-канал @maxima-cfo"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
+            <a href="https://max.ru/se14042176_biz" aria-label="Канал maxima consulting в MAX">MAX</a>
           </div>
         </div>
-      </section>
-
-      <section class="founder-section scroll-reveal">
-        <div class="container founder-grid">
-          <div class="founder-portrait">
-            <img class="portrait-photo" src="assets/founder-maxim.jpg" alt="Максим Зугров, основатель maxima consulting" width="480" height="640" />          </div>
-          <div class="founder-copy">
-            <div class="eyebrow"><span class="eyebrow-dot"></span>Основатель maxima consulting</div>
-            <h2>Привет, я <em>Максим Зугров</em></h2>
-            <p class="founder-lead">Не только финансовый директор — предприниматель.</p>
-            <p>25 лет я строил и вёл собственные бизнесы в интернет-инфраструктуре и телекоммуникациях, электроэнергетике, ЖКХ и финтехе. Сам отвечал за кассовый разрыв в понедельник утром, решал, поднимать ли цену, когда конкуренты демпингуют, и разбирался, почему прибыль в отчёте есть, а денег на счёте нет. Поэтому смотрю на цифры вашей компании так же требовательно, как на свои — и мои рекомендации практичные, а не теоретические.</p>
-            <ul class="founder-principles">
-              <li><strong>Расчёт, а не оценка на глаз.</strong> Каждый вывод подтверждён данными вашего бизнеса.</li>
-              <li><strong>Прямота без лекций.</strong> Говорю то, что есть в цифрах, даже если это неудобно. Не продаю несуществующий эффект.</li>
-              <li><strong>Скорость без потери глубины.</strong> AI-инструменты ускоряют диагностику и сборку отчётности, а расчёты проверяю сам.</li>
-            </ul>
-            <blockquote>Каждый проект заканчивается конкретным документом — не разговором.</blockquote>
-            <div class="founder-meta">
-              <span><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg> Работаю онлайн по всей России</span>
-              <span><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/></svg> Первый разбор бесплатно</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section container faq-section scroll-reveal">
-        <div class="section-heading"><div class="eyebrow"><span class="eyebrow-dot"></span>FAQ</div><h2>Отвечаю на то, что спрашивают чаще всего</h2></div>
-        <div class="faq-list"><div class="faq-item faq-item--open" data-faq><button type="button" aria-expanded="true"><span>Работаете онлайн по всей России?</span><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg></button><div class="faq-answer"><p>Да, все проекты — от НДС-аудита до управленческого учёта — проводятся удалённо через Zoom, Яндекс Телемост или Telegram, независимо от региона клиента.</p></div></div><div class="faq-item" data-faq><button type="button" aria-expanded="false"><span>У меня есть бухгалтер. Зачем мне финансовый директор на аутсорсе?</span><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button><div class="faq-answer"><p>Бухгалтер отвечает за корректную отчётность перед налоговой, а финансовый директор — за управленческие решения: маржинальность, cash flow, налоговую оптимизацию и финмодели. Это разные задачи.</p></div></div><div class="faq-item" data-faq><button type="button" aria-expanded="false"><span>Как быстро будет результат?</span><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button><div class="faq-answer"><p>Базовые продукты дают результат за 3–7 дней. Полноценные проекты занимают от 2 до 8 недель в зависимости от объёма.</p></div></div><div class="faq-item" data-faq><button type="button" aria-expanded="false"><span>Что такое «бесплатный разбор»?</span><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button><div class="faq-answer"><p>Это 30-минутный звонок, на котором разбирается ситуация клиента и даются первые рекомендации без оплаты и обязательств. NDA подписывается до передачи любых финансовых данных.</p></div></div><div class="faq-item" data-faq><button type="button" aria-expanded="false"><span>Мои финансовые данные в безопасности?</span><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button><div class="faq-answer"><p>Да, NDA подписывается до начала работы и передачи любых данных, а сами данные не передаются третьим лицам.</p></div></div><div class="faq-item" data-faq><button type="button" aria-expanded="false"><span>Как оплата?</span><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button><div class="faq-answer"><p>Оплата фиксируется в договоре по итогам бесплатного разбора. Если через 7 дней клиент не получает конкретных цифр — деньги возвращаются.</p></div></div></div>
-      </section>
-
-      <section class="contact-section scroll-reveal" id="contact">
-        <div class="container contact-grid">
-          <div class="contact-copy">
-            <div class="eyebrow"><span class="eyebrow-dot"></span>Следующий шаг</div>
-            <h2>Начните с <em>бесплатного</em> разбора</h2>
-            <p>30 минут. Разберём вашу ситуацию. Без обязательств.</p>
-            <ul>
-              <li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Zoom, Яндекс Телемост, Telegram или телефон — на ваш выбор</li>
-              <li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Первые рекомендации уже на звонке</li>
-              <li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Никакого давления и навязчивых продаж</li>
-              <li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> NDA подписываем до передачи данных</li>
-            </ul>
-            <div class="contact-direct">
-              <span>Или напишите напрямую</span>
-              <a href="tel:+79808488480">+7 980 848-84-80</a>
-              <a href="https://t.me/maxima_com" target="_blank" rel="noreferrer" data-tg-source="site_organic">@maxima_com <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 8v8"/><path d="m8 12 4-4 4 4"/></svg></a>
-              <span>Каналы</span>
-              <div class="contact-channels"><a class="social-icon" href="https://t.me/maxima_cfo" data-tg-source="site_organic" target="_blank" rel="noopener noreferrer" aria-label="Telegram-канал @maxima-cfo"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a><a class="social-icon" href="https://max.ru/se14042176_biz" target="_blank" rel="noopener noreferrer" aria-label="Канал maxima consulting в MAX"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="15.2" text-anchor="middle" font-size="7.5" font-weight="700" fill="currentColor" font-family="system-ui,sans-serif">MAX</text></svg></a></div>
-            </div>
-          </div>
-          <div class="contact-form-wrap cta-form__form-wrap">
-            <form class="contact-form" id="contact-form" data-lead-form novalidate>
-              <div class="form-top"><span>бесплатный разбор · 30 мин</span><span>обычно отвечаю в течение нескольких часов</span></div>
-
+        <div>
+          
+            <form class="contact-form" data-lead-form data-wizard novalidate>
+              <div class="form-top"><span class="label">бесплатный разбор · 30 мин</span></div>
               <div class="honeypot" aria-hidden="true">
                 <label for="middle_name">Middle name</label>
-                <input type="text" name="middle_name" id="middle_name" tabindex="-1" autocomplete="off" />
+                <input type="text" name="middle_name" id="middle_name" tabindex="-1" autocomplete="off">
               </div>
-              <input type="hidden" name="utm_source" />
-              <input type="hidden" name="utm_medium" />
-              <input type="hidden" name="utm_campaign" />
-              <input type="hidden" name="utm_content" />
-              <input type="hidden" name="utm_term" />
-              <input type="hidden" name="utm_campaign_name" />
-              <input type="hidden" name="yclid" />
-              <input type="hidden" name="client_id" />
-              <input type="hidden" name="landing_url" />
-              <input type="hidden" name="referrer" />
-              <input type="hidden" name="client_id_missing" />
-
-              <label>Ваше имя <input type="text" id="name" name="name" placeholder="Как к вам обращаться?" required /></label>
-              <label>Телефон или Telegram <input type="text" id="contact" name="contact" placeholder="+7 или @username" required /></label>
-              <div class="form-row">
-                <label>Роль в компании
+              <input type="hidden" name="utm_source">
+              <input type="hidden" name="utm_medium">
+              <input type="hidden" name="utm_campaign">
+              <input type="hidden" name="utm_content">
+              <input type="hidden" name="utm_term">
+              <input type="hidden" name="utm_campaign_name">
+              <input type="hidden" name="yclid">
+              <input type="hidden" name="client_id">
+              <input type="hidden" name="landing_url">
+              <input type="hidden" name="referrer">
+              <input type="hidden" name="client_id_missing">
+              <div data-wizard-step="1">
+                <label class="field">Ваше имя
+                  <input type="text" id="name" name="name" autocomplete="name" placeholder="Как к вам обращаться?" required>
+                </label>
+                <label class="field">Телефон или Telegram
+                  <input type="text" id="contact" name="contact" autocomplete="tel" placeholder="+7 или @username" required>
+                </label>
+                <label class="field">Диапазон выручки
+                  <select id="revenue" name="revenue" required>
+                    <option value="">Выберите</option>
+                    <option value="under_20">до 20 млн ₽</option>
+                    <option value="20_60">20–60 млн ₽</option>
+                    <option value="60_150">60–150 млн ₽</option>
+                    <option value="150_500">150–500 млн ₽</option>
+                    <option value="over_500">свыше 500 млн ₽</option>
+                    <option value="unknown">затрудняюсь ответить</option>
+                  </select>
+                </label>
+                <button class="button" type="button" data-wizard-next>Дальше <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></button>
+              </div>
+              <div data-wizard-step="2" hidden>
+                <label class="field">Роль в компании
                   <select id="role" name="role" required>
                     <option value="">Выберите</option>
                     <option value="owner">Собственник</option>
@@ -433,7 +453,7 @@ html.js-reveal .scroll-reveal--card:nth-child(5) { transition-delay: 280ms; }
                     <option value="other">Другое</option>
                   </select>
                 </label>
-                <label>Отрасль
+                <label class="field">Отрасль
                   <select id="industry" name="industry" required>
                     <option value="">Выберите</option>
                     <option value="trade">Торговля/опт-розница</option>
@@ -445,20 +465,7 @@ html.js-reveal .scroll-reveal--card:nth-child(5) { transition-delay: 280ms; }
                     <option value="other">Другое</option>
                   </select>
                 </label>
-              </div>
-              <div class="form-row">
-                <label>Диапазон выручки
-                  <select id="revenue" name="revenue" required>
-                    <option value="">Выберите</option>
-                    <option value="under_20">до 20 млн ₽</option>
-                    <option value="20_60">20–60 млн ₽</option>
-                    <option value="60_150">60–150 млн ₽</option>
-                    <option value="150_500">150–500 млн ₽</option>
-                    <option value="over_500">свыше 500 млн ₽</option>
-                    <option value="unknown">затрудняюсь ответить</option>
-                  </select>
-                </label>
-                <label>Срочность
+                <label class="field">Срочность
                   <select id="urgency" name="urgency" required>
                     <option value="">Выберите</option>
                     <option value="urgent">Срочно (нужно решение на этой неделе)</option>
@@ -467,222 +474,69 @@ html.js-reveal .scroll-reveal--card:nth-child(5) { transition-delay: 280ms; }
                     <option value="researching">Изучаю рынок</option>
                   </select>
                 </label>
+                <label class="field">Главный вопрос
+                  <textarea id="question" name="question" placeholder="Что сейчас беспокоит в финансах бизнеса?" rows="3" required></textarea>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="consent_pdn" required>
+                  <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy">Политикой обработки персональных данных</a> *</span>
+                </label>
+                <button class="button" type="submit">Записаться на разбор <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></button>
+                <small class="price-note">Не продаём данные. Не спамим. Ответим в течение рабочего дня.</small>
+                <p class="price-note">Или напишите: <a href="tel:+79808488480">+7&nbsp;980&nbsp;848-84-80</a> · <a href="https://t.me/maxima_com" data-tg-source="site_organic">@maxima_com</a></p>
               </div>
-              <label>Главный вопрос <textarea id="question" name="question" placeholder="Что сейчас беспокоит в финансах бизнеса?" rows="3" required></textarea></label>
-              <label class="checkbox-label"><input type="checkbox" name="consent_pdn" required /><span>Согласен(на) на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank" rel="noopener">Политикой обработки персональных данных</a> *</span></label>
-              <button class="button button--form" type="submit" disabled>Записаться на разбор <svg class="icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></button>
-              <small class="form-note">Не продаём данные. Не спамим. Ответим в течение рабочего дня.</small>
-              <p class="form-note" style="margin-top:8px;">Или напишите: <a href="tel:+79808488480">+7 980 848-84-80</a> · <a href="https://t.me/maxima_com" data-tg-source="site_organic" target="_blank" rel="noopener">@maxima_com</a></p>
             </form>
-          </div>
-        </div>
-      </section>
-    </main>
 
+        </div>
+      </div>
+    </section>
+  </main>
+  
     <footer class="site-footer">
       <div class="container footer-grid">
-        <div><a class="logo" href="https://maxima-consulting.ru/" aria-label="Maxima Consulting — на главную"><img class="logo-img" src="assets/logo-maxima.png" alt="" width="28" height="28" /><span>maxima <b>consulting</b></span></a><p>Финансовый партнёр для МСБ</p></div>
-        <div><span class="footer-label">Навигация</span><a href="/uslugi">Услуги</a><a href="/gajdy">Гайды</a><a href="#problems">Проблемы</a><a href="#services">Цены</a><a href="#case">Кейсы</a><a href="/blog/">Статьи</a><a href="#contact">Контакты</a></div>
-        <div><span class="footer-label">Контакты</span><a href="tel:+79808488480">+7 980 848-84-80</a><a href="https://t.me/maxima_com" data-tg-source="site_organic">@maxima_com</a><a href="https://vk.com/maxima_consulting">VK</a><a href="https://m.tenchat.ru/u/eei8UmQE">TenChat</a></div>
-        <div class="footer-social"><span class="footer-label">Каналы</span><div class="social-icons"><a class="social-icon" href="https://t.me/maxima_cfo" data-tg-source="site_organic" target="_blank" rel="noopener noreferrer" aria-label="Telegram-канал @maxima-cfo"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a><a class="social-icon" href="https://max.ru/se14042176_biz" target="_blank" rel="noopener noreferrer" aria-label="Канал maxima consulting в MAX"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="15.2" text-anchor="middle" font-size="7.5" font-weight="700" fill="currentColor" font-family="system-ui,sans-serif">MAX</text></svg></a><a class="social-icon" href="https://vk.com/maxima_consulting" aria-label="VK"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.785 16.241s.288-.032.436-.194c.136-.149.132-.429.132-.429s-.02-1.306.587-1.498c.598-.189 1.366 1.257 2.183 1.812.616.422 1.084.329 1.084.329l2.178-.031s1.139-.071.599-.964c-.044-.074-.318-.661-1.634-1.869-1.379-1.264-1.193-1.058.466-3.241.101-.173.718-3.447.718-3.447s.039-.288-.101-.449c-.128-.149-.371-.098-.371-.098l-2.316.014s-.172-.024-.299.053c-.115.071-.188.236-.188.236s-.337.898-.785 1.663c-.945 1.614-1.324 1.698-1.478 1.598-.359-.224-.269-.899-.269-1.737 0-1.887.287-2.673-.559-2.873-.281-.068-.487-.113-1.205-.121-.921-.009-1.701.003-2.141.219-.294.144-.521.465-.383.484.171.023.559.105.764.384.265.359.255 1.164.255 1.164s.153 2.247-.355 2.527c-.349.191-.827-.199-1.854-1.984-.525-.899-.921-1.893-.921-1.893s-.077-.188-.214-.289c-.165-.122-.395-.16-.395-.16l-2.203.014s-.33.01-.451.153c-.108.128-.008.393-.008.393s1.727 4.044 3.681 6.083c1.793 1.867 3.831 1.744 3.831 1.744h.914z"/></svg></a></div><div style="margin-top:8px"><a href="#top" aria-label="Наверх"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div></div>
+        <div class="footer-col">
+          <a class="logo" href="/" aria-label="maxima consulting — на главную">
+            <img src="/assets/logo-maxima.png" alt="" width="28" height="28">
+            <span>maxima <b>consulting</b></span>
+          </a>
+          <p class="muted">Финансовый партнёр для МСБ</p>
+        </div>
+        <div class="footer-col">
+          <span class="footer-label">Навигация</span>
+          <a href="/uslugi">Услуги</a>
+          <a href="/#services">Цены</a>
+          <a href="/#case">Кейсы</a>
+          <a href="/gajdy">Гайды</a>
+          <a href="/blog/">Статьи</a>
+          <a href="/#process">Как работаем</a>
+          <a href="/#contact">Контакты</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-label">Контакты</span>
+          <a href="tel:+79808488480">+7 980 848-84-80</a>
+          <a href="https://t.me/maxima_com" data-tg-source="site_organic">@maxima_com</a>
+          <a href="https://vk.com/maxima_consulting">VK</a>
+          <a href="https://m.tenchat.ru/u/eei8UmQE">TenChat</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-label">Каналы</span>
+          <!-- TODO(owner): ссылку на канал @maxima_cfo в разделе «Каналы» оставляем? ТЗ 4.13. -->
+          <div class="social-icons">
+            <a href="https://t.me/maxima_cfo" data-tg-source="site_organic" target="_blank" rel="noopener noreferrer" aria-label="Telegram-канал @maxima-cfo"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
+            <a href="https://max.ru/se14042176_biz" target="_blank" rel="noopener noreferrer" aria-label="Канал maxima consulting в MAX">MAX</a>
+            <a href="https://vk.com/maxima_consulting" aria-label="VK">VK</a>
+          </div>
+          <!-- TODO(owner): добавить ИНН и реквизиты, когда будут утверждены. ТЗ 4.13. -->
+        </div>
       </div>
-      <div class="container footer-bottom"><span>© maxima consulting, 2026</span><span><a href="nda.html">NDA</a> · <a href="/privacy">Политика ПД</a></span><span>made by maxima lab <span class="footer-heart">✳</span></span></div>
-      <p class="container" style="margin:14px auto 0;font-size:11px;line-height:1.45;color:#6f766e">Указанные цены не являются офертой и носят ознакомительный характер.</p>
+      <div class="container footer-bottom">
+        <span>© maxima consulting, 2026</span>
+        <span><a href="/nda.html">NDA</a> · <a href="/privacy">Политика ПД</a></span>
+        <span>made by maxima lab ✳</span>
+      </div>
+      <p class="container price-note">Указанные цены не являются офертой и носят ознакомительный характер.</p>
     </footer>
-  </div>
+    <div class="toast" data-toast role="status" hidden></div>
 
-  <script>
-(function () {
-  var menuIcon = '<svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>';
-  var closeIcon = '<svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
-  var plusIcon = '<svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>';
-  var minusIcon = '<svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>';
-
-  document.querySelectorAll('[data-scroll]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var target = document.querySelector(btn.getAttribute('data-scroll'));
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
-      closeMenu();
-    });
-  });
-
-  var menuToggle = document.getElementById('menuToggle');
-  var mainNav = document.getElementById('mainNav');
-  var menuOpen = false;
-
-  function closeMenu() {
-    menuOpen = false;
-    mainNav.classList.remove('main-nav--open');
-    menuToggle.setAttribute('aria-expanded', 'false');
-    menuToggle.innerHTML = menuIcon;
-  }
-
-  menuToggle.addEventListener('click', function () {
-    menuOpen = !menuOpen;
-    mainNav.classList.toggle('main-nav--open', menuOpen);
-    menuToggle.setAttribute('aria-expanded', menuOpen ? 'true' : 'false');
-    menuToggle.innerHTML = menuOpen ? closeIcon : menuIcon;
-  });
-
-  (function initTicker() {
-    var track = document.querySelector('.ticker-track');
-    if (!track) return;
-    track.classList.remove('ticker-track--css');
-    var offset = 0;
-    var segment = 0;
-    var speed = 0.55;
-
-    function measure() {
-      segment = track.scrollWidth / 2;
-    }
-
-    function step() {
-      if (segment <= 0) measure();
-      if (segment > 0) {
-        offset -= speed;
-        if (-offset >= segment) offset += segment;
-        track.style.transform = 'translate3d(' + offset.toFixed(2) + 'px,0,0)';
-      }
-      requestAnimationFrame(step);
-    }
-
-    measure();
-    window.addEventListener('resize', measure);
-    requestAnimationFrame(step);
-  })();
-
-  (function initScrollReveal() {
-    var items = Array.from(document.querySelectorAll('.scroll-reveal'));
-    if (!items.length) return;
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var canReveal = !reduced && ('IntersectionObserver' in window);
-    if (!canReveal) {
-      items.forEach(function (item) { item.classList.add('is-visible'); });
-      return;
-    }
-    document.documentElement.classList.add('js-reveal');
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -9% 0px', threshold: 0.12 });
-    items.forEach(function (item) { observer.observe(item); });
-  })();
-
-  (function initHeroParallax() {
-    var visual = document.querySelector('.hero-parallax');
-    if (!visual || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var frame = 0;
-    var pointerX = 0;
-    var pointerY = 0;
-    var scrollY = window.scrollY;
-    var hasTouchPosition = false;
-
-    function render() {
-      frame = 0;
-      var rect = visual.getBoundingClientRect();
-      var x = (pointerX - (rect.left + rect.width / 2)) / Math.max(rect.width, 1);
-      var y = (pointerY - (rect.top + rect.height / 2)) / Math.max(rect.height, 1);
-      var isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
-      var vw = window.innerWidth;
-      var touchIntensity = vw <= 420 ? 0.34 : vw <= 767 ? 0.5 : vw <= 1024 ? 0.72 : 1;
-      var intensity = isTouch ? touchIntensity : 1;
-      var scrollIntensity = isTouch ? (vw <= 420 ? 0.018 : vw <= 767 ? 0.026 : 0.032) : 0.035;
-      visual.style.setProperty('--parallax-x', (x * 10 * intensity).toFixed(2) + 'px');
-      visual.style.setProperty('--parallax-y', (y * 8 * intensity + Math.max(-18, Math.min(18, scrollY * -scrollIntensity))).toFixed(2) + 'px');
-    }
-
-    function schedule() { if (!frame) frame = requestAnimationFrame(render); }
-
-    window.addEventListener('pointermove', function (e) { pointerX = e.clientX; pointerY = e.clientY; schedule(); }, { passive: true });
-    visual.addEventListener('touchstart', function (e) {
-      var t = e.touches[0]; if (!t) return; hasTouchPosition = true; pointerX = t.clientX; pointerY = t.clientY; schedule();
-    }, { passive: true });
-    visual.addEventListener('touchmove', function (e) {
-      var t = e.touches[0]; if (!t) return; hasTouchPosition = true; pointerX = t.clientX; pointerY = t.clientY; schedule();
-    }, { passive: true });
-    function onTouchEnd() {
-      if (!hasTouchPosition) return;
-      hasTouchPosition = false;
-      var rect = visual.getBoundingClientRect();
-      pointerX = rect.left + rect.width / 2;
-      pointerY = rect.top + rect.height / 2;
-      schedule();
-    }
-    visual.addEventListener('touchend', onTouchEnd, { passive: true });
-    visual.addEventListener('touchcancel', onTouchEnd, { passive: true });
-    window.addEventListener('scroll', function () { scrollY = window.scrollY; schedule(); }, { passive: true });
-  })();
-
-  (function initCountUp() {
-    var target = 3429410;
-    var el = document.getElementById('caseCounter');
-    var trigger = document.querySelector('.case-section');
-    if (!el || !trigger) return;
-    var started = false;
-    var frame = 0;
-    var observer = new IntersectionObserver(function (entries) {
-      var entry = entries[0];
-      if (!entry.isIntersecting || started) return;
-      started = true;
-      var start = performance.now();
-      var duration = 1250;
-      function tick(now) {
-        var progress = Math.min((now - start) / duration, 1);
-        var value = Math.round(target * (1 - Math.pow(1 - progress, 3)));
-        el.textContent = new Intl.NumberFormat('ru-RU').format(value) + ' ₽';
-        if (progress < 1) frame = requestAnimationFrame(tick);
-      }
-      frame = requestAnimationFrame(tick);
-      observer.disconnect();
-    }, { threshold: 0.25 });
-    observer.observe(trigger);
-  })();
-
-  (function initServiceTilt() {
-    if (window.matchMedia('(hover: none), (pointer: coarse), (prefers-reduced-motion: reduce)').matches) return;
-    document.querySelectorAll('.service-card').forEach(function (card) {
-      card.addEventListener('pointermove', function (e) {
-        var rect = card.getBoundingClientRect();
-        var x = (e.clientX - rect.left) / rect.width - 0.5;
-        var y = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.setProperty('--tilt-x', (y * -5).toFixed(2) + 'deg');
-        card.style.setProperty('--tilt-y', (x * 6).toFixed(2) + 'deg');
-        card.style.setProperty('--glow-x', ((x + 0.5) * 100).toFixed(1) + '%');
-        card.style.setProperty('--glow-y', ((y + 0.5) * 100).toFixed(1) + '%');
-      }, { passive: true });
-      card.addEventListener('pointerleave', function () {
-        card.style.setProperty('--tilt-x', '0deg');
-        card.style.setProperty('--tilt-y', '0deg');
-      }, { passive: true });
-    });
-  })();
-
-  document.querySelectorAll('[data-faq]').forEach(function (item) {
-    var btn = item.querySelector('button');
-    btn.addEventListener('click', function () {
-      var isOpen = item.classList.contains('faq-item--open');
-      document.querySelectorAll('[data-faq]').forEach(function (other) {
-        other.classList.remove('faq-item--open');
-        var b = other.querySelector('button');
-        b.setAttribute('aria-expanded', 'false');
-        var ic = b.querySelector('.icon');
-        if (ic) ic.outerHTML = plusIcon;
-      });
-      if (!isOpen) {
-        item.classList.add('faq-item--open');
-        btn.setAttribute('aria-expanded', 'true');
-        var ic = btn.querySelector('.icon');
-        if (ic) ic.outerHTML = minusIcon;
-      }
-    });
-  });
-
-})();
-  </script>
-  <script src="assets/lead-form.js?v=20260905"></script>
 </body>
 </html>

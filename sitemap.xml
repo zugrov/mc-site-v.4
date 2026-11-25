@@ -61,6 +61,54 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://maxima-consulting.ru/guides/5-shagov-nalogovoj-bezopasnosti/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://maxima-consulting.ru/guides/5-signalov-poteri-upravlyaemosti/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://maxima-consulting.ru/guides/ausn-bez-mifov/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://maxima-consulting.ru/guides/droblenie-chek-list-gruppy/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://maxima-consulting.ru/guides/kalkulyator-nds-i-pribyli/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://maxima-consulting.ru/guides/nds-i-pribyl-usn-osno/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://maxima-consulting.ru/guides/regionalnye-lgoty-usn/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://maxima-consulting.ru/guides/upravlenchesky-uchet-s-nulya/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://maxima-consulting.ru/blog/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>

@@ -16,13 +16,17 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/tokens.css">
+  <link rel="stylesheet" href="/assets/base.css">
+  <link rel="stylesheet" href="/assets/skin.css">
+
   <style>.container { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 40px; }
 :root {
   --radius: 0.75rem;
-  --primary: #d7f36b;
+  --primary: #0D9488;
   --primary-foreground: #101311;
   --background: #101311;
   --foreground: #f3f5ec;
@@ -34,26 +38,26 @@
   --secondary-foreground: #f3f5ec;
   --muted: #858b7f;
   --muted-foreground: #858b7f;
-  --accent: #d7f36b;
+  --accent: #0D9488;
   --accent-foreground: #101311;
   --destructive: #ff715b;
   --destructive-foreground: #fff;
   --border: rgba(243, 245, 236, 0.13);
   --input: rgba(243, 245, 236, 0.11);
-  --ring: #d7f36b;
-  --chart-1: #d7f36b;
+  --ring: #0D9488;
+  --chart-1: #0D9488;
   --chart-2: #7c9f50;
   --chart-3: #eef9b6;
   --chart-4: #527047;
   --chart-5: #f3f5ec;
   --sidebar: #171b18;
   --sidebar-foreground: #f3f5ec;
-  --sidebar-primary: #d7f36b;
+  --sidebar-primary: #0D9488;
   --sidebar-primary-foreground: #101311;
   --sidebar-accent: #202720;
   --sidebar-accent-foreground: #f3f5ec;
   --sidebar-border: rgba(243, 245, 236, 0.13);
-  --sidebar-ring: #d7f36b;
+  --sidebar-ring: #0D9488;
 }
 
 * { box-sizing: border-box; }
@@ -94,8 +98,8 @@ a { color: inherit; text-decoration: none; }
 .button--small { min-height: 38px; padding-inline: 16px; font-size: 11px; }
 .button--large { min-height: 54px; padding-inline: 24px; }
 .button--lime { background: var(--primary); color: #111510; }
-.button--lime:hover { background: #e7fa95; box-shadow: 0 12px 35px rgba(215,243,107,.18); }
-.button--outline { border: 1px solid rgba(215,243,107,.65); color: var(--primary); background: transparent; }
+.button--lime:hover { background: #5EEAD4; box-shadow: 0 12px 35px rgba(13,148,136,.18); }
+.button--outline { border: 1px solid rgba(13,148,136,.65); color: var(--primary); background: transparent; }
 .button--outline:hover { background: var(--primary); color: #111510; }
 .menu-toggle { display: none; border: 0; background: none; color: var(--foreground); padding: 8px; }
 .mobile-nav { display: none; }
@@ -105,28 +109,28 @@ a { color: inherit; text-decoration: none; }
 .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.03fr) minmax(520px, .97fr); align-items: center; gap: 52px; }
 .eyebrow, .section-index, .card-kicker, .form-card__top, .memo-card__top, .form-status + span, .mini-chart__range { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
 .eyebrow { display: flex; align-items: center; gap: 11px; color: #afb7a3; }
-.eyebrow-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 5px rgba(215,243,107,.10); }
-.eyebrow-divider { width: 30px; height: 1px; background: rgba(215,243,107,.38); }
+.eyebrow-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 5px rgba(13,148,136,.10); }
+.eyebrow-divider { width: 30px; height: 1px; background: rgba(13,148,136,.38); }
 .hero h1 { max-width: 670px; margin: 25px 0 24px; font-family: 'Manrope', Arial, sans-serif; font-size: clamp(52px, 5.9vw, 86px); line-height: .96; letter-spacing: -.07em; font-weight: 500; }
 .hero h1 em, h2 em, .dashboard-title strong, .case-box h2 em, .request-copy h2 em { color: var(--primary); font-style: normal; }
 .hero-lead { max-width: 485px; margin: 0; color: #a8ada1; font-size: 17px; line-height: 1.55; letter-spacing: -.025em; }
 .hero-actions { display: flex; align-items: center; gap: 26px; margin-top: 39px; }
-.text-link { display: inline-flex; align-items: center; gap: 9px; border: 0; border-bottom: 1px solid rgba(215,243,107,.55); padding: 0 0 5px; color: #dde2d3; background: none; font-size: 12px; transition: color .2s var(--ease-out), gap .2s var(--ease-out); }
+.text-link { display: inline-flex; align-items: center; gap: 9px; border: 0; border-bottom: 1px solid rgba(13,148,136,.55); padding: 0 0 5px; color: #dde2d3; background: none; font-size: 12px; transition: color .2s var(--ease-out), gap .2s var(--ease-out); }
 .text-link:hover { color: var(--primary); gap: 13px; }
 .hero-footnote { display: flex; align-items: center; gap: 9px; margin-top: 60px; color: #818a7c; font-size: 10px; }
 .hero-footnote svg { color: var(--primary); }
 .hero-footnote span { width: 3px; height: 3px; border-radius: 50%; background: #5e675b; }
 .hero-visual { min-height: 480px; position: relative; display: grid; place-items: center; }
-.visual-orbit { position: absolute; border: 1px solid rgba(215,243,107,.16); border-radius: 50%; transform: rotate(-20deg); }
+.visual-orbit { position: absolute; border: 1px solid rgba(13,148,136,.16); border-radius: 50%; transform: rotate(-20deg); }
 .visual-orbit--one { width: 540px; height: 300px; }
-.visual-orbit--two { width: 410px; height: 560px; transform: rotate(60deg); border-color: rgba(215,243,107,.08); }
+.visual-orbit--two { width: 410px; height: 560px; transform: rotate(60deg); border-color: rgba(13,148,136,.08); }
 .dashboard-card { position: relative; width: min(100%, 500px); padding: 25px 25px 19px; background: linear-gradient(140deg, rgba(44,52,43,.96), rgba(23,29,24,.97)); border: 1px solid rgba(232,247,204,.2); border-radius: 11px; box-shadow: 0 40px 90px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.08); transform: rotate(-3.5deg); transition: transform .5s var(--ease-out); }
 .dashboard-card:hover { transform: rotate(0deg) translateY(-6px); }
-.dashboard-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 8% 10%, rgba(215,243,107,.10), transparent 33%); pointer-events: none; }
+.dashboard-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 8% 10%, rgba(13,148,136,.10), transparent 33%); pointer-events: none; }
 .dashboard-card__header, .dashboard-card__footer, .mini-chart__topline, .mini-chart__labels { display: flex; align-items: center; justify-content: space-between; }
 .card-kicker, .dashboard-card__footer, .mini-chart__range { color: #8f9988; }
 .live-pill { display: flex; align-items: center; gap: 7px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 9px; color: var(--primary); text-transform: uppercase; letter-spacing: .06em; }
-.live-pill i, .form-status { width: 5px; height: 5px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 0 4px rgba(215,243,107,.11); }
+.live-pill i, .form-status { width: 5px; height: 5px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 0 4px rgba(13,148,136,.11); }
 .dashboard-title { margin-top: 39px; font-family: 'Manrope', Arial, sans-serif; font-size: 29px; line-height: 1.02; letter-spacing: -.065em; }
 .dashboard-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 29px; padding-bottom: 23px; border-bottom: 1px solid rgba(238,247,219,.12); }
 .dashboard-metrics span, .dashboard-metrics small { display: flex; align-items: center; gap: 6px; font-size: 10px; color: #98a190; }
@@ -143,7 +147,7 @@ a { color: inherit; text-decoration: none; }
 .legend-dot--lime { background: var(--primary); }
 .legend-dot--white { background: #e7eee1; }
 .footer-arrow { margin-left: auto; color: var(--primary); }
-.floating-note { position: absolute; z-index: 2; display: flex; align-items: center; gap: 10px; padding: 12px 14px; color: #dfe7d5; background: rgba(26,32,26,.82); border: 1px solid rgba(215,243,107,.23); box-shadow: 0 20px 35px rgba(0,0,0,.22); backdrop-filter: blur(10px); }
+.floating-note { position: absolute; z-index: 2; display: flex; align-items: center; gap: 10px; padding: 12px 14px; color: #dfe7d5; background: rgba(26,32,26,.82); border: 1px solid rgba(13,148,136,.23); box-shadow: 0 20px 35px rgba(0,0,0,.22); backdrop-filter: blur(10px); }
 .floating-note--top { top: 70px; right: 12px; transform: rotate(3deg); }
 .floating-note--bottom { bottom: 42px; left: 6px; transform: rotate(-4deg); }
 .floating-note svg { color: var(--primary); }
@@ -166,7 +170,7 @@ a { color: inherit; text-decoration: none; }
 .pain-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; margin-top: 91px; border-top: 1px solid rgba(235,245,215,.12); border-bottom: 1px solid rgba(235,245,215,.12); }
 .pain-card { position: relative; min-height: 282px; padding: 24px 21px 22px; border-right: 1px solid rgba(235,245,215,.12); transition: background .25s var(--ease-out), transform .25s var(--ease-out); }
 .pain-card:last-child { border-right: 0; }
-.pain-card:hover { background: rgba(215,243,107,.055); transform: translateY(-5px); }
+.pain-card:hover { background: rgba(13,148,136,.055); transform: translateY(-5px); }
 .pain-number { color: var(--primary); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; }
 .pain-card p { margin: 67px 0 0; color: #e1e7da; font-family: 'Manrope', Arial, sans-serif; font-size: 17px; line-height: 1.28; letter-spacing: -.05em; }
 .pain-corner { position: absolute; right: 19px; bottom: 18px; color: #707b6d; transition: color .2s var(--ease-out), transform .2s var(--ease-out); }
@@ -212,7 +216,7 @@ a { color: inherit; text-decoration: none; }
 .composition-card__header { display: flex; justify-content: space-between; }
 .composition-card__period { color: #778672; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 9px; text-transform: uppercase; }
 .composition-visual { display: flex; align-items: center; gap: 27px; margin: 38px 0 26px; }
-.composition-donut { position: relative; width: 142px; height: 142px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 50%; background: conic-gradient(#d7f36b 0deg 194deg, #789a4e 194deg 295deg, #eaf4bd 295deg 360deg); }
+.composition-donut { position: relative; width: 142px; height: 142px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 50%; background: conic-gradient(#0D9488 0deg 194deg, #789a4e 194deg 295deg, #eaf4bd 295deg 360deg); }
 .composition-donut::before { content: ''; position: absolute; inset: 14px; border-radius: 50%; background: #1a211b; }
 .composition-donut div { position: relative; z-index: 1; text-align: center; }
 .composition-donut strong, .composition-donut span { display: block; }
@@ -222,7 +226,7 @@ a { color: inherit; text-decoration: none; }
 .composition-legend span { display: grid; grid-template-columns: 8px 1fr auto; align-items: center; gap: 7px; color: #a2ad9d; font-size: 9px; line-height: 1.2; }
 .composition-legend b { color: #e6efdc; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; }
 .composition-dot { width: 7px; height: 7px; border-radius: 50%; }
-.composition-dot--lime { background: #d7f36b; }
+.composition-dot--lime { background: #0D9488; }
 .composition-dot--olive { background: #789a4e; }
 .composition-dot--pale { background: #eaf4bd; }
 .composition-foot { display: flex; align-items: center; gap: 9px; padding-top: 17px; border-top: 1px solid rgba(235,245,215,.12); color: #80907e; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 8px; }
@@ -305,7 +309,7 @@ a { color: inherit; text-decoration: none; }
 .request-contact { display: grid; gap: 18px; margin-top: 49px; }
 .request-contact a { display: flex; align-items: center; gap: 13px; color: #e0e7d9; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; transition: color .2s var(--ease-out); }
 .request-contact a:hover { color: var(--primary); }
-.contact-icon { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgba(215,243,107,.36); border-radius: 50%; color: var(--primary); }
+.contact-icon { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgba(13,148,136,.36); border-radius: 50%; color: var(--primary); }
 .request-contact small { display: block; margin-bottom: 3px; color: #727d70; font-size: 8px; text-transform: uppercase; }
 .form-card { padding: 27px 29px 29px; background: #ecefe5; color: #1d271e; }
 .form-card__top { display: flex; align-items: center; justify-content: space-between; color: #778271; }
@@ -476,18 +480,18 @@ html.js-reveal .process-row.reveal { transition-delay: var(--row-delay, 0ms); }
 .faq-item:not(.faq-item--open) .faq-answer p { padding: 0; opacity: 0; max-height: 0; overflow: hidden; }
 .breadcrumbs { font: 500 11px/1.4 "JetBrains Mono", ui-monospace, monospace; color: #89918b; margin-bottom: 18px; }
 .breadcrumbs a { color: #b8c0b8; }
-.breadcrumbs a:hover { color: #d7f36b; }
+.breadcrumbs a:hover { color: #0D9488; }
 .content-updated { margin-top: 48px; font-size: 12px; color: #6f776f; }
 .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 28px; }
 .pricing-card { border: 1px solid rgba(226,236,214,.14); padding: 22px 20px; background: rgba(255,255,255,.02); border-radius: 12px; }
-.pricing-card--featured { border-color: rgba(215,243,107,.45); background: rgba(215,243,107,.06); }
+.pricing-card--featured { border-color: rgba(13,148,136,.45); background: rgba(13,148,136,.06); }
 .pricing-card h3 { margin: 0 0 8px; font-size: 20px; }
 .pricing-card .price { font-size: 26px; font-weight: 800; letter-spacing: -.04em; margin: 12px 0; }
 .pricing-card ul { margin: 0; padding-left: 18px; color: #a8afa6; font-size: 13px; line-height: 1.55; }
-.next-step { margin: 0 0 48px; padding: 22px 24px; border: 1px solid rgba(215,243,107,.25); border-radius: 12px; background: rgba(215,243,107,.04); }
+.next-step { margin: 0 0 48px; padding: 22px 24px; border: 1px solid rgba(13,148,136,.25); border-radius: 12px; background: rgba(13,148,136,.04); }
 .next-step h3 { margin: 0 0 10px; font-size: 18px; }
 .next-step-links { display: flex; flex-wrap: wrap; gap: 12px 20px; margin-top: 12px; }
-.next-step-links a { color: #d7f36b; font-weight: 700; font-size: 14px; }
+.next-step-links a { color: #0D9488; font-weight: 700; font-size: 14px; }
 .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
 .fit-col { border: 1px solid rgba(226,236,214,.12); padding: 18px; border-radius: 10px; }
 .fit-col h3 { margin: 0 0 10px; font-size: 16px; }
@@ -496,16 +500,16 @@ html.js-reveal .process-row.reveal { transition-delay: var(--row-delay, 0ms); }
 .hub-card { border: 1px solid rgba(226,236,214,.12); padding: 18px; border-radius: 10px; min-height: 200px; display: flex; flex-direction: column; }
 .hub-card h3 { margin: 8px 0; font-size: 18px; }
 .hub-card p { flex: 1; font-size: 13px; color: #9aa19a; line-height: 1.45; }
-.hub-card .hub-meta { font-size: 12px; color: #d7f36b; margin: 10px 0; }
+.hub-card .hub-meta { font-size: 12px; color: #0D9488; margin: 10px 0; }
 .quiz-box { margin-top: 32px; padding: 24px; border: 1px solid rgba(226,236,214,.14); border-radius: 12px; }
 .quiz-step { display: none; }
 .quiz-step.is-active { display: block; }
 .quiz-options { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
 .quiz-options button { border: 1px solid rgba(226,236,214,.2); background: transparent; color: #ecf0e4; padding: 10px 14px; border-radius: 999px; cursor: pointer; font-size: 13px; }
-.quiz-options button:hover { border-color: #d7f36b; color: #d7f36b; }
+.quiz-options button:hover { border-color: #0D9488; color: #0D9488; }
 .quiz-result { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(226,236,214,.12); }
 .chain-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 20px; font-size: 13px; color: #b0b7ae; }
-.chain-row a { color: #d7f36b; font-weight: 600; }
+.chain-row a { color: #0D9488; font-weight: 600; }
 .floating-cta-price { display: block; font-size: 10px; opacity: .85; font-weight: 600; }
 @media (max-width: 900px) { .hub-grid, .fit-grid { grid-template-columns: 1fr; } }
 
@@ -544,7 +548,7 @@ html.js-reveal .process-row.reveal { transition-delay: var(--row-delay, 0ms); }
 }
 .uchet-kpi-row > div {
   padding: 12px 12px 10px;
-  border: 1px solid rgba(215, 243, 107, .16);
+  border: 1px solid rgba(13, 148, 136, .16);
   border-radius: 8px;
   background: rgba(0, 0, 0, .18);
 }
@@ -586,7 +590,7 @@ html.js-reveal .process-row.reveal { transition-delay: var(--row-delay, 0ms); }
   display: block;
   height: 8px;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(215, 243, 107, .85), rgba(215, 243, 107, .35));
+  background: linear-gradient(90deg, rgba(13, 148, 136, .85), rgba(13, 148, 136, .35));
   transform-origin: left;
   transform: scaleX(0);
   animation: uchetBarGrow .9s cubic-bezier(.23, 1, .32, 1) forwards;
@@ -594,7 +598,7 @@ html.js-reveal .process-row.reveal { transition-delay: var(--row-delay, 0ms); }
 .uchet-pl-row:nth-child(2) i { animation-delay: .12s; width: 72%; }
 .uchet-pl-row:nth-child(3) i { animation-delay: .22s; width: 58%; }
 .uchet-pl-row:nth-child(4) i { animation-delay: .32s; width: 84%; }
-.uchet-pl-row b { text-align: right; color: #d7f36b; font-weight: 600; }
+.uchet-pl-row b { text-align: right; color: #0D9488; font-weight: 600; }
 .uchet-report-strip {
   display: flex;
   flex-wrap: wrap;
@@ -605,7 +609,7 @@ html.js-reveal .process-row.reveal { transition-delay: var(--row-delay, 0ms); }
 }
 .uchet-report-strip span {
   padding: 6px 10px;
-  border: 1px solid rgba(215, 243, 107, .22);
+  border: 1px solid rgba(13, 148, 136, .22);
   border-radius: 999px;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 8px;
@@ -614,8 +618,8 @@ html.js-reveal .process-row.reveal { transition-delay: var(--row-delay, 0ms); }
   color: #c8d4bc;
 }
 .uchet-report-strip span.is-on {
-  background: rgba(215, 243, 107, .12);
-  border-color: rgba(215, 243, 107, .45);
+  background: rgba(13, 148, 136, .12);
+  border-color: rgba(13, 148, 136, .45);
   color: #e9ff86;
 }
 .uchet-dds-mini {
@@ -637,11 +641,11 @@ html.js-reveal .process-row.reveal { transition-delay: var(--row-delay, 0ms); }
   animation: uchetDdsGrow .75s cubic-bezier(.23, 1, .32, 1) forwards;
 }
 .uchet-dds-mini i:nth-child(1) { height: 38%; animation-delay: .05s; }
-.uchet-dds-mini i:nth-child(2) { height: 62%; animation-delay: .1s; background: rgba(215, 243, 107, .35); }
+.uchet-dds-mini i:nth-child(2) { height: 62%; animation-delay: .1s; background: rgba(13, 148, 136, .35); }
 .uchet-dds-mini i:nth-child(3) { height: 48%; animation-delay: .15s; }
-.uchet-dds-mini i:nth-child(4) { height: 78%; animation-delay: .2s; background: rgba(215, 243, 107, .55); }
+.uchet-dds-mini i:nth-child(4) { height: 78%; animation-delay: .2s; background: rgba(13, 148, 136, .55); }
 .uchet-dds-mini i:nth-child(5) { height: 55%; animation-delay: .25s; }
-.uchet-dds-mini i:nth-child(6) { height: 88%; animation-delay: .3s; background: #d7f36b; box-shadow: 0 0 20px rgba(215, 243, 107, .25); }
+.uchet-dds-mini i:nth-child(6) { height: 88%; animation-delay: .3s; background: #0D9488; box-shadow: 0 0 20px rgba(13, 148, 136, .25); }
 .uchet-pl-row i { animation-name: uchetBarGrowX; }
 @keyframes uchetBarGrowX { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes uchetDdsGrow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
@@ -657,7 +661,7 @@ html.js-reveal .process-row.reveal { transition-delay: var(--row-delay, 0ms); }
   gap: 10px;
   align-items: center;
   padding: 11px 12px;
-  border: 1px solid rgba(215, 243, 107, .14);
+  border: 1px solid rgba(13, 148, 136, .14);
   border-radius: 8px;
   font-size: 11px;
   color: #b5bdb0;
@@ -671,50 +675,47 @@ html.js-reveal .process-row.reveal { transition-delay: var(--row-delay, 0ms); }
   color: #8f9988;
 }
 .adv-decision.is-active {
-  border-color: rgba(215, 243, 107, .45);
-  background: rgba(215, 243, 107, .07);
-  box-shadow: 0 0 24px rgba(215, 243, 107, .08);
+  border-color: rgba(13, 148, 136, .45);
+  background: rgba(13, 148, 136, .07);
+  box-shadow: 0 0 24px rgba(13, 148, 136, .08);
   animation: advPulse 2.8s ease-in-out infinite;
 }
 @keyframes advPulse {
-  0%, 100% { border-color: rgba(215, 243, 107, .45); }
-  50% { border-color: rgba(215, 243, 107, .18); }
+  0%, 100% { border-color: rgba(13, 148, 136, .45); }
+  50% { border-color: rgba(13, 148, 136, .18); }
 }
 @media (prefers-reduced-motion: reduce) {
   .adv-decision.is-active, .cfo-metric-item.is-alert { animation: none !important; }
 }
 
-.floating-cta { position: fixed; right: 20px; bottom: 20px; z-index: 30; display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; background: #d7f36b; color: #11140f; font-weight: 800; border: 0; cursor: pointer; box-shadow: 0 12px 40px rgba(0,0,0,.35); }
+.floating-cta { position: fixed; right: 20px; bottom: 20px; z-index: 30; display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; background: #0D9488; color: #11140f; font-weight: 800; border: 0; cursor: pointer; box-shadow: 0 12px 40px rgba(0,0,0,.35); }
 .floating-cta[hidden] { display: none !important; }
   </style>
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Service", "name": "Advisory для собственника", "description": "Сопровождение решений собственника: инвестиции, найм, цены, кредиты — с проверкой на цифрах. От 40 000 ₽/мес.", "provider": {"@type": "Organization", "name": "maxima consulting", "url": "https://maxima-consulting.ru/"}, "areaServed": "RU", "url": "https://maxima-consulting.ru/advisory-dlya-sobstvennika", "offers": {"@type": "Offer", "priceCurrency": "RUB", "description": "от 40 000 ₽/мес"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://maxima-consulting.ru/"}, {"@type": "ListItem", "position": 2, "name": "Услуги", "item": "https://maxima-consulting.ru/uslugi"}, {"@type": "ListItem", "position": 3, "name": "Advisory для собственника", "item": "https://maxima-consulting.ru/advisory-dlya-sobstvennika"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Это коучинг?", "acceptedAnswer": {"@type": "Answer", "text": "Нет, это финансовый разбор с цифрами и последствиями решений."}}, {"@type": "Question", "name": "Сколько встреч?", "acceptedAnswer": {"@type": "Answer", "text": "Ритм согласуем при старте — обычно 2–4 в месяц."}}, {"@type": "Question", "name": "Можно разово?", "acceptedAnswer": {"@type": "Answer", "text": "Формат подписки; разовые проекты — диагностика или модель."}}]}]</script>
 
   <!-- Аналитика и рекламные пиксели — только после согласия -->
-  <script src="/assets/cookie-consent.js?v=20261020"></script>
+  <script src="/assets/cookie-consent.js?v=20261125" defer></script>
 
 </head>
-<body>
+<body class="legacy-page">
   <div class="site-shell">
     <div class="noise" aria-hidden="true"></div>
 
-    <header class="site-header" id="siteHeader">
-      <div class="container header-inner">
-        <a class="brand" href="https://maxima-consulting.ru/"><img class="brand-logo" src="assets/logo-maxima.png" alt="" width="28" height="28" /><span class="brand-wordmark">maxima<span>consulting</span></span></a>
-        <nav class="desktop-nav" aria-label="Основная навигация">
-          <a href="/uslugi">Услуги</a><a href="#pricing" data-scroll="pricing">Цены</a><a href="#faq" data-scroll="faq">FAQ</a><a href="/gajdy">Гайды</a><a href="/blog/">Статьи</a>
-        </nav>
-        <div class="header-actions">
-          <a class="header-phone" href="tel:+79808488480">+7 980 848-84-80</a>
-          <button class="button button--small button--outline" type="button" data-scroll="request">Разобрать ситуацию <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></button>
-          <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg></button>
-        </div>
+    
+    <a class="skip-link" href="#content">Перейти к содержимому</a>
+    <div class="read-progress" data-reading-progress hidden></div>
+    <header class="site-header" data-header data-mc-chrome>
+      <div class="header-inner">
+        <a class="logo" href="/" aria-label="maxima consulting — на главную">
+          <img src="/assets/logo-maxima.png" alt="" width="28" height="28">
+          <span>maxima <b>consulting</b></span>
+        </a>
+        <nav class="main-nav" id="mainNav" aria-label="Основная навигация"><a href="/uslugi">Услуги</a><a href="/#services">Цены</a><a href="/#case">Кейсы</a><a href="/gajdy">Гайды</a><a href="/blog/">Статьи</a><a href="/#process">Как работаем</a><a href="/#contact">Контакты</a><a class="button nav-cta" href="#request">Записаться на разбор <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a></nav>
+        <a class="button header-cta" href="#request">Записаться на разбор <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       </div>
-      <nav class="mobile-nav" aria-label="Мобильная навигация">
-        <a href="/uslugi">Услуги <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a><a href="#pricing" data-scroll="pricing">Цены <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a><a href="#faq" data-scroll="faq">FAQ <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a>
-        <a href="/gajdy">Гайды <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a><a href="/blog/">Статьи <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a>
-        <button class="button button--lime" type="button" data-scroll="request">Разобрать ситуацию <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></button>
-      </nav>
     </header>
+
 
     <main id="top">
       <section class="hero section-grid">
@@ -853,15 +854,50 @@ html.js-reveal .process-row.reveal { transition-delay: var(--row-delay, 0ms); }
     </main>
 
       <footer class="site-footer">
-        <div class="container footer-top">
-          <a class="brand" href="https://maxima-consulting.ru/"><img class="brand-logo" src="assets/logo-maxima.png" alt="" width="28" height="28" /><span class="brand-wordmark">maxima<span>consulting</span></span></a>
-          <p>Финансовый партнёр<br />для МСБ</p>
-          <div class="footer-social"><span>Соцсети</span><div class="social-icons"><a class="social-icon" href="https://t.me/maxima_cfo" data-tg-source="adv_s1" target="_blank" rel="noopener noreferrer" aria-label="Telegram-канал @maxima-cfo"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a><a class="social-icon" href="https://max.ru/se14042176_biz" target="_blank" rel="noopener noreferrer" aria-label="Канал maxima consulting в MAX"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="15.2" text-anchor="middle" font-size="7.5" font-weight="700" fill="currentColor" font-family="system-ui,sans-serif">MAX</text></svg></a></div><a href="https://t.me/maxima_com" data-tg-source="adv_s1" target="_blank" rel="noopener noreferrer">Контакт @maxima_com</a><a href="https://vk.com/maxima_consulting" target="_blank" rel="noopener noreferrer">VK</a><a href="https://m.tenchat.ru/u/eei8UmQE" target="_blank" rel="noopener noreferrer">TenChat</a></div>
-          <div class="footer-services"><span>Услуги</span><a href="/uslugi">Все услуги</a><a href="/financial-diagnostics">Финансовая диагностика</a><a href="/nds-2026">НДС-аудит 2026</a><a href="/upravlenchesky-uchet">Управленческий учёт</a><a href="/finansovaya-model">Финансовая модель</a><a href="/nalogovaya-optimizatsiya">Налоговая оптимизация</a><a href="/cfo-light">CFO-light</a><a href="/advisory-dlya-sobstvennika">Advisory</a></div>
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <a class="logo" href="/" aria-label="maxima consulting — на главную">
+            <img src="/assets/logo-maxima.png" alt="" width="28" height="28">
+            <span>maxima <b>consulting</b></span>
+          </a>
+          <p class="muted">Финансовый партнёр для МСБ</p>
         </div>
-        <div class="container footer-bottom"><span>© 2026 maxima consulting</span><div><a href="nda.html">NDA</a><a href="privacy.html">Политика ПД</a></div><span>Обновлено: сентябрь 2026</span></div>
-        <div class="container"><p class="price-note" style="margin:14px 0 0;padding:0;font-size:11px;line-height:1.45;letter-spacing:0;text-transform:none;font-weight:400;color:#6a716a">Указанные цены не являются офертой и носят ознакомительный характер.</p></div>
-      </footer>
+        <div class="footer-col">
+          <span class="footer-label">Навигация</span>
+          <a href="/uslugi">Услуги</a>
+          <a href="/#services">Цены</a>
+          <a href="/#case">Кейсы</a>
+          <a href="/gajdy">Гайды</a>
+          <a href="/blog/">Статьи</a>
+          <a href="/#process">Как работаем</a>
+          <a href="/#contact">Контакты</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-label">Контакты</span>
+          <a href="tel:+79808488480">+7 980 848-84-80</a>
+          <a href="https://t.me/maxima_com" data-tg-source="site_organic">@maxima_com</a>
+          <a href="https://vk.com/maxima_consulting">VK</a>
+          <a href="https://m.tenchat.ru/u/eei8UmQE">TenChat</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-label">Каналы</span>
+          <!-- TODO(owner): ссылку на канал @maxima_cfo в разделе «Каналы» оставляем? ТЗ 4.13. -->
+          <div class="social-icons">
+            <a href="https://t.me/maxima_cfo" data-tg-source="site_organic" target="_blank" rel="noopener noreferrer" aria-label="Telegram-канал @maxima-cfo"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
+            <a href="https://max.ru/se14042176_biz" target="_blank" rel="noopener noreferrer" aria-label="Канал maxima consulting в MAX">MAX</a>
+            <a href="https://vk.com/maxima_consulting" aria-label="VK">VK</a>
+          </div>
+          <!-- TODO(owner): добавить ИНН и реквизиты, когда будут утверждены. ТЗ 4.13. -->
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© maxima consulting, 2026</span>
+        <span><a href="/nda.html">NDA</a> · <a href="/privacy">Политика ПД</a></span>
+        <span>made by maxima lab ✳</span>
+      </div>
+      <p class="container price-note">Указанные цены не являются офертой и носят ознакомительный характер.</p>
+    </footer>
+    <div class="toast" data-toast role="status" hidden></div>
 
   </div>
   <button class="floating-cta" id="floatingCta" type="button" data-scroll="request" hidden>
@@ -933,5 +969,6 @@ html.js-reveal .process-row.reveal { transition-delay: var(--row-delay, 0ms); }
 })();
 </script>
   <script src="assets/lead-form.js?v=20261020"></script>
+<script src="/assets/motion.js" defer></script>
 </body>
 </html>
