@@ -51,7 +51,10 @@ export default function BlogIndex({
 
   return (
     <SiteLayout>
-      <h1 className="text-4xl md:text-6xl font-medium font-[family-name:var(--font-display)] mb-3">
+      <h1
+        className="blog-title text-4xl md:text-6xl font-medium font-[family-name:var(--font-display)] mb-3"
+        style={{ fontSize: "2.75rem", lineHeight: 1.05, fontWeight: 500 }}
+      >
         Статьи
       </h1>
       <p className="text-[#898e87] max-w-2xl mb-8">
@@ -75,12 +78,12 @@ export default function BlogIndex({
         ))}
       </div>
       <div className="view-toggle" data-view-toggle=".blog-grid">
-        <button type="button" aria-pressed={!isList} onClick={() => setIsList(false)}>Сетка</button>
-        <button type="button" aria-pressed={isList} onClick={() => setIsList(true)}>Список</button>
+        <button type="button" data-view="grid" aria-pressed={!isList} onClick={() => setIsList(false)}>Сетка</button>
+        <button type="button" data-view="list" aria-pressed={isList} onClick={() => setIsList(true)}>Список</button>
       </div>
-      <div className={isList ? "grid gap-6 is-list" : "grid gap-6 md:grid-cols-2 lg:grid-cols-3"}>
-        {items.map((p, index) => (
-          <PostCard key={p.slug} post={p} eager={index === 0 && safePage === 1 && !category} />
+      <div className={isList ? "blog-grid grid gap-6 is-list" : "blog-grid grid gap-6 md:grid-cols-2 lg:grid-cols-3"}>
+        {items.map((p) => (
+          <PostCard key={p.slug} post={p} />
         ))}
       </div>
       {totalPages > 1 && (

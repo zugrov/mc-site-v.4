@@ -103,9 +103,8 @@ def footer_html() -> str:
         </div>
         <div class="footer-col">
           <span class="footer-label">Каналы</span>
-          <!-- TODO(owner): ссылку на канал @maxima_cfo в разделе «Каналы» оставляем? ТЗ 4.13. -->
           <div class="social-icons">
-            <a href="https://t.me/maxima_cfo" data-tg-source="site_organic" target="_blank" rel="noopener noreferrer" aria-label="Telegram-канал @maxima-cfo"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
+            <a href="https://t.me/maxima_com" data-tg-source="site_organic" target="_blank" rel="noopener noreferrer" aria-label="Telegram @maxima_com"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
             <a href="https://max.ru/se14042176_biz" target="_blank" rel="noopener noreferrer" aria-label="Канал maxima consulting в MAX"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
             <a href="https://vk.com/maxima_consulting" aria-label="VK"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
           </div>

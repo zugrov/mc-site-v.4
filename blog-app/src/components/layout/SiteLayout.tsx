@@ -20,7 +20,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <header className="site-header" data-header>
         <div className="header-inner">
           <a className="logo" href="https://maxima-consulting.ru/" aria-label="maxima consulting — на главную">
-            <img src="/assets/logo-maxima.png" alt="" width={28} height={28} />
+            <img src="/assets/logo-mark-64.png" alt="" width={28} height={28} />
             <span>
               maxima <b>consulting</b>
             </span>
@@ -70,9 +70,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           </div>
           <div className="footer-col">
             <span className="footer-label">Каналы</span>
-            {/* TODO(owner): ссылку на канал @maxima_cfo в разделе «Каналы» оставляем? ТЗ 4.13. */}
             <div className="social-icons">
-              <a href="https://t.me/maxima_cfo" aria-label="Telegram-канал @maxima-cfo">
+              <a href="https://t.me/maxima_com" aria-label="Telegram @maxima_com">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>
               </a>
               <a href="https://max.ru/se14042176_biz" aria-label="Канал maxima consulting в MAX">

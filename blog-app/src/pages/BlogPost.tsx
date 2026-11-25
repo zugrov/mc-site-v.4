@@ -80,15 +80,10 @@ export default function BlogPost({
       </nav>
       <div className="grid gap-10 lg:grid-cols-[1fr_240px]">
         <article data-reading>
-          <img
-            src={post.coverImage}
-            alt=""
-            width={1200}
-            height={630}
-            className="w-full max-h-[280px] object-cover rounded-xl mb-8"
-            loading="lazy"
-          />
-          <h1 className="text-3xl md:text-5xl font-medium font-[family-name:var(--font-display)] mb-4">
+          <h1
+            className="blog-title text-3xl md:text-5xl font-medium font-[family-name:var(--font-display)] mb-4"
+            style={{ fontSize: "1.875rem", lineHeight: 1.15, fontWeight: 500 }}
+          >
             {post.title}
           </h1>
           <PostMeta post={post} />
