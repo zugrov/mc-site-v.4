@@ -85,21 +85,21 @@ const leadStep1Schema = trackingSchema.extend({
     .trim()
     .min(1, 'Оставьте телефон или Telegram — как вам удобнее')
     .refine(isValidContact, {
-      message: 'Проверьте номер телефона — например, +7 900 123-45-67',
+      error:
+        'Проверьте номер телефона — например, +7 900 123-45-67',
     }),
-  role: z.enum(ROLE_VALUES, { message: 'Заполните это поле' }),
-  industry: z.enum(INDUSTRY_VALUES, { message: 'Заполните это поле' }),
-  revenue: z.enum(REVENUE_VALUES, { message: 'Заполните это поле' }),
+  role: z.enum(ROLE_VALUES, { error: 'Заполните это поле' }),
+  industry: z.enum(INDUSTRY_VALUES, { error: 'Заполните это поле' }),
+  revenue: z.enum(REVENUE_VALUES, { error: 'Заполните это поле' }),
   question: z
     .string()
     .trim()
     .min(10, 'Опишите вопрос чуть подробнее — двух-трёх слов будет мало для подготовки к встрече')
     .max(500, 'Опишите вопрос чуть подробнее — двух-трёх слов будет мало для подготовки к встрече'),
-  urgency: z.enum(URGENCY_VALUES, { message: 'Заполните это поле' }),
+  urgency: z.enum(URGENCY_VALUES, { error: 'Заполните это поле' }),
   consent_pdn: z.literal(true, {
-    errorMap: () => ({
-      message: 'Нужно согласие на обработку персональных данных, чтобы мы могли вам ответить',
-    }),
+    error:
+      'Нужно согласие на обработку персональных данных, чтобы мы могли вам ответить',
   }),
   middle_name: z.string().max(0).optional(),
 });
@@ -206,7 +206,7 @@ function label(group, value) {
 }
 
 function formatValidationError(error) {
-  const first = error.errors[0];
+  const first = error.issues?.[0];
   return first?.message || 'Проверьте заполнение формы';
 }
 
