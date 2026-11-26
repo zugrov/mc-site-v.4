@@ -29,6 +29,11 @@ elif [[ -e "$NGINX_AVAILABLE" || -L "$NGINX_AVAILABLE" ]]; then
 fi
 
 cd "$SRC"
+# Сборка меняет blog/ и sitemap.xml. Сбрасываем их до pull,
+# иначе git откажется обновлять ещё отслеживаемые пути.
+git checkout -- sitemap.xml || true
+git checkout -- blog || true
+git clean -fd -- blog || true
 git pull origin main
 
 if [[ -f blog-app/package.json ]]; then

@@ -20,3 +20,6 @@ maxima-nds-2026-pro/node_modules/
 server/node_modules/
 server/.env
 server/data/
+
+# Сборка блога: каталог создаёт blog-app при деплое и локальном npm run build
+/blog/
