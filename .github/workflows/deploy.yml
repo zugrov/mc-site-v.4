@@ -39,5 +39,10 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script_stop: true
           script: |
+            # Сборка меняет blog/ и sitemap.xml. Сбрасываем их до pull,
+            # иначе git откажется обновлять ещё отслеживаемые пути.
+            git -C /opt/maxima-consulting/apps/mc-site-v.4 checkout -- sitemap.xml || true
+            git -C /opt/maxima-consulting/apps/mc-site-v.4 checkout -- blog || true
+            git -C /opt/maxima-consulting/apps/mc-site-v.4 clean -fd -- blog || true
             git -C /opt/maxima-consulting/apps/mc-site-v.4 pull origin main
             bash /opt/maxima-consulting/apps/mc-site-v.4/deploy/deploy.sh
