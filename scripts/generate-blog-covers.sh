@@ -119,7 +119,8 @@ for i in "${!SLUGS[@]}"; do
   if sips -s format webp -Z 1600 "$thumb" --out "$OUT/${slug}-cover.webp" >/dev/null 2>&1; then
     echo "OK ${slug}-cover.webp"
   else
-    sips -Z 1600 "$thumb" --out "$OUT/${slug}-cover.jpg" >/dev/null
+    sips -s format jpeg -s formatOptions 90 -Z 1600 \
+      "$thumb" --out "$OUT/${slug}-cover.jpg" >/dev/null
     echo "OK ${slug}-cover.jpg"
   fi
 done
