@@ -30,7 +30,7 @@ PHONE_TEL = f"tel:{PHONE_E164}"
 PHONE_DISPLAY = "+7 980 848-84-80"
 
 VK_URL = "https://vk.com/maxima_consulting"
-TENCHAT_URL = "https://m.tenchat.ru/u/eei8UmQE"
+TENCHAT_URL = "https://tenchat.ru/maxima_CFO"
 
 
 def svg_telegram(size: int = 18) -> str:
